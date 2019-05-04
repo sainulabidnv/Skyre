@@ -1,0 +1,85 @@
+.lightSpeedInRight,
+.lightSpeedInLeft {
+  @include opacity;
+  @include translateX( 400px );
+}
+
+/***************
+* lightSpeedInRight *
+****************/
+
+@mixin lightSpeedInLeft-frames(){
+  0% {
+    @include translateX( 100% );
+    @include skewX( -30deg );
+    @include opacity;
+  }
+  60% {
+    @include translateX( -20% );
+    @include skewX( 30deg );
+    @include opacity( 1 );
+  }
+  80% {
+    @include translateX( 0% );
+    @include skewX( -15deg );
+    @include opacity( 1 );
+  }
+  100% {
+    @include translateX( 0% );
+    @include skewX( 0deg );
+    @include opacity( 1 );
+  }
+}
+
+@-webkit-keyframes lightSpeedInLeft {
+  @include lightSpeedInLeft-frames;
+}
+
+@keyframes lightSpeedInLeft {
+  @include lightSpeedInLeft-frames;
+}
+
+.lightSpeedInLeft.go {
+  @include animation( lightSpeedInLeft );
+  @include animation-timing( ease-out );
+}
+
+/***************
+* lightSpeedInLeft *
+****************/
+
+@mixin lightSpeedInRight-frames(){
+  0% {
+    @include translateX( -100% );
+    @include skewX( 30deg );
+    @include opacity;
+  }
+  60% {
+    @include translateX( 20% );
+    @include skewX( -30deg );
+    @include opacity( 1 );
+  }
+  80% {
+    @include translateX( 0% );
+    @include skewX( 15deg );
+    @include opacity( 1 );
+  }
+  100% {
+    @include translateX( 0% );
+    @include skewX( 0deg );
+    @include opacity( 1 );
+  }
+}
+
+@-webkit-keyframes lightSpeedInRight {
+  @include lightSpeedInRight-frames;
+}
+
+@keyframes lightSpeedInRight {
+  @include lightSpeedInRight-frames;
+}
+
+.lightSpeedInRight.go {
+  @include animation( lightSpeedInRight );
+  @include animation-timing( ease-out );
+}

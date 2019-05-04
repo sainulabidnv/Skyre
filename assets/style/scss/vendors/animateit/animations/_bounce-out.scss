@@ -1,0 +1,152 @@
+/************
+* bounceOut *
+*************/
+
+@mixin bounceOut-frames(){
+  0% {
+    @include scale( 1 );
+  }
+  25% {
+    @include scale( .95 );
+  }
+  50% {
+    @opacity( 1 );
+    @include scale( 1.1 );
+  }
+  100% {
+    @include opacity;
+    @include scale( .3 );
+  }
+}
+
+@-webkit-keyframes bounceOut {
+  @include bounceOut-frames;
+}
+
+@keyframes bounceOut {
+  @include bounceOut-frames;
+}
+
+.bounceOut.goAway {
+  @include animation( bounceOut );
+}
+
+/************
+* bounceOutUp *
+*************/
+
+@mixin bounceOutUp-frames(){
+  0% {
+    @include translateY;
+  }
+  20% {
+    @include opacity( 1 );
+    @include translateY( 20px );
+  }
+  100% {
+    @include opacity;
+    @include translateY( -2000px );
+  }
+}
+
+@-webkit-keyframes bounceOutUp {
+  @include bounceOutUp-frames;
+}
+
+@keyframes bounceOutUp {
+  @include bounceOutUp-frames;
+}
+
+.bounceOutUp.goAway {
+  @include animation( bounceOutUp );
+}
+
+/************
+* bounceOutDown *
+*************/
+
+@mixin bounceOutDown-frames(){
+  0% {
+    @include translateY;
+  }
+  20% {
+    @include opacity( 1 );
+    @include translateY( -20px );
+  }
+  100% {
+    @include opacity;
+    @include translateY( 2000px );
+  }
+}
+
+@-webkit-keyframes bounceOutDown {
+  @include bounceOutDown-frames;
+}
+
+@keyframes bounceOutDown {
+  @include bounceOutDown-frames;
+}
+
+.bounceOutDown.goAway {
+  @include animation( bounceOutDown );
+}
+
+/************
+* bounceOutLeft *
+*************/
+
+@mixin bounceOutLeft-frames(){
+  0% {
+    @include translateX;
+  }
+  20% {
+    @include opacity( 1 );
+    @include translateX( 20px );
+  }
+  100% {
+    @include opacity;
+    @include translateX( -2000px );
+  }
+}
+
+@-webkit-keyframes bounceOutLeft {
+  @include bounceOutLeft-frames;
+}
+
+@keyframes bounceOutLeft {
+  @include bounceOutLeft-frames;
+}
+
+.bounceOutLeft.goAway {
+  @include animation( bounceOutLeft );
+}
+
+/************
+* bounceOutRight *
+*************/
+
+@mixin bounceOutRight-frames(){
+  0% {
+    @include translateX;
+  }
+  20% {
+    @include opacity( 1 );
+    @include translateX( -20px );
+  }
+  100% {
+    @include opacity;
+    @include translateX( 2000px );
+  }
+}
+
+@-webkit-keyframes bounceOutRight {
+  @include bounceOutRight-frames;
+}
+
+@keyframes bounceOutRight {
+  @include bounceOutRight-frames;
+}
+
+.bounceOutRight.goAway {
+  @include animation( bounceOutRight );
+}

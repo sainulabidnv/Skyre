@@ -1,0 +1,80 @@
+
+
+/*********
+* Mixins *
+*********/
+
+@import "mixins/delay";
+@import "mixins/transform";
+@import "mixins/transition";
+@import "mixins/translate";
+@import "mixins/opacity";
+@import "mixins/scale";
+@import "mixins/animation";
+@import "mixins/perspective";
+@import "mixins/rotate";
+@import "mixins/skew";
+@import "mixins/visibility";
+
+/*************
+* Animations *
+*************/
+
+//@import "animations/bounce-in";
+//@import "animations/bounce-out";
+//minified
+@import "animations/fade-in";
+//@import "animations/fade-out";
+//minified
+@import "animations/fade-in-short";
+//@import "animations/flip-in";
+//@import "animations/flip-out";
+//@import "animations/grow";
+//@import "animations/light-speed-in";
+//@import "animations/light-speed-out";
+//@import "animations/pulse";
+//@import "animations/roll-in";
+//@import "animations/roll-out";
+//@import "animations/rotate-in";
+//@import "animations/rotate-out";
+//@import "animations/shake";
+//@import "animations/swing";
+//@import "animations/tada";
+//@import "animations/wiggle";
+//@import "animations/wobble";
+
+$transition-default: .5s;
+$transition-slow: 1s;
+$transition-slower: 1.5s;
+$transition-slowest: 2.5s;
+
+.animated {
+  @include transition($transition-default);
+}
+
+.slow {
+  @include transition( $transition-slow );
+}
+
+.slower {
+  @include transition( $transition-slow );
+}
+
+.slowest {
+  @include transition( $transition-slow );
+}
+
+.delay-250 {
+   @include delay( 0.25s );
+}
+
+.delay-500 {
+   @include delay( 0.5s );
+}
+.delay-750 {
+   @include delay( 0.75s );
+}
+.delay-1000 {
+   @include delay( 1s );
+}
+

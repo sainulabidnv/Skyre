@@ -1,0 +1,7 @@
+.cutomizer-dimension {  padding:10px; position:relative;  }
+.cutomizer-dimension .buttons { position:absolute; right:0; top:-20px;}
+.cutomizer-dimension .buttons span { margin:2px; opacity:.4;}
+.cutomizer-dimension .buttons span.active { opacity:1;}
+.cutomizer-dimension .inputfields input { width:45px; display:none; float:left; margin:0 1px;}
+.cutomizer-dimension .inputfields input.active { display:block;}
+.clearfix { clear:both; height:1px;}

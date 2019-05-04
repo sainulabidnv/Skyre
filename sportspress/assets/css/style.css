@@ -1,0 +1,37 @@
+.sk-sports .page-title { background:#030e20;  }
+.sk-sports h1 { text-transform:uppercase; font-size:60px;   }
+.profile{  position:relative;}
+.profile span { height:100px; width:100px; background:#dee003; font-size:50px; text-align:center; display:inline-block; border-radius:50%; font-weight:600; color:#030e20; position:absolute; right:-50px; top:30px; }
+.player-pic { background:#030e20; border: solid 3px #fff; margin-top:-250px;}
+.player-meta li { float:left; height:120px; width:120px; margin:50px 20px; text-align:center; color:#030e20; text-transform:uppercase; list-style:none; border:solid 5px #ffa800; border-radius:50%; padding:30px 0 0 0}
+.player-meta li span { display:block; font-size:30px; font-weight:600; line-height:30px;}
+
+.sp-list-wrapper dt, .sp-list-wrapper dd { float:left; color:rgba(3,14,32,.6) !important; text-transform:uppercase !important; font-size:18px !important; width:45%; background:#ececec; padding:6px 15px !important; margin:1px 0 !important; font-family: 'Dosis', sans-serif;}
+.sp-list-wrapper dd { background:#d4d5d7; width:55%;  color:rgba(3,14,32,.8) !important; }
+.sp-list-wrapper dl { padding:0 !important; border:none !important; margin-bottom:50px !important}
+.sp-tab-group { background:rgba(3,14,32,.1); padding:20px;}
+.sp-tab-menu { margin:0 !important;}
+.sp-tab-menu li { background:#030e20; border-radius:3px 3px 0 0; margin:0 0 0 10px !important;}
+.sp-tab-menu li.sp-tab-menu-item-active { background:#fff; }
+.sp-tab-menu li a { padding:5px 20px; border-bottom:none !important; color:#fff !important; font-family: font-family: 'Dosis', sans-serif;}
+.sp-tab-menu li.sp-tab-menu-item-active a{ border-bottom:none !important; color:#030e20 !important;}
+.sp-tab-content { background:#fff; padding:20px;}
+
+.sp-table-caption, h4.sp-table-caption { background:#030e20 !important; border:none !important; color:#fff !important; font-family: 'Dosis' !important; font-weight:600; padding:10px 15px !important; font-size:18px !important; text-transform:uppercase !important; font-weight:600 !important; }
+.sp-data-table th { background:#eeeeee !important; padding:15px 10px !important; color:rgba(3,14,32,.6) !important; font-size:16px !important; text-transform:uppercase !important; font-family: 'Dosis' !important;}
+.sp-data-table td { font-size:16px !important; padding:10px !important; color:rgba(3,14,32,1) !important; border-left:none !important; border-right:none !important;}
+.sp-data-table { background:#eeeeee !important; border:none !important; font-family: 'Dosis' !important; }
+.sp-view-all-link { background:none !important; border:none !important; text-align:center !important; }
+.sp-view-all-link a {  color:#d7372b !important;}
+.sp-template { margin-bottom:40px !important;}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+.radio-image label {  position: relative;  display: inline-block;  margin: 0 2px 5px 0; }
+.radio-image input { display: none; }
+.radio-image input img {  border: 1px solid transparent; }
+.radio-image input + label img {  border: 1px solid #f1f1f1; }
+.radio-image input:checked + label img {  border: 1px solid #80868c; }
+.radio-image input + label .image-clickable {  position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%;  height: 100%; }

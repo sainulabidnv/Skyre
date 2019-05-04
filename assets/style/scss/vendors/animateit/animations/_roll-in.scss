@@ -1,0 +1,32 @@
+.rollIn {
+  @include opacity;
+}
+
+/*********
+* rollIn *
+**********/
+
+@mixin rollIn-frames(){
+  0% {
+    @include rotateX( -120deg );
+    @include translateX( -100% );
+    @include opacity;
+  }
+  100% {
+    @include rotateX( 0 );
+    @include translateX( 0 );
+    @include opacity( 1 );
+  }
+}
+
+@-webkit-keyframes rollIn {
+  @include rollIn-frames;
+}
+
+@keyframes rollIn {
+  @include rollIn-frames;
+}
+
+.rollIn.go {
+  @include animation( rollIn );
+}

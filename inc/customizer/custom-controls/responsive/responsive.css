@@ -1,0 +1,62 @@
+.skyre-responsive-btns,
+.customize-control-title {
+  display: inline-block;
+}
+
+.skyre-responsive-btns {
+  float: right;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+.skyre-responsive-btns > li {
+  display:inline-block; opacity:.3;
+}
+
+.skyre-responsive-btns > li.active {
+  opacity:1;
+}
+
+.skyre-responsive-btns button[type="button"] {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: .75;
+  outline: none;
+}
+
+.skyre-responsive-btns button[type="button"] > i {
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+}
+.customize-control-skyre-responsive .input-wrapper input {
+  display: none;
+  width: calc(100% - 52px);
+  float: left;
+}
+
+.customize-control-skyre-responsive .input-wrapper input.active {
+  display: inline-block;
+}
+
+.customize-control-skyre-responsive .input-wrapper .skyre-responsive-select {
+  width: 50px;
+  margin: 0;
+  display: none;
+  padding: .1em;
+  margin-left: 2px;
+}
+
+.customize-control-skyre-responsive .input-wrapper .skyre-responsive-input.active + .skyre-responsive-select {
+  display: inline-block;
+}
+
+.customize-control-skyre-responsive .input-wrapper .skyre-non-reponsive.skyre-responsive-input, .customize-control-skyre-responsive .input-wrapper .skyre-non-reponsive.skyre-responsive-input.active {
+  display: inline-block;
+}
+
+.customize-control-skyre-responsive .input-wrapper .skyre-non-reponsive.skyre-responsive-select {
+  display: inline-block;
+}

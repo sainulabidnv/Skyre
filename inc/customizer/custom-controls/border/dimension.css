@@ -1,0 +1,8 @@
+.cutomizer-border {  padding:10px; position:relative; border:1px solid #ddd; }
+.cutomizer-border .buttons { position:absolute; right:0; top:5px;}
+.cutomizer-border .buttons span { margin:2px; opacity:.4;}
+.cutomizer-border .buttons span.active { opacity:1;}
+.cutomizer-border .inputfields { margin-top:25px;}
+.cutomizer-border .inputfields input { width:45px; display:none; float:left; margin:0 1px;}
+.cutomizer-border .inputfields input.active { display:block;}
+.clearfix { clear:both; height:1px;}
