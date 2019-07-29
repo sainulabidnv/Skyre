@@ -50,6 +50,7 @@ class Plugin {
 		wp_register_script("jquery-countdown", get_template_directory_uri()."/assets/js/vendors/jquery.countdown.min.js",array('jquery'),false,true);
 		wp_enqueue_script("jquery-countdown");
 		wp_register_script("sk-status", get_template_directory_uri() . '/inc/assets/js/sk-status.js',array('jquery'),false,true);
+		wp_register_script("skyre-sp-player", get_template_directory_uri() . '/inc/assets/js/skyre-sp-player.js',array('jquery'),false,true);
 		
 		wp_register_script("sliderPro", get_template_directory_uri() . '/inc/assets/js/slider-pro/jquery.sliderPro.min.js',array('jquery'),false,true);
 		wp_register_script("sliderCustom", get_template_directory_uri() . '/inc/assets/js/slider-pro/custom.js',array('jquery'),false,true);
@@ -130,6 +131,24 @@ class Plugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\skyreSlider() );
 		
 	}
+	
+	/**
+	 * Register Widgets for SportsPress
+	 *
+	 * Register new Elementor widgets.
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 */
+	public function register_sportspress_widgets() {
+		// Its is now safe to include Widgets files
+		require_once( __DIR__ . '/ewidgets/sportspress/sp-players.php' );
+
+		// Register Widgets
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayers() );
+		
+		
+	}
 
 	/**
 	 *  Plugin class constructor
@@ -160,6 +179,9 @@ class Plugin {
 		// Register widgets
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
 		
+		if ( class_exists( 'SportsPress' ) ) {
+			add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_sportspress_widgets' ] );
+			 }
 	
 		
 	}

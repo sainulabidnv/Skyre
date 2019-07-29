@@ -6,6 +6,7 @@
  * @subpackage Twenty_Seventeen
  * @since 1.0
  */
+add_theme_support( 'sportspress' );
 
 if ( ! function_exists( 'skyre_get_sp_option' ) ) :
 function skyre_get_sp_option( $name, $default = false ) {
@@ -22,6 +23,13 @@ function skyre_get_sp_option( $name, $default = false ) {
 	return $default;
 }
 endif;
+
+function skyre_sp_scripts() {
+	// custom css for sportspress
+	wp_enqueue_style( 'skyre-sp-style', get_template_directory_uri().'/sportspress/assets/css/style.css');
+}
+add_action( 'wp_enqueue_scripts', 'skyre_sp_scripts' );
+
 
 function add_player_options2( $options ) {
 		$options = array_merge( $options, array(
@@ -41,6 +49,7 @@ function add_player_options2( $options ) {
 	}
 add_filter( 'sportspress_player_options', 'add_player_options2'  );
 
+/*Add replace options in settins->Player->Options*/
 function sk_player_template( $options ) {
 		$options = array(
 					'selector' => array(
@@ -62,9 +71,14 @@ function sk_player_template( $options ) {
 						'action' => 'sportspress_output_post_excerpt',
 						'default' => 'yes',
 					),
+					'name' => array(
+						'title' => __( 'Sainul Excerpt', 'sportspress' ),
+						'option' => 'sportspress_player_show_excerpt_sainul',
+						'action' => 'sportspress_output_post_excerpt_sainul',
+						'default' => 'yes',
+					),
 				);
-			
-		 
+
 		return $options;
 	}
 
@@ -103,18 +117,6 @@ $data_r = array('layout' => '3');
 
 
 
-
-
-
-
-
-function skyre_sp_scripts() {
-	// custom css for sportspress
-	wp_enqueue_style( 'skyre-sp-style', get_template_directory_uri().'/sportspress/assets/css/style.css');
-}
-add_action( 'wp_enqueue_scripts', 'skyre_sp_scripts' );
-
-//skyre_fonts_url('https://fonts.googleapis.com/css?family=Dosis:500');
 
 
 
