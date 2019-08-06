@@ -60,6 +60,7 @@ class Plugin {
 		wp_register_style("skyre-posts-grid", get_template_directory_uri() . '/inc/assets/style/elementor-posts-grid.css',array());
 		wp_register_style("sliderProCSS", get_template_directory_uri() . '/inc/assets/style/slider-pro/slider-pro.min.css',array());
 		wp_register_style("sliderCustomCSS", get_template_directory_uri() . '/inc/assets/style/slider-pro/custom.css',array());
+
 		
 		
 		
@@ -142,10 +143,12 @@ class Plugin {
 	 */
 	public function register_sportspress_widgets() {
 		// Its is now safe to include Widgets files
-		require_once( __DIR__ . '/ewidgets/sportspress/sp-players.php' );
+		require_once( __DIR__ . '/ewidgets/sportspress/sp-player-list.php' );
+		require_once( __DIR__ . '/ewidgets/sportspress/sp-player-grid.php' );
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayers() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayerGrid() );
 		
 		
 	}

@@ -25,6 +25,21 @@
 .sp-view-all-link a {  color:#d7372b !important;}
 .sp-template { margin-bottom:40px !important;}
 
+.position-heading { background:#030e20; border:none ; color:#fff ; font-family: 'Dosis' ; font-weight:600; padding:10px 15px ; font-size:18px ; text-transform:uppercase; font-weight:600 ; }
+
+
+/*widget css*/
+.player-photo { overflow:hidden; }
+
+
+.sk-player-grid .player-photo { position: relative;}
+.sk-player-grid .player-photo img { width:100%;}
+.sk-player-grid .player-flag { position: absolute; right:0; bottom: 0;}
+.sk-player-grid .player-flag img { width:auto;}
+.sk-player-grid .player-rank { position: absolute; left:0; bottom: 0;}
+/*.sk-player-grid .player-colum, .sk-player-grid .player-name, .sk-player-grid .player-team { padding: 0 15px;}*/
+
+
 
 
 

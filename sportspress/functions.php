@@ -8,6 +8,12 @@
  */
 add_theme_support( 'sportspress' );
 
+
+
+
+add_image_size( 'sportspress-icon', 128, 128, true ); 
+add_image_size( 'sportspress-mini', 32, 32, true );
+
 if ( ! function_exists( 'skyre_get_sp_option' ) ) :
 function skyre_get_sp_option( $name, $default = false ) {
 

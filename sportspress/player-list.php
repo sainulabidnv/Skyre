@@ -44,8 +44,8 @@ if(!empty($ws)) {
 
 }
 //if ( in_array( 'content', $settings['list_attr'] )) {
-//$id = 0;
-//paginated = true;
+$id = 0;
+$paginated = true;
 //$leagues = 13;
 //$grouping = 'position';
 
@@ -144,7 +144,7 @@ foreach ( $groups as $group ):
 	if ( intval( $number ) > 0 )
 		$limit = $number;
 	
-	$thead = '<thead>' . '<tr>';
+	$thead = '<thead>' . '<tr class="space">';
 		
 	if ( ! is_array( $labels ) || array_key_exists( 'number', $labels ) ):
 		if ( in_array( $orderby, array( 'number', 'name' ) ) ):
@@ -173,7 +173,7 @@ foreach ( $groups as $group ):
 		$name = sp_array_value( $row, 'name', null );
 		if ( ! $name ) continue;
 
-		$tbody .= '<tr class="' . ( $i % 2 == 0 ? 'odd' : 'even' ) . '">';
+		$tbody .= '<tr class="space ' . ( $i % 2 == 0 ? 'odd' : 'even' ) . '">';
 
 		
 		
@@ -275,7 +275,7 @@ foreach ( $groups as $group ):
 	endif;
 
 	$output .= '<div class="sp-table-wrapper">' .
-		'<table class="sp-player-list table sk-player-list-table ' . ( $sortable ? ' sp-sortable-table' : '' ). ( $responsive ? ' sp-responsive-table '.$identifier : '' ) . ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">';
+		'<table cellspacing="10" class="sp-player-list sp-data-table table sk-player-list-table ' . ( $sortable ? ' sp-sortable-table' : '' ). ( $responsive ? ' sp-responsive-table '.$identifier : '' ) . ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">';
 	
 	$output .= $thead . '<tbody>';
 	
@@ -284,7 +284,7 @@ foreach ( $groups as $group ):
 	$output .= '</tbody>' . '</table>' . '</div>';
 
 	if ( $show_all_players_link ):
-		$output .= '<div class="sp-player-list-link sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all players', 'sportspress' ) . '</a></div>';
+		$output .= '<div class="sp-player-list-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all players', 'sportspress' ) . '</a></div>';
 	endif;
 
 	$output .= '</div>';
