@@ -41,7 +41,6 @@ extract( $defaults, EXTR_SKIP );
 if(!empty($ws)) { 
 	if ( in_array( 'photo', $ws['attr'] )) { $show_player_photo = true; } else {$show_player_photo = false; }
 	if ( in_array( 'flag', $ws['attr'] )) { $show_player_flag = true; } else {$show_player_flag = false; }
-
 }
 //if ( in_array( 'content', $settings['list_attr'] )) {
 $id = 0;

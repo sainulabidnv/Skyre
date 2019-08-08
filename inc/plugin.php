@@ -145,10 +145,14 @@ class Plugin {
 		// Its is now safe to include Widgets files
 		require_once( __DIR__ . '/ewidgets/sportspress/sp-player-list.php' );
 		require_once( __DIR__ . '/ewidgets/sportspress/sp-player-grid.php' );
+		require_once( __DIR__ . '/ewidgets/sportspress/sp-event-list.php' );
+		require_once( __DIR__ . '/ewidgets/sportspress/sp-event-block.php' );
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayers() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayerGrid() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spEvents() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spEventBlock() );
 		
 		
 	}

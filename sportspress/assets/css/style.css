@@ -17,20 +17,20 @@
 .sp-tab-menu li.sp-tab-menu-item-active a{ border-bottom:none !important; color:#030e20 !important;}
 .sp-tab-content { background:#fff; padding:20px;}
 
-.sp-table-caption, h4.sp-table-caption { background:#030e20 !important; border:none !important; color:#fff !important; font-family: 'Dosis' !important; font-weight:600; padding:10px 15px !important; font-size:18px !important; text-transform:uppercase !important; font-weight:600 !important; }
+/*.sp-table-caption, h4.sp-table-caption { background:#030e20 !important; border:none !important; color:#fff !important; font-family: 'Dosis' !important; font-weight:600; padding:10px 15px !important; font-size:18px !important; text-transform:uppercase !important; font-weight:600 !important; }
 .sp-data-table th { background:#eeeeee !important; padding:15px 10px !important; color:rgba(3,14,32,.6) !important; font-size:16px !important; text-transform:uppercase !important; font-family: 'Dosis' !important;}
 .sp-data-table td { font-size:16px !important; padding:10px !important; color:rgba(3,14,32,1) !important; border-left:none !important; border-right:none !important;}
 .sp-data-table { background:#eeeeee !important; border:none !important; font-family: 'Dosis' !important; }
 .sp-view-all-link { background:none !important; border:none !important; text-align:center !important; }
 .sp-view-all-link a {  color:#d7372b !important;}
 .sp-template { margin-bottom:40px !important;}
-
+*/
 .position-heading { background:#030e20; border:none ; color:#fff ; font-family: 'Dosis' ; font-weight:600; padding:10px 15px ; font-size:18px ; text-transform:uppercase; font-weight:600 ; }
 
 
 /*widget css*/
-.player-photo { overflow:hidden; }
-
+.player-photo, .team-logo { overflow:hidden; }
+.sk-sp-view-all-link { text-align: center;}
 
 .sk-player-grid .player-photo { position: relative;}
 .sk-player-grid .player-photo img { width:100%;}

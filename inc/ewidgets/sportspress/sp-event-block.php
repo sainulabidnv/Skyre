@@ -26,11 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 } // End if().
 
 /**
- * Class Posts_Grid
+ * Class EventBlock
  *
  * @package ThemeIsle\ElementorExtraWidgets
  */
-class spPlayerGrid extends \Elementor\Widget_Base {
+class spEventBlock extends \Elementor\Widget_Base {
 
 	/**
 	 * Widget title.
@@ -38,7 +38,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Player Grid', 'skyre' );
+		return __( 'Event Block', 'skyre' );
 	}
 
 	/**
@@ -56,14 +56,15 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'skyre-sp-player-grid';
+		return 'skyre-sp-event-block';
 	}
+
 	
-	protected function get_player_list(){
+	protected function get_event_block(){
 	
-	  $args = array('post_type' => 'sp_list', 'posts_per_page' => -1);
+	  $args = array('post_type' => 'sp_calendar', 'posts_per_page' => -1);
 	  
-		$catlist=[];
+		$catlist=[ 1 => __( 'All', 'skyre' ),];
 		
 		if( $categories = get_posts($args)){
 			foreach ( $categories as $category ) {
@@ -71,7 +72,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			}
 		}
 		else{
-			(int)$catlist['0'] = esc_html__('No player list found', 'skyre');
+			(int)$catlist['0'] = esc_html__('No event block found', 'skyre');
 		}
 	  return $catlist;
 	  }
@@ -81,131 +82,74 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	 *
 	 * @return string
 	 */
-	 
-	  protected function get_columns(){
-		 $args = array(
-					'post_type' => array( 'sp_metric', 'sp_performance', 'sp_statistic' ),
-					'numberposts' => -1,
-					'posts_per_page' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC'
-				);
-			
-			$fields = array('Photo'=>'Photo','Name'=>'Name','Club'=>'Club','Postion'=>'Postion');
-			if( $columns = get_posts($args)){
-			foreach ( $columns as $column ) {
-				(int)$fields[$column->post_title] = $column->post_title;
+	protected function get_columns(){ 
+		$time_format = get_option( 'sportspress_event_block_time_format', 'combined' );
+		$the_columns = array();
+		$the_columns['date'] = __( 'Date', 'skyre' );
+        $the_columns['event'] = __( 'Event', 'skyre' );
+
+		if ( 'combined' === $time_format ) {
+
+			$the_columns['time'] = __( 'Time/Results', 'skyre' );
+
+		} else {
+
+			if ( in_array( $time_format, array( 'time', 'separate' ) ) ) {
+				$the_columns['time'] = __( 'Time', 'skyre' );
+			}
+
+			if ( in_array( $time_format, array( 'results', 'separate' ) ) ) {
+				$the_columns['results'] = __( 'Results', 'skyre' );
 			}
 		}
-		else{
-			(int)$fields['0'] = esc_html__('No player list found', 'skyre');
-		}
-	  return $fields;
-			
 
-}
+        $the_columns['venue'] = __( 'Venue', 'skyre' );
+		$the_columns['league'] = __( 'League', 'skyre' ); 
+		$the_columns['day'] = __( 'Match Day', 'skyre' ); 
+		
+		return $the_columns ;
+	}
+
 	  /**
-	 * Column for sorting.
+	 * Date.
 	 *
 	 * @return string
 	 */
-	 
-	  protected function get_columns_sort(){
-		 $args = array(
-					'post_type' => array( 'sp_metric', 'sp_performance', 'sp_statistic' ),
-					'numberposts' => -1,
-					'posts_per_page' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC'
-				);
-			
-			$fields = array(
-				'default' => __( 'Default', 'sportspress' ),
-				'number' => __( 'Number', 'sportspress' ),
-				'name' => __( 'Name', 'sportspress' ),
-				'eventsplayed' => __( 'Played', 'sportspress' )
-				);
-			if( $columns = get_posts($args)){
-			foreach ( $columns as $column ) {
-				(int)$fields[$column->post_name] = $column->post_title;
-			}
-		}
-		else{
-			(int)$fields['0'] = esc_html__('No player list found', 'skyre');
-		}
-	  return $fields;
-			
+	protected function get_event_dates(){ 
+	
+		$dates = apply_filters( 'sportspress_dates', array(
+			0 => __( 'All', 'sportspress' ),
+			'-day' => __( 'Yesterday', 'sportspress' ),
+			'day' => __( 'Today', 'sportspress' ),
+			'+day' => __( 'Tomorrow', 'sportspress' ),
+			'-w' => __( 'Last week', 'sportspress' ),
+			'w' => __( 'This week', 'sportspress' ),
+			'+w' => __( 'Next week', 'sportspress' ),
+			'range' => __( 'Date range:', 'sportspress' ),
+		));
+		return $dates ;
+	}
 
-}
-	  /**
-	 * Column name.
-	 *
-	 * @return string
-	 */
-	 
-	  protected function get_colum_name($name){
-		 $fields = array('Photo','Name','Club','Postion');
-		 if ( in_array( $name, $fields ) ){
-			 if($name == 'Name') return 'name';
-			 if($name == 'Club') return 'team';
-			 if($name == 'Postion') return 'position';
-			 if($name == 'Photo') return 'photo';
-			 }
-				//continue;
-		 $args = array(
-					'post_type' => array( 'sp_metric', 'sp_performance', 'sp_statistic' ),
-					'numberposts' => -1,
-					'posts_per_page' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC',
-					'title' => $name
-				);
-			
-			$colname = get_posts($args);
-			if( $colname) return $colname[0]->post_name;
+	
+	
 
-}
+
 
 	/**
 	 * Register dependent script.
 	 *
 	 * @return array
 	 */
-	public function get_script_depends() {
-		return [ 'skyre-sp-player' ];
-	}
 	
-		protected function _register_controls() {
+	protected function _register_controls() {
 		
 		$this->start_controls_section(
-			'section_sp_player',
+			'section_sp_event_block',
 			[
-				'label' => __( 'Player List', 'skyre' ),
+				'label' => __( 'Event Block', 'skyre' ),
 			]
 		);
 
-		$this->add_control(
-			'layout',
-			[
-				'label' => __( 'Layout', 'skyre' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'traditional',
-				'options' => [
-					'traditional' => [
-						'title' => __( 'Default', 'skyre' ),
-						'icon' => 'fa fa-road',
-					],
-					'owal' => [
-						'title' => __( 'Owal', 'skyre' ),
-						'icon' => 'fa fa-ellipsis-h',
-					],
-				],
-				'render_type' => 'template',
-				'classes' => 'elementor-control-start-end',
-				'label_block' => false,
-				'style_transfer' => true,
-			]
-		);
 		
 		$this->add_control(
 			'widget_title', [
@@ -238,10 +182,10 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		$this->add_control(
 			'list_id', [
-				'label' => __( 'Select Player List', 'skyre' ),
-				'type' => Controls_Manager::SELECT2,
-				'multiple' => false,
-				'options' => $this->get_player_list(),
+				'label' => __( 'Select Event/Calendar ', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => $this->get_event_block(),
+				'default' => 1,
 			]
 		);
 		
@@ -251,18 +195,17 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::SELECT2,
 				'multiple' => true,
 				'options' => [
-					'rank' => __( 'Rank', 'skyre' ),
-					'flag' => __( 'Flag', 'skyre' ),
+					'logo'  => __( 'Team Logo', 'skyre' ),
 					'content' => __( 'List Content', 'skyre' ),
 					'image' => __( 'List Image', 'skyre' ),
 				],
-				'default' => ['rank'],
+				'default' => ['logo'],
 			]
 		);
 		
 		$this->add_control(
 			'limit', [
-				'label' => __( 'Number of players to show', 'skyre' ),
+				'label' => __( 'Number of Events to show', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'step' => 1,
 				'default' => 10,
@@ -270,43 +213,88 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'widget_columncount', [
-				'label' => __( 'Number of Columns', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::NUMBER,
-				'step' => 1,
-				'default' => 4,
-				'min' => 1,
-				'max' => 12,
-			]
-		);
-		
-		$this->add_control(
-			'group_by', [
-				'label' => __( 'Group by ', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
+			'status', [
+				'label' => __( 'Status ', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'position' => __( 'Position', 'skyre' ),
-					'1' => __( 'None', 'skyre' ),
+					'default' => __( 'Default', 'skyre' ),
+					'any' => __( 'All', 'skyre' ),
+					'publish' => __( 'Published', 'skyre' ),
+					'future' => __( 'Scheduled', 'skyre' ),
 				],
-				'default' => ['1'],
-			]
-		);
-		
-		$this->add_control(
-			'order_by', [
-				'label' => __( 'Order by', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
-				'options' => $this->get_columns_sort(),
 				'default' => 'default',
 			]
 		);
+		$this->add_control(
+			'date', [
+				'label' => __( 'Date ', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'multiple' => false,
+				'options' => $this->get_event_dates(),
+				'default' => 0,
+			]
+		);
+
+		
+
+		$this->add_control(
+			'date_from',
+			[
+				'label' => __( 'Date from', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::DATE_TIME,
+				'picker_options' => ['enableTime'=>'false'],
+				'condition' => [
+					'date' => 'range',
+				],
+			]
+		);
+
+		$this->add_control(
+			'date_to',
+			[
+				'label' => __( 'Date To', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::DATE_TIME,
+				'picker_options' => ['enableTime'=>'false'],
+				'condition' => [
+					'date' => 'range',
+				],
+			]
+		);
+
+		$this->add_control(
+			'date_past',
+			[
+				'label' => __( 'Past', 'skyre' ),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => '7',
+			]
+		);
+		$this->add_control(
+			'date_future',
+			[
+				'label' => __( 'Next', 'skyre' ),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => '7',
+			]
+		);
+
+		$this->add_control(
+			'date_relative',
+			[
+				'label' => __( 'Relative', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'skyre' ),
+				'label_off' => __( 'Hide', 'skyre' ),
+				'return_value' => '1',
+				'default' => '',
+			]
+		);
+		
 		
 		$this->add_control(
 			'sort_order', [
 				'label' => __( 'Sort Order', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
+				'type' => \Elementor\Controls_Manager::SELECT,
 				'multiple' => false,
 				'options' => [
 					'ASC'  => __( 'Ascending', 'skyre' ),
@@ -321,12 +309,12 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_control(
 			'show_link',
 			[
-				'label' => __( 'Display link to view all players', 'skyre' ),
+				'label' => __( 'Display link to view all Events', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => __( 'Show', 'skyre' ),
 				'label_off' => __( 'Hide', 'skyre' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => '',
 			]
 		);
 		
@@ -342,8 +330,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'column_id', [
 				'label' => __( 'Select Column', 'skyre' ),
-				'type' => Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_columns(),
 			]
 		);
@@ -362,13 +349,15 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_control(
 			'widget_columns',
 			[
-				'label' => __( 'Player Fields', 'skyre' ),
+				'label' => __( 'Event Fields', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
-					[ 'column_id' => __( 'Photo', 'skyre' ), ],
-					[ 'column_id' => __( 'Name', 'skyre' ), ],
-					[ 'column_id' => __( 'Club', 'skyre' ), ],
+                    [ 'column_id' => __( 'date', 'skyre' ), ],
+                    [ 'column_id' => __( 'venue', 'skyre' ), ],
+					[ 'column_id' => __( 'event', 'skyre' ), ],
+					[ 'column_id' => __( 'time', 'skyre' ), ],
+					 
 				],
 				'title_field' =>'{{{column_id}}}'/*'{{column_id}}'*/ //get_the_title('{{column_id}}') ,
 			]
@@ -378,10 +367,10 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		//========== List heading
 		$this->start_controls_section(
-			'sp_player_list_heading',
+			'sp_event_block_heading',
 			[
 				'label' => __( 'Heading', 'skyre' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+                'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		
@@ -411,6 +400,25 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+			'list_heading_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .sp-list-title' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+		
 		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -481,7 +489,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		//========== List Content
 		$this->start_controls_section(
-			'sp_player_list_content',
+			'sp_event_block_content',
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -494,7 +502,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'name' => 'list_content_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-post-content',
+				'selector' => '{{WRAPPER}} .event_block_meta p',
 			]
 		);
 		
@@ -504,11 +512,29 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .sp-post-content' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .event_block_meta p' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'list_content_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .event_block_meta p' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -519,7 +545,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'name' => 'list_content_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-post-content',
+				'selector' => '{{WRAPPER}} .event_block_meta p',
 			]
 		);
 		
@@ -528,7 +554,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_content_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-post-content',
+				'selector' => '{{WRAPPER}} .event_block_meta p',
 			]
 		);
 		
@@ -539,7 +565,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-post-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .event_block_meta p' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -550,7 +576,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_content_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-post-content',
+				'selector' => '{{WRAPPER}} .event_block_meta p',
 			]
 		);
 		
@@ -561,7 +587,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-post-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .event_block_meta p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -573,7 +599,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-post-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .event_block_meta p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -582,7 +608,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		//========== List Image
 		$this->start_controls_section(
-			'sp_player_list_image',
+			'sp_event_block_image',
 			[
 				'label' => __( 'Featured Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -595,7 +621,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'name' => 'list_image_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .player_grid .post_image',
+				'selector' => '{{WRAPPER}} .event_block_meta .post_image',
 			]
 		);
 		
@@ -604,7 +630,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_image_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player_grid .post_image',
+				'selector' => '{{WRAPPER}} .event_block_meta .post_image',
 			]
 		);
 		
@@ -615,7 +641,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_grid .post_image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .event_block_meta .post_image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -626,7 +652,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_image_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player_grid .post_image',
+				'selector' => '{{WRAPPER}} .event_block_meta .post_image',
 			]
 		);
 		
@@ -637,7 +663,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_grid .post_image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .event_block_meta .post_image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -649,18 +675,19 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_grid .post_image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .event_block_meta .post_image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
         $this->end_controls_section();
 		
-		//==========Position heading settings
+		
+        //==========Group heading settings
 		$this->start_controls_section(
-			'sp_player_table_head',
+			'sp_event_group_head',
 			[
-				'label' => __( 'Positions Heading', 'skyre' ),
+				'label' => __( 'Group Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -669,21 +696,21 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'table_heading_typo',
+				'name' => 'group_heading_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .position-heading',
+				'selector' => '{{WRAPPER}} .sp-event-group-name',
 			]
 		);
 		
 		$this->add_control(
-			'table_heading_color',
+			'group_heading_color',
 			[
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .position-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-group-name' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -693,7 +720,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'table_heading_align',
+			'group_heading_align',
 			[
 				'label' => __( 'Text alignment', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
@@ -705,7 +732,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				],
 				'default' => 'none',
 				'selectors' => [
-					'{{WRAPPER}} .position-heading' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-group-name' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -713,31 +740,31 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'table_heading_background',
+				'name' => 'group_heading_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .position-heading',
+				'selector' => '{{WRAPPER}} .sp-event-group-name',
 			]
 		);
 		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'table_heading_border',
+				'name' => 'group_heading_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .position-heading',
+				'selector' => '{{WRAPPER}} .sp-event-group-name',
 			]
 		);
 		
 		
 		$this->add_control(
-			'table_heading_border_radius',
+			'group_heading_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .position-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-group-name' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -746,32 +773,32 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'table_heading_box_shadow',
+				'name' => 'group_heading_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .position-heading',
+				'selector' => '{{WRAPPER}} .sp-event-group-name',
 			]
 		);
 		
 		$this->add_control(
-			'table_heading_padding',
+			'group_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .position-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-group-name' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'table_heading_margin',
+			'group_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .position-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-group-name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -782,7 +809,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		//========== columns settings
 		$this->start_controls_section(
-			'sp_player_grid_column',
+			'sp_event_block_column',
 			[
 				'label' => __( 'Columns', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -792,30 +819,30 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'table_column_background',
+				'name' => 'event_column_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+				'selector' => '{{WRAPPER}} .sp-event-block-item',
 			]
 		);
 		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'table_column_border',
+				'name' => 'event_column_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+				'selector' => '{{WRAPPER}} .sp-event-block-item',
 			]
 		);
 		
 		$this->add_control(
-			'table_column_border_radius',
+			'event_column_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-photo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-block-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -824,45 +851,45 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'table_column_box_shadow',
+				'name' => 'event_column_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+				'selector' => '{{WRAPPER}} .sp-event-block-item',
 			]
 		);
 
 		
 		
 		$this->add_control(
-			'table_column_padding',
+			'event_column_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-photo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-block-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'table_column_margin',
+			'event_column_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-photo' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-block-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 		
 		$this->end_controls_section();
 
-		//==========Player Name settings
+		//==========Event Name settings
 		$this->start_controls_section(
-			'sp_player_name',
+			'sp_event_name',
 			[
-				'label' => __( 'Name Field', 'skyre' ),
+				'label' => __( 'Event Title', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -871,21 +898,21 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'name_typo',
+				'name' => 'event_title_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-name a, {{WRAPPER}} .sk-player-grid .player-name',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title a, {{WRAPPER}} .sp-event-blocks .sp-event-title',
 			]
 		);
 		
 		$this->add_control(
-			'name_color',
+			'event_title_color',
 			[
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-name a, {{WRAPPER}} .sk-player-grid .player-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-title a, {{WRAPPER}} .sp-event-blocks .sp-event-title' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -895,7 +922,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'name_align',
+			'event_title_align',
 			[
 				'label' => __( 'Text alignment', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
@@ -907,7 +934,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				],
 				'default'=>'none',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-name' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -915,31 +942,31 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'name_background',
+				'name' => 'event_title_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-name',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title',
 			]
 		);
 		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'name_border',
+				'name' => 'event_title_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-name',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title',
 			]
 		);
 		
 		
 		$this->add_control(
-			'name_border_radius',
+			'event_title_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-name' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -948,43 +975,43 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'name_box_shadow',
+				'name' => 'event_title_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-name',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title',
 			]
 		);
 		
 		$this->add_control(
-			'name_padding',
+			'event_title_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-name' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'name_margin',
+			'event_title_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 		
 		$this->end_controls_section();
 
-		//==========Player team settings
+		//==========Event Date settings
 		$this->start_controls_section(
-			'sp_player_team',
+			'sp_event_date_',
 			[
-				'label' => __( 'Team Field', 'skyre' ),
+				'label' => __( 'Event Date', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -993,21 +1020,21 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'team_typo',
+				'name' => 'sp_event_date_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-team a, {{WRAPPER}} .sk-player-grid .player-team',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date a, {{WRAPPER}} .sp-event-blocks .sp-event-date',
 			]
 		);
 		
 		$this->add_control(
-			'team_color',
+			'sp_event_date_color',
 			[
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-team a, {{WRAPPER}} .sk-player-grid .player-team' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-date a, {{WRAPPER}} .sp-event-blocks .sp-event-date' => 'color: {{VALUE}};',
 					
 				],
 				'scheme' => [
@@ -1018,7 +1045,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'team_align',
+			'sp_event_date_align',
 			[
 				'label' => __( 'Text alignment', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
@@ -1030,7 +1057,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				],
 				'default' => 'none',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-team' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1038,31 +1065,31 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'team_background',
+				'name' => 'sp_event_date_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-team',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date',
 			]
 		);
 		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'team_border',
+				'name' => 'sp_event_date_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-team',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date',
 			]
 		);
 		
 		
 		$this->add_control(
-			'team_border_radius',
+			'sp_event_date_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-team' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1071,43 +1098,43 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'team_box_shadow',
+				'name' => 'sp_event_date_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-team',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date',
 			]
 		);
 		
 		$this->add_control(
-			'team_padding',
+			'sp_event_date_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-team' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'team_margin',
+			'sp_event_date_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-team' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 		
 		$this->end_controls_section();
 		
-		//==========Player Other Field settings
+		//==========Event time settings
 		$this->start_controls_section(
-			'sp_player_more_fields',
+			'sp_event_time',
 			[
-				'label' => __( 'More Fields', 'skyre' ),
+				'label' => __( 'Time', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1116,21 +1143,21 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'more_fields_typo',
+				'name' => 'event_time_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-column',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
 			]
 		);
 		
 		$this->add_control(
-			'more_fields_color',
+			'event_time_color',
 			[
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1140,7 +1167,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'more_fields_align',
+			'event_time_align',
 			[
 				'label' => __( 'Text alignment', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
@@ -1152,7 +1179,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				],
 				'default' => 'none',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1160,31 +1187,31 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'more_fields_background',
+				'name' => 'event_time_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-column',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
 			]
 		);
 		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'more_fields_border',
+				'name' => 'event_time_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-column',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
 			]
 		);
 		
 		
 		$this->add_control(
-			'more_fields_border_radius',
+			'event_time_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1193,176 +1220,43 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'more_fields_box_shadow',
+				'name' => 'event_time_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-column',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
 			]
 		);
 		
 		$this->add_control(
-			'more_fields_padding',
+			'event_time_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'more_fields_margin',
+			'event_time_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 		
-		$this->end_controls_section();
-		
-		
-
-
-		//========== Player Flag
-		$this->start_controls_section(
-			'sp_player_flag',
-			[
-				'label' => __( 'Flag', 'skyre' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'flag_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-flag',
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'flag_border',
-				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-flag',
-			]
-		);
-		
-		$this->add_control(
-			'flag_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-flag' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'flag_box_shadow',
-				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-flag',
-			]
-		);
-		
-		$this->add_control(
-			'flag_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-flag' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-
-		$this->add_control(
-			'flag_size',
-			[
-				'label' => __( 'Size', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-flag' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'flag_horizontal',
-			[
-				'label' => __( 'Horizontal Position', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => -10,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => -10,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-flag' => 'right: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'flag_vertical',
-			[
-				'label' => __( 'Vertical Position', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => -10,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => -10,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-flag' => 'bottom: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
         $this->end_controls_section();
-		
-		//==========Rank settings
+        
+        //==========Event Venue settings
 		$this->start_controls_section(
-			'sp_player_grid_rank',
+			'sp_event_venue',
 			[
-				'label' => __( 'Rank', 'skyre' ),
+				'label' => __( 'Venue', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1371,21 +1265,21 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'rank_typo',
+				'name' => 'event_venue_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-rank ',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue a, {{WRAPPER}} .sp-event-blocks .sp-event-venue',
 			]
 		);
 		
 		$this->add_control(
-			'rank_color',
+			'event_venue_color',
 			[
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-rank ' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-venue a, {{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1393,35 +1287,53 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+			'event_venue_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default'=>'none',
+				'selectors' => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'rank_background',
+				'name' => 'event_venue_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-rank ',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue',
 			]
 		);
 		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'rank_border',
+				'name' => 'event_venue_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-rank ',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue',
 			]
 		);
 		
 		
 		$this->add_control(
-			'rank_border_radius',
+			'event_venue_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-rank ' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1430,26 +1342,347 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'rank_box_shadow',
+				'name' => 'event_venue_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-rank ',
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue',
 			]
 		);
 		
 		$this->add_control(
-			'rank_padding',
+			'event_venue_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-grid .player-rank ' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'rank_size',
+			'event_venue_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+        $this->end_controls_section();
+        
+        //==========Event League settings
+		$this->start_controls_section(
+			'sp_event_league',
+			[
+				'label' => __( 'League', 'skyre' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		
+		
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'event_league_typo',
+				'label' => __( 'Typography', 'skyre' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league a, {{WRAPPER}} .sp-event-blocks .sp-event-league',
+			]
+		);
+		
+		$this->add_control(
+			'event_league_color',
+			[
+				'label' => __( 'Text Color', 'skyre' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-league a, {{WRAPPER}} .sp-event-blocks .sp-event-league' => 'color: {{VALUE}};',
+				],
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_league_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default'=>'none',
+				'selectors' => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'event_league_background',
+				'label' => __( 'Background', 'skyre' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league',
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'event_league_border',
+				'label' => __( 'Border', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league',
+			]
+		);
+		
+		
+		$this->add_control(
+			'event_league_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'event_league_box_shadow',
+				'label' => __( 'Box Shadow', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league',
+			]
+		);
+		
+		$this->add_control(
+			'event_league_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'event_league_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+        $this->end_controls_section();
+        
+        //==========Event Match day settings
+		$this->start_controls_section(
+			'sp_event_match_day',
+			[
+				'label' => __( 'Match Day', 'skyre' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		
+		
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'event_match_day_typo',
+				'label' => __( 'Typography', 'skyre' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+			]
+		);
+		
+		$this->add_control(
+			'event_match_day_color',
+			[
+				'label' => __( 'Text Color', 'skyre' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'color: {{VALUE}};',
+				],
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_match_day_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default'=>'none',
+				'selectors' => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'event_match_day_background',
+				'label' => __( 'Background', 'skyre' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'event_match_day_border',
+				'label' => __( 'Border', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+			]
+		);
+		
+		
+		$this->add_control(
+			'event_match_day_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'event_match_day_box_shadow',
+				'label' => __( 'Box Shadow', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+			]
+		);
+		
+		$this->add_control(
+			'event_match_day_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'event_match_day_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		$this->end_controls_section();
+		
+
+		//========== Event Logo
+		$this->start_controls_section(
+			'sp_event_logo',
+			[
+				'label' => __( 'Team Logos', 'skyre' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'logo_background',
+				'label' => __( 'Background', 'skyre' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .sp-event-blocks .team-logo',
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'logo_border',
+				'label' => __( 'Border', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sp-event-blocks .team-logo',
+			]
+		);
+		
+		$this->add_control(
+			'logo_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .team-logo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'logo_box_shadow',
+				'label' => __( 'Box Shadow', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sp-event-blocks .team-logo',
+			]
+		);
+		
+		$this->add_control(
+			'logo_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sp-event-blocks .team-logo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'logo_size',
 			[
 				'label' => __( 'Size', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
@@ -1465,60 +1698,17 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-rank' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'rank_horizontal',
-			[
-				'label' => __( 'Horizontal Position', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => -10,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => -10,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-rank' => 'left: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'rank_vertical',
-			[
-				'label' => __( 'Vertical Position', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => -10,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => -10,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-rank' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-blocks .team-logo' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 		
 		$this->end_controls_section();
+
 
 		//==========view all button
 		$this->start_controls_section(
-			'sp_player_view_all',
+			'sp_event_view_all',
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -1640,106 +1830,8 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-
-		//==========Pagination
-		$this->start_controls_section(
-			'sp_player_paginate',
-			[
-				'label' => __( 'Pagination', 'skyre' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
 		
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'paginate_button_typo',
-				'label' => __( 'Typography', 'skyre' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
 		
-		$this->add_control(
-			'paginate_button_color',
-			[
-				'label' => __( 'Text Color', 'skyre' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'color: {{VALUE}};',
-				],
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'paginate_button_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'paginate_button_border',
-				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'paginate_button_box_shadow',
-				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_margin',
-			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
 		
 		
 		
@@ -1748,13 +1840,14 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	}
 
 	protected function render() {
+		
 		$settings = $this->get_settings_for_display();
 		$html = '';
 		$year = '';
 		$i = 0;
 		$columFields = null;
 		$caption = null;
-		$widget_settings = '';
+		$ws = '';
 		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];
@@ -1763,17 +1856,26 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$titlesize  = empty($settings['title_size']) ? 'h3' : $settings['title_size'];
 		$number = empty($settings['limit']) ? '0' : $settings['limit'];
 		$columns = empty($settings['widget_columns']) ? null : $settings['widget_columns'];
-		$columncount = empty($settings['widget_columncount']) ? null : $settings['widget_columncount'];
-		$orderby = empty($settings['order_by']) ? 'default' : $settings['order_by'];
+		//$orderby = empty($settings['order_by']) ? 'default' : $settings['order_by'];
 		$order = empty($settings['sort_order']) ? 'ASC' : $settings['sort_order'];
-		$show_all_players_link = empty($settings['show_link']) ? false : $settings['show_link'];
-		$grouping = empty($settings['group_by']) ? null : $settings['group_by'];
+		$show_all_events_link = empty($settings['show_link']) ? false : $settings['show_link'];
+		//$grouping = empty($settings['group_by']) ? null : $settings['group_by'];
+		
+		$status = empty($settings['status']) ? 'default' : $settings['status'];
+		$date = empty($settings['date']) ? 'default' : $settings['date'];
+		$date_from = empty($settings['date_from']) ? 'default' : $settings['date_from'];
+		$date_to = empty($settings['date_to']) ? 'default' : $settings['date_to'];
+		$date_past = empty($settings['date_past']) ? 'default' : $settings['date_past'];
+		$date_future = empty($settings['date_future']) ? 'default' : $settings['date_future'];
+		$date_relative = empty($settings['date_relative']) ? 'default' : $settings['date_relative'];
+		$day = empty($settings['day']) ? 'default' : $settings['day'];
+
 		//widge settings - ws
 		$ws['attr'] = $settings['list_attr'];
 		
 		foreach($columns as $column){
 			if(isset($column['column_id']) && $column['column_id'] !='') {
-				$columFields[]=$this->get_colum_name($column['column_id']);
+				$columFields[]=$column['column_id'];
 			}
 			}
 		if ( $id > 0 ) {
@@ -1781,20 +1883,20 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		$post = get_post( $id );
 		
-		echo  '<div class="player_grid"> ';
+		echo  '<div class="event_block_meta"> ';
 		if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
 		if ( in_array( 'content', $settings['list_attr'] )) { echo '<p>'. $post->post_content.'</p>'; }
 		if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
 		
 		
 		echo  '</div> ';
-		//sp_get_template( 'player-list.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby, 'order' => $order, 'grouping' => 0, 'show_all_players_link' => $show_all_players_link ) );
-		sp_get_template( 'player-gallery.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columncount' =>$columncount, 'columns' => $columFields, 'orderby' => $orderby , 'order' => $order, 'grouping' => $grouping, 'show_all_players_link' => $show_all_players_link ) );
-		
+		//sp_get_template( 'event-blocks.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
+        sp_get_template( 'event-blocks.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
+
 		
          
 		}
-		else { echo 'Plase select a Player List';}
+		else { echo 'Plase select an Event Block';}
 		
 	}
 
