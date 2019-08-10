@@ -44,6 +44,7 @@ $defaults = array(
 	'show_title' => get_option( 'sportspress_event_list_show_title', 'yes' ) == 'yes' ? true : false,
 	'title_format' => get_option( 'sportspress_event_list_title_format', 'title' ),
 	'time_format' => get_option( 'sportspress_event_list_time_format', 'combined' ),
+	'ws' => null,
 );
 
 extract( $defaults, EXTR_SKIP );
@@ -118,9 +119,14 @@ $identifier = uniqid( 'eventlist_' );
 			<thead>
 				<tr>
 					<?php
+					if(empty($ws)) {
 					echo '<th class="data-date">' . __( 'Date', 'sportspress' ) . '</th>'; 
+					}
 					foreach($usecolumns as $skcolum) {
-					//echo '<th class="data-date">' . __( 'Date', 'sportspress' ) . '</th>';
+					if ($skcolum == 'date' && !empty($ws) ) {
+						echo '<th class="data-date">' . __( 'Date', 'sportspress' ) . '</th>'; 
+						continue;
+					}
 
 					if($skcolum == 'event' || $skcolum == 'time' || $skcolum == 'results') {
 					switch ( $title_format ) {
@@ -279,12 +285,17 @@ $identifier = uniqid( 'eventlist_' );
 
 						if ( $link_events ) $date_html = '<a href="' . get_post_permalink( $event->ID, false, true ) . '" itemprop="url">' . $date_html . '</a>';
 
+						if(empty($ws)) {
 						echo '<td class="data-date" itemprop="startDate" content="' . mysql2date( 'Y-m-d\TH:iP', $event->post_date ) . '" data-label="'.__( 'Date', 'sportspress' ).'">' . $date_html . '</td>';
-
+						}
 						
 						$skcolum = '';
 						foreach($usecolumns as $skcolum) {
-						if($skcolum == 'event' || $skcolum == 'time' || $skcolum == 'results') {
+							if($skcolum == 'date' && !empty($ws)) { 
+								echo '<td class="data-date" itemprop="startDate" content="' . mysql2date( 'Y-m-d\TH:iP', $event->post_date ) . '" data-label="'.__( 'Date', 'sportspress' ).'">' . $date_html . '</td>';
+								continue;
+							}
+							if($skcolum == 'event' || $skcolum == 'time' || $skcolum == 'results') {
 							switch ( $title_format ) {
 							case 'homeaway':
 								if($skcolum =='event') {

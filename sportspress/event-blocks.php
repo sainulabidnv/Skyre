@@ -45,6 +45,7 @@ $defaults = array(
 	'show_matchday' => get_option( 'sportspress_event_blocks_show_matchday', 'no' ) == 'yes' ? true : false,
 	'show_venue' => get_option( 'sportspress_event_blocks_show_venue', 'no' ) == 'yes' ? true : false,
 	'hide_if_empty' => false,
+	'ws' => null,
 );
 
 extract( $defaults, EXTR_SKIP );

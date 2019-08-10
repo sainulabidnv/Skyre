@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * League List widget for Elementor builder
  *
  * @link       https://skyresoft.com
  * @since      1.0.0
@@ -26,11 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 } // End if().
 
 /**
- * Class Posts_Grid
+ * Class LeagueList
  *
  * @package ThemeIsle\ElementorExtraWidgets
  */
-class spPlayers extends \Elementor\Widget_Base {
+class spLeagueList extends \Elementor\Widget_Base {
 
 	/**
 	 * Widget title.
@@ -38,7 +38,7 @@ class spPlayers extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Player List', 'skyre' );
+		return __( 'League Table', 'skyre' );
 	}
 
 	/**
@@ -56,14 +56,16 @@ class spPlayers extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'skyre-sp-player';
+		return 'skyre-sp-league';
 	}
+
 	
-	protected function get_player_list(){
+	protected function get_league_list(){
 	
-	  $args = array('post_type' => 'sp_list', 'posts_per_page' => -1);
-	  
-	  $catlist=[ 1 => __( 'All', 'skyre' ),];
+      $args = array('post_type' => 'sp_table', 'posts_per_page' => -1);
+
+     
+		$catlist=[ 1 => __( 'All', 'skyre' ),];
 		
 		if( $categories = get_posts($args)){
 			foreach ( $categories as $category ) {
@@ -71,7 +73,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			}
 		}
 		else{
-			(int)$catlist['0'] = esc_html__('No player list found', 'skyre');
+			(int)$catlist['0'] = esc_html__('No event list found', 'skyre');
 		}
 	  return $catlist;
 	  }
@@ -81,131 +83,70 @@ class spPlayers extends \Elementor\Widget_Base {
 	 *
 	 * @return string
 	 */
-	 
-	  protected function get_columns(){
-		 $args = array(
-					'post_type' => array( 'sp_metric', 'sp_performance', 'sp_statistic' ),
-					'numberposts' => -1,
-					'posts_per_page' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC'
-				);
-			
-			$fields = array('Rank'=>'Rank','Name'=>'Name','Club'=>'Club','Postion'=>'Postion');
-			if( $columns = get_posts($args)){
-			foreach ( $columns as $column ) {
-				(int)$fields[$column->post_title] = $column->post_title;
-			}
-		}
-		else{
-			(int)$fields['0'] = esc_html__('No player list found', 'skyre');
-		}
-	  return $fields;
-			
+	protected function get_columns(){ 
+        $columns = [ 'Club' => __( 'name', 'skyre' ),];
+        $columns = [ 'Pos' => __( 'pos', 'skyre' ),];
+        $args = array(
+            'post_type' => 'sp_column',
+            'numberposts' => -1,
+            'posts_per_page' => -1,
+            'orderby' => 'menu_order',
+            'order' => 'ASC'
+        );
+        $the_columns = get_posts( $args );
+        foreach ( $the_columns as $column ) {
+            (int)$columns[$column->post_title] = $column->post_title;
+        }
+        return $columns;
 
-}
-	  /**
-	 * Column for sorting.
-	 *
-	 * @return string
-	 */
-	 
-	  protected function get_columns_sort(){
-		 $args = array(
-					'post_type' => array( 'sp_metric', 'sp_performance', 'sp_statistic' ),
-					'numberposts' => -1,
-					'posts_per_page' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC'
-				);
-			
-			$fields = array(
-				'default' => __( 'Default', 'sportspress' ),
-				'number' => __( 'Number', 'sportspress' ),
-				'name' => __( 'Name', 'sportspress' ),
-				'eventsplayed' => __( 'Played', 'sportspress' )
-				);
-			if( $columns = get_posts($args)){
-			foreach ( $columns as $column ) {
-				(int)$fields[$column->post_name] = $column->post_title;
-			}
-		}
-		else{
-			(int)$fields['0'] = esc_html__('No player list found', 'skyre');
-		}
-	  return $fields;
-			
+        
+    }
 
-}
-	  /**
+      /**
 	 * Column name.
 	 *
 	 * @return string
 	 */
 	 
-	  protected function get_colum_name($name){
-		 $fields = array('Rank','Name','Club','Postion');
-		 if ( in_array( $name, $fields ) ){
-			 if($name == 'Rank') return 'number';
-			 if($name == 'Name') return 'name';
-			 if($name == 'Club') return 'team';
-			 if($name == 'Postion') return 'position';
-			 }
-				//continue;
-		 $args = array(
-					'post_type' => array( 'sp_metric', 'sp_performance', 'sp_statistic' ),
-					'numberposts' => -1,
-					'posts_per_page' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC',
-					'title' => $name
-				);
-			
-			$colname = get_posts($args);
-			return $colname[0]->post_name;
+	  protected function get_colum_id($name){
+        
+        if($name == 'Club') return 'name'; 
+        if($name == 'Pos') return 'pos';
+        
+               //continue;
+        $args = array(
+                   'post_type' => 'sp_column',
+                   'numberposts' => 1,
+                   'title' => $name
+               );
+           
+           $colname = get_posts($args);
+           return $colname[0]->post_name;
 
 }
+
+	
+	
+	
+
+
+	
 
 	/**
 	 * Register dependent script.
 	 *
 	 * @return array
 	 */
-	public function get_script_depends() {
-		return [ 'skyre-sp-player' ];
-	}
 	
-		protected function _register_controls() {
+	protected function _register_controls() {
 		
 		$this->start_controls_section(
-			'section_sp_player',
+			'section_sp_league',
 			[
-				'label' => __( 'Player List', 'skyre' ),
+				'label' => __( 'League Table', 'skyre' ),
 			]
 		);
 
-		$this->add_control(
-			'layout',
-			[
-				'label' => __( 'Layout', 'skyre' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'traditional',
-				'options' => [
-					'traditional' => [
-						'title' => __( 'Default', 'skyre' ),
-						'icon' => 'fa fa-road',
-					],
-					'owal' => [
-						'title' => __( 'Owal', 'skyre' ),
-						'icon' => 'fa fa-ellipsis-h',
-					],
-				],
-				'render_type' => 'template',
-				'classes' => 'elementor-control-start-end',
-				'label_block' => false,
-				'style_transfer' => true,
-			]
-		);
 		
 		$this->add_control(
 			'widget_title', [
@@ -238,10 +179,9 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		$this->add_control(
 			'list_id', [
-				'label' => __( 'Select Player List', 'skyre' ),
-				'type' => Controls_Manager::SELECT2,
-				'multiple' => false,
-				'options' => $this->get_player_list(),
+				'label' => __( 'Select League/Calendar ', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => $this->get_league_list(),
 				'default' => 1,
 			]
 		);
@@ -252,71 +192,45 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::SELECT2,
 				'multiple' => true,
 				'options' => [
-					'photo'  => __( 'Player Photo', 'skyre' ),
-					'flag'  => __( 'Flag', 'skyre' ),
+					'logo'  => __( 'Team Logo', 'skyre' ),
 					'content' => __( 'List Content', 'skyre' ),
 					'image' => __( 'List Image', 'skyre' ),
 				],
-				'default' => ['photo'],
+				'default' => ['logo'],
 			]
 		);
 		
 		$this->add_control(
 			'limit', [
-				'label' => __( 'Number of players to show', 'skyre' ),
+				'label' => __( 'Number of Teams to show', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'step' => 1,
 				'default' => 10,
 			]
 		);
 
-		$this->add_control(
-			'group_by', [
-				'label' => __( 'Group by ', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
-				'options' => [
-					'position' => __( 'Position', 'skyre' ),
-					'1' => __( 'None', 'skyre' ),
-				],
-				'default' => ['1'],
-			]
-		);
-		
-		$this->add_control(
-			'order_by', [
-				'label' => __( 'Order by', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
-				'options' => $this->get_columns_sort(),
-				'default' => 'default',
-			]
-		);
-		
-		$this->add_control(
-			'sort_order', [
-				'label' => __( 'Sort Order', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
-				'options' => [
-					'ASC'  => __( 'Ascending', 'skyre' ),
-					'DESC'  => __( 'Descending', 'skyre' ),
-				],
-				'default' => ['ASC'],
-			]
-		);
-		
-		
-		
-		$this->add_control(
+
+        $this->add_control(
 			'show_link',
 			[
-				'label' => __( 'Display link to view all players', 'skyre' ),
+				'label' => __( 'Display link to view all Teams', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => __( 'Show', 'skyre' ),
 				'label_off' => __( 'Hide', 'skyre' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
+                'default' => '',
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'list_id',
+                            'operator' => '!in',
+                            'value' => [
+                                '1',
+                            ],
+                        ],
+                    ],
+                ],
+                
 			]
 		);
 		
@@ -332,8 +246,7 @@ class spPlayers extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'column_id', [
 				'label' => __( 'Select Column', 'skyre' ),
-				'type' => Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_columns(),
 			]
 		);
@@ -352,15 +265,16 @@ class spPlayers extends \Elementor\Widget_Base {
 		$this->add_control(
 			'widget_columns',
 			[
-				'label' => __( 'Player Fields', 'skyre' ),
+				'label' => __( 'Fields', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
-					[ 'column_id' => __( 'Rank', 'skyre' ), ],
-					[ 'column_id' => __( 'Name', 'skyre' ), ],
+					[ 'column_id' => __( 'Pos', 'skyre' ), ],
 					[ 'column_id' => __( 'Club', 'skyre' ), ],
-					[ 'column_id' => __( 'Goals', 'skyre' ), ],
-					[ 'column_id' => __( 'Assists', 'skyre' ), ],
+					[ 'column_id' => __( 'W', 'skyre' ), ],
+                    [ 'column_id' => __( 'D', 'skyre' ), ],
+                    [ 'column_id' => __( 'Pts', 'skyre' ), ],
+					 
 				],
 				'title_field' =>'{{{column_id}}}'/*'{{column_id}}'*/ //get_the_title('{{column_id}}') ,
 			]
@@ -370,7 +284,7 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		//========== List heading
 		$this->start_controls_section(
-			'sp_player_list_heading',
+			'sp_league_list_heading',
 			[
 				'label' => __( 'Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -403,6 +317,25 @@ class spPlayers extends \Elementor\Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+			'list_heading_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .sp-list-title' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+		
 		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -473,7 +406,7 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		//========== List Content
 		$this->start_controls_section(
-			'sp_player_list_content',
+			'sp_league_list_content',
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -486,7 +419,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'list_content_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .player_list_meta p',
+				'selector' => '{{WRAPPER}} .league_list_meta p',
 			]
 		);
 		
@@ -496,11 +429,29 @@ class spPlayers extends \Elementor\Widget_Base {
 				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .player_list_meta p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .league_list_meta p' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'list_content_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .league_list_meta p' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -511,7 +462,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'list_content_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .player_list_meta p',
+				'selector' => '{{WRAPPER}} .league_list_meta p',
 			]
 		);
 		
@@ -520,7 +471,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_content_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player_list_meta p',
+				'selector' => '{{WRAPPER}} .league_list_meta p',
 			]
 		);
 		
@@ -531,7 +482,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_list_meta p' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .league_list_meta p' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -542,7 +493,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_content_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player_list_meta p',
+				'selector' => '{{WRAPPER}} .league_list_meta p',
 			]
 		);
 		
@@ -553,7 +504,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_list_meta p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .league_list_meta p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -565,7 +516,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_list_meta p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .league_list_meta p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -574,7 +525,7 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		//========== List Image
 		$this->start_controls_section(
-			'sp_player_list_image',
+			'sp_league_list_image',
 			[
 				'label' => __( 'Featured Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -587,7 +538,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'list_image_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .player_list_meta .post_image',
+				'selector' => '{{WRAPPER}} .league_list_meta .post_image',
 			]
 		);
 		
@@ -596,7 +547,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_image_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player_list_meta .post_image',
+				'selector' => '{{WRAPPER}} .league_list_meta .post_image',
 			]
 		);
 		
@@ -607,7 +558,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_list_meta .post_image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .league_list_meta .post_image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -618,7 +569,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'list_image_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player_list_meta .post_image',
+				'selector' => '{{WRAPPER}} .league_list_meta .post_image',
 			]
 		);
 		
@@ -629,7 +580,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_list_meta .post_image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .league_list_meta .post_image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -641,16 +592,16 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player_list_meta .post_image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .league_list_meta .post_image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
-		$this->end_controls_section();
-
-		//========== Player Table
+        $this->end_controls_section();
+		
+        //========== Leau Table
 		$this->start_controls_section(
-			'sp_player_table',
+			'sp_league_table',
 			[
 				'label' => __( 'Table', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -665,7 +616,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'table_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-list-table',
+				'selector' => '{{WRAPPER}} .sk-league-table',
 			]
 		);
 		
@@ -674,7 +625,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-list-table',
+				'selector' => '{{WRAPPER}} .sk-league-table',
 			]
 		);
 		
@@ -685,7 +636,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -696,7 +647,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-list-table',
+				'selector' => '{{WRAPPER}} .sk-league-table',
 			]
 		);
 		
@@ -707,7 +658,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -719,17 +670,16 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 
         $this->end_controls_section();
-
-		
-		//==========Table heading settings
+        
+        //==========Table heading settings
 		$this->start_controls_section(
-			'sp_player_table_head',
+			'sp_league_table_head',
 			[
 				'label' => __( 'Table Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -743,7 +693,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'table_heading_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-player-list-table th',
+				'selector' => '{{WRAPPER}} .sk-league-table th',
 			]
 		);
 		
@@ -754,11 +704,29 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-list-table th' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sk-league-table th' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'table_heading_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .sk-league-table th' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -769,7 +737,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'table_heading_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-list-table th',
+				'selector' => '{{WRAPPER}} .sk-league-table th',
 			]
 		);
 		
@@ -778,7 +746,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_heading_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-list-table th',
+				'selector' => '{{WRAPPER}} .sk-league-table th',
 			]
 		);
 		
@@ -790,7 +758,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table th' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table th' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -801,7 +769,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_heading_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-list-table th',
+				'selector' => '{{WRAPPER}} .sk-league-table th',
 			]
 		);
 		
@@ -812,7 +780,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -823,7 +791,7 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		//==========Table column settings
 		$this->start_controls_section(
-			'sp_player_table_column',
+			'sp_league_table_column',
 			[
 				'label' => __( 'Table Column', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -836,7 +804,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'table_column_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-player-list-table td',
+				'selector' => '{{WRAPPER}} .sk-league-table td',
 			]
 		);
 		
@@ -847,11 +815,29 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-list-table td' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sk-league-table td' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'table_column_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .sk-league-table td' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -862,7 +848,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'table_column_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-list-table td',
+				'selector' => '{{WRAPPER}} .sk-league-table td',
 			]
 		);
 		
@@ -871,7 +857,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_column_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-list-table td',
+				'selector' => '{{WRAPPER}} .sk-league-table td',
 			]
 		);
 		
@@ -882,7 +868,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table td' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table td' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -899,7 +885,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_column_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-list-table td',
+				'selector' => '{{WRAPPER}} .sk-league-table td',
 			]
 		);
 
@@ -912,18 +898,18 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sk-league-table td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 		
 		$this->end_controls_section();
 
-		//========== Player Icon
+		//========== League Icon
 		$this->start_controls_section(
-			'sp_player_icon',
+			'sp_league_icon',
 			[
-				'label' => __( 'Player Image', 'skyre' ),
+				'label' => __( 'Team logo', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -936,7 +922,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'name' => 'icon_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .player-photo',
+				'selector' => '{{WRAPPER}} .team-logo',
 			]
 		);
 		
@@ -945,7 +931,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'icon_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player-photo',
+				'selector' => '{{WRAPPER}} .team-logo',
 			]
 		);
 		
@@ -956,7 +942,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player-photo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .team-logo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -967,7 +953,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'name' => 'icon_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .player-photo',
+				'selector' => '{{WRAPPER}} .team-logo',
 			]
 		);
 		
@@ -978,7 +964,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player-photo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .team-logo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -990,7 +976,7 @@ class spPlayers extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .player-photo' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .team-logo' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1000,7 +986,7 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		//==========view all button
 		$this->start_controls_section(
-			'sp_player_view_all',
+			'sp_league_view_all',
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -1029,6 +1015,24 @@ class spPlayers extends \Elementor\Widget_Base {
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+			]
+		);
+
+		$this->add_control(
+			'view_all_button_align',
+			[
+				'label' => __( 'Text alignment', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' => 'None',
+					'left' => 'Left',
+					'right' => 'Right',
+					'center' => 'Center',
+				],
+				'default' => 'none',
+				'selectors' => [
+					'{{WRAPPER}} .sk-sp-view-all-link' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1124,106 +1128,6 @@ class spPlayers extends \Elementor\Widget_Base {
 
 		$this->end_controls_section();
 
-		//==========Pagination
-		$this->start_controls_section(
-			'sp_player_paginate',
-			[
-				'label' => __( 'Pagination', 'skyre' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'paginate_button_typo',
-				'label' => __( 'Typography', 'skyre' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_color',
-			[
-				'label' => __( 'Text Color', 'skyre' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'color: {{VALUE}};',
-				],
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'paginate_button_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'paginate_button_border',
-				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'paginate_button_box_shadow',
-				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_margin',
-			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		
 		
 		
 		
@@ -1245,37 +1149,40 @@ class spPlayers extends \Elementor\Widget_Base {
 		$titlesize  = empty($settings['title_size']) ? 'h3' : $settings['title_size'];
 		$number = empty($settings['limit']) ? '0' : $settings['limit'];
 		$columns = empty($settings['widget_columns']) ? null : $settings['widget_columns'];
-		$orderby = empty($settings['order_by']) ? 'default' : $settings['order_by'];
+		//$orderby = empty($settings['order_by']) ? 'default' : $settings['order_by'];
 		$order = empty($settings['sort_order']) ? 'ASC' : $settings['sort_order'];
-		$show_all_players_link = empty($settings['show_link']) ? false : $settings['show_link'];
-		$grouping = empty($settings['group_by']) ? null : $settings['group_by'];
+        $show_full_table_link = empty($settings['show_link']) ? false : $settings['show_link'];
+        
+		
+
 		//widge settings - ws
 		$ws['attr'] = $settings['list_attr'];
 		
 		foreach($columns as $column){
 			if(isset($column['column_id']) && $column['column_id'] !='') {
-				$columFields[]=$this->get_colum_name($column['column_id']);
+				$columFields[]=$this->get_colum_id($column['column_id']);
 			}
-			}
+            }
+            
 		if ( $id > 0 ) {
 		//print_r($settings['widget_title']);
 		
 		$post = get_post( $id );
 		
-		echo  '<div class="player_list_meta"> ';
+		echo  '<div class="league_list_meta"> ';
 		if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
 		if ( in_array( 'content', $settings['list_attr'] )) { echo '<p>'. $post->post_content.'</p>'; }
 		if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
 		
 		
 		echo  '</div> ';
-		sp_get_template( 'player-list.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby, 'order' => $order, 'grouping' => $grouping, 'show_all_players_link' => $show_all_players_link ) );
-		//sp_get_template( 'player-gallery.php', array( 'id' => $id, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby , 'order' => $order, 'grouping' => 0, 'show_all_players_link' => $show_all_players_link ) );
-		
+		//sp_get_template( 'event-list.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
+        sp_get_template( 'league-table.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'show_full_table_link' => $show_full_table_link ) );
+
 		
          
 		}
-		else { echo 'Plase select a Player List';}
+		else { echo 'Plase select a League List';}
 		
 	}
 

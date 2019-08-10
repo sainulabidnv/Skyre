@@ -86,6 +86,7 @@ class spEvents extends \Elementor\Widget_Base {
 		$time_format = get_option( 'sportspress_event_list_time_format', 'combined' );
 		$the_columns = array();
 		$the_columns['event'] = __( 'Event', 'skyre' );
+		$the_columns['date'] = __( 'Date', 'skyre' );
 
 		if ( 'combined' === $time_format ) {
 
@@ -355,6 +356,7 @@ class spEvents extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
+					[ 'column_id' => __( 'date', 'skyre' ), ],
 					[ 'column_id' => __( 'venue', 'skyre' ), ],
 					[ 'column_id' => __( 'event', 'skyre' ), ],
 					[ 'column_id' => __( 'time', 'skyre' ), ],
@@ -682,6 +684,85 @@ class spEvents extends \Elementor\Widget_Base {
 		);
 
         $this->end_controls_section();
+		
+		//========== Event Table
+		$this->start_controls_section(
+			'sp_event_table',
+			[
+				'label' => __( 'Table', 'skyre' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		
+		
+		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'table_background',
+				'label' => __( 'Background', 'skyre' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .sk-event-list-table',
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'table_border',
+				'label' => __( 'Border', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sk-event-list-table',
+			]
+		);
+		
+		$this->add_control(
+			'table_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sk-event-list-table' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'table_box_shadow',
+				'label' => __( 'Box Shadow', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sk-event-list-table',
+			]
+		);
+		
+		$this->add_control(
+			'table_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sk-event-list-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		$this->add_control(
+			'table_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sk-event-list-table' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+        $this->end_controls_section();
+		
 		
 		//==========Table heading settings
 		$this->start_controls_section(
