@@ -148,6 +148,7 @@ class Plugin {
 		require_once( __DIR__ . '/ewidgets/sportspress/sp-event-list.php' );
 		require_once( __DIR__ . '/ewidgets/sportspress/sp-event-block.php' );
 		require_once( __DIR__ . '/ewidgets/sportspress/sp-league-list.php' );
+		require_once( __DIR__ . '/ewidgets/sportspress/sk-status.php' );
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayers() );
@@ -155,6 +156,8 @@ class Plugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spEvents() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spEventBlock() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spLeagueList() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spCountDown() );
+		
 		
 		
 	}

@@ -39,6 +39,10 @@
 .sk-player-grid .player-rank { position: absolute; left:0; bottom: 0;}
 /*.sk-player-grid .player-colum, .sk-player-grid .player-name, .sk-player-grid .player-team { padding: 0 15px;}*/
 
+.sp-count-down .team-logo { float: left; width:20%; }
+.sp-count-down .logo-even { float: right; }
+
+
 
 
 

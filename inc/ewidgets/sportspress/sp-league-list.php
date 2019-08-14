@@ -59,7 +59,12 @@ class spLeagueList extends \Elementor\Widget_Base {
 		return 'skyre-sp-league';
 	}
 
-	
+	  /**
+	 * League List
+	 *
+	 * @return string
+	 */
+
 	protected function get_league_list(){
 	
       $args = array('post_type' => 'sp_table', 'posts_per_page' => -1);
@@ -75,8 +80,8 @@ class spLeagueList extends \Elementor\Widget_Base {
 		else{
 			(int)$catlist['0'] = esc_html__('No event list found', 'skyre');
 		}
-	  return $catlist;
-	  }
+	  	return $catlist;
+	}
 	  
 	  /**
 	 * Column name.

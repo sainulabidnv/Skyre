@@ -1,4 +1,11 @@
 <?php
+/**
+ * Status widget for Elementor builder
+ *
+ * @link       https://skyresoft.com
+ * @since      1.0.0
+ *
+ */
 namespace ewidget\Widgets;
 
 use Elementor\Widget_Base;
@@ -41,7 +48,7 @@ class icostatus extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Time Status', 'skyre' );
+		return __( 'Count Down', 'skyre' );
 	}
 
 	/**
