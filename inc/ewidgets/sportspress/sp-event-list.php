@@ -374,6 +374,9 @@ class spEvents extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event.widget_title!' => '',
+				],
 			]
 		);
 		
@@ -385,6 +388,32 @@ class spEvents extends \Elementor\Widget_Base {
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .sp-list-title',
 				'default' => '',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'list_heading_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sp-list-title' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -404,25 +433,6 @@ class spEvents extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'list_heading_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default' => 'none',
-				'selectors' => [
-					'{{WRAPPER}} .sp-list-title' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-		
-		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -496,6 +506,9 @@ class spEvents extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event.list_attr' => 'content',
+				],
 			]
 		);
 		
@@ -509,6 +522,32 @@ class spEvents extends \Elementor\Widget_Base {
 			]
 		);
 		
+		// alignment.
+		$this->add_responsive_control(
+			'list_content_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .event_list_meta p' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'list_content_color',
 			[
@@ -524,24 +563,6 @@ class spEvents extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'list_content_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default' => 'none',
-				'selectors' => [
-					'{{WRAPPER}} .event_list_meta p' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -615,6 +636,9 @@ class spEvents extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Featured Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event.list_attr' => 'image',
+				],
 			]
 		);
 		
@@ -783,6 +807,32 @@ class spEvents extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .sk-event-list-table th',
 			]
 		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'table_heading_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-event-list-table th' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 		
 		$this->add_control(
 			'table_heading_color',
@@ -800,24 +850,7 @@ class spEvents extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'table_heading_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default' => 'none',
-				'selectors' => [
-					'{{WRAPPER}} .sk-event-list-table th' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-		
+
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -894,6 +927,32 @@ class spEvents extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .sk-event-list-table td',
 			]
 		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'table_column_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-event-list-table td' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 		
 		$this->add_control(
 			'table_column_color',
@@ -911,24 +970,6 @@ class spEvents extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'table_column_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default' => 'none',
-				'selectors' => [
-					'{{WRAPPER}} .sk-event-list-table td' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -998,6 +1039,9 @@ class spEvents extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Team logo', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event.list_attr' => 'logo',
+				],
 			]
 		);
 		
@@ -1077,6 +1121,9 @@ class spEvents extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event.show_link' => 'yes',
+				],
 			]
 		);
 		

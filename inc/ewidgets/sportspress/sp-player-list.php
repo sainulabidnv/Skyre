@@ -185,29 +185,6 @@ class spPlayers extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'layout',
-			[
-				'label' => __( 'Layout', 'skyre' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'traditional',
-				'options' => [
-					'traditional' => [
-						'title' => __( 'Default', 'skyre' ),
-						'icon' => 'fa fa-road',
-					],
-					'owal' => [
-						'title' => __( 'Owal', 'skyre' ),
-						'icon' => 'fa fa-ellipsis-h',
-					],
-				],
-				'render_type' => 'template',
-				'classes' => 'elementor-control-start-end',
-				'label_block' => false,
-				'style_transfer' => true,
-			]
-		);
-		
-		$this->add_control(
 			'widget_title', [
 				'label' => __( 'Title', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
@@ -374,6 +351,9 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_player.widget_title!' => '',
+				],
 			]
 		);
 		
@@ -385,6 +365,32 @@ class spPlayers extends \Elementor\Widget_Base {
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .sp-list-title',
 				'default' => '',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'list_heading_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sp-list-title' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -477,6 +483,9 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_player.list_attr' => 'content',
+				],
 			]
 		);
 		
@@ -487,6 +496,32 @@ class spPlayers extends \Elementor\Widget_Base {
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .player_list_meta p',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'list_content_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .player_list_meta p' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -746,6 +781,32 @@ class spPlayers extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .sk-player-list-table th',
 			]
 		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'table_heading_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-player-list-table th' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 		
 		$this->add_control(
 			'table_heading_color',
@@ -839,6 +900,32 @@ class spPlayers extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .sk-player-list-table td',
 			]
 		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'table_column_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-player-list-table td' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 		
 		$this->add_control(
 			'table_column_color',
@@ -925,6 +1012,9 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Player Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_player.list_attr' => 'photo',
+				],
 			]
 		);
 		
@@ -1004,6 +1094,9 @@ class spPlayers extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_player.show_link' => 'yes',
+				],
 			]
 		);
 		

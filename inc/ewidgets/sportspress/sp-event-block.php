@@ -370,7 +370,10 @@ class spEventBlock extends \Elementor\Widget_Base {
 			'sp_event_block_heading',
 			[
 				'label' => __( 'Heading', 'skyre' ),
-                'tab' => Controls_Manager::TAB_STYLE,
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event_block.widget_title!' => '',
+				],
 			]
 		);
 		
@@ -493,6 +496,9 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event_block.list_attr' => 'content',
+				],
 			]
 		);
 		
@@ -612,6 +618,9 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Featured Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event_block.list_attr' => 'image',
+				],
 			]
 		);
 		
@@ -1625,6 +1634,9 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Team Logos', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event_block.list_attr' => 'logo',
+				],
 			]
 		);
 		
@@ -1712,6 +1724,9 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_event_block.show_link' => 'yes',
+				],
 			]
 		);
 		

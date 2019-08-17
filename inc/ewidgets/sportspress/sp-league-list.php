@@ -293,6 +293,9 @@ class spLeagueList extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_league.widget_title!' => '',
+				],
 			]
 		);
 		
@@ -415,6 +418,9 @@ class spLeagueList extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_league.list_attr' => 'content',
+				],
 			]
 		);
 		
@@ -534,6 +540,9 @@ class spLeagueList extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Featured Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_league.list_attr' => 'image',
+				],
 			]
 		);
 		
@@ -916,6 +925,9 @@ class spLeagueList extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Team logo', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_league.list_attr' => 'logo',
+				],
 			]
 		);
 		
@@ -995,6 +1007,9 @@ class spLeagueList extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_league.show_link' => 'yes',
+				],
 			]
 		);
 		

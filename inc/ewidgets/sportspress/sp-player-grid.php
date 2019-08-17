@@ -63,7 +63,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	
 	  $args = array('post_type' => 'sp_list', 'posts_per_page' => -1);
 	  
-		$catlist=[];
+		$catlist=[ 1 => __( 'All', 'skyre' ),];
 		
 		if( $categories = get_posts($args)){
 			foreach ( $categories as $category ) {
@@ -183,29 +183,6 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Player List', 'skyre' ),
 			]
 		);
-
-		$this->add_control(
-			'layout',
-			[
-				'label' => __( 'Layout', 'skyre' ),
-				'type' => Controls_Manager::CHOOSE,
-				'default' => 'traditional',
-				'options' => [
-					'traditional' => [
-						'title' => __( 'Default', 'skyre' ),
-						'icon' => 'fa fa-road',
-					],
-					'owal' => [
-						'title' => __( 'Owal', 'skyre' ),
-						'icon' => 'fa fa-ellipsis-h',
-					],
-				],
-				'render_type' => 'template',
-				'classes' => 'elementor-control-start-end',
-				'label_block' => false,
-				'style_transfer' => true,
-			]
-		);
 		
 		$this->add_control(
 			'widget_title', [
@@ -239,9 +216,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_control(
 			'list_id', [
 				'label' => __( 'Select Player List', 'skyre' ),
-				'type' => Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_player_list(),
+				'default' => 1,
 			]
 		);
 		
@@ -265,7 +242,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Number of players to show', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'step' => 1,
-				'default' => 10,
+				'default' => 4,
 			]
 		);
 
@@ -283,8 +260,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_control(
 			'group_by', [
 				'label' => __( 'Group by ', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
 					'position' => __( 'Position', 'skyre' ),
 					'1' => __( 'None', 'skyre' ),
@@ -296,8 +272,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_control(
 			'order_by', [
 				'label' => __( 'Order by', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => $this->get_columns_sort(),
 				'default' => 'default',
 			]
@@ -306,8 +281,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_control(
 			'sort_order', [
 				'label' => __( 'Sort Order', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
 					'ASC'  => __( 'Ascending', 'skyre' ),
 					'DESC'  => __( 'Descending', 'skyre' ),
@@ -342,8 +316,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'column_id', [
 				'label' => __( 'Select Column', 'skyre' ),
-				'type' => Controls_Manager::SELECT2,
-				'multiple' => false,
+				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_columns(),
 			]
 		);
@@ -382,6 +355,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skyre-sp-player.widget_title!' => '',
+				],
 			]
 		);
 		
@@ -393,6 +369,32 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .sp-list-title',
 				'default' => '',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'list_heading_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sp-list-title' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -485,6 +487,10 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skyre-sp-player.list_attr' => 'content',
+				],
+
 			]
 		);
 		
@@ -495,6 +501,32 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .sp-post-content',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'list_content_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sp-post-content' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -586,6 +618,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Featured Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skyre-sp-player.list_attr' => 'image',
+				],
 			]
 		);
 		
@@ -662,6 +697,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Positions Heading', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'section_sp_player.group_by' => 'position',
+				],
 			]
 		);
 		
@@ -675,7 +713,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .position-heading',
 			]
 		);
-		
+
 		$this->add_control(
 			'table_heading_color',
 			[
@@ -878,6 +916,33 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
+
+		// alignment.
+		$this->add_responsive_control(
+			'name_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-player-grid .player-name a, {{WRAPPER}} .sk-player-grid .player-name' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+		
 		$this->add_control(
 			'name_color',
 			[
@@ -997,6 +1062,32 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .sk-player-grid .player-team a, {{WRAPPER}} .sk-player-grid .player-team',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'team_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-player-grid .player-team a, {{WRAPPER}} .sk-player-grid .player-team' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -1122,6 +1213,32 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .sk-player-grid .player-column',
 			]
 		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'more_fields_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-player-grid .player-column' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 		
 		$this->add_control(
 			'more_fields_color',
@@ -1234,6 +1351,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Flag', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skyre-sp-player.list_attr' => 'flag',
+				],
 			]
 		);
 		
@@ -1364,6 +1484,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Rank', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skyre-sp-player.list_attr' => 'rank',
+				],
 			]
 		);
 		
@@ -1522,6 +1645,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'View All Link', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skyre-sp-player.show_link' => 'yes',
+				],
 			]
 		);
 		
@@ -1532,6 +1658,32 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .sk-sp-view-all-link a',
+			]
+		);
+
+		// alignment.
+		$this->add_responsive_control(
+			'view_all_button_alignment',
+			[
+				'label'          =>  __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'selectors'      => [
+					'{{WRAPPER}} .sk-sp-view-all-link a' => 'text-align: {{VALUE}};',
+				],
 			]
 		);
 		
@@ -1641,108 +1793,6 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		//==========Pagination
-		$this->start_controls_section(
-			'sp_player_paginate',
-			[
-				'label' => __( 'Pagination', 'skyre' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'paginate_button_typo',
-				'label' => __( 'Typography', 'skyre' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_color',
-			[
-				'label' => __( 'Text Color', 'skyre' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'color: {{VALUE}};',
-				],
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'paginate_button_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'paginate_button_border',
-				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'paginate_button_box_shadow',
-				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .dataTables_paginate a',
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		$this->add_control(
-			'paginate_button_margin',
-			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .dataTables_paginate a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		
-		
 		
 		
 	}
@@ -1783,7 +1833,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		echo  '<div class="player_grid"> ';
 		if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
-		if ( in_array( 'content', $settings['list_attr'] )) { echo '<p>'. $post->post_content.'</p>'; }
+		if ( in_array( 'content', $settings['list_attr'] )) { echo '<div class="sp-post-content">'. $post->post_content.'</div>'; }
 		if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
 		
 		

@@ -1,4 +1,23 @@
-.skyre-grid:after {
+.skyre-widget-post-left {float: left; width: 30%; padding-right:15px;}
+.skyre-widget-post-right {float: left; width: 68%;}
+
+.skyre-grid-style-list .skyre-widget-post-item { border-bottom: solid 1px #f0efef; margin-bottom:20px; }
+@media (max-width: 767px) { .skyre-widget-post-left, .skyre-widget-post-right{ float: none;width: 100%}  }
+.skyre-grid-title {margin:15px 0 5px; font-size: 20px; font-weight: 400}
+.skyre-grid-addtocart a  { background-color: #23252a; border-radius: 3px; display: inline-block; color: #fff; font-size: 14px; font-weight: 500; padding: 3px 10px; margin:5px 0 }
+.skyre-grid-meta { margin: 5px 0;}
+.skyre-grid-meta span {margin-right:10px;}
+.skyre-grid-meta span i { opacity:.5; margin-right:5px;}
+
+.woocommerce .star-rating { height: 20px;}
+.skyre-grid-price del span { font-size: 75%;}
+.skyre-grid-read-btn a { display: inline-block;}
+.onsale { background-color: #23252a;  border-radius: 3px; color: #fff;  font-size: 14px; font-weight: 500; left: 15px; padding: 0 10px; top: 15px; position: absolute;}
+
+
+
+
+/*.skyre-grid:after {
 	display: block;
 	visibility: hidden;
 	clear: both;
@@ -216,3 +235,4 @@
 		width: 20%;
 	}
 }
+*/

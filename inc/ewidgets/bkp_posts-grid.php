@@ -16,8 +16,6 @@ use Elementor\Scheme_Color;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
 
 
 
@@ -184,9 +182,6 @@ class postsGrid extends \Elementor\Widget_Base {
 		$this->grid_title_style_section();
 		$this->grid_meta_style_section();
 		$this->grid_content_style_section();
-		$this->grid_content_style_button();
-		$this->grid_content_style_addtocartbutton();
-		$this->grid_content_style_sales_label();
 		$this->grid_pagination_style_section();
 	}
 
@@ -273,28 +268,6 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		// Image width.
-		$this->add_control(
-			'grid_image_width',
-			[
-				'label'     => '<i class="fa fa-arrows-h"></i> ' . __( 'Image width', 'skyre' ),
-				'type'      => \Elementor\Controls_Manager::SLIDER,
-				'range'     => [
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'condition' => [
-					'grid_style' => 'list',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .skyre-widget-post-left' => 'width: {{SIZE}}%;',
-					'{{WRAPPER}} .skyre-widget-post-right' => 'width: {{SIZE-100-3}}%;',
-				],
-			]
-		);
-
 		// Items.
 		$this->add_control(
 			'grid_items',
@@ -313,14 +286,14 @@ class postsGrid extends \Elementor\Widget_Base {
 				'type'           => \Elementor\Controls_Manager::SELECT,
 				'label'          => '<i class="fa fa-columns"></i> ' . __( 'Columns', 'skyre' ),
 				'default'        => 3,
-				'tablet_default' => 6,
-				'mobile_default' => 12,
+				'tablet_default' => 2,
+				'mobile_default' => 1,
 				'options'        => [
-					12 => 1,
-					6 => 2,
-					4 => 3,
-					3 => 4,
-					2 => 6,
+					1 => 1,
+					2 => 2,
+					3 => 3,
+					4 => 4,
+					5 => 5,
 				],
 			]
 		);
@@ -413,9 +386,37 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		
+		// Hide image.
+		$this->add_control(
+			'grid_image_hide',
+			[
+				'label'   => '<i class="fa fa-minus-circle"></i> ' . __( 'Hide', 'skyre' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'default' => '',
+			]
+		);
 
-		
+		// Image height.
+		$this->add_control(
+			'grid_image_height',
+			[
+				'label'     => '<i class="fa fa-arrows-h"></i> ' . __( 'Image height', 'skyre' ),
+				'type'      => \Elementor\Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 220,
+				],
+				'range'     => [
+					'px' => [
+						'min'  => 1,
+						'max'  => 1000,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .skyre-grid-col-image' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
 		// Image link.
 		$this->add_control(
@@ -441,7 +442,16 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		
+		// Hide title.
+		$this->add_control(
+			'grid_title_hide',
+			[
+				'label'   => '<i class="fa fa-minus-circle"></i> ' . __( 'Hide', 'skyre' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'default' => '',
+			]
+		);
+
 		// Title tag.
 		$this->add_control(
 			'grid_title_tag',
@@ -487,7 +497,16 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		
+		// Hide content.
+		$this->add_control(
+			'grid_meta_hide',
+			[
+				'label'   => '<i class="fa fa-minus-circle"></i> ' . __( 'Hide', 'skyre' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'default' => '',
+			]
+		);
+
 		// Meta.
 		$this->add_control(
 			'grid_meta_display',
@@ -518,8 +537,6 @@ class postsGrid extends \Elementor\Widget_Base {
 				'condition'   => [
 					'grid_meta_display' => 'category',
 				],
-				
-				
 			]
 		);
 
@@ -560,7 +577,15 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		
+		// Hide content.
+		$this->add_control(
+			'grid_content_hide',
+			[
+				'label'   => '<i class="fa fa-minus-circle"></i> ' . __( 'Hide', 'skyre' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'default' => '',
+			]
+		);
 
 		// Show full content.
 		$this->add_control(
@@ -586,13 +611,24 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		
+		// Price.
+		$this->add_control(
+			'grid_content_price',
+			[
+				'label'     => '<i class="fa fa-usd"></i> ' . __( 'Price', 'skyre' ),
+				'type'      => \Elementor\Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'condition' => [
+					'section_grid.grid_post_type' => 'product',
+				],
+			]
+		);
 
 		// Read more button hide.
 		$this->add_control(
 			'grid_content_default_btn',
 			[
-				'label'     => '<i class="fa fa-check-square"></i> ' . __( 'Read more Button', 'skyre' ),
+				'label'     => '<i class="fa fa-check-square"></i> ' . __( 'Button', 'skyre' ),
 				'type'      => \Elementor\Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				
@@ -629,7 +665,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			'grid_content_sale_btn_text',
 			[
 				'type'        => \Elementor\Controls_Manager::TEXT,
-				'label'       => __( 'Sales Label text', 'skyre' ),
+				'label'       => __( 'Sales Button text', 'skyre' ),
 				'placeholder' => __( 'Sale!', 'skyre' ),
 				'default'     => __( 'Sale!', 'skyre' ),
 				'condition'   => [
@@ -647,6 +683,71 @@ class postsGrid extends \Elementor\Widget_Base {
 				'default'   => '',
 				'condition' => [
 					'section_grid.grid_post_type' => 'product',
+				],
+			]
+		);
+
+		// Button alignment.
+		$this->add_responsive_control(
+			'grid_content_btn_alignment',
+			[
+				'label'          => __( 'Button alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'    => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center'  => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'   => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justified', 'skyre' ),
+						'icon'  => 'fa fa-align-justify',
+					],
+				],
+				'default'        => 'left',
+				'tablet_default' => 'left',
+				'mobile_default' => 'center',
+				'selectors'      => [
+					'{{WRAPPER}} .skyre-grid-footer' => 'text-align: {{VALUE}};',
+				],
+				'condition'      => [
+					'grid_content_btn!' => '',
+				],
+			]
+		);
+
+		// Content alignment.
+		$this->add_responsive_control(
+			'grid_content_alignment',
+			[
+				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'default'        => 'left',
+				'tablet_default' => 'left',
+				'mobile_default' => 'center',
+				'selectors'      => [
+					'{{WRAPPER}} .skyre-grid-col-content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -713,73 +814,46 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		// Content alignment.
-		$this->add_responsive_control(
-			'grid_content_alignment',
-			[
-				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'default'        => 'left',
-				'tablet_default' => 'left',
-				'mobile_default' => 'center',
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-widget-post-item' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
-		
-
-		// Columns padding.
-		$this->add_control(
-			'grid_content_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-widget-post-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-
 		// Columns margin.
-		$this->add_control(
-			'grid_content_margin',
+		$this->add_responsive_control(
+			'grid_style_columns_margin',
 			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-widget-post-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
+				'label'     => __( 'Columns margin', 'skyre' ),
+				'type'      => \Elementor\Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 15,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .skyre-grid-wrapper'   => 'padding-right: calc( {{SIZE}}{{UNIT}} ); padding-left: calc( {{SIZE}}{{UNIT}} );',
+					'{{WRAPPER}} .skyre-grid-container' => 'margin-left: calc( -{{SIZE}}{{UNIT}} ); margin-right: calc( -{{SIZE}}{{UNIT}} );',
+				],
 			]
 		);
 
-		// item padding.
-		$this->add_control(
-			'grid_content_item_padding',
+		// Row margin.
+		$this->add_responsive_control(
+			'grid_style_rows_margin',
 			[
-				'label'      => __( 'Item Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-widget-post-item .post-item-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
+				'label'     => __( 'Rows margin', 'skyre' ),
+				'type'      => \Elementor\Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 30,
+				],
+				'range'     => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .skyre-grid-wrapper' => 'padding-bottom: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -789,7 +863,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			[
 				'name'     => 'grid_style_background',
 				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skyre-widget-post-item .post-item-inner',
+				'selector' => '{{WRAPPER}} .skyre-grid',
 			]
 		);
 
@@ -803,12 +877,27 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
+		
+		
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'grid_items_style_border',
-				'selector' => '{{WRAPPER}} .skyre-widget-post-item .post-item-inner',
+				'selector' => '{{WRAPPER}} .skyre-grid-col',
 				'label' => __( 'Border', 'skyre' ),
+			]
+		);
+
+		// Items internal padding.
+		$this->add_responsive_control(
+			'grid_items_style_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .skyre-grid-col' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -820,7 +909,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .skyre-widget-post-item .post-item-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .skyre-grid-col' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -830,12 +919,20 @@ class postsGrid extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'grid_items_style_box_shadow',
-				'selector'  => '{{WRAPPER}} .skyre-widget-post-item .post-item-inner',
+				'selector'  => '{{WRAPPER}} .skyre-grid-col',
 				'separator' => '',
 			]
 		);
 
-		
+		// Background for items options.
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name'     => 'grid_items_style_background',
+				'types'    => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .skyre-grid-col',
+			]
+		);
 
 		$this->end_controls_section();
 	}
@@ -850,7 +947,9 @@ class postsGrid extends \Elementor\Widget_Base {
 			[
 				'label'     => __( 'Image', 'skyre' ),
 				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
-				
+				'condition' => [
+					'section_grid_image.grid_image_hide' => '',
+				],
 			]
 		);
 
@@ -864,7 +963,9 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .skyre-grid-col-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				
+				'condition'  => [
+					'section_grid_image.grid_image_hide' => '',
+				],
 			]
 		);
 
@@ -875,7 +976,9 @@ class postsGrid extends \Elementor\Widget_Base {
 				'name'      => 'grid_image_style_box_shadow',
 				'selector'  => '{{WRAPPER}} .skyre-grid-col-image',
 				'separator' => '',
-				
+				'condition' => [
+					'section_grid_image.grid_image_hide' => '',
+				],
 			]
 		);
 
@@ -889,7 +992,9 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .skyre-grid-col-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				
+				'condition'  => [
+					'section_grid_image.grid_image_hide' => '',
+				],
 			]
 		);
 
@@ -906,7 +1011,9 @@ class postsGrid extends \Elementor\Widget_Base {
 			[
 				'label'     => __( 'Title', 'skyre' ),
 				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
-				
+				'condition' => [
+					'section_grid_title.grid_title_hide' => '',
+				],
 			]
 		);
 
@@ -916,33 +1023,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			[
 				'name'     => 'grid_title_style_typography',
 				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .skyre-grid-title, {{WRAPPER}} .skyre-grid-title > a',
-			]
-		);
-
-		// Content alignment.
-		$this->add_responsive_control(
-			'grid_title_style_alignment',
-			[
-				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-grid-title a, {{WRAPPER}} .skyre-grid-title' => 'text-align: {{VALUE}};',
-				],
+				'selector' => '{{WRAPPER}} .skyre-grid .entry-title.skyre-grid-title, {{WRAPPER}} .skyre-grid .entry-title.skyre-grid-title > a',
 			]
 		);
 
@@ -957,8 +1038,8 @@ class postsGrid extends \Elementor\Widget_Base {
 					'value' => \Elementor\Scheme_Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-title:hover'       => 'color: {{VALUE}};',
-					'{{WRAPPER}} .skyre-grid-title > a:hover'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid .entry-title.skyre-grid-title:hover'       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid .entry-title.skyre-grid-title > a:hover'   => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -974,8 +1055,8 @@ class postsGrid extends \Elementor\Widget_Base {
 					'value' => \Elementor\Scheme_Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-title'       => 'color: {{VALUE}};',
-					'{{WRAPPER}} .skyre-grid-title > a'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid .entry-title.skyre-grid-title'       => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid .entry-title.skyre-grid-title > a'   => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -993,29 +1074,6 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		// Title margin.
-		$this->add_responsive_control(
-			'grid_title_style_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'grid_title_style_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skyre-grid-title',
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -1029,7 +1087,9 @@ class postsGrid extends \Elementor\Widget_Base {
 			[
 				'label'     => __( 'Meta', 'skyre' ),
 				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
-				
+				'condition' => [
+					'section_grid_meta.grid_meta_hide' => '',
+				],
 			]
 		);
 
@@ -1039,55 +1099,10 @@ class postsGrid extends \Elementor\Widget_Base {
 			[
 				'name'     => 'grid_meta_style_typography',
 				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .skyre-grid-meta, {{WRAPPER}} .skyre-grid-meta  a',
+				'selector' => '{{WRAPPER}} .skyre-grid-meta',
 			]
 		);
 
-		// Content alignment.
-		$this->add_responsive_control(
-			'grid_meta_style_alignment',
-			[
-				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'default'        => 'left',
-				'tablet_default' => 'left',
-				'mobile_default' => 'center',
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-grid-meta a, {{WRAPPER}} .skyre-grid-meta' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
-		// Hover color.
-		$this->add_control(
-			'grid_meta_style_hover_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Hover Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-meta  a:hover'   => 'color: {{VALUE}};',
-				],
-			]
-		);
-		
 		// Meta color.
 		$this->add_control(
 			'grid_meta_style_color',
@@ -1099,8 +1114,9 @@ class postsGrid extends \Elementor\Widget_Base {
 					'value' => \Elementor\Scheme_Color::COLOR_1,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-meta'       => 'color: {{VALUE}};',
-					'{{WRAPPER}} .skyre-grid-meta  a'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-meta'      => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-meta span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-meta a'    => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1115,200 +1131,6 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .skyre-grid-meta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-			]
-		);
-
-		// Meta padding.
-		$this->add_responsive_control(
-			'grid_meta_style_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'grid_meta_style_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skyre-grid-meta',
-			]
-		);
-
-        // Meta margin.
-		$this->add_responsive_control(
-			'grid_meta_itme_style_margin',
-			[
-				'label'      => __( 'Item Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-meta span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		// Meta padding.
-		$this->add_responsive_control(
-			'grid_meta_itme_style_padding',
-			[
-				'label'      => __( 'Item Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-meta span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'grid_meta_itme_style_background',
-				'label' => __( 'Item Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skyre-grid-meta span',
-			]
-		);
-
-        $this->add_control(
-			'grid_meta_itme_style_radius',
-			[
-				'label'      => __( 'Border Radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}}  .skyre-grid-meta span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-
-		$this->end_controls_section();
-
-		//Price section
-		$this->start_controls_section(
-			'section_grid_price_style',
-			[
-				'label'     => __( 'Price', 'skyre' ),
-				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'section_grid.grid_post_type' => 'product',
-				],
-				
-			]
-		);
-
-		// Price typography.
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name'     => 'grid_price_style_typography',
-				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .skyre-grid-price',
-			]
-		);
-
- 
-		// Price alignment.
-		$this->add_responsive_control(
-			'grid_price_style_alignment',
-			[
-				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'default'        => 'left',
-				'tablet_default' => 'left',
-				'mobile_default' => 'center',
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-grid-price' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
-		// Hover color.
-		$this->add_control(
-			'grid_price_style_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Offer Price Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-price del span'       => 'color: {{VALUE}};',
-				],
-			]
-		);
-		
-		// Price color.
-		$this->add_control(
-			'grid_price_style_offer_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-price span'       => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		// Price margin.
-		$this->add_responsive_control(
-			'grid_price_style_margin',
-			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		// Price padding.
-		$this->add_responsive_control(
-			'grid_price_style_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'grid_price_style_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .skyre-grid-price',
 			]
 		);
 
@@ -1335,11 +1157,12 @@ class postsGrid extends \Elementor\Widget_Base {
 				'name'      => 'grid_content_style_typography',
 				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .skyre-grid-content',
-				
+				'condition' => [
+					'section_grid_content.grid_content_hide' => '',
+				],
 			]
 		);
 
-	
 		// Content color.
 		$this->add_control(
 			'grid_content_style_color',
@@ -1353,7 +1176,9 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .skyre-grid-content' => 'color: {{VALUE}};',
 				],
-				
+				'condition' => [
+					'section_grid_content.grid_content_hide' => '',
+				],
 			]
 		);
 
@@ -1367,9 +1192,79 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .skyre-grid-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				
+				'condition'  => [
+					'section_grid_content.grid_content_hide' => '',
+				],
 			]
 		);
+
+		// Heading for price options.
+		$this->add_control(
+			'grid_content_price_style_heading',
+			[
+				'label'     => __( 'Price', 'skyre' ),
+				'type'      => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'section_grid_content.grid_content_price' => 'yes',
+					'section_grid.grid_post_type'             => 'product',
+				],
+			]
+		);
+
+		// Price typography.
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name'      => 'grid_content_price_style_typography',
+				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .skyre-grid-price',
+				'condition' => [
+					'section_grid_content.grid_content_price' => 'yes',
+					'section_grid.grid_post_type'             => 'product',
+				],
+			]
+		);
+
+		// Price color.
+		$this->add_control(
+			'grid_content_price_style_color',
+			[
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'skyre' ),
+				'scheme'    => [
+					'type'  => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .skyre-grid-price' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'section_grid_content.grid_content_price' => 'yes',
+					'section_grid.grid_post_type'             => 'product',
+				],
+			]
+		);
+
+		// Price bottom margin.
+		$this->add_responsive_control(
+			'grid_content_price_style_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .skyre-grid-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition'  => [
+					'section_grid_content.grid_content_price' => 'yes',
+					'section_grid.grid_post_type'             => 'product',
+				],
+			]
+		);
+
+		// Buttons options.
+		$this->grid_content_style_button();
 
 		$this->end_controls_section();
 	}
@@ -1378,54 +1273,30 @@ class postsGrid extends \Elementor\Widget_Base {
 	 * Tabs for the Style > Button section.
 	 */
 	private function grid_content_style_button() {
-		// Tab.
-		$this->start_controls_section(
-			'section_grid_button_style',
+		// Heading for button options.
+		$this->add_control(
+			'grid_button_style_heading',
 			[
-				'label' => __( 'Read More Button', 'skyre' ),
-				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Button', 'skyre' ),
+				'type'      => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
+					'section_grid_content.grid_content_product_btn!' => '',
 				],
 			]
 		);
-		
+
 		// Content typography.
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name'      => 'grid_button_style_typography',
 				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .skyre-grid-read-btn a',
-				
-			]
-		);
-
-		// button alignment.
-		$this->add_responsive_control(
-			'grid_cart_cart_button_style_alignment',
-			[
-				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'default'        => 'left',
-				'tablet_default' => 'left',
-				'mobile_default' => 'center',
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-grid-read-btn' => 'text-align: {{VALUE}};',
+				'selector'  => '{{WRAPPER}} .skyre-grid-footer a',
+				'condition' => [
+					'section_grid_content.grid_content_default_btn!' => '',
+					'section_grid_content.grid_content_product_btn!' => '',
 				],
 			]
 		);
@@ -1456,7 +1327,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				],
 				'separator' => '',
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-read-btn a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-footer a' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1477,7 +1348,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				],
 				'separator' => '',
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-read-btn a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-footer a' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1491,7 +1362,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'grid_button_style_normal_box_shadow',
-				'selector'  => '{{WRAPPER}} .skyre-grid-read-btn a',
+				'selector'  => '{{WRAPPER}} .skyre-grid-footer a',
 				'separator' => '',
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1526,7 +1397,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				],
 				'separator' => '',
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-read-btn a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-footer a:hover' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1547,7 +1418,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				],
 				'separator' => '',
 				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-read-btn a:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .skyre-grid-footer a:hover' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1561,7 +1432,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'grid_button_style_hover_box_shadow',
-				'selector'  => '{{WRAPPER}} .skyre-grid-read-btn a:hover',
+				'selector'  => '{{WRAPPER}} .skyre-grid-footer a:hover',
 				'separator' => '',
 				'condition' => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1582,7 +1453,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-read-btn a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .skyre-grid-footer a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'  => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1599,7 +1470,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-read-btn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .skyre-grid-footer a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition'  => [
 					'section_grid_content.grid_content_default_btn!' => '',
@@ -1607,442 +1478,6 @@ class postsGrid extends \Elementor\Widget_Base {
 				],
 			]
 		);
-
-		$this->add_responsive_control(
-			'grid_button_style_width',
-			[
-				'label'     => __( 'Width', 'skyre' ),
-				'type'      => \Elementor\Controls_Manager::SLIDER,
-				
-				'range'     => [
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-read-btn a'   => 'width: {{SIZE}}%',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
-
-    /**
-	 * Tabs for the Style > Add to Cart Button section.
-	 */
-	private function grid_content_style_addtocartbutton() {
-		// Tab.
-		$this->start_controls_section(
-			'section_grid_cart_button_style',
-			[
-				'label' => __( 'Add to Cart Button', 'skyre' ),
-				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'section_grid_content.grid_content_product_btn!' => '',
-                    'section_grid.grid_post_type' => 'product',
-				],
-			]
-		);
-        
-		// Add to cart button typography.
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name'      => 'grid_cart_button_style_typography',
-				'scheme'    => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .skyre-grid-addtocart  a',
-				
-			]
-		);
-
-		// button alignment.
-		$this->add_responsive_control(
-			'grid_cart_button_style_alignment',
-			[
-				'label'          => '<i class="fa fa-align-right"></i> ' . __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'default'        => 'left',
-				'tablet_default' => 'left',
-				'mobile_default' => 'center',
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-grid-addtocart' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->start_controls_tabs( 'grid_cart_button_style' );
-
-		// Normal tab.
-		$this->start_controls_tab(
-			'grid_cart_button_style_normal',
-			[
-				'label'     => __( 'Normal', 'skyre' ),
-				
-			]
-		);
-
-		// Normal text color.
-		$this->add_control(
-			'grid_cart_button_style_normal_text_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Text Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'separator' => '',
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a' => 'color: {{VALUE}};',
-				],
-				
-			]
-		);
-
-		// Normal background color.
-		$this->add_control(
-			'grid_cart_button_style_normal_bg_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Background Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'separator' => '',
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a' => 'background-color: {{VALUE}};',
-				],
-				
-			]
-		);
-
-		// Normal box shadow.
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name'      => 'grid_cart_button_style_normal_box_shadow',
-				'selector'  => '{{WRAPPER}} .skyre-grid-addtocart  a',
-				'separator' => '',
-				
-			]
-		);
-
-		$this->end_controls_tab();
-
-		// Hover tab.
-		$this->start_controls_tab(
-			'grid_cart_button_style_hover',
-			[
-				'label'     => __( 'Hover', 'skyre' ),
-				
-			]
-		);
-
-		// Hover text color.
-		$this->add_control(
-			'grid_cart_button_style_hover_text_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Text Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'separator' => '',
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a:hover' => 'color: {{VALUE}};',
-				],
-				
-			]
-		);
-
-		// Hover background color.
-		$this->add_control(
-			'grid_cart_button_style_hover_bg_color',
-			[
-				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => __( 'Background Color', 'skyre' ),
-				'scheme'    => [
-					'type'  => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'separator' => '',
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a:hover' => 'background-color: {{VALUE}};',
-				],
-				
-			]
-		);
-
-		// Hover box shadow.
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name'      => 'grid_cart_button_style_hover_box_shadow',
-				'selector'  => '{{WRAPPER}} .skyre-grid-addtocart  a:hover',
-				'separator' => '',
-				
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
-
-		// Button padding.
-		$this->add_control(
-			'grid_cart_button_style_padding',
-			[
-				'label'      => __( 'Button padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-				
-			);
-
-		// Button border radius.
-		$this->add_control(
-			'grid_cart_button_style_border_radius',
-			[
-				'label'      => __( 'Button border radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				
-			]
-		);
-
-		$this->add_responsive_control(
-			'grid_cart_button_style_width',
-			[
-				'label'     => __( 'Width', 'skyre' ),
-				'type'      => \Elementor\Controls_Manager::SLIDER,
-				
-				'range'     => [
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .skyre-grid-addtocart  a'   => 'width: {{SIZE}}%',
-				],
-			]
-		);
-
-
-		$this->end_controls_section();
-	}
-
-	 /**
-	 * Tabs for the Style > Sales label section.
-	 */
-	private function grid_content_style_sales_label() {
-		// Tab.
-		$this->start_controls_section(
-			'section_grid_sales_label_style',
-			[
-				'label' => __( 'Sales Label', 'skyre' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'section_grid_content.grid_content_sale_btn!' => '',
-                    'section_grid.grid_post_type' => 'product',
-				],
-			]
-		);
-		
-		
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'sales_lable_typo',
-				'label' => __( 'Typography', 'skyre' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .onsale ',
-			]
-		);
-		
-		$this->add_control(
-			'sales_lable_color',
-			[
-				'label' => __( 'Text Color', 'skyre' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .onsale ' => 'color: {{VALUE}};',
-				],
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'sales_lable_background',
-				'label' => __( 'Background', 'skyre' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .onsale ',
-			]
-		);
-		
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'sales_lable_border',
-				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .onsale ',
-			]
-		);
-		
-		
-		$this->add_control(
-			'sales_lable_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px','%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .onsale ' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		
-		
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'sales_lable_box_shadow',
-				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .onsale ',
-			]
-		);
-		
-		$this->add_control(
-			'sales_lable_padding',
-			[
-				'label'      => __( 'Padding', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .onsale ' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-
-		$this->add_control(
-			'sales_lable_size',
-			[
-				'label' => __( 'width', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .onsale' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'sales_lable_height',
-			[
-				'label' => __( 'Height', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .onsale' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'sales_lable_horizontal',
-			[
-				'label' => __( 'Horizontal Position', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => -10,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => -10,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .onsale' => 'left: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'sales_lable_vertical',
-			[
-				'label' => __( 'Vertical Position', 'skyre' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => -10,
-						'max' => 500,
-					],
-					'%' => [
-						'min' => -10,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .onsale' => 'top: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-		
-		$this->end_controls_section();
 	}
 
 	/**
@@ -2088,9 +1523,9 @@ class postsGrid extends \Elementor\Widget_Base {
 
 
 		// Output.
-		echo '<div class="skyre-widget-post-container '. ( ! empty( $settings['grid_style'] ) && $settings['grid_style'] == 'list' ? ' skyre-grid-style-' . $settings['grid_style'] : '' ).' ">';
-		echo '<div class="row">';
-		
+		echo '<div class="skyre-grid">';
+		echo '<div class="skyre-grid-container' . ( ! empty( $settings['grid_style'] ) && $settings['grid_style'] == 'list' ? ' skyre-grid-style-' . $settings['grid_style'] : '' ) . ( ! empty( $settings['grid_columns_mobile'] ) ? ' skyre-grid-mobile-' . $settings['grid_columns_mobile'] : '' ) . ( ! empty( $settings['grid_columns_tablet'] ) ? ' skyre-grid-tablet-' . $settings['grid_columns_tablet'] : '' ) . ( ! empty( $settings['grid_columns'] ) ? ' skyre-grid-desktop-' . $settings['grid_columns'] : '' ) . '">';
+
 		// Arguments for query.
 		$args = array();
 
@@ -2185,7 +1620,6 @@ class postsGrid extends \Elementor\Widget_Base {
 
 		// Query.
 		$query = new \WP_Query( $args );
-		
 
 		
 		// Query results.
@@ -2193,55 +1627,31 @@ class postsGrid extends \Elementor\Widget_Base {
 			while ( $query->have_posts() ) {
 				$query->the_post();
 
-				echo '<div class="skyre-widget-post-item '  . ( ! empty( $settings['grid_columns_mobile'] ) ? ' col-xs-' . $settings['grid_columns_mobile'] : '' ) . ( ! empty( $settings['grid_columns_tablet'] ) ? ' col-md-' . $settings['grid_columns_tablet'] : '' ) . ( ! empty( $settings['grid_columns'] ) ? ' col-lg-' . $settings['grid_columns'] : '' ) . '">';
-		
-				echo '<div class="post-item-inner' . ( ! has_post_thumbnail() ? ' skyre-no-image' : '' ) . '">';
-				if($settings['grid_style'] == 'list'){
-					echo '<div class="skyre-widget-post-left">';
-					$this->renderImage(); 
-					echo '</div> <div class="skyre-widget-post-right">';
-					foreach($settings['widget_columns'] as $column){
-						// Title.
-						if($column['column_id'] == 'Title' ) { $this->renderTitle(); continue; }
+				echo '<div class="skyre-grid-wrapper">';
+				echo '<article class="skyre-grid-col' . ( $settings['grid_image_hide'] == 'yes' || ! has_post_thumbnail() ? ' skyre-no-image' : '' ) . '">';
+				foreach($settings['widget_columns'] as $column){
+				
+					// Image.
+					if($column['column_id'] == 'Image' ) { $this->renderImage(); continue; }
 
-						// Meta.
-						if($column['column_id'] == 'Meta' ) { $this->renderMeta(); continue; }
+					//echo '<div class="skyre-grid-col-content">';
+					// Title.
+					if($column['column_id'] == 'Title' ) { $this->renderTitle(); continue; }
 
-						// Content.
-						if($column['column_id'] == 'Content' ) { $this->renderContent(); continue; }
+					// Meta.
+					if($column['column_id'] == 'Meta' ) { $this->renderMeta(); continue; }
 
-						// Price.
-						if ( class_exists( 'WooCommerce' ) && $column['column_id'] == 'Price' ) { $this->renderPrice(); continue; }
+					// Content.
+					if($column['column_id'] == 'Content' ) { $this->renderContent(); continue; }
 
-						// Button.
-						if($column['column_id'] == 'Button' ) { $this->renderButton(); continue; }
-					}
-					echo '</div><div class="clearfix"></div>';
-				} else {
-					foreach($settings['widget_columns'] as $column){
-					
-					
-						// Image.
-						if($column['column_id'] == 'Image' ) { $this->renderImage(); continue; }
+					// Price.
+					if ( class_exists( 'WooCommerce' ) && $column['column_id'] == 'Price' ) { $this->renderPrice(); continue; }
 
-						// Title.
-						if($column['column_id'] == 'Title' ) { $this->renderTitle(); continue; }
-
-						// Meta.
-						if($column['column_id'] == 'Meta' ) { $this->renderMeta(); continue; }
-
-						// Content.
-						if($column['column_id'] == 'Content' ) { $this->renderContent(); continue; }
-
-						// Price.
-						if ( class_exists( 'WooCommerce' ) && $column['column_id'] == 'Price' ) { $this->renderPrice(); continue; }
-
-						// Button.
-						if($column['column_id'] == 'Button' ) { $this->renderButton(); continue; }
-					}
+					// Button.
+					if($column['column_id'] == 'Button' ) { $this->renderButton(); continue; }
 				}
 				//echo '</div><!-- .skyre-grid-col-content -->';
-				echo '</div>';
+				echo '</article>';
 				echo '</div>';
 
 			} // End while().
@@ -2292,14 +1702,25 @@ class postsGrid extends \Elementor\Widget_Base {
 		$settings = $this->get_settings();
 
 		// Only in editor.
-		
-		// Check if post type has featured image.
-		if ( has_post_thumbnail() ) {
+		if ( $settings['grid_image_hide'] !== 'yes' ) {
+			// Check if post type has featured image.
+			if ( has_post_thumbnail() ) {
 
-			if ( $settings['grid_image_link'] == 'yes' ) {
-				?>
-				<div class="skyre-grid-col-image">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				if ( $settings['grid_image_link'] == 'yes' ) {
+					?>
+					<div class="skyre-grid-col-image">
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+							<?php
+							the_post_thumbnail(
+								'full', array(
+									'class' => 'img-responsive',
+									'alt'   => get_the_title( get_post_thumbnail_id() ),
+								)
+							); ?>
+						</a>
+					</div>
+				<?php } else { ?>
+					<div class="skyre-grid-col-image">
 						<?php
 						the_post_thumbnail(
 							'full', array(
@@ -2307,22 +1728,11 @@ class postsGrid extends \Elementor\Widget_Base {
 								'alt'   => get_the_title( get_post_thumbnail_id() ),
 							)
 						); ?>
-					</a>
-				</div>
-			<?php } else { ?>
-				<div class="skyre-grid-col-image">
+					</div>
 					<?php
-					the_post_thumbnail(
-						'full', array(
-							'class' => 'img-responsive',
-							'alt'   => get_the_title( get_post_thumbnail_id() ),
-						)
-					); ?>
-				</div>
-				<?php
+				}
 			}
 		}
-		
 	}
 
 	/**
@@ -2331,19 +1741,19 @@ class postsGrid extends \Elementor\Widget_Base {
 	protected function renderTitle() {
 		$settings = $this->get_settings();
 
-		?>
-		<<?php echo $settings['grid_title_tag']; ?> class=" skyre-grid-title">
-		<?php if ( $settings['grid_title_link'] == 'yes' ) { ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-				<?php the_title(); ?>
-			</a>
+		if ( $settings['grid_title_hide'] !== 'yes' ) { ?>
+			<<?php echo $settings['grid_title_tag']; ?> class="entry-title skyre-grid-title">
+			<?php if ( $settings['grid_title_link'] == 'yes' ) { ?>
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<?php the_title(); ?>
+				</a>
+				<?php
+			} else {
+				the_title();
+			} ?>
+			</<?php echo $settings['grid_title_tag']; ?>>
 			<?php
-		} else {
-			the_title();
-		} ?>
-		</<?php echo $settings['grid_title_tag']; ?>>
-		<?php
-		
+		}
 	}
 
 	/**
@@ -2351,73 +1761,64 @@ class postsGrid extends \Elementor\Widget_Base {
 	 */
 	protected function renderMeta() {
 		$settings = $this->get_settings();
-		
-		if ( ! empty( $settings['grid_meta_display'] ) ) { ?>
-			<div class="entry-meta skyre-grid-meta">
 
-				<?php
-				foreach ( $settings['grid_meta_display'] as $meta ) {
+		if ( $settings['grid_meta_hide'] !== 'yes' ) {
+			if ( ! empty( $settings['grid_meta_display'] ) ) { ?>
+				<div class="entry-meta skyre-grid-meta">
 
-					switch ( $meta ) :
-						// Author
-						case 'author': ?>
-							<span class="skyre-grid-author">
+					<?php
+					foreach ( $settings['grid_meta_display'] as $meta ) {
+
+						switch ( $meta ) :
+							// Author
+							case 'author': ?>
+								<span class="skyre-grid-author">
+									<?php
+									echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-user"></i>' : '';
+
+									echo get_the_author(); ?>
+								</span>
 								<?php
-								echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-user"></i>' : '';
-
-								echo get_the_author(); ?>
-							</span>
-							<?php
-							// Date
-							break;
-						case 'date': ?>
-							<span class="skyre-grid-date">
+								// Date
+								break;
+							case 'date': ?>
+								<span class="skyre-grid-date">
+									<?php
+									echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-calendar"></i>' : '';
+									echo get_the_date(); ?>
+								</span>
 								<?php
-								echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-calendar"></i>' : '';
-								echo get_the_date(); ?>
-							</span>
-							<?php
-							// Category
-							break;
-						case 'category':
-							$this->renderMetaGridCategories();
+								// Category
+								break;
+							case 'category':
+								$this->renderMetaGridCategories();
 
-							// Tags
-							break;
-						case 'tags':
-							$this->renderMetaGridTags();
+								// Tags
+								break;
+							case 'tags':
+								$this->renderMetaGridTags();
 
-							// Comments/Reviews
-							break;
-						case 'comments': ?>
-							
-								<?php
-								
-
-								if ( $settings['grid_post_type'] == 'product' ) {
-									$product  = wc_get_product( get_the_ID() );
-?>
-									<span class="woocommerce">
-										<?php if ($average = $product->get_average_rating()) : ?>
-										<?php echo '<span class="star-rating" title="'.sprintf(__( 'Rated %s out of 5', 'woocommerce' ), $average).'"><span style="width:'.( ( $average / 5 ) * 100 ) . '%">  &nbsp;</span> </span>'; ?>
-										<?php endif; ?>
-								</span> 
-<?php
-									//echo comments_number( __( 'No reviews', 'skyre' ), __( '1 review', 'skyre' ), __( '% reviews', 'skyre' ) );
-								} else {
-									echo '<span class="skyre-grid-comments">';
+								// Comments/Reviews
+								break;
+							case 'comments': ?>
+								<span class="skyre-grid-comments">
+									<?php
 									echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-comment"></i>' : '';
-									echo comments_number( __( 'No comments', 'skyre' ), __( '1 comment', 'skyre' ), __( '% comments', 'skyre' ) );
-									echo '</span>';
-								} ?>
-							
-							<?php
-							break;
-					endswitch;
-				} // End foreach().?>
 
-			</div>
-			<?php
+									if ( $settings['grid_post_type'] == 'product' ) {
+										echo comments_number( __( 'No reviews', 'skyre' ), __( '1 review', 'skyre' ), __( '% reviews', 'skyre' ) );
+									} else {
+										echo comments_number( __( 'No comments', 'skyre' ), __( '1 comment', 'skyre' ), __( '% comments', 'skyre' ) );
+									} ?>
+								</span>
+								<?php
+								break;
+						endswitch;
+					} // End foreach().?>
+
+				</div>
+				<?php
+			}// End if().
 		}// End if().
 	}
 
@@ -2433,7 +1834,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		$settings = $this->get_settings();
 		$product  = wc_get_product( get_the_ID() );
 
-		if ( $settings['grid_post_type'] == 'product')  { ?>
+		if ( $settings['grid_post_type'] == 'product' && $settings['grid_content_price'] == 'yes' ) { ?>
 			<div class="skyre-grid-price">
 				<?php
 				$price = $product->get_price_html();
@@ -2498,21 +1899,21 @@ class postsGrid extends \Elementor\Widget_Base {
 	 */
 	protected function renderContent() {
 		$settings = $this->get_settings();
-		 ?>
-		<div class="entry-content skyre-grid-content">
-			<?php
-			if( $settings['grid_content_full_post'] === 'yes' ) {
-				the_content();
-			} else {
-				if ( empty( $settings['grid_content_length'] ) ) {
-					the_excerpt();
+		if ( $settings['grid_content_hide'] !== 'yes' ) { ?>
+			<div class="entry-content skyre-grid-content">
+				<?php
+				if( $settings['grid_content_full_post'] === 'yes' ) {
+					the_content();
 				} else {
-					echo wp_trim_words( get_the_excerpt(), $settings['grid_content_length'] );
-				}
-			}?>
-		</div>
-		<?php
-		
+					if ( empty( $settings['grid_content_length'] ) ) {
+						the_excerpt();
+					} else {
+						echo wp_trim_words( get_the_excerpt(), $settings['grid_content_length'] );
+					}
+				}?>
+			</div>
+			<?php
+		}
 	}
 
 	/**
@@ -2521,15 +1922,14 @@ class postsGrid extends \Elementor\Widget_Base {
 	protected function renderButton() {
 		$settings = $this->get_settings();
 
-		$this->renderSaleButton();
-
 		if ( $settings['grid_post_type'] == 'product' && $settings['grid_content_product_btn'] == 'yes' ) { ?>
-			<div class="skyre-grid-addtocart ">
+			<?php $this->renderSaleButton(); ?>
+			<div class="skyre-grid-footer">
 				<?php $this->renderAddToCart(); ?>
 			</div>
 		<?php }
 		if ( $settings['grid_content_default_btn'] == 'yes' && ! empty( $settings['grid_content_default_btn_text'] ) ) { ?>
-			<div class="skyre-grid-read-btn">
+			<div class="skyre-grid-footer">
 				<a href="<?php echo get_the_permalink(); ?>"
 				   title="<?php echo $settings['grid_content_default_btn_text']; ?>"><?php echo $settings['grid_content_default_btn_text']; ?></a>
 			</div>
@@ -2542,16 +1942,8 @@ class postsGrid extends \Elementor\Widget_Base {
 	 */
 	protected function renderMetaGridCategories() {
 		$settings           = $this->get_settings();
-		 
-		 
-		 if ( $settings['grid_post_type'] == 'product'){
-			$pid = get_the_ID();
-		 	$post_type_category = get_the_terms ( $pid, 'product_cat' );
-		 }else { $post_type_category = get_the_category(); }
-		
-		//print_r( $terms);
-		
-		 $maxCategories      = $settings['grid_meta_categories_max'] ? $settings['grid_meta_categories_max'] : '-1';
+		$post_type_category = get_the_category();
+		$maxCategories      = $settings['grid_meta_categories_max'] ? $settings['grid_meta_categories_max'] : '-1';
 		$i                  = 0; // counter
 
 		if ( $post_type_category ) { ?>
@@ -2582,15 +1974,10 @@ class postsGrid extends \Elementor\Widget_Base {
 	 */
 	protected function renderMetaGridTags() {
 		$settings       = $this->get_settings();
-		
-		if ( $settings['grid_post_type'] == 'product'){
-			$pid = get_the_ID();
-		 	$post_type_tags = get_the_terms ( $pid, 'product_tag' );
-		 }else { $post_type_tags = get_the_tags(); }
-		
-
+		$post_type_tags = get_the_tags();
 		$maxTags        = $settings['grid_meta_tags_max'] ? $settings['grid_meta_tags_max'] : '-1';
 		$i              = 0; // counter
+
 		if ( $post_type_tags ) { ?>
 			<span class="skyre-grid-tags">
 				<?php
