@@ -17,9 +17,9 @@ get_header();
 
          <?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { ?>
          
-         <div class="page-title">
+         <div class="page-title skpbg">
             <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
-                <?php the_title('<h1>', '</h1>'); ?>
+                <?php the_title('<h1 class="skwc">', '</h1>'); ?>
             </div>
         </div>
         <?php } ?>

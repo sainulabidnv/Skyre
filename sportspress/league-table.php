@@ -28,7 +28,7 @@ $defaults = array(
 );
 
 extract( $defaults, EXTR_SKIP );
-
+if(isset($ws['table_style'])){ $table_style = $ws['table_style']; } else {$table_style = '';}
 if(!empty($ws)) { 
 	if ( in_array( 'logo', $ws['attr'] )) { $show_team_logo = true; } else {$show_team_logo = false; }
 }
@@ -62,9 +62,9 @@ $output = '';
 if ( $title )
 	$output .= '<h4 class="sp-table-caption">' . $title . '</h4>';
 
-$output .= '<div class="sp-table-wrapper">';
+$output .= '<div class="sp-table-wrapper  table-responsive">';
 
-$output .= '<table class="sp-league-table table sk-league-table sp-data-table' . ( $sortable ? ' sp-sortable-table' : '' ) . ( $responsive ? ' sp-responsive-table '.$identifier : '' ). ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">' . '<thead>' . '<tr>';
+$output .= '<table class="sp-league-table table '.$table_style.' sk-league-table sp-data-table' . ( $sortable ? ' sp-sortable-table' : '' ) . ( $responsive ? ' sp-responsive-table '.$identifier : '' ). ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">' . '<thead>' . '<tr>';
 
 $data = $table->data();
 

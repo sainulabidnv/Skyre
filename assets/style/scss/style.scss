@@ -1,8 +1,8 @@
 /*!
-Template :	CryptICO - Cryptocurrency Landing Page Templates
+Template :	Skyre - Multipurpose wordpress theme
 Author	 :	Sainul
 Version	 :	1.0
-Updated	 :	09.20.2018
+Updated	 :	09.20.2019
 */
 
 /*!
@@ -47,49 +47,71 @@ h3, h4, h5, h6 {
 	font-weight:400;
 	}
 
-a {
+a { 
 	:hover { text-decoration:none;}
 	img:hover { opacity:.8; }
+	
 	}
 img {
 		max-width:100%; height:auto;
 	}
 body { 
-	background: $white; color:$sk-text-color; 
+	background: $white;  
 	}
 .bg-gray { background:rgba($sk-text-color, .50); }
-h1, h2{ color:$sk-text-color; }
-h3,h4,h5,h6{ color:$sk-text-color}
-a { color:$sk-text-color;}
-a:hover, .active a, .current-menu-item a { color:$sk-primary; }
+
+h1, h2, h3,h4,h5,h6, .font-secondary{ color:$sk-primary; font-family:$font-secondary; }
+h1, h2, h3,h4,h5,h6, a{ color:$sk-primary; }
+a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
+.skpbg, a.sksbg:hover, .skpbg5:hover { background-color: $sk-primary; } //Skyre Primary Background
+.sksbg, a.skpbg:hover { background-color: $sk-secondary; } //Skyre Secondary Background
+.sktbg, a.sksbg:hover { background-color: $sk-tertiary; } //Skyre Secondary Background
+.skpbg5 { background-color: rgba($sk-primary,.5); } 
+
+.skpc, a.sksc:hover, .sksc a:hover { color: $sk-primary; } //Skyre Tertiary Color
+.sksc, a.skpc:hover, .skwc a:hover, .skpc a:hover { color: $sk-secondary; } //Skyre Primary Background
+.sktc, a.sksc:hover { color: $sk-tertiary; } //Skyre Tertiary Color Background
+.skwc, .skwc a, a.skpc:hover { color: $white; } //Skyre White Color Background
+.sk-border-15 { border-color: rgba($sk-primary,.15)  } 
+//.sk-border-5 { border-color: rgba($sk-primary,.5) }
+.sk-border { border-color: rgba($sk-primary,1) }
+.sk-light-bg { background-color: rgba($sk-primary, .1) } //Skyre Tertiary Color Background
+.has-fixed{
+	&.navbar { background: $sk-primary;}
+	a:hover { color:$sk-secondary}
+}
+.cssload-loading { 
+	&:after, &:before { border:solid 1px $sk-secondary; }
+}
+.scrollTop {
+	background:rgba($sk-secondary,1);
+	a{
+		color:$white;
+	}
+	&:hover{ background:rgba($sk-tertiary,1);}
+}
+
 
 .large { 
 	font-size:$font-size-base *1.2; font-weight:400
 	}
 .elementor-button.btn-primary { background-color:$primary;}
-/*.btn.btn-skyre, .elementor-widget-button a.elementor-button, .elementor-widget-button .elementor-button { 
-	background:none !important; color:$white; @include border-gradient(#6c57f0,#78e5de);  
-	&:hover { 
-		@include border-gradient(#78e5de, #6c57f0); color:$sk-secondary;  
-		}	
-	}
-*/
+
 .box-shadow { box-shadow: $box-shadow;}
 .skyre-page-header header { background-size: cover; }
 .has-fixed
 	{
-		&.navbar { position: fixed; width: 100%; z-index: 99; top: 0; background: $sk-primary;  }
+		&.navbar { position: fixed; width: 100%; z-index: 99; top: 0;   }
 		a { color:$white}
-		a:hover { color:$sk-secondary}
 		.logo { height:px(40); width:auto;}
 	}
 .bnr-image-wrap.animatedParent, .accordion.animatedParent { overflow:inherit;}
 .page-link, .page-link:hover { background:none; border:none;}
 .page-section, .post-section { padding-top:80px; border-top: solid 1px rgba(255, 255, 255, 0.1);}
-.page-title {  padding:100px 0; background:$sk-primary; ; 
-	h1 { color:$white}
-	}
-.pagination a { padding:10px;}
+.page-title {  padding:100px 0; }
+.skyre-grid-pagination { width:100%;}
+.pagination a, .pagination span, { padding:10px;}
+
 /* 02.0 - Header Section */
 header { position:relative;}
 .mainmenu {
@@ -113,11 +135,11 @@ header { position:relative;}
 	
 	}
 .sk-countdown {
-		padding:20px;  border-radius:3px; background:$sk-primary ;
+		padding:20px;  border-radius:3px; 
 		.sk_status_title, .progress span, .sk-status-desc { color:rgba($white, .9);}
 		
 		}
-.navbar-toggler { background:rgba($sk-secondary, .90); padding: px(2) px(5);}
+.navbar-toggler {  padding: px(2) px(5);}
 .navbar-toggler-icon { background-image: $navbar-dark-toggler-icon-bg; }
 .sk-time { 
 	line-height: 1.3rem; padding: 0.7rem; border-radius: 3px; font-weight: 500; color:$white; background-color:rgba($white, .20); font-size:$font-size-base * 1.63; text-align:center;
@@ -143,7 +165,7 @@ header { position:relative;}
 /* 03.0 - Review Section */
 .review-item { 
 	border:solid px(1) rgba($white,.10); padding:px(15) px(10) 0 ; height:63px; border-radius:px(3);
-	span { color:$sk-primary; font-size: $font-size-base * 1.37; font-weight:500; float:right;}
+	span { font-size: $font-size-base * 1.37; font-weight:500; float:right;}
 	img { width:auto;}
 	}
 
@@ -235,7 +257,7 @@ header { position:relative;}
 	h6{ position:relative;
 		span { position:absolute; z-index:2; right:0;}
 		&::after { 
-			content:"\f106"; font-family: "Font Awesome 5 Free";  position:absolute; right:25px; top:0px; font-size:26px; color:$sk-primary;
+			content:"\f106"; font-family: "Font Awesome 5 Free";  position:absolute; right:25px; top:0px; font-size:26px; 
 		}
 		&.collapsed::after { 
 			content:"\f107"; color:$white;
@@ -244,9 +266,9 @@ header { position:relative;}
 }
 	
 /* 10.0 - Blog Section - frontpage */
-.blog-item { border: solid px(1) rgba($sk-primary, .1); padding:px(16); }
+//.blog-item { border: solid px(1) rgba($sk-primary, .1); padding:px(16); }
 .sk-form { 
-	background:none;border: solid px(1) rgba($sk-primary, .5); font-weight:300; color:rgba($sk-primary, .2);
+	background:none; font-weight:300; 
 	&:focus { background:none;}
 	}
 .social-nav {
@@ -263,10 +285,9 @@ header { position:relative;}
 	}
 
 /* 11.0 - Footer Section*/
-.footer-main {   background:rgba($sk-text-color, 1); color:$white;}
+
 #footer_menu li { list-style:none; padding:px(10) px(20);
-	a{ text-decoration:none; color:$white; }
-	a:hover { color:$sk-secondary;}
+	a:hover { text-decoration:none; }
 
 }
 	
@@ -281,11 +302,10 @@ header { position:relative;}
 	display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around;  z-index:999999; position:relative; padding:0;
 	li { padding: 10px; height: 97px; width: 97px; margin-top: calc(50vh - 50px); position: relative; text-align: center; list-style:none; }
 	}
-.cssload-loading-center {display: inline-block; position: absolute; border:solid 3px $sk-primary; height: 29px; width: 29px; left: 35px; top: 36px; transform: rotate(45deg); border-radius: 50%; animation: pulse 0.8s ease infinite; }
-
+.cssload-loading-center { border:solid 1px rgba($sk-primary, 1); display: inline-block; position: absolute;  height: 29px; width: 29px; left: 35px; top: 36px; transform: rotate(45deg); border-radius: 50%; animation: pulse 0.8s ease infinite; }
 .cssload-loading { 
 	display: inline-block; position: relative; width: 73px; height: 73px; margin-top: 3px; transform: rotate(45deg); 
-	&:after, &:before { position: absolute; content: ''; height: 10px; width: 10px; display: block; top: 0; border:solid 1px $sk-secondary; border-radius: 50%; animation-delay: -.4s; }
+	&:after, &:before { position: absolute; content: ''; height: 10px; width: 10px; display: block; top: 0;  border-radius: 50%; animation-delay: -.4s; }
 	&:after { right: 0; animation: square-tr 2.3s ease infinite; animation-delay: .100s; }
 	&:before { animation: square-tl 2.3s ease infinite; animation-delay: .100s; }
 	&.cssload-two { 
@@ -305,9 +325,9 @@ header { position:relative;}
 @keyframes pulse { 0%, 100% { transform: scale(inherit) rotate(45deg); } 75% { transform: scale(0.25) rotate(45deg); } }  
 
 /* 13.0 - Scrolling to Top */
-.scrollTop { position: fixed; right: 10%; bottom: 10px; background-color:$sk-primary;   opacity: 0; transition: all 0.4s ease-in-out 0s; border-radius:5px;  box-shadow: $box-shadow; }
-.scrollTop a { font-size: px(20);  color:$white; padding: px(10) px(20); display:inline-block; }
-.scrollTop:hover { background-color:$sk-secondary; }
+.scrollTop {  position: fixed; right: 10%; bottom: 10px;   opacity: 0; transition: all 0.4s ease-in-out 0s; border-radius:5px;  box-shadow: $box-shadow; }
+.scrollTop a { font-size: px(20);   padding: px(10) px(20); display:inline-block; }
+
 
 /* 14.0 - Practicles JS override */
 .particles-js { position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 0; }
@@ -528,8 +548,8 @@ header { position:relative;}
 
 /* 17.0 - Widgets/Sidebar */
 
-	.widget-area .widget { border:solid 1px rgba($sk-primary, .15); margin-bottom:30px;}
-	.widget-title { font-size:16px; text-transform:uppercase; font-weight:400; border-bottom:solid 1px rgba($sk-primary, .15); padding:0 15px 15px; margin:0 -20px; }
+	.widget-area .widget { margin-bottom:30px; border-style: solid; border-width: 1px;}
+	.widget-title { font-size:16px; text-transform:uppercase; font-weight:400;  border-bottom-style: solid; border-bottom-width: 1px; padding:0 15px 15px; margin:0 -20px; }
 	.widget-posts { padding:0 15px ;
 		.thumbnail, .info { float:left;}
 		.thumbnail{ width:75px;}
@@ -555,36 +575,34 @@ header { position:relative;}
 /* 18.0 - Blog/Post page */
 
 
-.post-title {  padding:100px 0; background:$sk-primary; ; 
-	h1 { color:$white}
-	}
+.post-title {  padding:100px 0;  }
 .skyre-post-item article {
 	margin-bottom:40px;
 }.entry-title { font-size:24px; font-weight:300; margin-bottom:20px;}
 	.post-image img { max-width:100%; margin-bottom:20px;}
-	.post-meta a{ font-size:14px; color:rgba($sk-primary, .7); margin-bottom:10px; font-style:italic;}
+	.post-meta a{ font-size:14px; opacity:.7; margin-bottom:10px; font-style:italic;}
 	.post-content { 
 		a{ color:$sk-primary; font-size:14px; display:block;}
 	}
 
-.skyre-single { padding-top:80px; border-top:solid 1px rgba($sk-primary, .1); background:rgba($sk-primary, .03);
+.skyre-single { padding-top:80px; border-top-style:solid; border-top-width:1px; background:rgba($sk-primary, .03);
 	h1{ padding-bottom:40px;} 
 	
 	
  }
 .prevnxt_nav {
 	margin:30px auto;
-	.item { border:solid 1px rgba($sk-primary, .1); padding:20px; text-align:center; margin:10px 0 }
+	.item { border-style:solid; border-width: 1px; padding:20px; text-align:center; margin:10px 0 }
 	a { font-size:18px;}
 	}
-.comments-area { margin:30px auto; border:solid 1px rgba($sk-primary, .1);
-	h3 { font-size:18px; border-bottom:solid 1px rgba($sk-primary, .1); padding:10px 0; font-size:300; padding:15px; }
-	.content { padding:20px 0 0 0;  border-bottom:solid 1px rgba($sk-primary, .1); margin-bottom:20px;}
+.comments-area { margin:30px auto; border-style:solid; border-width: 1px ;
+	h3 { font-size:18px; border-bottom-style:solid; border-bottom-width: 1px; padding:10px 0; font-size:300; padding:15px; }
+	.content { padding:20px 0 0 0;  border-bottom-style:solid; border-bottom-width: 1px; border-color:rgba($sk-primary, .1); margin-bottom:20px;}
 	li { list-style:none;}
 }
 .commentlist{ margin:15px;}
-.comment-respond { margin:15px; border:solid 1px rgba($sk-primary, .1);}
-.comment-meta a { color:rgba($sk-primary, .7);  font-size:12px;}
+.comment-respond { margin:15px; border-style:solid; border-width: 1px;;}
+.comment-meta a { font-size:12px;}
 .comment-form { padding:15px;
 	p { margin:15px 0;}
 	.btn-skyre { margin-top:20px;}
@@ -594,6 +612,8 @@ header { position:relative;}
 .avatar-wrap img { max-width:none;}
 .post-video iframe { max-width:100%;}
 
+/* Twitter Feed */
+.SandboxRoot.env-bp-430 .timeline-Tweet-text { font-size:16px !important;}
 
 
 

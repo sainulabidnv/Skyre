@@ -506,7 +506,7 @@ class Widget_Button extends Widget_Base {
 		view.addInlineEditingAttributes( 'text', 'none' );
 		#>
 		<div class="elementor-button-wrapper"> 
-			<a id="{{ settings.button_css_id }}" class="btn elementor-size-{{ settings.size }} elementor-animation-{{ settings.hover_animation }}" href="{{ settings.link.url }}" role="button">
+			<a id="{{ settings.button_css_id }}" class="elementor-button elementor-size-{{ settings.size }} elementor-animation-{{ settings.hover_animation }}" href="{{ settings.link.url }}" role="button">
 				<span class="elementor-button-content-wrapper">
 					<# if ( settings.icon ) { #>
 					<span class="elementor-button-icon elementor-align-icon-{{ settings.icon_align }}">

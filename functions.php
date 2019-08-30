@@ -57,6 +57,10 @@ function skyre_setup() {
 	add_image_size( 'skyre-featured-image', 2000, 1200, true );
 
 	add_image_size( 'skyre-thumbnail-avatar', 100, 100, true );
+
+	add_image_size( 'skyre-player-medium', 220, 250, true );
+
+	add_image_size( 'skyre-player-large', 440, 500, true );
 	
 	add_image_size( 'featuredthumb', 450, 300, true ); 
 	
@@ -180,6 +184,10 @@ function skyre_fonts_url($url='') {
 
 		$font_families[] = 'Roboto:300,300i,400,400i,500,500i';
 
+		//contensed
+		$font_families[] = 'Roboto Condensed:400,700';
+		
+
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
 			'subset' => urlencode( 'latin,latin-ext' ),
@@ -222,9 +230,9 @@ function skyre_widgets_init() {
 		'name'          => __( 'Blog Sidebar', 'skyre' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'skyre' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="sk-border-15 widget  %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget-title sk-border-15">',
 		'after_title'   => '</h2>',
 	) );
 
@@ -232,9 +240,9 @@ function skyre_widgets_init() {
 		'name'          => __( 'Footer 1', 'skyre' ),
 		'id'            => 'sidebar-2',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'skyre' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget-title sk-border-15">',
 		'after_title'   => '</h2>',
 	) );
 
@@ -242,9 +250,9 @@ function skyre_widgets_init() {
 		'name'          => __( 'Footer 2', 'skyre' ),
 		'id'            => 'sidebar-3',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'skyre' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget-title sk-border-15">',
 		'after_title'   => '</h2>',
 	) );
 	
@@ -252,9 +260,9 @@ function skyre_widgets_init() {
 		'name'          => __( 'Footer 3', 'skyre' ),
 		'id'            => 'sidebar-4',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'skyre' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget-title sk-border-15">',
 		'after_title'   => '</h2>',
 	) );
 }
@@ -327,8 +335,7 @@ add_action( 'wp_head', 'skyre_colors_css_wrap' );
  */
 function skyre_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'skyre-Roboto', skyre_fonts_url(), array(), null );
-
+	wp_enqueue_style( 'skyre-google', skyre_fonts_url(), array(), null );
 	// Theme stylesheet.
 	//wp_enqueue_style( 'skyre-style', get_stylesheet_uri() );
 	

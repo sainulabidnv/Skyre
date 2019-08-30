@@ -103,6 +103,8 @@ class Plugin {
 		require_once( __DIR__ . '/ewidgets/sk-slider.php' );
 		require_once( __DIR__ . '/ewidgets/support/class-jet-elements-tools.php' );
 		//require_once( __DIR__ . '/ewidgets/support/class-jet-group-control-box-style.php' );
+		require_once( __DIR__ . '/ewidgets/twitter.php' );
+		
 	}
 
 	/**
@@ -130,6 +132,8 @@ class Plugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Image_Carousel() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Icon_Box() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\skyreSlider() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\SkyreTwitter() );
+		
 		
 	}
 	

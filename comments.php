@@ -22,12 +22,12 @@ if ( post_password_required() ) {
 if(skyre_get_post_option('comment_status') == 1) { return; }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area sk-border-15">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h3 class="comments-title">
+		<h3 class="comments-title sk-border-15">
 			<?php
 			$comments_number = get_comments_number();
 			if ( '1' === $comments_number ) {

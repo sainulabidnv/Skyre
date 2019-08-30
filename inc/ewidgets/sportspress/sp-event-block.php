@@ -159,6 +159,19 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'label_block' => true,
 			]
 		);
+
+		$this->add_control(
+			'widget_style',
+			[
+				'label' => __( 'Style', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => 'None',
+					'1' => 'Style 1',
+				],
+				'default' => '',
+			]
+		);
 		
 		$this->add_control(
 			'title_size',
@@ -179,7 +192,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'default' => 'h3',
 			]
 		);
-		
+
 		$this->add_control(
 			'list_id', [
 				'label' => __( 'Select Event/Calendar ', 'skyre' ),
@@ -209,6 +222,17 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'step' => 1,
 				'default' => 10,
+			]
+		);
+
+		$this->add_control(
+			'widget_columncount', [
+				'label' => __( 'Number of Columns', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::NUMBER,
+				'step' => 1,
+				'default' => 4,
+				'min' => 1,
+				'max' => 12,
 			]
 		);
 
@@ -910,7 +934,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_title_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title a, {{WRAPPER}} .sp-event-blocks .sp-event-title',
+				'selector' => '{{WRAPPER}} .sp-event-title a, {{WRAPPER}} .sp-event-title',
 			]
 		);
 		
@@ -921,7 +945,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-title a, {{WRAPPER}} .sp-event-blocks .sp-event-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-title a, {{WRAPPER}} .sp-event-title' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -943,7 +967,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				],
 				'default'=>'none',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-title' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -954,7 +978,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_title_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title',
+				'selector' => '{{WRAPPER}} .sp-event-title',
 			]
 		);
 		
@@ -963,7 +987,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_title_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title',
+				'selector' => '{{WRAPPER}} .sp-event-title',
 			]
 		);
 		
@@ -975,7 +999,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -986,7 +1010,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_title_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-title',
+				'selector' => '{{WRAPPER}} .sp-event-title',
 			]
 		);
 		
@@ -997,7 +1021,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1009,7 +1033,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1032,7 +1056,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'sp_event_date_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date a, {{WRAPPER}} .sp-event-blocks .sp-event-date',
+				'selector' => '{{WRAPPER}} .sp-event-date a, {{WRAPPER}} .sp-event-date',
 			]
 		);
 		
@@ -1043,7 +1067,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-date a, {{WRAPPER}} .sp-event-blocks .sp-event-date' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-date a, {{WRAPPER}} .sp-event-date' => 'color: {{VALUE}};',
 					
 				],
 				'scheme' => [
@@ -1066,7 +1090,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				],
 				'default' => 'none',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-date' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1077,7 +1101,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'sp_event_date_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date',
+				'selector' => '{{WRAPPER}} .sp-event-date',
 			]
 		);
 		
@@ -1086,7 +1110,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'sp_event_date_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date',
+				'selector' => '{{WRAPPER}} .sp-event-date',
 			]
 		);
 		
@@ -1098,7 +1122,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-date' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1109,7 +1133,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'sp_event_date_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-date',
+				'selector' => '{{WRAPPER}} .sp-event-date',
 			]
 		);
 		
@@ -1120,7 +1144,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-date' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1132,7 +1156,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-date' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-date' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1155,7 +1179,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_time_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
+				'selector' => '{{WRAPPER}} .sp-event-results a, {{WRAPPER}} .sp-event-results.completed a',
 			]
 		);
 		
@@ -1166,7 +1190,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-results a' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1188,7 +1212,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				],
 				'default' => 'none',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-results a' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1199,7 +1223,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_time_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
+				'selector' => '{{WRAPPER}} .sp-event-results a',
 			]
 		);
 		
@@ -1208,7 +1232,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_time_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
+				'selector' => '{{WRAPPER}} .sp-event-results a',
 			]
 		);
 		
@@ -1220,7 +1244,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-results a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1231,7 +1255,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_time_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-results a',
+				'selector' => '{{WRAPPER}} .sp-event-results a',
 			]
 		);
 		
@@ -1242,7 +1266,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-results a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1254,7 +1278,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-results a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-results a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1277,7 +1301,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_venue_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue a, {{WRAPPER}} .sp-event-blocks .sp-event-venue',
+				'selector' => '{{WRAPPER}} .sp-event-venue a, {{WRAPPER}} .sp-event-venue',
 			]
 		);
 		
@@ -1288,7 +1312,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-venue a, {{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-venue a, {{WRAPPER}} .sp-event-venue' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1310,7 +1334,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				],
 				'default'=>'none',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-venue' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1321,7 +1345,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_venue_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue',
+				'selector' => '{{WRAPPER}} .sp-event-venue',
 			]
 		);
 		
@@ -1330,7 +1354,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_venue_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue',
+				'selector' => '{{WRAPPER}} .sp-event-venue',
 			]
 		);
 		
@@ -1342,7 +1366,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-venue' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1353,7 +1377,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_venue_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-venue',
+				'selector' => '{{WRAPPER}} .sp-event-venue',
 			]
 		);
 		
@@ -1364,7 +1388,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-venue' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1376,7 +1400,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-venue' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-venue' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1399,7 +1423,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_league_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league a, {{WRAPPER}} .sp-event-blocks .sp-event-league',
+				'selector' => '{{WRAPPER}} .sp-event-league a, {{WRAPPER}} .sp-event-league',
 			]
 		);
 		
@@ -1410,7 +1434,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-league a, {{WRAPPER}} .sp-event-blocks .sp-event-league' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-league a, {{WRAPPER}} .sp-event-league' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1432,7 +1456,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				],
 				'default'=>'none',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-league' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1443,7 +1467,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_league_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league',
+				'selector' => '{{WRAPPER}} .sp-event-league',
 			]
 		);
 		
@@ -1452,7 +1476,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_league_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league',
+				'selector' => '{{WRAPPER}} .sp-event-league',
 			]
 		);
 		
@@ -1464,7 +1488,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-league' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1475,7 +1499,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_league_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-league',
+				'selector' => '{{WRAPPER}} .sp-event-league',
 			]
 		);
 		
@@ -1486,7 +1510,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-league' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1498,7 +1522,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-league' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-league' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1521,7 +1545,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_match_day_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+				'selector' => '{{WRAPPER}} .sp-event-matchday',
 			]
 		);
 		
@@ -1532,7 +1556,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-matchday' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1554,7 +1578,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				],
 				'default'=>'none',
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sp-event-matchday' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1565,7 +1589,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'event_match_day_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+				'selector' => '{{WRAPPER}} .sp-event-matchday',
 			]
 		);
 		
@@ -1574,7 +1598,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_match_day_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+				'selector' => '{{WRAPPER}} .sp-event-matchday',
 			]
 		);
 		
@@ -1586,7 +1610,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-matchday' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1597,7 +1621,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'event_match_day_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .sp-event-matchday',
+				'selector' => '{{WRAPPER}} .sp-event-matchday',
 			]
 		);
 		
@@ -1608,7 +1632,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-matchday' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1620,7 +1644,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .sp-event-matchday' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-event-matchday' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1646,7 +1670,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'name' => 'logo_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-blocks .team-logo',
+				'selector' => '{{WRAPPER}} .team-logo',
 			]
 		);
 		
@@ -1655,7 +1679,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'logo_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .team-logo',
+				'selector' => '{{WRAPPER}} .team-logo',
 			]
 		);
 		
@@ -1666,7 +1690,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .team-logo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .team-logo' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1677,7 +1701,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			[
 				'name' => 'logo_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-blocks .team-logo',
+				'selector' => '{{WRAPPER}} .team-logo',
 			]
 		);
 		
@@ -1688,7 +1712,19 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-blocks .team-logo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .team-logo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'logo_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px','%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .team-logo' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -1710,7 +1746,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .sp-event-blocks .team-logo' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .team-logo' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1866,15 +1902,17 @@ class spEventBlock extends \Elementor\Widget_Base {
 		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];
+		$style = empty($settings['widget_style']) ? '' : 'event-block-style-'.$settings['list_id'];
+		
 		$title = empty($settings['list_title']) ? null : $settings['list_title'];;
 		$widget_title = empty($settings['widget_title']) ? null : $settings['widget_title'];
 		$titlesize  = empty($settings['title_size']) ? 'h3' : $settings['title_size'];
 		$number = empty($settings['limit']) ? '0' : $settings['limit'];
 		$columns = empty($settings['widget_columns']) ? null : $settings['widget_columns'];
+		$columncount = empty($settings['widget_columncount']) ? null : $settings['widget_columncount'];
 		//$orderby = empty($settings['order_by']) ? 'default' : $settings['order_by'];
 		$order = empty($settings['sort_order']) ? 'ASC' : $settings['sort_order'];
 		$show_all_events_link = empty($settings['show_link']) ? false : $settings['show_link'];
-		//$grouping = empty($settings['group_by']) ? null : $settings['group_by'];
 		
 		$status = empty($settings['status']) ? 'default' : $settings['status'];
 		$date = empty($settings['date']) ? 'default' : $settings['date'];
@@ -1898,18 +1936,14 @@ class spEventBlock extends \Elementor\Widget_Base {
 		
 		$post = get_post( $id );
 		
-		echo  '<div class="event_block_meta"> ';
-		if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
-		if ( in_array( 'content', $settings['list_attr'] )) { echo '<p>'. $post->post_content.'</p>'; }
-		if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
-		
-		
-		echo  '</div> ';
-		//sp_get_template( 'event-blocks.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
-        sp_get_template( 'event-blocks.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
-
-		
-         
+		echo  '<div class="event-block-widget '.$style.'"> ';
+			echo  '<div class="event_block_meta"> ';
+			if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
+			if ( in_array( 'content', $settings['list_attr'] )) { echo '<p>'. $post->post_content.'</p>'; }
+			if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
+			echo  '</div> ';
+			sp_get_template( 'event-blocks.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columncount' =>$columncount, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
+			echo  '</div> ';
 		}
 		else { echo 'Plase select an Event Block';}
 		

@@ -1,6 +1,7 @@
 $fa-font-path:      "../../fonts/fontawesome";
-$sk-primary: 		#30559e;
-$sk-secondary: 		#3babb5;
+$sk-primary: 		#030e20;
+$sk-secondary: 		#d7372b;
+$sk-tertiary: 		#dee003;
 $sk-text-color: 	#50617d;
 $white: 			#fff;
 
@@ -10,11 +11,14 @@ $theme-colors: map-merge(
   (
     "sk-primary":    	$sk-primary,
 	"sk-secondary":  	$sk-secondary, 
-	"sk-text-color":   	$sk-text-color,
+	"sk-tertiary":  	$sk-tertiary,
+	"sk-text-color":   	$sk-primary,
 	"light-10":			rgba($white, .10)), $theme-colors
 );
 
-$font-family-sans-serif:      Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",  "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif:      Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-base:        $font-family-sans-serif !default;
+$font-secondary:      Roboto Condensed;
 $font-weight-base: 300;
 $line-height-base:            1.8 ;
 $font-size-base:              1rem ;

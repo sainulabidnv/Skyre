@@ -48,7 +48,7 @@ class spCountDown extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Count Down Overite', 'skyre' );
+		return __( 'Count Down', 'skyre' );
 	}
 
 	/**
@@ -171,13 +171,13 @@ class spCountDown extends Widget_Base {
 	protected function _register_controls() {
 		
 		$css_scheme = array(
-			'title' 			=> '.sk_event_title a',
+			'title' 			=> '.sk_event_title ',
 			'counter' 				=> '.sk-time',
 			'stage' 			=> '.progress span',
 			'description' 		=> '.sk-event-desc',
             'general' 			=> '.sk-countdown',
             'date' 		=> '.sk-event-date',
-            'venue' 		=> '.sk-event-venue',
+            'venue' 		=> '.sk-event-venue ',
             'league' 		=> '.sk-event-league',
             'logo'          => '.sp-count-down .team-logo'
 			
@@ -254,6 +254,55 @@ class spCountDown extends Widget_Base {
 				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
+				'condition' => [
+					'event_id!' => '1',
+				],
+			)
+		);
+		
+		$this->add_control(
+			'show_team_link',
+			array(
+				'label'        => esc_html__( 'Link to Team/Logo', 'skyre' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
+				'return_value' => 'true',
+				'default'      => 'true',
+				'condition' => [
+					'event_id!' => '1',
+					'show_logos' => 'true',
+				],
+			)
+		);
+
+		$this->add_control(
+			'show_event_link',
+			array(
+				'label'        => esc_html__( 'Link to Event', 'skyre' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
+				'return_value' => 'true',
+				'default'      => 'true',
+				'condition' => [
+					'event_id!' => '1',
+				],
+			)
+		);
+		
+		$this->add_control(
+			'show_venue_link',
+			array(
+				'label'        => esc_html__( 'Link to Venue', 'skyre' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
+				'return_value' => 'true',
+				'default'      => 'true',
+				'condition' => [
+					'event_id!' => '1',
+				],
 			)
         );
         
@@ -547,20 +596,36 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_title_color',
 			array(
-				'label'  => esc_html__( 'Title Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'sk-elements' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} ' . $css_scheme['title'] => 'color: {{VALUE}}',
+					'{{WRAPPER}} ' . $css_scheme['title'].'a, {{WRAPPER}} ' . $css_scheme['title'] => 'color: {{VALUE}}',
 				),
 			)
 		);
+
+		$this->add_control(
+			'status_title_hover_color',
+			array(
+				'label'  => esc_html__( 'Hover Color', 'sk-elements' ),
+				'type'   => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} ' . $css_scheme['title'].'a:hover' => 'color: {{VALUE}}',
+				),
+				'condition' => [
+					'section_content.show_event_link' => 'true',
+				],
+				
+			)
+		);
+		
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'status_title_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
-				'selector' => '{{WRAPPER}} ' . $css_scheme['title'],
+				'selector' => '{{WRAPPER}} ' . $css_scheme['title'].'a, {{WRAPPER}} ' . $css_scheme['title'],
 			)
         );
         
@@ -620,7 +685,7 @@ class spCountDown extends Widget_Base {
 				'name' => 'status_title_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sp-event-title-wrap',
+				'selector' => '{{WRAPPER}} ' . $css_scheme['title'],
 			]
 		);
 		
@@ -629,7 +694,7 @@ class spCountDown extends Widget_Base {
 			[
 				'name' => 'status_title_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-title-wrap',
+				'selector' => '{{WRAPPER}} ' . $css_scheme['title'],
 			]
 		);
 		
@@ -641,7 +706,7 @@ class spCountDown extends Widget_Base {
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sp-event-title-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} ' . $css_scheme['title']=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
@@ -652,7 +717,7 @@ class spCountDown extends Widget_Base {
 			[
 				'name' => 'status_title_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sp-event-title-wrap',
+				'selector' => '{{WRAPPER}} ' . $css_scheme['title'],
 			]
 		);
         
@@ -1148,8 +1213,23 @@ class spCountDown extends Widget_Base {
 				'label'  => esc_html__( 'Color', 'sk-elements' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} ' . $css_scheme['venue'] => 'color: {{VALUE}}',
+					'{{WRAPPER}} ' . $css_scheme['venue'].'a, {{WRAPPER}} ' . $css_scheme['venue'] => 'color: {{VALUE}}',
 				),
+			)
+		);
+
+		$this->add_control(
+			'status_venue_hover_color',
+			array(
+				'label'  => esc_html__( 'Hover Color', 'sk-elements' ),
+				'type'   => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} ' . $css_scheme['venue'].'a:hover' => 'color: {{VALUE}}',
+				),
+				'condition' => [
+					'section_content.show_venue_link' => 'true',
+				],
+				
 			)
 		);
 
@@ -1158,7 +1238,7 @@ class spCountDown extends Widget_Base {
 			array(
 				'name'     => 'status_venue_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
-				'selector' => '{{WRAPPER}} ' . $css_scheme['venue'],
+				'selector' => '{{WRAPPER}} ' . $css_scheme['venue'].'a, {{WRAPPER}} ' . $css_scheme['venue'],
 			)
 		);
 
@@ -1491,7 +1571,11 @@ class spCountDown extends Widget_Base {
         $logos = '';
         $show_logos = empty($settings['show_logos']) ? false : $settings['show_logos'];
         $columns = empty($settings['widget_columns']) ? null : $settings['widget_columns'];
-        $link_teams = false;
+		$link_teams = empty($settings['show_team_link']) ? null : $settings['show_team_link'];
+		$link_venue = empty($settings['show_venue_link']) ? null : $settings['show_venue_link'];
+		$link_event = empty($settings['show_event_link']) ? null : $settings['show_event_link'];
+		
+		
         if($id == 'upcoming')  { $id = $this->get_upcoming_event();}
         $html ='';
 
@@ -1504,9 +1588,12 @@ class spCountDown extends Widget_Base {
         }else {
             $post = get_post( $id );
             
-            $counter = get_the_time( 'Y-m-d', $post );
-            $eventtitle = '<a href="' . get_post_permalink( $post->ID, false, true ) . '">' . $post->post_title . '</a>';;
-            
+			$counter = get_the_time( 'Y-m-d', $post );
+			if ( $link_event ) {
+            	$eventtitle = '<a href="' . get_post_permalink( $post->ID, false, true ) . '">' . $post->post_title . '</a>';
+			}else {
+				$eventtitle =  $post->post_title;
+			}
             if ( $show_logos ) {
 				$teams = array_unique( (array) get_post_meta( $post->ID, 'sp_team' ) );
                 $i = 0;
@@ -1559,11 +1646,15 @@ class spCountDown extends Widget_Base {
             }
             if($column['column_id'] == 'Venue' && $id != 1  ) { 
                 $html .= '<div class="sk-event-venue pt-2 ">';
-                $venues = get_the_terms( $post->ID, 'sp_venue' );
-                if ( $venues ){
+				$venues = get_the_terms( $post->ID, 'sp_venue' );
+				if ( $venues ){
                     $venue_names = array();
                     foreach ( $venues as $venue ) {
-                        $venue_names[] = $venue->name;
+						if ( $link_venue ) {
+							$venue_names[] = '<a href="'.get_term_link( $venue ).'">'.$venue->name.'<a>';
+						}else {
+							$venue_names[] = $venue->name;
+						}
                     }
                     $html .= implode( '/', $venue_names );
 				 }

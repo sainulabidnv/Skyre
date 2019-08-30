@@ -11,9 +11,9 @@
 get_header(); ?>
 
 		<?php if(skyre_get_page_option('title_active') != 1) { ?>
-         <div class="page-title">
+         <div class="page-title skpbg">
             <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
-                <h1>
+                <h1 class="skwc">
 				<?php if ( have_posts() ) : ?>
                         <?php printf( __( 'Search Results for: %s', 'skyre' ), '<span>' . get_search_query() . '</span>' ); ?>
                     <?php else : ?>

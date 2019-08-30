@@ -788,7 +788,7 @@ class icostatus extends Widget_Base {
 		//$this->add_inline_editing_attributes( 'description' );
 		?>
 		<!--sk-countdown--> 
-        <div class="sk-countdown text-center ">
+        <div class="sk-countdown skpbg skwc text-center ">
             <<?php echo $settings['header_size']; ?> class="sk_status_title" ><?php echo $settings['title']; ?></<?php echo $settings['header_size'];?>>
             <div class="countdown my-4">
                 <div class="row" data-date="<?php echo $settings['date']; ?>"> <!--Append timer--></div>

@@ -74,7 +74,22 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			(int)$catlist['0'] = esc_html__('No player list found', 'skyre');
 		}
 	  return $catlist;
-	  }
+	}
+
+	/**
+	 *List default list.
+	 */
+	protected function get_player_list_default(){
+	
+		$args = array('post_type' => 'sp_list', 'numberposts' => 1,);
+		
+		  if( $list = get_posts($args)){
+			 return $list[0]->ID; 
+		  }
+		  else return '';
+		  }
+		  
+	 
 	  
 	  /**
 	 * Column name.
@@ -218,7 +233,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Select Player List', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => $this->get_player_list(),
-				'default' => 1,
+				'default' => $this->get_player_list_default(),
 			]
 		);
 		
@@ -290,7 +305,17 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		
+		$this->add_control(
+			'photo_link',
+			[
+				'label' => __( 'Link on player photo', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'skyre' ),
+				'label_off' => __( 'Hide', 'skyre' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
 		
 		$this->add_control(
 			'show_link',
@@ -300,7 +325,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'label_on' => __( 'Show', 'skyre' ),
 				'label_off' => __( 'Hide', 'skyre' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => '',
 			]
 		);
 		
@@ -321,17 +346,6 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$repeater->add_control(
-			'column_color',
-			[
-				'label' => __( 'Color', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}'
-				],
-			]
-		);
-
 		$this->add_control(
 			'widget_columns',
 			[
@@ -815,14 +829,12 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 		
 		$this->end_controls_section();
-		
-		
-		
-		//========== columns settings
+
+		//========== Clumn settings
 		$this->start_controls_section(
 			'sp_player_grid_column',
 			[
-				'label' => __( 'Columns', 'skyre' ),
+				'label' => __( 'Column', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -833,7 +845,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'name' => 'table_column_background',
 				'label' => __( 'Background', 'skyre' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+				'selector' => '{{WRAPPER}} .sk-player-grid',
 			]
 		);
 		
@@ -842,12 +854,89 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			[
 				'name' => 'table_column_border',
 				'label' => __( 'Border', 'skyre' ),
-				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+				'selector' => '{{WRAPPER}} .sk-player-grid',
 			]
 		);
 		
 		$this->add_control(
 			'table_column_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sk-player-grid' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'table_column_box_shadow',
+				'label' => __( 'Box Shadow', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sk-player-grid',
+			]
+		);
+	
+		
+		$this->add_control(
+			'table_column_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sk-player-grid' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'table_column_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .sk-player-col' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		$this->end_controls_section();
+		
+		//========== Image settings
+		$this->start_controls_section(
+			'sp_player_image_column',
+			[
+				'label' => __( 'Image', 'skyre' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'table_image_background',
+				'label' => __( 'Background', 'skyre' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'table_image_border',
+				'label' => __( 'Border', 'skyre' ),
+				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
+			]
+		);
+		
+		$this->add_control(
+			'table_image_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
@@ -862,7 +951,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'table_column_box_shadow',
+				'name' => 'table_image_box_shadow',
 				'label' => __( 'Box Shadow', 'skyre' ),
 				'selector' => '{{WRAPPER}} .sk-player-grid .player-photo',
 			]
@@ -871,7 +960,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		
 		
 		$this->add_control(
-			'table_column_padding',
+			'table_image_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
@@ -883,7 +972,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'table_column_margin',
+			'table_image_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
@@ -1820,6 +1909,8 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$grouping = empty($settings['group_by']) ? null : $settings['group_by'];
 		//widge settings - ws
 		$ws['attr'] = $settings['list_attr'];
+		$ws['photo_link'] = $settings['photo_link'];
+		
 		
 		foreach($columns as $column){
 			if(isset($column['column_id']) && $column['column_id'] !='') {

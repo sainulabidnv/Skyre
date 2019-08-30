@@ -1,5 +1,15 @@
 <?php 
 //Custom Style Frontend
+function hextorgb($color){
+	if (strpos($color, 'rgba') !== false) {
+		return $color;
+	}
+	
+	$color = substr( $color, 1 );
+	$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+	$rgb =  array_map('hexdec', $hex);
+	return 'rgba('.implode(",",$rgb).', 1)';
+}
 if(!function_exists('skyre_custom_frontend_style')){
     
     function skyre_custom_frontend_style(){
@@ -14,6 +24,38 @@ if(!function_exists('skyre_custom_frontend_style')){
 		if(skyre_get_option('bodybg_image') || skyre_get_option('bodybg_color')){
 			$style_css .= 'body {  background: url('.wp_get_attachment_image_url( skyre_get_option("bodybg_image"),"full").') '.skyre_get_option("bodybg_repeat").' '.skyre_get_option("bodybg_color").' '.skyre_get_option("body_bg_position").'; background-size: '.skyre_get_option("bodybg_size").'; }';
 		}
+		//Primary Color
+		if(skyre_get_option('primary_color') ){
+			$color = hextorgb(skyre_get_option("primary_color"));
+			$larray = explode(",", $color);
+			$light = $larray[0].','.$larray[1].','.$larray[2].',.15)';
+			$dark = $larray[0].','.$larray[1].','.$larray[2].',.5)';
+			$style_css .= 'h1, h2, h3,h4,h5,h6, a, .skpc, a.sksc:hover, .sksc a:hover, body, .widget_search .search-field { color:'.$color.'; }';
+			$style_css .= '.skpbg, a.sksbg:hover, .has-fixed.navbar { background-color:'.$color.'; }';
+			$style_css .= '.skpbg5 { background-color:'.$light.' ; }';
+			$style_css .= '.sk-border-15 { border-color:'.$dark.' ; }';
+			$style_css .= '.sk-border { border-color:'.$color.'; }';
+			$style_css .= '.sk-light-bg, .widget_search .search-field { background-color:'.$light.'; }';
+		}
+		//Secondary Color
+		if(skyre_get_option('secondary_color') ){
+			$color = skyre_get_option("secondary_color");
+			$style_css .= 'a:hover, .active a, .current-menu-item a, .sksc, a.skpc:hover, .skwc a:hover, .skpc a:hover, .has-fixed a:hover, .current { color:'.$color.'; }';
+			$style_css .= '.sksbg, a.skpbg:hover, .scrollTop { background-color:'.$color.'; }';
+			$style_css .= '.cssload-loading:after, .cssload-loading:before { border:solid 1px '.$color.' ; }';
+		}
+		//Tertiary Color
+		if(skyre_get_option('tertiary_color') ){
+			$color = skyre_get_option("tertiary_color");
+			$style_css .= '.scrollTop:hover { background:'.$color.'; }';
+			$style_css .= '.sktbg  { background-color:'.$color.'; }';
+		}
+		//White Color
+		if(skyre_get_option('white_color') ){
+			$color = skyre_get_option("white_color");
+			$style_css .= '.skwc, .skwc a, a.skpc:hover, .scrollTop a { color:'.$color.'; }';
+		}
+		
 		if(skyre_get_option('loader_bg')){
 			$style_css .= '.loader-section { background:'.skyre_get_option("loader_bg").'; }';
 		}

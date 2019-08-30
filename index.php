@@ -15,12 +15,12 @@
 get_header(); ?>
 	
     <?php if(skyre_get_post_option('title') != 1) : ?>
-    <div class="post-title">
+    <div class="post-title skpbg">
         <div class="container<?php if(skyre_get_post_option('blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
             <?php if ( is_home() && ! is_front_page() ) : ?> 
-            <h1><?php single_post_title(); ?></h1>
+            <h1 class="skwc"><?php single_post_title(); ?></h1>
             <?php else : ?>
-            <h2><?php _e( 'Posts', 'skyre' ); ?></h2>
+            <h2 class="skwc"><?php _e( 'Posts', 'skyre' ); ?></h2>
             <?php endif; ?>
         </div>
     </div>

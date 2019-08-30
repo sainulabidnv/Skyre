@@ -22,11 +22,11 @@ $player = new SP_Player(  get_the_ID() ); $playerMeta = $player->data( 0 );
          <?php if(skyre_get_player_option('title_active') != 1 and individual_title_status() ) { ?>
          
          <div class="sk-sports">
-             <div class="page-title">
+             <div class="page-title skpbg">
                 <div class="container<?php if(skyre_get_player_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
                 	<div class="row">
 						<div  class="col-lg-6 offset-md-6">
-							<?php the_title('<h1>', '</h1>'); ?>
+							<?php the_title('<h1 class="skwc">', '</h1>'); ?>
                     		<p> Age - 34  | Height - 165 cm |  Date of Birth - 05 February 1985 </p>
                         </div>
                     </div>

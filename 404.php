@@ -18,9 +18,9 @@ if(skyre_get_option('errorpage')) :
 else:
 ?>
     
-    <div class="post-title">
+    <div class="post-title skpbg">
         <div class="container<?php if(skyre_get_post_option('blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
-            <h1><?php _e( 'Oops! That page can&rsquo;t be found.', 'skyre' ); ?></h1>
+            <h1 class="skwc"><?php _e( 'Oops! That page can&rsquo;t be found.', 'skyre' ); ?></h1>
         </div>
     </div>
 </header>  

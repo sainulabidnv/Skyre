@@ -31,17 +31,38 @@
 /*widget css*/
 .player-photo, .team-logo { overflow:hidden; }
 .sk-sp-view-all-link { text-align: center;}
-
+.sk-player-col { padding-bottom:30px;}
+.sk-player-grid { line-height:normal; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); padding-bottom: 10px; }
+.player-field { padding-bottom: 5px;  padding-left: 15px;}
 .sk-player-grid .player-photo { position: relative;}
 .sk-player-grid .player-photo img { width:100%;}
-.sk-player-grid .player-flag { position: absolute; right:0; bottom: 0;}
+.sk-player-grid .player-flag { position: absolute; right:10px; top: 1px;}
 .sk-player-grid .player-flag img { width:auto;}
-.sk-player-grid .player-rank { position: absolute; left:0; bottom: 0;}
+.sk-player-grid .player-rank { position: absolute; left:10px; top: 10px; height:60px; width:60px; font-size:30px; font-weight: 600; border-radius:50%; text-align: center; padding: 10px 0 0;}
+.sk-player-grid .player-name { font-size: 20px; font-weight: 400;  margin: 10px 0 0; }
+
 /*.sk-player-grid .player-colum, .sk-player-grid .player-name, .sk-player-grid .player-team { padding: 0 15px;}*/
 
 .sp-count-down .team-logo { float: left; width:20%; }
 .sp-count-down .logo-even { float: right; }
 
+
+.sk-event-blocks { text-align: center;}
+.sp-event-title, .sp-event-results, .sp-event-date, .sp-event-league, .sp-event-matchday, .sp-event-venue, .sp-event-season { margin: 10px 0;}
+.sp-event-title, .sp-event-title a { font-size: 18px;}
+.sp-event-results a { font-size: 34px; font-weight: 600;}
+.sp-event-results {  padding:13px 0;}
+.sp-event-results.completed { padding:0;}
+.sp-event-league { font-size: 18px;}
+.sp-event-results.completed a { font-size: 56px;}
+.sk-event-blocks .team-logo img { max-width: 100%;}
+.sk-event-blocks .team-logo { width: 80px; height: 80px; max-width: none; margin:50px 20px;}
+.skyre-single .sk-event-blocks .team-logo { width: 50px; height: 50px;}
+.sp-event-block-item { line-height: normal; position: relative; box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5); padding:10px; margin-bottom:30px;}
+.sp-event-block-item .logo-odd { position: absolute; left: 0;}
+.sp-event-block-item .logo-even { position: absolute; right: 0;}
+
+.table-dark, .table-dark a { color:#fff;}
 
 
 

@@ -181,6 +181,28 @@ class spLeagueList extends \Elementor\Widget_Base {
 				'default' => 'h3',
 			]
 		);
+
+		$this->add_control(
+			'table_style',
+			[
+				'label' => __( 'Table Style', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => 'None',
+					'table-dark' => 'Table Dark',
+					'table-striped' => 'Striped rows',
+					'table-striped table-dark' => 'Striped black rows',
+					'table-bordered' => 'Bordered table',
+					'table-borderless' => 'Borderless table',
+					'table-borderless table-dark' => 'Borderless black table',
+					'table-hover' => 'Hoverable rows',
+					'table-hover table-dark' => 'Hoverable black rows',
+					'table-sm' => 'Small table',
+					'table-sm table-dark' => 'Small black table',
+				],
+				'default' => '',
+			]
+		);
 		
 		$this->add_control(
 			'list_id', [
@@ -818,7 +840,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 				'name' => 'table_column_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-league-table td',
+				'selector' => '{{WRAPPER}} .sk-league-table td, {{WRAPPER}} .sk-league-table td a',
 			]
 		);
 		
@@ -829,7 +851,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-league-table td' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sk-league-table td, {{WRAPPER}} .sk-league-table td a' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1171,7 +1193,8 @@ class spLeagueList extends \Elementor\Widget_Base {
 		$columns = empty($settings['widget_columns']) ? null : $settings['widget_columns'];
 		//$orderby = empty($settings['order_by']) ? 'default' : $settings['order_by'];
 		$order = empty($settings['sort_order']) ? 'ASC' : $settings['sort_order'];
-        $show_full_table_link = empty($settings['show_link']) ? false : $settings['show_link'];
+		$show_full_table_link = empty($settings['show_link']) ? false : $settings['show_link'];
+		$ws['table_style'] = empty($settings['table_style']) ? '' : $settings['table_style'];
         
 		
 

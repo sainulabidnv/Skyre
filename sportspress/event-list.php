@@ -48,6 +48,7 @@ $defaults = array(
 );
 
 extract( $defaults, EXTR_SKIP );
+if(isset($ws['table_style'])){ $table_style = $ws['table_style']; } else {$table_style = '';}
 if(!empty($ws)) { 
 	if ( in_array( 'logo', $ws['attr'] )) { $show_team_logo = true; } else {$show_team_logo = false; }
 }
@@ -114,8 +115,8 @@ $identifier = uniqid( 'eventlist_' );
 	<?php if ( $title ) { ?>
 		<h4 class="sp-table-caption"><?php echo $title; ?></h4>
 	<?php } ?>
-	<div class="sp-table-wrapper">
-		<table class="sp-event-list table  sk-event-list-table sp-event-list-format-<?php echo $title_format; ?> sp-data-table<?php if ( $paginated ) { ?> sp-paginated-table<?php } if ( $sortable ) { ?> sp-sortable-table<?php } if ( $responsive ) { echo ' sp-responsive-table '.$identifier; } if ( $scrollable ) { ?> sp-scrollable-table <?php } ?>" data-sp-rows="<?php echo $rows; ?>">
+	<div class="sp-table-wrapper table-responsive">
+		<table class="sp-event-list table  sk-event-list-table <?php echo $table_style; ?> sp-event-list-format-<?php echo $title_format; ?> sp-data-table<?php if ( $paginated ) { ?> sp-paginated-table<?php } if ( $sortable ) { ?> sp-sortable-table<?php } if ( $responsive ) { echo ' sp-responsive-table '.$identifier; } if ( $scrollable ) { ?> sp-scrollable-table <?php } ?>" data-sp-rows="<?php echo $rows; ?>">
 			<thead>
 				<tr>
 					<?php

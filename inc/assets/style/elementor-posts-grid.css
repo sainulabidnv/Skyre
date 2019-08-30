@@ -2,6 +2,7 @@
 .skyre-widget-post-right {float: left; width: 68%;}
 
 .skyre-grid-style-list .skyre-widget-post-item { border-bottom: solid 1px #f0efef; margin-bottom:20px; }
+.skyre-widget-post-item { padding-bottom:30px; }
 @media (max-width: 767px) { .skyre-widget-post-left, .skyre-widget-post-right{ float: none;width: 100%}  }
 .skyre-grid-title {margin:15px 0 5px; font-size: 20px; font-weight: 400}
 .skyre-grid-addtocart a  { background-color: #23252a; border-radius: 3px; display: inline-block; color: #fff; font-size: 14px; font-weight: 500; padding: 3px 10px; margin:5px 0 }
@@ -12,10 +13,17 @@
 .woocommerce .star-rating { height: 20px;}
 .skyre-grid-price del span { font-size: 75%;}
 .skyre-grid-read-btn a { display: inline-block;}
-.onsale { background-color: #23252a;  border-radius: 3px; color: #fff;  font-size: 14px; font-weight: 500; left: 15px; padding: 0 10px; top: 15px; position: absolute;}
+.onsale { border-radius: 3px;  font-size: 14px; font-weight: 500; left: 30px; padding: 0 10px; top: 15px; position: absolute;}
 
+/* style hover/Grid 2 */
+.grid2 .post-item-inner { position: relative;}
+.grid2 .skyre-widget-post-content { transition: all 0.5s; opacity: 0; position: absolute; bottom:0;  padding: 5px 15px; cursor: pointer; width:100%; }
+.grid2 .content-wrap { transition: opacity 0.3s ease-in; opacity: 0; }
+.grid2 .post-item-inner:hover .content-wrap, .grid2 .post-item-inner:hover .skyre-widget-post-content {  opacity: 1 !important; }
+.grid2 .post-item-inner:hover .skyre-widget-post-content { background:#000d21 }
+.grid2 .skyre-grid-title { margin:5px 0;}
 
-
+.skyre-grid-col-image { overflow: hidden; }
 
 /*.skyre-grid:after {
 	display: block;

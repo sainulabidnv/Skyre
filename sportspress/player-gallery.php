@@ -23,7 +23,7 @@ $defaults = array(
 	'grouptag' => 'h4',
 	'columncount' => 3,
 	'columns' => array('photo','name'),
-	'size' => 'sportspress-crop-medium',
+	'size' => 'skyre-player-medium',
 	'show_all_players_link' => false,
 	'link_posts' => get_option( 'sportspress_link_players', 'yes' ) == 'yes' ? true : false,
 	'link_teams' => get_option( 'sportspress_link_teams', 'no' ) == 'yes' ? true : false,
@@ -33,10 +33,10 @@ $defaults = array(
 
 extract( $defaults, EXTR_SKIP );
 
+if(isset($ws['photo_link'])) $photo_link = $ws['photo_link']; else $photo_link = '';
 if(!empty($ws)) { 
 	if ( in_array( 'rank', $ws['attr'] )) { $show_player_rank = true; } else {$show_player_rank = false; }
 	if ( in_array( 'flag', $ws['attr'] )) { $show_player_flag = true; } else {$show_player_flag = false; }
-
 }
 
 // Determine number of players to display
@@ -146,32 +146,38 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 			//print_r($performance);exit;
 			
 			
-			$gallery .= '<div class="col-md-'.$itemwidth.'">
+			$gallery .= '<div class="col-md-'.$itemwidth.' sk-player-col">
 						<div class="sk-player-grid">';
 
 			foreach($columns as $column) {
 				if($column == 'photo') { 
+					$photo = '';
 					if ( has_post_thumbnail( $player_id ) ) $thumbnail = get_the_post_thumbnail( $player_id, $size );
-					else $thumbnail = '<img width="250" height="250" src="//www.gravatar.com/avatar/?s=150&d=mm&f=y" class="attachment-thumbnail wp-post-image">';
-					$gallery .= '<div class="player-photo">'.$thumbnail;
+					else $thumbnail = '<img src="'. get_template_directory_uri().'/sportspress/assets/img/player-medium.jpg"  alt="' . get_the_title( $player_id ). '" />';
+					$photo .= '<div class="player-photo">'.$thumbnail;
 					
 					if ( $show_player_flag ):
 						$player = new SP_Player( $player_id );
 						$nationalities = $player->nationalities();
 						if ( ! empty( $nationalities ) ):
-							$gallery .= '<div class="player-flag"><img src="' . plugin_dir_url( SP_PLUGIN_FILE ) . 'assets/images/flags/' . strtolower( $nationalities[0] ) . '.png" alt="' . $nationalities[0] . '"></div>' ;
+							$photo .= '<div class="player-flag"><img src="' . plugin_dir_url( SP_PLUGIN_FILE ) . 'assets/images/flags/' . strtolower( $nationalities[0] ) . '.png" alt="' . $nationalities[0] . '"></div>' ;
 						endif;
 					endif;
 		
-					if ( $show_player_rank  ):
+					if ( $show_player_rank && $performance['number'] != ''  ):
 						
-						$gallery .= '<div class="player-rank">'.$performance['number'].'</div>' ;
+						$photo .= '<div class="player-rank sktbg skpc">'.$performance['number'].'</div>' ;
 						
 					endif;
 					
+					$photo .= '</div>';
+					if ($photo_link == 'yes'){
+						$permalink = get_post_permalink( $player_id );
+						$gallery .= '<a href="' . $permalink . '">' . $photo . '</a>';
+					} else { $gallery .= $photo;
+
+					}
 					
-					
-					$gallery .= '</div>';
 				} 
 				else if($column == 'name') { 
 					$name = get_the_title( $player_id );
@@ -181,11 +187,9 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 						$name = '<a href="' . $permalink . '">' . $name . '</a>';
 					endif;
 
-					$gallery .= '<div class="player-name">'.$name.'</div>';
+					$gallery .= '<div class="player-name player-field">'.$name.'</div>';
 				}
 				
-
-
 
 				else if($column == 'team') { 
 					
@@ -196,10 +200,10 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 					if ( $link_teams && false !== get_post_status( $team ) ):
 						$team_name = '<a href="' . get_post_permalink( $team ) . '">' . $team_name . '</a>';
 					endif;
-					$gallery .= '<div class="player-team" >' . $team_name . '</div>';
+					$gallery .= '<div class="player-team player-field" >' . $team_name . '</div>';
 					
 				}
-				else { $gallery .= '<div class="player-column">'.$labels[$column].': '.$performance[$column].'</div>';}
+				else { $gallery .= '<div class="player-field player-column">'.$labels[$column].': '.$performance[$column].'</div>';}
 			}
 			
 

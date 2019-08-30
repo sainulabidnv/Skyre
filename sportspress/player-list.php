@@ -37,14 +37,14 @@ $defaults = array(
 );
 
 extract( $defaults, EXTR_SKIP );
-
+if(isset($ws['table_style'])){ $table_style = $ws['table_style']; } else {$table_style = '';}
 if(!empty($ws)) { 
 	if ( in_array( 'photo', $ws['attr'] )) { $show_player_photo = true; } else {$show_player_photo = false; }
 	if ( in_array( 'flag', $ws['attr'] )) { $show_player_flag = true; } else {$show_player_flag = false; }
 
 }
 //if ( in_array( 'content', $settings['list_attr'] )) {
-$id = 0;
+//$id = 0;
 $paginated = true;
 //$leagues = 13;
 //$grouping = 'position';
@@ -274,8 +274,8 @@ foreach ( $groups as $group ):
 		$output .= '<' . $grouptag . ' class="sp-table-caption player-group-name player-list-group-name">' . $group->name . '</' . $grouptag . '>';
 	endif;
 
-	$output .= '<div class="sp-table-wrapper">' .
-		'<table cellspacing="10" class="sp-player-list sp-data-table table sk-player-list-table ' . ( $sortable ? ' sp-sortable-table' : '' ). ( $responsive ? ' sp-responsive-table '.$identifier : '' ) . ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">';
+	$output .= '<div class="sp-table-wrapper  table-responsive">' .
+		'<table cellspacing="10" class="sp-player-list sp-data-table table '.$table_style.' sk-player-list-table ' . ( $sortable ? ' sp-sortable-table' : '' ). ( $responsive ? ' sp-responsive-table '.$identifier : '' ) . ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">';
 	
 	$output .= $thead . '<tbody>';
 	

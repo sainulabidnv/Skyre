@@ -31,7 +31,7 @@
 				<li>
 					<span class="cssload-loading cssload-one"></span>
 					<span class="cssload-loading cssload-two"></span>
-					<span class="cssload-loading-center"></span>
+					<span class="cssload-loading-center sk-border"></span>
 				</li>
 			</ul>
 		<div class="loader-section loader-top"></div>
@@ -48,7 +48,7 @@
                 <a class="navbar-brand  animated fadeInUpShort" data-animate="fadeInDown" data-delay=".65" href="<?php echo bloginfo( 'url' ); ?>">
                 	<img class="logo logo-dark" alt="<?php echo get_bloginfo(); ?>" src="<?php echo $image[0]; ?>">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler skpbg skwc" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 	<span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarToggle">

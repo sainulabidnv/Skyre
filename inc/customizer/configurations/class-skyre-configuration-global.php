@@ -122,7 +122,88 @@ if ( ! class_exists( 'Skyre_Configuration_Global' ) ) {
 				'default' => 'repeat',
 				'choices' => get_background_positions()
 	  
-            ));
-			}
+			));
+			
+				/* skyre Main color Options */
+				$wp_customize->add_section('skyre_main_color_options', array(
+					'title' => __('Color Options', 'skyre'),
+					'priority' => 31,
+					'panel' => 'skyre_main_options'
+				));
+
+				//Primary Color
+					$wp_customize->register_control_type( 'Skyre_Control_Color' );
+					$wp_customize->add_setting( 'skyre[primary_color]',
+						array(
+							'default' => '#030e20',
+							'type'  => 'option',
+							/*'transport'   => 'postMessage', on chnage not working */
+							'sanitize_callback' => 'skyre_sanitize_hexcolor'
+						)
+					);
+					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[primary_color]',
+						array(
+							'label' => __( 'Primary Color', 'skyre' ),
+							'section' => 'skyre_main_color_options',
+							
+						)
+					) );
+
+				//Secondary Color
+					$wp_customize->register_control_type( 'Skyre_Control_Color' );
+					$wp_customize->add_setting( 'skyre[secondary_color]',
+						array(
+							'default' => '#d7372b',
+							'type'  => 'option',
+							/*'transport'   => 'postMessage', on chnage not working */
+							'sanitize_callback' => 'sanitize_alpha_color'
+						)
+					);
+					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[secondary_color]',
+						array(
+							'label' => __( 'Secondary Color', 'skyre' ),
+							'section' => 'skyre_main_color_options',
+							
+						)
+					) );
+
+				//Tertiary Color
+					$wp_customize->register_control_type( 'Skyre_Control_Color' );
+					$wp_customize->add_setting( 'skyre[tertiary_color]',
+						array(
+							'default' => '#dee003',
+							'type'  => 'option',
+							/*'transport'   => 'postMessage', on chnage not working */
+							'sanitize_callback' => 'sanitize_alpha_color'
+						)
+					);
+					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[tertiary_color]',
+						array(
+							'label' => __( 'Tertiary Color', 'skyre' ),
+							'section' => 'skyre_main_color_options',
+							
+						)
+					) );
+					
+				//White Color
+					$wp_customize->register_control_type( 'Skyre_Control_Color' );
+					$wp_customize->add_setting( 'skyre[white_color]',
+						array(
+							'default' => '#fff',
+							'type'  => 'option',
+							/*'transport'   => 'postMessage', on chnage not working */
+							'sanitize_callback' => 'sanitize_alpha_color'
+						)
+					);
+					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[white_color]',
+						array(
+							'label' => __( 'White Color', 'skyre' ),
+							'section' => 'skyre_main_color_options',
+							
+						)
+					) );
+				
+					
+		}
 	}
 }

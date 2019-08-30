@@ -177,7 +177,6 @@ class postsGrid extends \Elementor\Widget_Base {
 		
 		$this->grid_content_section();
 		$this->grid_title_section();
-		$this->grid_pagination_section();
 		// Style.
 		$this->grid_options_style_section();
 		$this->grid_image_style_section();
@@ -259,16 +258,17 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		// Style.
+		// Layout.
 		$this->add_control(
 			'grid_style',
 			[
 				'type'    => \Elementor\Controls_Manager::SELECT,
-				'label'   => '<i class="fa fa-paint-brush"></i> ' . __( 'Style', 'skyre' ),
+				'label'   => '<i class="fa fa-paint-brush"></i> ' . __( 'Layout', 'skyre' ),
 				'default' => 'grid',
 				'options' => [
 					'grid' => __( 'Grid', 'skyre' ),
 					'list' => __( 'List', 'skyre' ),
+					'grid2' => __( 'Grid 2', 'skyre' ),
 				],
 			]
 		);
@@ -351,6 +351,92 @@ class postsGrid extends \Elementor\Widget_Base {
 				'default' => '',
 			]
 		);
+
+		$this->end_controls_section();
+
+		//Grid 2 Settings
+		$this->start_controls_section(
+			'section_grid_style_2',
+			[
+				'label' => __( 'Grid 2 Settings', 'skyre' ),
+				'condition' => [
+					'grid_style' => 'grid2',
+				],
+			]
+		);
+
+		// Display pagination.
+		$this->add_control(
+			'grid_style_2_show',
+			[
+				'label'   => __( 'Show hover content', 'skyre' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'return_value' => '1',
+				'default' => '0',
+				'selectors' => [
+					'{{WRAPPER}} .grid2 .content-wrap'       => 'opacity: {{VALUE}};',
+					'{{WRAPPER}} .grid2 .skyre-widget-post-content'       => 'opacity: {{VALUE}};',
+					
+				],
+			]
+		);
+
+		// Hover color.
+		$this->add_control(
+			'grid_style_2_background',
+			[
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'label'     => __( 'Background', 'skyre' ),
+				'scheme'    => [
+					'type'  => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .grid2 .skyre-widget-post-content'       => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		// Hover color.
+		$this->add_control(
+			'grid_style_2_background_hover',
+			[
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'label'     => __( 'Hover Background', 'skyre' ),
+				'scheme'    => [
+					'type'  => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .grid2 .post-item-inner:hover .skyre-widget-post-content'       => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'grid_style_2_padding',
+			[
+				'label'      => __( 'Padding', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .grid2 .skyre-widget-post-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+		
+		$this->add_control(
+			'grid_style_2_margin',
+			[
+				'label'      => __( 'Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .grid2 .skyre-widget-post-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
 
 		$this->end_controls_section();
 	}
@@ -654,52 +740,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 	}
 
-	/**
-	 * Content > Pagination Options.
-	 */
-	private function grid_pagination_section() {
-		$this->start_controls_section(
-			'section_grid_pagination',
-			[
-				'label'     => __( 'Pagination', 'skyre' ),
-				'condition' => [
-					'section_grid.grid_pagination' => 'yes',
-				],
-			]
-		);
-
-		// Pagination alignment.
-		$this->add_responsive_control(
-			'grid_pagination_alignment',
-			[
-				'label'          => __( 'Alignment', 'skyre' ),
-				'type'           => \Elementor\Controls_Manager::CHOOSE,
-				'options'        => [
-					'left'   => [
-						'title' => __( 'Left', 'skyre' ),
-						'icon'  => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'skyre' ),
-						'icon'  => 'fa fa-align-center',
-					],
-					'right'  => [
-						'title' => __( 'Right', 'skyre' ),
-						'icon'  => 'fa fa-align-right',
-					],
-				],
-				'default'        => 'center',
-				'tablet_default' => 'center',
-				'mobile_default' => 'center',
-				'selectors'      => [
-					'{{WRAPPER}} .skyre-grid-pagination .pagination' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
-
+	
 	/**
 	 * Style > Grid options.
 	 */
@@ -851,6 +892,28 @@ class postsGrid extends \Elementor\Widget_Base {
 				'label'     => __( 'Image', 'skyre' ),
 				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
 				
+			]
+		);
+
+		$this->add_control(
+			'grid_image_style_height',
+			[
+				'label' => __( 'Imase Height', 'skyre' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .skyre-grid-col-image' => 'height: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -2061,7 +2124,35 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		// Image margin.
+		// Pagination alignment.
+		$this->add_responsive_control(
+			'grid_pagination_alignment',
+			[
+				'label'          => __( 'Alignment', 'skyre' ),
+				'type'           => \Elementor\Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'   => [
+						'title' => __( 'Left', 'skyre' ),
+						'icon'  => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'skyre' ),
+						'icon'  => 'fa fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'skyre' ),
+						'icon'  => 'fa fa-align-right',
+					],
+				],
+				'default'        => 'center',
+				'tablet_default' => 'center',
+				'mobile_default' => 'center',
+				'selectors'      => [
+					'{{WRAPPER}} .skyre-grid-pagination .pagination' => 'justify-content: {{VALUE}};',
+				],
+			]
+		);
+		// margin.
 		$this->add_responsive_control(
 			'grid_pagination_style_margin',
 			[
@@ -2183,6 +2274,8 @@ class postsGrid extends \Elementor\Widget_Base {
 			$args['paged'] = $paged;
 		}
 
+		$grid_style = empty($settings['grid_style']) ? '' : $settings['grid_style'];
+
 		// Query.
 		$query = new \WP_Query( $args );
 		
@@ -2193,50 +2286,40 @@ class postsGrid extends \Elementor\Widget_Base {
 			while ( $query->have_posts() ) {
 				$query->the_post();
 
-				echo '<div class="skyre-widget-post-item '  . ( ! empty( $settings['grid_columns_mobile'] ) ? ' col-xs-' . $settings['grid_columns_mobile'] : '' ) . ( ! empty( $settings['grid_columns_tablet'] ) ? ' col-md-' . $settings['grid_columns_tablet'] : '' ) . ( ! empty( $settings['grid_columns'] ) ? ' col-lg-' . $settings['grid_columns'] : '' ) . '">';
+				echo '<div class="skyre-widget-post-item '  .$grid_style.' '. ( ! empty( $settings['grid_columns_mobile'] ) ? ' col-xs-' . $settings['grid_columns_mobile'] : '' ) . ( ! empty( $settings['grid_columns_tablet'] ) ? ' col-md-' . $settings['grid_columns_tablet'] : '' ) . ( ! empty( $settings['grid_columns'] ) ? ' col-lg-' . $settings['grid_columns'] : '' ) . '">';
 		
 				echo '<div class="post-item-inner' . ( ! has_post_thumbnail() ? ' skyre-no-image' : '' ) . '">';
-				if($settings['grid_style'] == 'list'){
+				if($grid_style == 'list'){
 					echo '<div class="skyre-widget-post-left">';
 					$this->renderImage(); 
 					echo '</div> <div class="skyre-widget-post-right">';
 					foreach($settings['widget_columns'] as $column){
-						// Title.
 						if($column['column_id'] == 'Title' ) { $this->renderTitle(); continue; }
-
-						// Meta.
 						if($column['column_id'] == 'Meta' ) { $this->renderMeta(); continue; }
-
-						// Content.
 						if($column['column_id'] == 'Content' ) { $this->renderContent(); continue; }
-
-						// Price.
 						if ( class_exists( 'WooCommerce' ) && $column['column_id'] == 'Price' ) { $this->renderPrice(); continue; }
-
-						// Button.
 						if($column['column_id'] == 'Button' ) { $this->renderButton(); continue; }
 					}
 					echo '</div><div class="clearfix"></div>';
+				} elseif($grid_style == 'grid2'){
+					echo '<div class="skyre-widget-post-img">';
+					$this->renderImage(); 
+					echo '</div> <div class="skyre-widget-post-content skpbg5 skwc"> <div class="content-wrap"> ';
+					foreach($settings['widget_columns'] as $column){
+						if($column['column_id'] == 'Title' ) { $this->renderTitle(); continue; }
+						if($column['column_id'] == 'Meta' ) { $this->renderMeta(); continue; }
+						if($column['column_id'] == 'Content' ) { $this->renderContent(); continue; }
+						if ( class_exists( 'WooCommerce' ) && $column['column_id'] == 'Price' ) { $this->renderPrice(); continue; }
+						if($column['column_id'] == 'Button' ) { $this->renderButton(); continue; }
+					}
+					echo '</div></div>';
 				} else {
 					foreach($settings['widget_columns'] as $column){
-					
-					
-						// Image.
 						if($column['column_id'] == 'Image' ) { $this->renderImage(); continue; }
-
-						// Title.
 						if($column['column_id'] == 'Title' ) { $this->renderTitle(); continue; }
-
-						// Meta.
 						if($column['column_id'] == 'Meta' ) { $this->renderMeta(); continue; }
-
-						// Content.
 						if($column['column_id'] == 'Content' ) { $this->renderContent(); continue; }
-
-						// Price.
 						if ( class_exists( 'WooCommerce' ) && $column['column_id'] == 'Price' ) { $this->renderPrice(); continue; }
-
-						// Button.
 						if($column['column_id'] == 'Button' ) { $this->renderButton(); continue; }
 					}
 				}
@@ -2245,6 +2328,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				echo '</div>';
 
 			} // End while().
+			echo '<div class="clearfix"></div>';
 
 			// Pagination.
 			if ( ! empty( $settings['grid_pagination'] ) ) { ?>
@@ -2485,7 +2569,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		$settings = $this->get_settings();
 		$product  = wc_get_product( get_the_ID() );
 		if ( $settings['grid_post_type'] == 'product' && $settings['grid_content_sale_btn'] == 'yes' &&  $product->is_on_sale() ) {
-			echo '<span class="onsale"> '.$settings['grid_content_sale_btn_text'].'</span>';
+			echo '<span class="onsale sksbg skwc"> '.$settings['grid_content_sale_btn_text'].'</span>';
 		}
 
 		

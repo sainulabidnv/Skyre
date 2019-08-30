@@ -182,6 +182,28 @@ class spEvents extends \Elementor\Widget_Base {
 				'default' => 'h3',
 			]
 		);
+
+		$this->add_control(
+			'table_style',
+			[
+				'label' => __( 'Table Style', 'skyre' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => 'None',
+					'table-dark' => 'Table Dark',
+					'table-striped' => 'Striped rows',
+					'table-striped table-dark' => 'Striped black rows',
+					'table-bordered' => 'Bordered table',
+					'table-borderless' => 'Borderless table',
+					'table-borderless table-dark' => 'Borderless black table',
+					'table-hover' => 'Hoverable rows',
+					'table-hover table-dark' => 'Hoverable black rows',
+					'table-sm' => 'Small table',
+					'table-sm table-dark' => 'Small black table',
+				],
+				'default' => '',
+			]
+		);
 		
 		$this->add_control(
 			'list_id', [
@@ -924,7 +946,7 @@ class spEvents extends \Elementor\Widget_Base {
 				'name' => 'table_column_typo',
 				'label' => __( 'Typography', 'skyre' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .sk-event-list-table td',
+				'selector' => '{{WRAPPER}} .sk-event-list-table td, {{WRAPPER}} .sk-event-list-table td a',
 			]
 		);
 
@@ -961,7 +983,7 @@ class spEvents extends \Elementor\Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .sk-event-list-table td' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .sk-event-list-table td, {{WRAPPER}} .sk-event-list-table td a' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -1400,6 +1422,7 @@ class spEvents extends \Elementor\Widget_Base {
 
 		//widge settings - ws
 		$ws['attr'] = $settings['list_attr'];
+		$ws['table_style'] = empty($settings['table_style']) ? '' : $settings['table_style'];
 		
 		foreach($columns as $column){
 			if(isset($column['column_id']) && $column['column_id'] !='') {

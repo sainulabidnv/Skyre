@@ -14,7 +14,7 @@
 
     <!--Footer-->
     <footer class="footer text-center">
-    	<div class="footer-main">
+    	<div class="footer-main skpbg skwc">
             <div class="container py-5">
                <?php if(skyre_get_option('footer_logo')) { 
 			   $footer_image = wp_get_attachment_image_src( skyre_get_option('footer_logo'), 'full' );

@@ -13,7 +13,7 @@ get_header(); ?>
     
 </header>
 
-<section id="single" class="skyre-single" >
+<section id="single" class="skyre-single sk-border-15" >
     <div class="container<?php if(skyre_get_post_option('single_blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
         <div class="row">
             <div class="<?php if(skyre_get_post_option('single_blog_layout') != '2' ) { ?> col-lg-8 <?php } else {?> col-lg-12 <?php } ?>">
@@ -30,7 +30,7 @@ get_header(); ?>
                 	<div class="row">
                     	<?php if ( ! empty( $prev_post ) ): ?>
                         <div class="col-md">
-                            <div class="item prev-post">
+                            <div class="item prev-post  sk-border-15">
                                 <div class="nav-title"> <i class="fas fa-angle-double-left"></i>  <?php echo __( 'Previous Post', 'skyre' ); ?> </div>
                                     <a href="<?php echo get_permalink( $prev_post->ID ); ?>">
                                         <?php echo apply_filters( 'the_title', $prev_post->post_title ); ?>
@@ -41,7 +41,7 @@ get_header(); ?>
                         
                         <?php if ( ! empty( $next_post ) ): ?>
                         <div class="col-md">
-                            <div class="item next-post">
+                            <div class="item next-post  sk-border-15">
                                 <div class="nav-title"><?php echo __( 'Next Post', 'skyre' ); ?> <i class="fas fa-angle-double-right"></i></div>
                                     <a href="<?php echo get_permalink( $next_post->ID ); ?>">
                                         <?php echo apply_filters( 'the_title', $next_post->post_title ); ?>
