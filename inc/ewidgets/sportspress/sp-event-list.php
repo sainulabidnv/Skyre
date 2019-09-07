@@ -1397,7 +1397,7 @@ class spEvents extends \Elementor\Widget_Base {
 		$i = 0;
 		$columFields = null;
 		$caption = null;
-		$ws = '';
+		$ws = array();
 		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];

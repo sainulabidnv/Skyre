@@ -33,7 +33,8 @@ get_header(); ?>
                             <div class="item prev-post  sk-border-15">
                                 <div class="nav-title"> <i class="fas fa-angle-double-left"></i>  <?php echo __( 'Previous Post', 'skyre' ); ?> </div>
                                     <a href="<?php echo get_permalink( $prev_post->ID ); ?>">
-                                        <?php echo apply_filters( 'the_title', $prev_post->post_title ); ?>
+                                        <?php echo apply_filters( 'the_title', $prev_post->post_title, 10, 2 ); 
+                                        ?>
                                     </a>
                             </div>
                         </div>
@@ -44,7 +45,7 @@ get_header(); ?>
                             <div class="item next-post  sk-border-15">
                                 <div class="nav-title"><?php echo __( 'Next Post', 'skyre' ); ?> <i class="fas fa-angle-double-right"></i></div>
                                     <a href="<?php echo get_permalink( $next_post->ID ); ?>">
-                                        <?php echo apply_filters( 'the_title', $next_post->post_title ); ?>
+                                        <?php echo apply_filters( 'the_title', $next_post->post_title, 10, 2 ); ?>
                                     </a>
                             </div>
                         </div>

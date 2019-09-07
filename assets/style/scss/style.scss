@@ -56,12 +56,13 @@ img {
 		max-width:100%; height:auto;
 	}
 body { 
-	background: $white;  
+	background: $white; color:$sk-primary;
 	}
 .bg-gray { background:rgba($sk-text-color, .50); }
 
-h1, h2, h3,h4,h5,h6, .font-secondary{ color:$sk-primary; font-family:$font-secondary; }
-h1, h2, h3,h4,h5,h6, a{ color:$sk-primary; }
+h1, h2, h3,h4,h5,h6 { font-family:$font-secondary; }
+.font-secondary{ font-family:$font-secondary; }
+ a{ color:$sk-primary; }
 a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
 .skpbg, a.sksbg:hover, .skpbg5:hover { background-color: $sk-primary; } //Skyre Primary Background
 .sksbg, a.skpbg:hover { background-color: $sk-secondary; } //Skyre Secondary Background
@@ -80,6 +81,7 @@ a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
 	&.navbar { background: $sk-primary;}
 	a:hover { color:$sk-secondary}
 }
+.opacity{ opacity:.7;}
 .cssload-loading { 
 	&:after, &:before { border:solid 1px $sk-secondary; }
 }
@@ -339,7 +341,7 @@ header { position:relative;}
 
 /*====================================================
 ======================light theme override=====================*/
-.dark 
+/*.dark 
 	{
 		color:rgba($sk-secondary, .80);
 		.main-head { 
@@ -432,7 +434,7 @@ header { position:relative;}
 		section { padding:px(100) 0 !important;}
 
 	}
-
+*/
 /* 16.0 - Media queries */
 
 /*====================================================
@@ -440,6 +442,7 @@ header { position:relative;}
 
 /*Extra small devices (portrait phones, less than 576px)*/
 @include media-breakpoint-only(xs) { 
+	
 	.sk-carousel-description { display:none;}
 	.faq h6::after { right:0;}
 	.logo { max-height:50px;}
@@ -457,6 +460,8 @@ header { position:relative;}
 
 /*Small devices (landscape phones, 576px and up)*/
 @include media-breakpoint-down(sm) { 
+	.page-title {  padding:30px 0; }
+	.page-section, .post-section { padding-top: 40px; }
 	.logo { max-height:50px;}
 	.rmap-item { border:none;}
 	.rmap-item-details {
@@ -508,6 +513,7 @@ header { position:relative;}
 /*medium devices (tablets, 768px and Down)*/
 @include media-breakpoint-down(md) {
 	body {  margin:0 5px;}
+	.page-title {  padding:50px 0; }
 	.bnr-image { margin:px(10) px(30);}
 	.sk-countdown { margin:auto;}
 	.bnr-image-wrap { position:absolute; top:px(100); left:0; opacity:.07; z-index:-3;}
@@ -613,7 +619,10 @@ header { position:relative;}
 .post-video iframe { max-width:100%;}
 
 /* Twitter Feed */
-.SandboxRoot.env-bp-430 .timeline-Tweet-text { font-size:16px !important;}
+//.SandboxRoot.env-bp-430 .timeline-Tweet-text { font-size:16px !important;}
+.sk-twitter-item  { margin-bottom:20px; border-bottom:solid 1px rgba(3, 14, 32, 0.15); padding-bottom:15px;}
+.sk-twitter-item-date { opacity:.7;}
+.sk-twitter-item  .read-more-link { float: right; font-size: 14px;}
 
 
 

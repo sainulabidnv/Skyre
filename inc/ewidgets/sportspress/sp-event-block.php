@@ -377,10 +377,11 @@ class spEventBlock extends \Elementor\Widget_Base {
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
-                    [ 'column_id' => __( 'date', 'skyre' ), ],
-                    [ 'column_id' => __( 'venue', 'skyre' ), ],
-					[ 'column_id' => __( 'event', 'skyre' ), ],
+                    [ 'column_id' => __( 'league', 'skyre' ), ],
+                    [ 'column_id' => __( 'event', 'skyre' ), ],
 					[ 'column_id' => __( 'time', 'skyre' ), ],
+					[ 'column_id' => __( 'date', 'skyre' ), ],
+					[ 'column_id' => __( 'venue', 'skyre' ), ],
 					 
 				],
 				'title_field' =>'{{{column_id}}}'/*'{{column_id}}'*/ //get_the_title('{{column_id}}') ,
@@ -1898,13 +1899,13 @@ class spEventBlock extends \Elementor\Widget_Base {
 		$i = 0;
 		$columFields = null;
 		$caption = null;
-		$ws = '';
+		$ws = array();
 		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];
 		$style = empty($settings['widget_style']) ? '' : 'event-block-style-'.$settings['list_id'];
 		
-		$title = empty($settings['list_title']) ? null : $settings['list_title'];;
+		$title = empty($settings['list_title']) ? null : $settings['list_title'];
 		$widget_title = empty($settings['widget_title']) ? null : $settings['widget_title'];
 		$titlesize  = empty($settings['title_size']) ? 'h3' : $settings['title_size'];
 		$number = empty($settings['limit']) ? '0' : $settings['limit'];

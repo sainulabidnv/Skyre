@@ -30,7 +30,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$larray = explode(",", $color);
 			$light = $larray[0].','.$larray[1].','.$larray[2].',.15)';
 			$dark = $larray[0].','.$larray[1].','.$larray[2].',.5)';
-			$style_css .= 'h1, h2, h3,h4,h5,h6, a, .skpc, a.sksc:hover, .sksc a:hover, body, .widget_search .search-field { color:'.$color.'; }';
+			$style_css .= 'body, a, .skpc, a.sksc:hover, .sksc a:hover, body, .widget_search .search-field { color:'.$color.'; }';
 			$style_css .= '.skpbg, a.sksbg:hover, .has-fixed.navbar { background-color:'.$color.'; }';
 			$style_css .= '.skpbg5 { background-color:'.$light.' ; }';
 			$style_css .= '.sk-border-15 { border-color:'.$dark.' ; }';

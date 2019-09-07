@@ -1894,6 +1894,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$columFields = null;
 		$caption = null;
 		$widget_settings = '';
+		$ws = array();
 		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];

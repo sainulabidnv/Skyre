@@ -54,7 +54,7 @@ class SkyreTwitter extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Account Name', 'skyre'),
                 'type' => Controls_Manager::TEXT,
-                'default' => '@wpdevteam',
+                'default' => '@premierleague',
                 'label_block' => false,
                 'description' => esc_html__('Use @ sign with your account name.', 'skyre'),
 
@@ -103,6 +103,7 @@ class SkyreTwitter extends \Elementor\Widget_Base {
             ]
         );
 
+        /*
         $this->add_control(
             'twitter_type',
             [
@@ -132,7 +133,7 @@ class SkyreTwitter extends \Elementor\Widget_Base {
                 ],
             ]
         );
-
+        */
         $this->add_control(
             'twitter_content_length',
             [
@@ -140,23 +141,6 @@ class SkyreTwitter extends \Elementor\Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'label_block' => false,
                 'default' => '400',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'twitter_column_spacing',
-            [
-                'label' => esc_html__('Column spacing', 'skyre'),
-                'type' => Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'max' => 50,
-                    ],
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 10,
-                ],
             ]
         );
 
@@ -194,7 +178,7 @@ class SkyreTwitter extends \Elementor\Widget_Base {
         $this->add_control(
             'twitter_show_avatar',
             [
-                'label' => esc_html__('Show Avatar', 'skyre'),
+                'label' => esc_html__('Show Thumb', 'skyre'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __('yes', 'skyre'),
                 'label_off' => __('no', 'skyre'),
@@ -221,6 +205,19 @@ class SkyreTwitter extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
+            'twitter_show_name',
+            [
+                'label' => esc_html__('Show Name', 'skyre'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => __('yes', 'skyre'),
+                'label_off' => __('no', 'skyre'),
+                'default' => 'true',
+                'return_value' => 'true',
+            ]
+        );
+
+
+        $this->add_control(
             'twitter_show_date',
             [
                 'label' => esc_html__('Show Date', 'skyre'),
@@ -244,46 +241,8 @@ class SkyreTwitter extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'twitter_show_icon',
-            [
-                'label' => esc_html__('Show Icon', 'skyre'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_on' => __('yes', 'skyre'),
-                'label_off' => __('no', 'skyre'),
-                'default' => 'true',
-                'return_value' => 'true',
-            ]
-        );
-
+        
         $this->end_controls_section();
-
-        if (!apply_filters('eael/pro_enabled', false)) {
-            $this->start_controls_section(
-                'eael_section_pro',
-                [
-                    'label' => __('Go Premium for More Features', 'skyre'),
-                ]
-            );
-
-            $this->add_control(
-                'eael_control_get_pro',
-                [
-                    'label' => __('Unlock more possibilities', 'skyre'),
-                    'type' => Controls_Manager::CHOOSE,
-                    'options' => [
-                        '1' => [
-                            'title' => __('', 'skyre'),
-                            'icon' => 'fa fa-unlock-alt',
-                        ],
-                    ],
-                    'default' => '1',
-                    'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-skyre" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
-                ]
-            );
-
-            $this->end_controls_section();
-        }
 
         /**
          * -------------------------------------------
@@ -481,9 +440,12 @@ class SkyreTwitter extends \Elementor\Widget_Base {
     public function twitter_render_items($id, $settings, $class = '')
     {
         $token = get_option($id . '_' . $settings['twitter_ac_name'] . '_tf_token');
-        $items = get_transient($id . '_' . $settings['twitter_ac_name'] . '_tf_cache');
+        //$items = get_transient($id . '_' . $settings['twitter_ac_name'] . '_tf_cache');
         $html = '';
+        $items = false;
 
+        $token = '';
+        
         if(empty($settings['twitter_consumer_key']) || empty($settings['twitter_consumer_secret'])) {
             return;
         }
@@ -533,13 +495,17 @@ class SkyreTwitter extends \Elementor\Widget_Base {
 
             if (!is_wp_error($response)) {
                 $items = json_decode(wp_remote_retrieve_body($response), true);
-                set_transient($id . '_' . $settings['twitter_ac_name'] . '_tf_cache', $items, 1800);
+                //set_transient($id . '_' . $settings['twitter_ac_name'] . '_tf_cache', $items, 1800);
             }
         }
 
         if(empty($items)) {
             return;
         }
+        //echo '<pre>';
+        //print_r($items);
+        //exit;
+        //jim_jcgg
         
         if ($settings['twitter_hashtag_name']) {
             foreach ($items as $key => $item) {
@@ -561,34 +527,58 @@ class SkyreTwitter extends \Elementor\Widget_Base {
 
         $items = array_splice($items, 0, $settings['twitter_post_limit']);
 
+
         foreach ($items as $item) {
-            $html .= '<div class="sk-twitter-item ' . $class . '">
-				<div class="sk-twitter-item-inner">
-				    <div class="sk-twitter-item-header clearfix">';
-                        if ($settings['twitter_show_avatar'] == 'true') {
+            $html .= '<div class=" sk-border-15 sk-twitter-item ' . $class . '">
+                <div class="sk-twitter-item-inner row">';
+                if ($settings['twitter_show_avatar'] == 'true') {
+                    $html .= '<div class="col-3">
+                        <div class="sk-twit-thumb"> ';
+                        
+                            if(isset($item['extended_entities']['media'][0]) and $item['extended_entities']['media'][0]['type'] == 'photo')
+                            {
+                                if(isset($item['extended_entities']['media'][0]['sizes']['thumb'])) {$tsize = ':thumb';} else {$tsize ='';} 
+                                
+                                $html .= '
+                                    <a class="sk-twitter-item-avatar avatar-' . $settings['twitter_avatar_style'] . '" href="//twitter.com/' . $settings['twitter_ac_name'] . '" target="_blank">    
+                                    <img src="' . $item['extended_entities']['media'][0]['media_url_https'] . $tsize . '">
+                                    </a>';
+
+                            }else {
                             $html .= '<a class="sk-twitter-item-avatar avatar-' . $settings['twitter_avatar_style'] . '" href="//twitter.com/' . $settings['twitter_ac_name'] . '" target="_blank">
                                 <img src="' . $item['user']['profile_image_url_https'] . '">
                             </a>';
-                        }
-                        $html .= '<a class="sk-twitter-item-meta" href="//twitter.com/' . $settings['twitter_ac_name'] . '" target="_blank">';
-                            if ($settings['twitter_show_icon'] == 'true') {
-                                $html .= '<i class="fab fa-twitter sk-twitter-item-icon"></i>';
                             }
+                        
+                        
+                        $html .='</div>
+                    </div>';
+                }
+                    $html .='<div class="'.($settings['twitter_show_avatar'] == 'true' ? 'col-9':'').'">
+                        <div class="sk-twitter-meta">';
                             
-                            $html .= '<span class="sk-twitter-item-author">' . $item['user']['name'] . '</span>
-                        </a>';
+                            
+                            if ($settings['twitter_show_name'] == 'true') {
+                                $html .= '<a class="sk-twitter-item-meta" href="//twitter.com/' . $settings['twitter_ac_name'] . '" target="_blank"> <span class="sk-twitter-item-author">' . $item['user']['name'] . '</span> </a>';
+                            }
+                                
+                            
+                        $html .= '</div>
+
+                        <div class="sk-twitter-item-content">
+                            ' . substr(str_replace(@$item['entities']['urls'][0]['url'], '', $item['full_text']), 0, $settings['twitter_content_length']) . '...
+                            ' . (isset($item['extended_entities']['media'][0]) && $settings['twitter_media'] == 'true' ? ($item['extended_entities']['media'][0]['type'] == 'photo' ? '<div class="media"> <img src="' . $item['extended_entities']['media'][0]['media_url_https'] . '"></div>' : '') : '') ;
+                             
+                        $html .= '</div>';
                         if ($settings['twitter_show_date'] == 'true') {
                             $html .= '<span class="sk-twitter-item-date">' . sprintf(__('%s ago', 'skyre'), human_time_diff(strtotime($item['created_at']))) . '</span>';
                         }
-                    $html .= '</div>
-                    <div class="sk-twitter-item-content">
-                        <p>' . substr(str_replace(@$item['entities']['urls'][0]['url'], '', $item['full_text']), 0, $settings['twitter_content_length']) . '...</p>';
-                        
                         if ($settings['twitter_show_read_more'] == 'true') {
-                            $html .= '<a href="//twitter.com/' . @$item['user']['screen_name'] . '\/status/' . $item['id'] . '" target="_blank" class="read-more-link">Read More <i class="fas fa-angle-double-right"></i></a>';
+                            $html .= '<a href="//twitter.com/' . @$item['user']['screen_name'] . '\/status/' . $item['id'] . '" target="_blank" class="read-more-link sksc">Read More <i class="fas fa-angle-double-right"></i></a>';
                         }
-                    $html .= '</div>
-                    ' . (isset($item['extended_entities']['media'][0]) && $settings['twitter_media'] == 'true' ? ($item['extended_entities']['media'][0]['type'] == 'photo' ? '<img src="' . $item['extended_entities']['media'][0]['media_url_https'] . '">' : '') : '') . '
+                    
+                        $html .= '</div>
+                    <div class="clearfilter"></div>
                 </div>
 			</div>';
         }
@@ -600,7 +590,7 @@ class SkyreTwitter extends \Elementor\Widget_Base {
     {
         $settings = $this->get_settings();
 
-        echo '<div class="sk-twitter sk-twitter-' . $this->get_id() . ' sk-twitter-' . $settings['twitter_type'] . ' sk-twitter-' . $settings['twitter_type_col_type'] . '" data-gutter="' . $settings['twitter_column_spacing']['size'] . '">
+        echo '<div class="sk-twitter sk-twitter-' . $this->get_id() . '" >
 			' . $this->twitter_render_items($this->get_id(), $settings) . '
         </div>';
         

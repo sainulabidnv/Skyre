@@ -37,7 +37,8 @@ $defaults = array(
 );
 
 extract( $defaults, EXTR_SKIP );
-if(isset($ws['table_style'])){ $table_style = $ws['table_style']; } else {$table_style = '';}
+if(isset($ws['table_style'])){ $table_style = $ws['table_style']; } 
+else {$table_style = empty(get_option('sk_sportspress_table_style')) ? 'table-borderless' : get_option('sk_sportspress_table_style');}
 if(!empty($ws)) { 
 	if ( in_array( 'photo', $ws['attr'] )) { $show_player_photo = true; } else {$show_player_photo = false; }
 	if ( in_array( 'flag', $ws['attr'] )) { $show_player_flag = true; } else {$show_player_flag = false; }
@@ -130,7 +131,7 @@ else:
 			$title = get_the_title( $id );
 	endif;
 	if ( $title )
-		$output .= '<' . $grouptag . ' class="sp-table-caption">' . $title . '</' . $grouptag . '>';
+		$output .= '<' . $grouptag . ' class="sp-table-caption skpbg skwc">' . $title . '</' . $grouptag . '>';
 	$group = new stdClass();
 	$group->term_id = null;
 	$group->name = null;
@@ -144,7 +145,7 @@ foreach ( $groups as $group ):
 	if ( intval( $number ) > 0 )
 		$limit = $number;
 	
-	$thead = '<thead>' . '<tr class="space">';
+	$thead = '<thead>' . '<tr class=" font-secondary space">';
 		
 	if ( ! is_array( $labels ) || array_key_exists( 'number', $labels ) ):
 		if ( in_array( $orderby, array( 'number', 'name' ) ) ):
@@ -271,7 +272,7 @@ foreach ( $groups as $group ):
 
 	if ( ! empty( $group->name ) ):
 		$output .= '<a name="group-' . $group->slug . '" id="group-' . $group->slug . '"></a>';
-		$output .= '<' . $grouptag . ' class="sp-table-caption player-group-name player-list-group-name">' . $group->name . '</' . $grouptag . '>';
+		$output .= '<' . $grouptag . ' class="sp-table-caption player-group-name player-list-group-name skpbg skwc">' . $group->name . '</' . $grouptag . '>';
 	endif;
 
 	$output .= '<div class="sp-table-wrapper  table-responsive">' .

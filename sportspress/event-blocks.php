@@ -53,7 +53,7 @@ extract( $defaults, EXTR_SKIP );
 if(!empty($ws)) { 
 	if ( in_array( 'logo', $ws['attr'] )) { $show_team_logo = true; } else {$show_team_logo = false; }
 }
-
+$id;
 $calendar = new SP_Calendar( $id );
 
 if ( $status != 'default' )
@@ -95,14 +95,14 @@ if ( $orderby != 'default' )
 if ( $day != 'default' )
 	$calendar->day = $day;
 $data = $calendar->data();
-$usecolumns = $calendar->columns;
-
+$usecolumns = empty($calendar->columns) ? array( 'league','event','time','date','venue') : $calendar->columns;
 if ( isset( $columns ) ):
 	if ( is_array( $columns ) )
 		$usecolumns = $columns;
 	else
 		$usecolumns = explode( ',', $columns );
 endif;
+
 
 $columncount = intval( $columncount );
 $itemwidth = $columncount > 0 ? floor(12/$columncount) : 3;
@@ -182,7 +182,7 @@ if ( $title )
 						<?php do_action( 'sportspress_event_blocks_before', $event, $usecolumns ); ?>
 						<?php echo implode( $logos, ' ' ); ?>
 						<?php 
-						if(empty($ws)) {  ?>
+						if(empty($ws) and $id > 0) {  ?>
 							<div class="sp-event-date" datetime="<?php echo $event->post_date; ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
 								<?php echo sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
 							</div>

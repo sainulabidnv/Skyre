@@ -1,19 +1,21 @@
-.sk-sports .page-title { background:#030e20;  }
-.sk-sports h1 { text-transform:uppercase; font-size:60px;   }
+.sk-sports h1 { text-transform:uppercase; font-size:44px;   }
 .profile{  position:relative;}
-.profile span { height:100px; width:100px; background:#dee003; font-size:50px; text-align:center; display:inline-block; border-radius:50%; font-weight:600; color:#030e20; position:absolute; right:-50px; top:30px; }
-.player-pic { background:#030e20; border: solid 3px #fff; margin-top:-250px;}
-.player-meta li { float:left; height:120px; width:120px; margin:50px 20px; text-align:center; color:#030e20; text-transform:uppercase; list-style:none; border:solid 5px #ffa800; border-radius:50%; padding:30px 0 0 0}
+.profile span { height:100px; width:100px; font-size:50px; text-align:center; display:inline-block; border-radius:50%; font-weight:600;  position:absolute; right:-50px; top:30px; }
+.player-pic { background:#030e20; border: solid 3px #fff; margin-top:-234px;}
+.player-pic img { width:100%;}
+.player-meta li { float:left; height:120px; width:120px; margin:50px 20px; text-align:center;  text-transform:uppercase; list-style:none; border:solid 5px ; border-radius:50%; padding:30px 0 0 0}
 .player-meta li span { display:block; font-size:30px; font-weight:600; line-height:30px;}
+.sp-profile-selector { display:block; padding:10px; width:100%;}
 
-.sp-list-wrapper dt, .sp-list-wrapper dd { float:left; color:rgba(3,14,32,.6) !important; text-transform:uppercase !important; font-size:18px !important; width:45%; background:#ececec; padding:6px 15px !important; margin:1px 0 !important; font-family: 'Dosis', sans-serif;}
-.sp-list-wrapper dd { background:#d4d5d7; width:55%;  color:rgba(3,14,32,.8) !important; }
+.sp-list-wrapper dt { font-weight: 400;}
+.sp-list-wrapper dt, .sp-list-wrapper dd { float:left;  width:45%; background:#ececec; padding:6px 15px !important; margin:1px 0 !important; }
+.sp-list-wrapper dd { background:#d4d5d7; width:55%;   }
 .sp-list-wrapper dl { padding:0 !important; border:none !important; margin-bottom:50px !important}
 .sp-tab-group { background:rgba(3,14,32,.1); padding:20px;}
 .sp-tab-menu { margin:0 !important;}
 .sp-tab-menu li { background:#030e20; border-radius:3px 3px 0 0; margin:0 0 0 10px !important;}
 .sp-tab-menu li.sp-tab-menu-item-active { background:#fff; }
-.sp-tab-menu li a { padding:5px 20px; border-bottom:none !important; color:#fff !important; font-family: font-family: 'Dosis', sans-serif;}
+.sp-tab-menu li a { padding:5px 10px; margin:0 5px; border-bottom:none !important; color:#fff !important; font-family: font-family: 'Dosis', sans-serif;}
 .sp-tab-menu li.sp-tab-menu-item-active a{ border-bottom:none !important; color:#030e20 !important;}
 .sp-tab-content { background:#fff; padding:20px;}
 
@@ -49,14 +51,16 @@
 
 .sk-event-blocks { text-align: center;}
 .sp-event-title, .sp-event-results, .sp-event-date, .sp-event-league, .sp-event-matchday, .sp-event-venue, .sp-event-season { margin: 10px 0;}
-.sp-event-title, .sp-event-title a { font-size: 18px;}
+.sp-event-title, .sp-event-title a { font-size: 18px; margin-top:0;}
 .sp-event-results a { font-size: 34px; font-weight: 600;}
-.sp-event-results {  padding:13px 0;}
+.sp-event-results {  padding:4px 0;}
+.sp-tab-group .sp-event-results {  padding:0;}
 .sp-event-results.completed { padding:0;}
-.sp-event-league { font-size: 18px;}
-.sp-event-results.completed a { font-size: 56px;}
+.sp-event-league { font-size: 14px; margin-bottom:2px;}
+.sp-event-results.completed a { font-size: 54px; line-height: 50px;}
 .sk-event-blocks .team-logo img { max-width: 100%;}
-.sk-event-blocks .team-logo { width: 80px; height: 80px; max-width: none; margin:50px 20px;}
+.sk-event-blocks .team-logo { width: 70px; height: 70px; max-width: none; margin:55px 20px;}
+.sp-tab-group .sk-event-blocks .team-logo { width: 50px; height: 50px; max-width: none; margin:60px 20px;}
 .skyre-single .sk-event-blocks .team-logo { width: 50px; height: 50px;}
 .sp-event-block-item { line-height: normal; position: relative; box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5); padding:10px; margin-bottom:30px;}
 .sp-event-block-item .logo-odd { position: absolute; left: 0;}
@@ -64,8 +68,41 @@
 
 .table-dark, .table-dark a { color:#fff;}
 
+.sp-table-caption { margin:0; padding:10px; font-size: 20px; }
+.sp-widget-align-right, .sp-widget-align-left { float: none; width:100%;}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*medium devices (tablets, 768px and Down)*/
+@media (max-width: 991.98px) { 
+    .sk-sports h1 { font-size: 30px; }
+    .player-pic {  margin-top:-144px;}
+    .profile span {  height: 80px; width: 80px; right:15px; top:15px;}
+    .player-meta li { height: 95px; width: 95px; margin: 40px 15px 0 0; padding: 15px 0 0 0; border: solid 3px; font-size: 14px;}
+    .player-meta li span {  font-size: 24px; }
+
+}
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 767.98px) {
+    .player-pic {  margin-top:15px;}
+    
+
+}
 
 
 

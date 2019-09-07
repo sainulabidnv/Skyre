@@ -118,7 +118,7 @@ $identifier = uniqid( 'eventlist_' );
 	<div class="sp-table-wrapper table-responsive">
 		<table class="sp-event-list table  sk-event-list-table <?php echo $table_style; ?> sp-event-list-format-<?php echo $title_format; ?> sp-data-table<?php if ( $paginated ) { ?> sp-paginated-table<?php } if ( $sortable ) { ?> sp-sortable-table<?php } if ( $responsive ) { echo ' sp-responsive-table '.$identifier; } if ( $scrollable ) { ?> sp-scrollable-table <?php } ?>" data-sp-rows="<?php echo $rows; ?>">
 			<thead>
-				<tr>
+				<tr class="font-secondary">
 					<?php
 					if(empty($ws)) {
 					echo '<th class="data-date">' . __( 'Date', 'sportspress' ) . '</th>'; 
