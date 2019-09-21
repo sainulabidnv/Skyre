@@ -2550,7 +2550,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		echo apply_filters(
 			'woocommerce_loop_add_to_cart_link',
 			sprintf(
-				'<a href="%s" title="%s" rel="nofollow">%s</a>',
+				'<a class="sk-btn-primary" href="%s" title="%s" rel="nofollow">%s</a>',
 				esc_url( $product->add_to_cart_url() ),
 				esc_attr( $product->add_to_cart_text() ),
 				esc_html( $product->add_to_cart_text() )

@@ -501,8 +501,16 @@ require get_parent_theme_file_path( '/inc/template-tags.php' );
 /**
  * SportsPress function.
  */
-require get_parent_theme_file_path( '/sportspress/functions.php' );
+if ( class_exists( 'sportspress' ) ) {
+	require get_parent_theme_file_path( '/sportspress/functions.php' );
+}
 
+/**
+ * WooCommerce function.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_parent_theme_file_path( '/woocommerce/functions.php' );
+}
 /**
  * Additional features to allow styling of the templates.
  */

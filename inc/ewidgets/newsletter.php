@@ -1038,7 +1038,7 @@ class NewsLetter extends \Elementor\Widget_Base {
 			$this->add_control(
 				'button_icon',
 				[
-					'label' => __( 'Submit Icon', 'elementor-pro', 'skyre' ),
+					'label' => __( 'Submit Icon', 'skyre' ),
 					'type' => Controls_Manager::ICON,
 					'label_block' => true,
 					'default' => '',
@@ -1058,7 +1058,7 @@ class NewsLetter extends \Elementor\Widget_Base {
 			$this->add_control(
 				'button_icon_indent',
 				[
-					'label' => __( 'Icon Spacing', 'elementor-pro', 'skyre' ),
+					'label' => __( 'Icon Spacing', 'skyre' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [

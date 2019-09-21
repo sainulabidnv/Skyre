@@ -44,11 +44,12 @@ $defaults = array(
 	'show_title' => get_option( 'sportspress_event_list_show_title', 'yes' ) == 'yes' ? true : false,
 	'title_format' => get_option( 'sportspress_event_list_title_format', 'title' ),
 	'time_format' => get_option( 'sportspress_event_list_time_format', 'combined' ),
+	'table_style' => get_option( 'sk_sportspress_table_style' ),
 	'ws' => null,
 );
 
 extract( $defaults, EXTR_SKIP );
-if(isset($ws['table_style'])){ $table_style = $ws['table_style']; } else {$table_style = '';}
+if(isset($ws['table_style'])){ $table_style = $ws['table_style']; }
 if(!empty($ws)) { 
 	if ( in_array( 'logo', $ws['attr'] )) { $show_team_logo = true; } else {$show_team_logo = false; }
 }

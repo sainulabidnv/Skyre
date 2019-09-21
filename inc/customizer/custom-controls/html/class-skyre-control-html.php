@@ -23,19 +23,20 @@ if ( ! class_exists( 'Cryptic_Control_link' ) && class_exists( 'WP_Customize_Con
 	/**
 	 * Border control.
 	 */
-	class Cryptic_Control_link extends WP_Customize_Control {
+	class Skyre_render_html extends WP_Customize_Control {
 
-   public $type = "skyre-control-links";
-
-   public function render_content() {?>
+   public $type = "skyre-render-html";
+   var $content;
+   
+   public function render_content() {
+       if(!empty($this->content)) {
+       ?>
          
         <div class="inside">
-            
-            <p><b><a href="<?php echo esc_url( 'http://templates.96h.in/skyre/wp/documentation/index.html' ); ?>"><?php esc_html_e('Documentation','skyre'); ?></a></b></p>
-            
-            
+            <p><?php echo $this->content; ?></p>
         </div><?php
-   }
+        }
+    }
 
 }
 

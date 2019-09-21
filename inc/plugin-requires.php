@@ -28,7 +28,6 @@ function skyre_register_required_plugins() {
             'slug'               => 'cookie-law-info',
             'required'           => false,
         ),
-		
         
     );
     $config = array(

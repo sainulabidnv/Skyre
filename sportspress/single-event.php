@@ -12,31 +12,35 @@
  * @package icos
  */
 get_header(); 
+$sidebar = empty(get_option('sportspress_single_event_sidebar')) ? 'no' : get_option('sportspress_single_event_sidebar');
+$fimage = empty(get_option('sportspress_single_event_banner')) ? 'no' : get_option('sportspress_single_event_banner');
+$title = empty(get_option('sportspress_single_event_title')) ? 'no' : get_option('sportspress_single_event_title');
 ?>
 
 
-         <?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { ?>
+         <?php if(skyre_get_page_option('title_active') != 1 and $title =='no' ) { ?>
          
          <div class="sp-page-title skpbg">
             <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
                 <?php the_title('<h1 class="skwc">', '</h1>'); ?>
             </div>
         </div>
-        <?php } ?>
+        <?php } 
+        if ( has_post_thumbnail() and $fimage =='yes' ) {  the_post_thumbnail(); }
+        ?>
+        
 	</header>
 	<!-- End Header --> 
 
 
  
-<section class="page-section" >
+<section class="page-section sp-event-template" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
         <div class="row">
-            <div class="<?php if(skyre_get_page_option('layout') != '2' ) { ?> col-lg-8 <?php } else {?> col-lg-12 <?php } ?>">
-            
-
+            <div class="<?php if($sidebar != 'no' ) { ?> col-lg-8 sidebar <?php } else {?> col-lg-12 nosidebar <?php } ?>">
                 <div class="blog-list page-content">
                     <?php while (have_posts()) : the_post(); ?>
-                        <?php the_post_thumbnail() ?>
+                        <?php if ( $fimage =='no' ) { the_post_thumbnail(); } ?>
                         <?php the_content(); ?>
                         <?php
                             wp_link_pages( array(
@@ -62,8 +66,8 @@ get_header();
 
             </div>
 
-            <?php if(skyre_get_page_option('layout') != '2' ) { ?> 
-            <div class="col-lg-4 <?php if(skyre_get_page_option('layout') == '1') { ?> order-first <?php } ?>">
+            <?php if($sidebar != 'no' ) { ?> 
+            <div class="col-lg-4 <?php if($sidebar == 'left') { ?> order-first <?php } ?>">
                 <div class="sidebar-section">
                     <?php get_sidebar();?>
                 </div>

@@ -331,15 +331,17 @@ if ( ! class_exists( 'Skyre_Configuration_Miscellaneous' ) ) {
             'title' => __('Support and Documentation', 'skyre')
         ));
             $wp_customize->add_setting('skyre[imp_links]', array(
-              'sanitize_callback' => 'esc_url_raw'
-            ));
-            $wp_customize->add_control(
-            new Cryptic_Control_link(
-            $wp_customize,
-                'skyre[imp_links]', array(
-                'section' => 'skyre_important_links',
-                'type' => 'skyre-control-links'
-            )));
+              'sanitize_callback' => 'esc_html'
+			));
+			$doclink = new Skyre_render_html(
+				$wp_customize,
+					'skyre[imp_links]', array(
+					'section' => 'skyre_important_links',
+					'type' => 'skyre-render-html'
+					));
+					$doclink->content = '<a href="http://templates.96h.in/skyre/wp/documentation/index.html"> '.__('Documentation','skyre').'</a>';
+            $wp_customize->add_control($doclink);
+			
 		
 		// add "Content Options" section
         $wp_customize->add_section( 'skyre_content_section' , array(

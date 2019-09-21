@@ -5,7 +5,7 @@
 .skyre-widget-post-item { padding-bottom:30px; }
 @media (max-width: 767px) { .skyre-widget-post-left, .skyre-widget-post-right{ float: none;width: 100%}  }
 .skyre-grid-title {margin:15px 0 5px; font-size: 20px; font-weight: 400}
-.skyre-grid-addtocart a  { background-color: #23252a; border-radius: 3px; display: inline-block; color: #fff; font-size: 14px; font-weight: 500; padding: 3px 10px; margin:5px 0 }
+.skyre-grid-addtocart   {margin:10px 0 }
 .skyre-grid-meta { margin: 5px 0;}
 .skyre-grid-meta span {margin-right:10px;}
 .skyre-grid-meta span i { opacity:.5; margin-right:5px;}

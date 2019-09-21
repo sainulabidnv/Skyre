@@ -88,23 +88,21 @@ class Plugin {
 	 * @access private
 	 */
 	private function include_widgets_files() {
-		require_once( __DIR__ . '/ewidgets/skyre-base.php' );
-		require_once( __DIR__ . '/ewidgets/sk-status.php' );
-		require_once( __DIR__ . '/ewidgets/button.php' );
-		require_once( __DIR__ . '/ewidgets/heading.php' );
-		require_once( __DIR__ . '/ewidgets/roadmap.php' );
-		require_once( __DIR__ . '/ewidgets/testimonial.php' );
-		require_once( __DIR__ . '/ewidgets/accordion.php' );
-		require_once( __DIR__ . '/ewidgets/posts-grid.php' );
-		require_once( __DIR__ . '/ewidgets/contact_form7.php' );
-		require_once( __DIR__ . '/ewidgets/newsletter.php' );
-		require_once( __DIR__ . '/ewidgets/image-carousel.php' );
-		require_once( __DIR__ . '/ewidgets/icon-box.php' );
-		require_once( __DIR__ . '/ewidgets/sk-slider.php' );
-		require_once( __DIR__ . '/ewidgets/support/class-jet-elements-tools.php' );
-		//require_once( __DIR__ . '/ewidgets/support/class-jet-group-control-box-style.php' );
-		require_once( __DIR__ . '/ewidgets/twitter.php' );
-		
+		require SKYRE_THEME_DIR .'inc/ewidgets/skyre-base.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sk-status.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/button.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/heading.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/roadmap.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/testimonial.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/accordion.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/posts-grid.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/contact_form7.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/newsletter.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/image-carousel.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/icon-box.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sk-slider.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/support/class-jet-elements-tools.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/twitter.php' ;
 	}
 
 	/**
@@ -147,12 +145,12 @@ class Plugin {
 	 */
 	public function register_sportspress_widgets() {
 		// Its is now safe to include Widgets files
-		require_once( __DIR__ . '/ewidgets/sportspress/sp-player-list.php' );
-		require_once( __DIR__ . '/ewidgets/sportspress/sp-player-grid.php' );
-		require_once( __DIR__ . '/ewidgets/sportspress/sp-event-list.php' );
-		require_once( __DIR__ . '/ewidgets/sportspress/sp-event-block.php' );
-		require_once( __DIR__ . '/ewidgets/sportspress/sp-league-list.php' );
-		require_once( __DIR__ . '/ewidgets/sportspress/sk-status.php' );
+		require SKYRE_THEME_DIR .'inc/ewidgets/sportspress/sp-player-list.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sportspress/sp-player-grid.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sportspress/sp-event-list.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sportspress/sp-event-block.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sportspress/sp-league-list.php' ;
+		require SKYRE_THEME_DIR .'inc/ewidgets/sportspress/sk-status.php' ;
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\spPlayers() );
@@ -180,7 +178,7 @@ class Plugin {
 	public function __construct() {
 
 		//add_action( 'rest_api_init', array( $this, 'register_routes' ) );
-		require_once( __DIR__ . '/ewidgets/support/newsletter-rest.php' );
+		require SKYRE_THEME_DIR .'inc/ewidgets/support/newsletter-rest.php' ;
 		
 		
 

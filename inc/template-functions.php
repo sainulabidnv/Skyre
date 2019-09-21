@@ -295,18 +295,18 @@ function skyre_comment($comment, $args, $depth) {
             </div>
             <?php } ?>
             <div class="col"> 
-				<div class="authorlink"> <?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?> </div>
+				<div class="authorlink"> <?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>','skyre' ), get_comment_author_link() ); ?> </div>
                 <div class="date">
                 	<div class="comment-meta commentmetadata">
                         <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php
                             /* translators: 1: date, 2: time */
                             printf( 
-                                __('%1$s at %2$s'), 
+                                __('%1$s at %2$s','skyre'), 
                                 get_comment_date(),  
                                 get_comment_time() 
                             ); ?>
                         </a><?php 
-                        edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+                        edit_comment_link( __( '(Edit)','skyre' ), '  ', '' ); ?>
                     </div>
                 </div>
 			</div>
@@ -329,11 +329,10 @@ function skyre_comment($comment, $args, $depth) {
         
 		<?php 
         if ( $comment->comment_approved == '0' ) { ?>
-            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
+            <em class="comment-awaiting-moderation"><?php __( 'Your comment is awaiting moderation.', 'skyre' ); ?></em><br/><?php 
         } ?>
         
-
-        
+	
 
         <?php 
     if ( 'div' != $args['style'] ) : ?>
@@ -442,10 +441,14 @@ add_filter( 'pt-ocdi/import_files', 'skyre_import_files' );
 /*-----------------------------------------------------------------------------------*/
 //include(SKYRE_THEME_DIR."inc/widgets/widget-popular-posts.php"); // Popular Posts
 //include(SKYRE_THEME_DIR."inc/widgets/widget-random-posts.php"); // Random Posts
-include(SKYRE_THEME_DIR."inc/widgets/widget-recent-posts.php"); // Recent Posts
+require SKYRE_THEME_DIR."inc/widgets/widget-recent-posts.php"; // Recent Posts
 //include(SKYRE_THEME_DIR."inc/widgets/widget-tabs.php"); // Tabs Widget
 //include(SKYRE_THEME_DIR."inc/widgets/widget-video.php"); // Video Widget
 /*-----------------------------------------------------------------------------------*/
 /*	Exceprt Length
 /*-----------------------------------------------------------------------------------*/
+
+
+
+
 

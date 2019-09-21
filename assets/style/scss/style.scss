@@ -47,7 +47,7 @@ h3, h4, h5, h6 {
 	font-weight:400;
 	}
 
-a { 
+a { text-decoration:none;
 	:hover { text-decoration:none;}
 	img:hover { opacity:.8; }
 	
@@ -62,15 +62,16 @@ body {
 
 h1, h2, h3,h4,h5,h6 { font-family:$font-secondary; }
 .font-secondary{ font-family:$font-secondary; }
- a{ color:$sk-primary; }
+a{ color:$sk-primary; }
 a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
 .skpbg, a.sksbg:hover, .skpbg5:hover { background-color: $sk-primary; } //Skyre Primary Background
 .sksbg, a.skpbg:hover { background-color: $sk-secondary; } //Skyre Secondary Background
 .sktbg, a.sksbg:hover { background-color: $sk-tertiary; } //Skyre Secondary Background
 .skpbg5 { background-color: rgba($sk-primary,.5); } 
+.skpbg15 { background-color: rgba($sk-primary,.15); }
 
 .skpc, a.sksc:hover, .sksc a:hover { color: $sk-primary; } //Skyre Tertiary Color
-.sksc, a.skpc:hover, .skwc a:hover, .skpc a:hover { color: $sk-secondary; } //Skyre Primary Background
+.sksc,.sksc a, a.skpc:hover, .skwc a:hover, .skpc a:hover { color: $sk-secondary; } //Skyre Primary Background
 .sktc, a.sksc:hover { color: $sk-tertiary; } //Skyre Tertiary Color Background
 .skwc, .skwc a, a.skpc:hover { color: $white; } //Skyre White Color Background
 .sk-border-15 { border-color: rgba($sk-primary,.15)  } 
@@ -93,6 +94,10 @@ a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
 	&:hover{ background:rgba($sk-tertiary,1);}
 }
 
+.sk-btn-primary { 
+	background-color:rgba($sk-primary, 1); border-radius:0; color:rgba($white,1); font-weight:400; padding: 9px 20px; transition: all 0.5s; 
+	&:hover {background-color:rgba($sk-secondary, 1); color:rgba($white,1); }
+}
 
 .large { 
 	font-size:$font-size-base *1.2; font-weight:400
@@ -112,7 +117,7 @@ a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
 .page-section, .post-section { padding-top:80px; border-top: solid 1px rgba(255, 255, 255, 0.1);}
 .page-title {  padding:100px 0; }
 .skyre-grid-pagination { width:100%;}
-.pagination a, .pagination span, { padding:10px;}
+.pagination a, .pagination span { padding:10px; }
 
 /* 02.0 - Header Section */
 header { position:relative;}
@@ -625,8 +630,54 @@ header { position:relative;}
 .sk-twitter-item  .read-more-link { float: right; font-size: 14px;}
 
 
+/*woocommerce / Button*/
+.woocommerce span.onsale {background-color:rgba($sk-secondary, 1);}
+.woocommerce ul.products li.product .price { color:rgba($sk-secondary, 1)}
+.woocommerce ul.products li.product .button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt { background-color:rgba($sk-primary, 1); border-radius:0; color:rgba($white,1); font-weight:400;  transition: all 0.3s; }
+
+.woocommerce ul.products li.product .button, .woocommerce #respond input#submit.alt, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt { 
+	&:hover{
+	background-color:rgba($sk-secondary, 1);  color:rgba($white,1);
+	}
+}
+.woocommerce ul.products li.product .button.added { background-color:rgba($sk-secondary, 1);}
+.woocommerce select, .woocommerce .quantity .qty { border-radius: 0; line-height:18px; border:solid 1px rgba($sk-primary, .3); transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; padding:8px 0;}
+.woocommerce div.product form.cart .variations td { padding:7px 0;}
+.woocommerce ul.products li.product .button { margin-top: 4px;}
+.woocommerce div.product p.price, .woocommerce div.product span.price {color:rgba($sk-secondary, 1);}
+.woocommerce div.product div.images a { margin: 15px 10px 0 0; display: block;}
+.woocommerce div.product .woocommerce-tabs ul.tabs { margin:0;}
+.woocommerce div.product .woocommerce-tabs ul.tabs li { 
+	background-color:rgba($sk-primary, 0.1);color:rgba($sk-primary, 1); border:none; border-radius:0; 
+	a{font-weight:400;}
+}
+.woocommerce table.shop_table tbody th, .woocommerce table.shop_table tfoot td, .woocommerce table.shop_table tfoot th, .woocommerce ul#shipping_method .amount{font-weight:400;}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active { background-color:rgba($sk-primary, 1);color:rgba($white, 1); }
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::before { display:none;}
+.woocommerce div.product .woocommerce-tabs ul.tabs { padding:0;}
+.woocommerce div.product .woocommerce-tabs .panel { padding: 20px 0;}
+.wo-product h2, .cart-collaterals h2, .woocommerce-order h2 { font-size:24px;}
+.cross-sells > h2 {font-size:24px; border-bottom:solid 1px rgba($sk-primary, .1); padding-bottom: 10px; margin-bottom: 40px; }
+.woocommerce-Reviews-title { margin-bottom:24px;}
+.woocommerce-tabs .panel { border-bottom:solid 1px rgba($sk-primary, .1); }
+.woocommerce .comment-form {background-color:rgba($sk-primary, .05);}
+.woocommerce-message::before {color:rgba($sk-secondary, 1);}
+.woocommerce-message { border-top-color:rgba($sk-secondary, 1);}
+.woocommerce table.shop_table { border-radius:0;}
+.woocommerce form .form-row label { width:100%;}
+.woocommerce-input-wrapper { display:block; width:100%;}
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea { padding:7px; border:solid 1px rgba($sk-primary, .1); }
+.select2-container--default .select2-selection--single {height:38px; padding-top:3px; border-radius:0; border:solid 1px rgba($sk-primary, .1); color:unset;}
+.checkout h3 { font-size:20px; margin-top:15px; background: rgba($sk-primary, .05); padding: 10px 15px; margin-bottom: 0;}
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment { background: rgba($sk-primary, .05); border-radius:0;}
+.woocommerce ul.order_details{ background: rgba($sk-primary, .05); padding:20px;}
+.woocommerce .col-2, .woocommerce .col-1 { max-width:100% !important;}
 
 
+
+
+
+/*woocommerce End*/
 
 
 

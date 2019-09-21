@@ -146,7 +146,7 @@ foreach ( $data as $team_id => $row ):
 	// Generate tags for highlighted team
 	$tr_class = $td_class = '';
 	if ( $highlight == $team_id ):
-		$tr_class = ' highlighted';
+		$tr_class = ' highlighted sksc';
 		$td_class = ' sp-highlight';
 	endif;
 
