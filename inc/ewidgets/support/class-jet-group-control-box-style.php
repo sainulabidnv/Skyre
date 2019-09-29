@@ -24,15 +24,15 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		$fields = [];
 
 		$fields['background'] = array(
-			'label'       => _x( 'Background Type', 'Background Control', 'jet-elements' ),
+			'label'       => _x( 'Background Type', 'Background Control', 'skyre' ),
 			'type'        => Controls_Manager::CHOOSE,
 			'options'     => array(
 				'color' => array(
-					'title' => _x( 'Classic', 'Background Control', 'jet-elements' ),
+					'title' => _x( 'Classic', 'Background Control', 'skyre' ),
 					'icon'  => 'fa fa-paint-brush',
 				),
 				'gradient' => array(
-					'title' => _x( 'Gradient', 'Background Control', 'jet-elements' ),
+					'title' => _x( 'Gradient', 'Background Control', 'skyre' ),
 					'icon'  => 'fa fa-barcode',
 				),
 			),
@@ -41,10 +41,10 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['color'] = array(
-			'label'     => _x( 'Background Color', 'Background Control', 'jet-elements' ),
+			'label'     => _x( 'Background Color', 'Background Control', 'skyre' ),
 			'type'      => Controls_Manager::COLOR,
 			'default'   => '',
-			'title'     => _x( 'Background Color', 'Background Control', 'jet-elements' ),
+			'title'     => _x( 'Background Color', 'Background Control', 'skyre' ),
 			'selectors' => array(
 				'{{SELECTOR}}' => 'background-color: {{VALUE}};',
 			),
@@ -54,7 +54,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['color_stop'] = array(
-			'label'      => _x( 'Location', 'Background Control', 'jet-elements' ),
+			'label'      => _x( 'Location', 'Background Control', 'skyre' ),
 			'type'       => Controls_Manager::SLIDER,
 			'size_units' => array( '%' ),
 			'default'    => array(
@@ -69,7 +69,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['color_b'] = array(
-			'label'       => _x( 'Second Background Color', 'Background Control', 'jet-elements' ),
+			'label'       => _x( 'Second Background Color', 'Background Control', 'skyre' ),
 			'type'        => Controls_Manager::COLOR,
 			'default'     => '#f2295b',
 			'render_type' => 'ui',
@@ -80,7 +80,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['color_b_stop'] = array(
-			'label'      => _x( 'Location', 'Background Control', 'jet-elements' ),
+			'label'      => _x( 'Location', 'Background Control', 'skyre' ),
 			'type'       => Controls_Manager::SLIDER,
 			'size_units' => array( '%' ),
 			'default'    => array(
@@ -95,11 +95,11 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['gradient_type'] = array(
-			'label'   => _x( 'Type', 'Background Control', 'jet-elements' ),
+			'label'   => _x( 'Type', 'Background Control', 'skyre' ),
 			'type'    => Controls_Manager::SELECT,
 			'options' => array(
-				'linear' => _x( 'Linear', 'Background Control', 'jet-elements' ),
-				'radial' => _x( 'Radial', 'Background Control', 'jet-elements' ),
+				'linear' => _x( 'Linear', 'Background Control', 'skyre' ),
+				'radial' => _x( 'Radial', 'Background Control', 'skyre' ),
 			),
 			'default'     => 'linear',
 			'render_type' => 'ui',
@@ -110,7 +110,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['gradient_angle'] = array(
-			'label'      => _x( 'Angle', 'Background Control', 'jet-elements' ),
+			'label'      => _x( 'Angle', 'Background Control', 'skyre' ),
 			'type'       => Controls_Manager::SLIDER,
 			'size_units' => array( 'deg' ),
 			'default'    => array(
@@ -133,18 +133,18 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['gradient_position'] = array(
-			'label'   => _x( 'Position', 'Background Control', 'jet-elements' ),
+			'label'   => _x( 'Position', 'Background Control', 'skyre' ),
 			'type'    => Controls_Manager::SELECT,
 			'options' => array(
-				'center center' => _x( 'Center Center', 'Background Control', 'jet-elements' ),
-				'center left'   => _x( 'Center Left', 'Background Control', 'jet-elements' ),
-				'center right'  => _x( 'Center Right', 'Background Control', 'jet-elements' ),
-				'top center'    => _x( 'Top Center', 'Background Control', 'jet-elements' ),
-				'top left'      => _x( 'Top Left', 'Background Control', 'jet-elements' ),
-				'top right'     => _x( 'Top Right', 'Background Control', 'jet-elements' ),
-				'bottom center' => _x( 'Bottom Center', 'Background Control', 'jet-elements' ),
-				'bottom left'   => _x( 'Bottom Left', 'Background Control', 'jet-elements' ),
-				'bottom right'  => _x( 'Bottom Right', 'Background Control', 'jet-elements' ),
+				'center center' => _x( 'Center Center', 'Background Control', 'skyre' ),
+				'center left'   => _x( 'Center Left', 'Background Control', 'skyre' ),
+				'center right'  => _x( 'Center Right', 'Background Control', 'skyre' ),
+				'top center'    => _x( 'Top Center', 'Background Control', 'skyre' ),
+				'top left'      => _x( 'Top Left', 'Background Control', 'skyre' ),
+				'top right'     => _x( 'Top Right', 'Background Control', 'skyre' ),
+				'bottom center' => _x( 'Bottom Center', 'Background Control', 'skyre' ),
+				'bottom left'   => _x( 'Bottom Left', 'Background Control', 'skyre' ),
+				'bottom right'  => _x( 'Bottom Right', 'Background Control', 'skyre' ),
 			),
 			'default' => 'center center',
 			'selectors' => array(
@@ -158,7 +158,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_font_color'] = array(
-			'label'     => esc_html__( 'Font Color', 'jet-elements' ),
+			'label'     => esc_html__( 'Font Color', 'skyre' ),
 			'type'      => Controls_Manager::COLOR,
 			'selectors' => array(
 				'{{SELECTOR}}' => 'color: {{VALUE}}',
@@ -166,7 +166,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_font_size'] = array(
-			'label'      => esc_html__( 'Font Size', 'jet-elements' ),
+			'label'      => esc_html__( 'Font Size', 'skyre' ),
 			'type'       => Controls_Manager::SLIDER,
 			'size_units' => array(
 				'px', 'em', 'rem',
@@ -185,7 +185,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_size'] = array(
-			'label'      => esc_html__( 'Box Size', 'jet-elements' ),
+			'label'      => esc_html__( 'Box Size', 'skyre' ),
 			'type'       => Controls_Manager::SLIDER,
 			'size_units' => array(
 				'px', 'em', '%',
@@ -203,14 +203,14 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_border'] = array(
-			'label'   => _x( 'Border Type', 'Border Control', 'jet-elements' ),
+			'label'   => _x( 'Border Type', 'Border Control', 'skyre' ),
 			'type'    => Controls_Manager::SELECT,
 			'options' => array(
-				''       => __( 'None', 'jet-elements' ),
-				'solid'  => _x( 'Solid', 'Border Control', 'jet-elements' ),
-				'double' => _x( 'Double', 'Border Control', 'jet-elements' ),
-				'dotted' => _x( 'Dotted', 'Border Control', 'jet-elements' ),
-				'dashed' => _x( 'Dashed', 'Border Control', 'jet-elements' ),
+				''       => __( 'None', 'skyre' ),
+				'solid'  => _x( 'Solid', 'Border Control', 'skyre' ),
+				'double' => _x( 'Double', 'Border Control', 'skyre' ),
+				'dotted' => _x( 'Dotted', 'Border Control', 'skyre' ),
+				'dashed' => _x( 'Dashed', 'Border Control', 'skyre' ),
 			),
 			'selectors' => array(
 				'{{SELECTOR}}' => 'border-style: {{VALUE}};',
@@ -218,7 +218,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_border_width'] = array(
-			'label'     => _x( 'Width', 'Border Control', 'jet-elements' ),
+			'label'     => _x( 'Width', 'Border Control', 'skyre' ),
 			'type'      => Controls_Manager::DIMENSIONS,
 			'selectors' => array(
 				'{{SELECTOR}}' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -229,7 +229,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_border_color'] = array(
-			'label' => _x( 'Color', 'Border Control', 'jet-elements' ),
+			'label' => _x( 'Color', 'Border Control', 'skyre' ),
 			'type' => Controls_Manager::COLOR,
 			'default' => '',
 			'selectors' => array(
@@ -241,7 +241,7 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_border_radius'] = array(
-			'label'      => esc_html__( 'Border Radius', 'jet-elements' ),
+			'label'      => esc_html__( 'Border Radius', 'skyre' ),
 			'type'       => Controls_Manager::DIMENSIONS,
 			'size_units' => array( 'px', '%' ),
 			'selectors'  => array(
@@ -250,17 +250,17 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['allow_box_shadow'] = array(
-			'label' => _x( 'Box Shadow', 'Box Shadow Control', 'jet-elements' ),
+			'label' => _x( 'Box Shadow', 'Box Shadow Control', 'skyre' ),
 			'type' => Controls_Manager::SWITCHER,
-			'label_on' => esc_html__( 'Yes', 'jet-elements' ),
-			'label_off' => esc_html__( 'No', 'jet-elements' ),
+			'label_on' => esc_html__( 'Yes', 'skyre' ),
+			'label_off' => esc_html__( 'No', 'skyre' ),
 			'return_value' => 'yes',
 			'separator' => 'before',
 			'render_type' => 'ui',
 		);
 
 		$fields['box_shadow'] = array(
-			'label'     => _x( 'Box Shadow', 'Box Shadow Control', 'jet-elements' ),
+			'label'     => _x( 'Box Shadow', 'Box Shadow Control', 'skyre' ),
 			'type'      => Controls_Manager::BOX_SHADOW,
 			'condition' => array(
 				'allow_box_shadow!' => '',
@@ -271,11 +271,11 @@ class Jet_Group_Control_Box_Style extends Elementor\Group_Control_Base {
 		);
 
 		$fields['box_shadow_position'] = array(
-			'label' => _x( 'Position', 'Box Shadow Control', 'jet-elements' ),
+			'label' => _x( 'Position', 'Box Shadow Control', 'skyre' ),
 			'type' => Controls_Manager::SELECT,
 			'options' => array(
-				' '     => _x( 'Outline', 'Box Shadow Control', 'jet-elements' ),
-				'inset' => _x( 'Inset', 'Box Shadow Control', 'jet-elements' ),
+				' '     => _x( 'Outline', 'Box Shadow Control', 'skyre' ),
+				'inset' => _x( 'Inset', 'Box Shadow Control', 'skyre' ),
 			),
 			'condition' => array(
 				'allow_box_shadow!' => '',

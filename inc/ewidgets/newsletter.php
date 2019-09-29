@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * Newsletter widget for Elementor builder
  *
  * @link       https://skyresoft.com
  * @since      1.0.0
@@ -10,12 +10,9 @@
 namespace ewidget\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-//use Elementor\Group_Control_Image_Size;
-//use Elementor\Utils;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-//use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 
 
@@ -28,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 } // End if().
 
 /**
- * Class Posts_Grid
  *
  * @package ThemeIsle\ElementorExtraWidgets
  */
@@ -1105,13 +1101,11 @@ protected function render( $instance = array() ) {
 			$btn_label = $this->get_settings( 'submit_label' );
 		} ?>
         <fieldset class="submit-form newsletter">
-            <button type="submit" name="submit" value="submit-newsletter-<?php echo $form_id;
+            <button type="submit" name="submit" value="submit-newsletter-<?php echo esc_attr($form_id);
             ?>" class="btn btn-sk-primary <?php $this->get_render_attribute_string( 'button' ); ?>">
-	            <?php echo $btn_label; ?>
-                <?php if ( ! empty( $instance['button_icon'] ) ){ ?><span <?php echo
-                $this->get_render_attribute_string( 'content-wrapper' ); // TODO: what to do about content-wrapper ?>
-
-                                <span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
+	            <?php echo esc_html($btn_label); ?>
+                <?php if ( ! empty( $instance['button_icon'] ) ){ ?><span <?php echo esc_html($this->get_render_attribute_string( 'content-wrapper' )); // TODO: what to do about content-wrapper 
+				echo esc_html($this->get_render_attribute_string( 'icon-align' )); ?>>
 									<i class="<?php echo esc_attr( $instance['button_icon'] ); ?>"></i>
 								</span>
 							<?php }; ?>
@@ -1185,7 +1179,7 @@ protected function render( $instance = array() ) {
 		$form_id    = $this->get_data( 'id' );
 
 		if ( $field['requirement'] === 'required' ) {
-			$required = 'required="required"';
+			$required = 'required';
 		}
 
 //		 in case this is a preview, we need to disable the actual inputs and transform the labels in inputs
@@ -1210,16 +1204,16 @@ protected function render( $instance = array() ) {
 		?>
 
 
-        <fieldset <?php echo $this->get_render_attribute_string( 'fieldset' . $field['_id'] ); ?>>
+        <fieldset <?php echo wp_kses_post($this->get_render_attribute_string( 'fieldset' . $field['_id'] )); ?>>
 
-            <label for="<?php echo $field_name ?>"
-				<?php echo $this->get_render_attribute_string( 'label' . $item_index ); ?>>
+            <label for="<?php echo esc_attr($field_name) ?>"
+				<?php echo esc_attr($this->get_render_attribute_string( 'label' . $item_index )); ?>>
 				<?php 
 				if($field['label']) {
-					echo $field['label'];
-					if ($field['requirement']==='required'){
-						echo '<span class="required-mark"> *</span>';
-					}
+					echo esc_html($field['label']);
+					if ($field['requirement']==='required'){ ?>
+						<span class="required-mark"> *</span>
+					<?php }
 				}
 				?>
             </label>
@@ -1227,19 +1221,19 @@ protected function render( $instance = array() ) {
 			<?php
 			switch ( $field['type'] ) {
 				case 'textarea': ?>
-                    <textarea class="form-control" name="<?php echo $field_name ?>" id="<?php echo $field_name ?>"
-						<?php echo $disabled; ?>
-						<?php echo $required; ?>
+                    <textarea class="form-control" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>"
+						<?php echo esc_attr($disabled); ?>
+						<?php echo esc_attr($required); ?>
                               placeholder="<?php echo esc_attr ( $placeholder ); ?>"
                               cols="30" rows="5"></textarea>
 					<?php break;
 				case 'password': ?>
-                    <input class="form-control" type="password" name="<?php echo $field_name ?>" id="<?php echo $field_name ?>"
-						<?php echo $required; ?> <?php echo $disabled; ?>>
+                    <input class="form-control" type="password" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>"
+						<?php echo esc_attr($required); ?> <?php echo esc_attr($disabled); ?>>
 					<?php break;
 				default: ?>
-                    <input class="form-control" type="text" name="<?php echo $field_name ?>" id="<?php echo $field_name ?>"
-						<?php echo $required; ?> <?php echo $disabled; ?> placeholder="<?php echo esc_attr ( $placeholder ); ?>">
+                    <input class="form-control" type="text" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>"
+						<?php echo esc_attr($required); ?> <?php echo esc_attr($disabled); ?> placeholder="<?php echo esc_attr ( $placeholder ); ?>">
 					<?php
 					break;
 			} ?>

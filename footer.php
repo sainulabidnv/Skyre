@@ -18,7 +18,7 @@
             <div class="container py-5">
                <?php if(skyre_get_option('footer_logo')) { 
 			   $footer_image = wp_get_attachment_image_src( skyre_get_option('footer_logo'), 'full' );
-			   ?> <div class="footer-logo"> <img src="<?php echo $footer_image[0]; ?>" alt="FooterLogo"> </div> <?php } ?>
+			   ?> <div class="footer-logo"> <img src="<?php echo esc_url($footer_image[0]); ?>" alt="FooterLogo"> </div> <?php } ?>
                 
                 <?php 
 				

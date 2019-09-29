@@ -53,11 +53,11 @@ class skyre_recent_widget extends WP_Widget {
 		$widget_style = $instance['widget_style'];
 		
 		// Before Widget
-		echo $args['before_widget'];
+		echo wp_kses_post($args['before_widget']);
 		$i = 1;
 		// Display the widget title  
 		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 		?>
 		<!-- START WIDGET -->
 		<ul class="widget-posts list-unstyled">
@@ -75,7 +75,7 @@ class skyre_recent_widget extends WP_Widget {
 						}
 						?>
 						<?php if(has_post_thumbnail()): ?>
-							<div class="thumbnail<?php echo $thumb_class; ?>">
+							<div class="thumbnail<?php echo esc_html($thumb_class); ?>">
 								<a class="featured-thumbnail widgetthumb" href='<?php the_permalink(); ?>'>
 									<?php the_post_thumbnail( $thumbnail ); ?>
 									<div class="fhover"></div>
@@ -111,7 +111,7 @@ class skyre_recent_widget extends WP_Widget {
 		<?php
 		
 		// After Widget
-		echo $args['after_widget'];
+		echo wp_kses_post($args['after_widget']);
 	}
 	
 	// Update the widget
@@ -153,47 +153,47 @@ class skyre_recent_widget extends WP_Widget {
 		// Widget Title: Text Input
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'skyre'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php if(!empty($instance['title'])) { echo $instance['title']; } ?>" class="widefat" type="text" />
+			<label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php _e('Title:', 'skyre'); ?></label>
+			<input id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" value="<?php if(!empty($instance['title'])) { echo esc_html($instance['title']); } ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e('Number of posts to show:','skyre'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'posts' ); ?>" name="<?php echo $this->get_field_name( 'posts' ); ?>" value="<?php echo intval( $instance['posts'] ); ?>" class="widefat" type="text" />
+			<label for="<?php echo esc_attr($this->get_field_id( 'posts' )); ?>"><?php _e('Number of posts to show:','skyre'); ?></label>
+			<input id="<?php echo esc_attr($this->get_field_id( 'posts' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'posts' )); ?>" value="<?php echo intval( $instance['posts'] ); ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'widget_style' ); ?>"><?php _e( 'Widget Style:','skyre' ); ?></label> 
-			<select id="<?php echo $this->get_field_id( 'widget_style' ); ?>" name="<?php echo $this->get_field_name( 'widget_style' ); ?>" style="width:100%;" >
+			<label for="<?php echo esc_attr($this->get_field_id( 'widget_style' )); ?>"><?php _e( 'Widget Style:','skyre' ); ?></label> 
+			<select id="<?php echo esc_attr($this->get_field_id( 'widget_style' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'widget_style' )); ?>" style="width:100%;" >
 				<option value="style-one" <?php if ($widget_style == 'style-one') echo 'selected="selected"'; ?>><?php _e( 'Small Thumbnail','skyre' ); ?></option>
 				<option value="style-two" <?php if ($widget_style == 'style-two') echo 'selected="selected"'; ?>><?php _e( 'Big Thumbnail','skyre' ); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id("show_thumb"); ?>">
-				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_thumb"); ?>" name="<?php echo $this->get_field_name("show_thumb"); ?>" value="1" <?php if (isset($instance['show_thumb'])) { checked( 1, $instance['show_thumb'], true ); } ?> />
+			<label for="<?php echo esc_attr($this->get_field_id("show_thumb")); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo esc_attr($this->get_field_id("show_thumb")); ?>" name="<?php echo esc_attr($this->get_field_name("show_thumb")); ?>" value="1" <?php if (isset($instance['show_thumb'])) { checked( 1, $instance['show_thumb'], true ); } ?> />
 				<?php _e( 'Show Thumbnails', 'skyre'); ?>
 			</label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id("show_cat"); ?>">
-				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_cat"); ?>" name="<?php echo $this->get_field_name("show_cat"); ?>" value="1" <?php if (isset($instance['show_cat'])) { checked( 1, $instance['show_cat'], true ); } ?> />
+			<label for="<?php echo esc_attr($this->get_field_id("show_cat")); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo esc_attr($this->get_field_id("show_cat")); ?>" name="<?php echo esc_attr($this->get_field_name("show_cat")); ?>" value="1" <?php if (isset($instance['show_cat'])) { checked( 1, $instance['show_cat'], true ); } ?> />
 				<?php _e( 'Show Categories', 'skyre'); ?>
 			</label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id("show_author"); ?>">
-				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_author"); ?>" name="<?php echo $this->get_field_name("show_author"); ?>" value="1" <?php if (isset($instance['show_author'])) { checked( 1, $instance['show_author'], true ); } ?> />
+			<label for="<?php echo esc_attr($this->get_field_id("show_author")); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo esc_attr($this->get_field_id("show_author")); ?>" name="<?php echo esc_attr($this->get_field_name("show_author")); ?>" value="1" <?php if (isset($instance['show_author'])) { checked( 1, $instance['show_author'], true ); } ?> />
 				<?php _e( 'Show Post Author', 'skyre'); ?>
 			</label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id("show_date"); ?>">
-				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_date"); ?>" name="<?php echo $this->get_field_name("show_date"); ?>" value="1" <?php if (isset($instance['show_date'])) { checked( 1, $instance['show_date'], true ); } ?> />
+			<label for="<?php echo esc_attr($this->get_field_id("show_date")); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo esc_attr($this->get_field_id("show_date")); ?>" name="<?php echo esc_attr($this->get_field_name("show_date")); ?>" value="1" <?php if (isset($instance['show_date'])) { checked( 1, $instance['show_date'], true ); } ?> />
 				<?php _e( 'Show Post Date', 'skyre'); ?>
 			</label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id("show_comments"); ?>">
-				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("show_comments"); ?>" name="<?php echo $this->get_field_name("show_comments"); ?>" value="1" <?php if (isset($instance['show_comments'])) { checked( 1, $instance['show_comments'], true ); } ?> />
+			<label for="<?php echo esc_attr($this->get_field_id("show_comments")); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo esc_attr($this->get_field_id("show_comments")); ?>" name="<?php echo esc_attr($this->get_field_name("show_comments")); ?>" value="1" <?php if (isset($instance['show_comments'])) { checked( 1, $instance['show_comments'], true ); } ?> />
 				<?php _e( 'Show Post Comments', 'skyre'); ?>
 			</label>
 		</p>

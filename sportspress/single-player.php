@@ -54,12 +54,12 @@ $statistics = $player->statistics;
 					        else echo '<img src="'. get_template_directory_uri().'/sportspress/assets/img/player-large.jpg"  alt="' . get_the_title(). '" />';
                             ?>  
                         </div>
-                        <span class="sktbg skpc"><?php echo $player->number; ?></span>
+                        <span class="sktbg skpc"><?php echo esc_attr($player->number); ?></span>
                     </div>
                 </div>
                 <div class="col-md-7"> 
                     <ul class="player-meta">
-                    <li><span><?php echo !empty($sta['goals']) ? $sta['goals']:'0' ?></span> Goals </li>
+                    <li><span><?php echo !empty($sta['goals']) ? $sta['goals']:'0' ?></span> <?php _e('Goals','skyre'); ?> ss</li>
                     <li><span><?php echo !empty($sta['assists']) ? $sta['assists']:'0' ?></span> Assists </li>
                     <li><span><?php echo !empty($sta['winratio']) ? $sta['winratio']:'0' ?></span> Win Ratio </li>
                     <div class="clearfilter"></div>  
@@ -80,11 +80,11 @@ $statistics = $player->statistics;
                         <?php the_content(); ?>
                         <?php
                             wp_link_pages( array(
-                                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'icos' ) . '</span>',
+                                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'skyre' ) . '</span>',
                                 'after'       => '</div>',
                                 'link_before' => '<span>',
                                 'link_after'  => '</span>',
-                                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'icos' ) . ' </span>%',
+                                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'skyre' ) . ' </span>%',
                                 'separator'   => '<span class="screen-reader-text">, </span>',
                             ) );
                         ?>

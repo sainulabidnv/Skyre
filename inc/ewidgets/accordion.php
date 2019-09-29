@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor accordion widget.
+ * Skyre+Elementor accordion widget.
  *
- * Elementor widget that displays a collapsible display of content in an
+ * Skyre+Elementor widget that displays a collapsible display of content in an
  * accordion style, showing only one item at a time.
  *
  * @since 1.0.0
@@ -49,7 +49,7 @@ class Widget_Accordion extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Accordion', 'elementor' );
+		return __( 'Accordion', 'skyre' );
 	}
 
 	/**
@@ -92,7 +92,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Accordion', 'elementor' ),
+				'label' => __( 'Accordion', 'skyre' ),
 			]
 		);
 
@@ -101,9 +101,9 @@ class Widget_Accordion extends Widget_Base {
 		$repeater->add_control(
 			'tab_title',
 			[
-				'label' => __( 'Title & Content', 'elementor' ),
+				'label' => __( 'Title & Content', 'skyre' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Accordion Title', 'elementor' ),
+				'default' => __( 'Accordion Title', 'skyre' ),
 				'dynamic' => [
 					'active' => true,
 				],
@@ -114,9 +114,9 @@ class Widget_Accordion extends Widget_Base {
 		$repeater->add_control(
 			'tab_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => __( 'Content', 'skyre' ),
 				'type' => Controls_Manager::WYSIWYG,
-				'default' => __( 'Accordion Content', 'elementor' ),
+				'default' => __( 'Accordion Content', 'skyre' ),
 				'show_label' => false,
 			]
 		);
@@ -124,17 +124,17 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'tabs',
 			[
-				'label' => __( 'Accordion Items', 'elementor' ),
+				'label' => __( 'Accordion Items', 'skyre' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'tab_title' => __( 'Accordion #1', 'elementor' ),
-						'tab_content' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
+						'tab_title' => __( 'Accordion #1', 'skyre' ),
+						'tab_content' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'skyre' ),
 					],
 					[
-						'tab_title' => __( 'Accordion #2', 'elementor' ),
-						'tab_content' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
+						'tab_title' => __( 'Accordion #2', 'skyre' ),
+						'tab_content' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'skyre' ),
 					],
 				],
 				'title_field' => '{{{ tab_title }}}',
@@ -144,7 +144,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => __( 'View', 'elementor' ),
+				'label' => __( 'View', 'skyre' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
@@ -153,7 +153,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'icon',
 			[
-				'label' => __( 'Icon', 'elementor' ),
+				'label' => __( 'Icon', 'skyre' ),
 				'type' => Controls_Manager::ICON,
 				'default' => 'fa fa-plus',
 				'separator' => 'before',
@@ -163,7 +163,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'icon_active',
 			[
-				'label' => __( 'Active Icon', 'elementor' ),
+				'label' => __( 'Active Icon', 'skyre' ),
 				'type' => Controls_Manager::ICON,
 				'default' => 'fa fa-minus',
 				'condition' => [
@@ -175,7 +175,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label' => __( 'Title HTML Tag', 'elementor' ),
+				'label' => __( 'Title HTML Tag', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -196,7 +196,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' => __( 'Accordion', 'elementor' ),
+				'label' => __( 'Accordion', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -204,7 +204,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'border_width',
 			[
-				'label' => __( 'Border Width', 'elementor' ),
+				'label' => __( 'Border Width', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -223,7 +223,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'border_color',
 			[
-				'label' => __( 'Border Color', 'elementor' ),
+				'label' => __( 'Border Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-accordion-item' => 'border-color: {{VALUE}};',
@@ -236,7 +236,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'accordian_margin',
 			[
-				'label' => __( 'Margin', 'elementor' ),
+				'label' => __( 'Margin', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -250,14 +250,14 @@ class Widget_Accordion extends Widget_Base {
 			[
 				'name' => 'accordian_boxshadow',
 				'selector' => '{{WRAPPER}} .elementor-accordion-item',
-				'label' => __( 'Box Shadow', 'elementor' ),
+				'label' => __( 'Box Shadow', 'skyre' ),
 			]
 		);
 		
 		$this->add_control(
 			'accordian_border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => __( 'Border Radius', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -274,7 +274,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_title',
 			[
-				'label' => __( 'Title', 'elementor' ),
+				'label' => __( 'Title', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -282,7 +282,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'title_background',
 			[
-				'label' => __( 'Background', 'elementor' ),
+				'label' => __( 'Background', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-title' => 'background-color: {{VALUE}};',
@@ -293,7 +293,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-title' => 'color: {{VALUE}};',
@@ -308,7 +308,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'tab_active_color',
 			[
-				'label' => __( 'Active Color', 'elementor' ),
+				'label' => __( 'Active Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-title.elementor-active' => 'color: {{VALUE}};',
@@ -332,7 +332,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label' => __( 'Padding', 'elementor' ),
+				'label' => __( 'Padding', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -346,7 +346,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_icon',
 			[
-				'label' => __( 'Icon', 'elementor' ),
+				'label' => __( 'Icon', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'icon!' => '',
@@ -357,15 +357,15 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => __( 'Alignment', 'skyre' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Start', 'elementor' ),
+						'title' => __( 'Start', 'skyre' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => __( 'End', 'elementor' ),
+						'title' => __( 'End', 'skyre' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -381,7 +381,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-title .elementor-accordion-icon .fa:before' => 'color: {{VALUE}};',
@@ -395,7 +395,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'icon_active_color',
 			[
-				'label' => __( 'Active Color', 'elementor' ),
+				'label' => __( 'Active Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon .fa:before' => 'color: {{VALUE}};',
@@ -409,7 +409,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_space',
 			[
-				'label' => __( 'Spacing', 'elementor' ),
+				'label' => __( 'Spacing', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -432,7 +432,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'icon!' => '',
@@ -443,7 +443,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'content_background_color',
 			[
-				'label' => __( 'Background', 'elementor' ),
+				'label' => __( 'Background', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-content' => 'background-color: {{VALUE}};',
@@ -454,7 +454,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_control(
 			'content_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-content' => 'color: {{VALUE}};',
@@ -478,7 +478,7 @@ class Widget_Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label' => __( 'Padding', 'elementor' ),
+				'label' => __( 'Padding', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -532,16 +532,16 @@ class Widget_Accordion extends Widget_Base {
 				$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
 				?>
 				<div class="elementor-accordion-item">
-					<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
+					<<?php echo esc_attr($settings['title_html_tag']); ?> <?php echo wp_kses_post($this->get_render_attribute_string( $tab_title_setting_key )); ?>>
 						<?php if ( $settings['icon'] ) : ?>
 						<span class="elementor-accordion-icon elementor-accordion-icon-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
 							<i class="elementor-accordion-icon-closed <?php echo esc_attr( $settings['icon'] ); ?>"></i>
 							<i class="elementor-accordion-icon-opened <?php echo esc_attr( $settings['icon_active'] ); ?>"></i>
 						</span>
 						<?php endif; ?>
-						<a href=""><?php echo $item['tab_title']; ?></a>
-					</<?php echo $settings['title_html_tag']; ?>>
-					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
+						<a href=""><?php echo esc_html($item['tab_title']); ?></a>
+					</<?php echo esc_attr($settings['title_html_tag']); ?>>
+					<div <?php echo wp_kses_post($this->get_render_attribute_string( $tab_content_setting_key )); ?>><?php echo wp_kses_post($this->parse_text_editor( $item['tab_content'] )); ?></div>
 				</div>
 			<?php endforeach; ?>
 		</div>

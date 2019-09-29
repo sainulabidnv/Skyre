@@ -101,7 +101,7 @@ $size_class = sanitize_html_class( $size );
 $gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columncount-{$columncount} gallery-size-{$size_class}'>";
 echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 ?>
-<?php echo $gallery_div; ?>
+<?php echo wp_kses_post($gallery_div); ?>
 	<?php
 	if ( intval( $number ) > 0 )
 		$limit = $number;
@@ -209,28 +209,6 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 
 			$gallery .= '</div> </div>';
 
-			
-
-			
-			
-			
-
-
-			/*ob_start();
-
-		    sp_get_template( 'player-gallery-thumbnail.php', array(
-		    	'id' => $player_id,
-		    	'itemtag' => $itemtag,
-		    	'icontag' => $icontag,
-		    	'captiontag' => $captiontag,
-		    	'caption' => $caption,
-		    	'size' => $size,
-				'link_posts' => $link_posts,
-				'ws' => $ws,
-		    ) );
-
-			$gallery .= ob_get_clean();*/
-
 			$i++;
 
 		endif; endforeach;
@@ -245,7 +223,7 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 		endif;
 		echo '<div class="sp-player-gallery-wrapper sp-gallery-wrapper row">';
 		
-		echo $gallery;
+		echo wp_kses_post($gallery);
 
 		if ( ! $html5 && $columncount > 0 && ++$i % $columncount == 0 ) {
 			echo '<br style="clear: both" />';
@@ -254,7 +232,7 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 		echo '</div>';
 
 		if ( $show_all_players_link && ( 'position' !== $grouping || $j == count( $groups ) ) ) {
-			echo '<div class="sp-player-gallery-link sp-gallery-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all players', 'sportspress' ) . '</a></div>';
+			echo '<div class="sp-player-gallery-link sp-gallery-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all players', 'skyre' ) . '</a></div>';
 		}
 
 		echo '</div>';

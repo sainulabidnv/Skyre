@@ -151,7 +151,7 @@ foreach ( $groups as $group ):
 		if ( in_array( $orderby, array( 'number', 'name' ) ) ):
 			$numthead = '<th class="data-number">#</th>';
 		else:
-			$numthead = '<th class="data-rank">' . __( 'Rank', 'sportspress' ) . '</th>';
+			$numthead = '<th class="data-rank">' . __( 'Rank', 'skyre' ) . '</th>';
 		endif;
 	endif;
 
@@ -285,10 +285,10 @@ foreach ( $groups as $group ):
 	$output .= '</tbody>' . '</table>' . '</div>';
 
 	if ( $show_all_players_link ):
-		$output .= '<div class="sp-player-list-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all players', 'sportspress' ) . '</a></div>';
+		$output .= '<div class="sp-player-list-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all players', 'skyre' ) . '</a></div>';
 	endif;
 
 	$output .= '</div>';
 endforeach;
 ?>
-<?php echo $output; ?>
+<?php echo wp_kses_post($output); ?>

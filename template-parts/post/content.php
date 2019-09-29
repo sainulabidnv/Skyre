@@ -17,7 +17,7 @@
  //skyre_get_post_option('blog_layout')
 
 ?>
-<div class=" col-lg-<?php echo $entry_count; ?><?php if ( is_single() ) { echo ' skyre-single-post-item';  } else { echo ' skyre-post-item';} ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class=" col-lg-<?php echo esc_attr($entry_count); ?><?php if ( is_single() ) { echo ' skyre-single-post-item';  } else { echo ' skyre-post-item';} ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<article>
     <?php
 		require SKYRE_THEME_DIR.'/template-parts/post/layout/post-layout.php' ;

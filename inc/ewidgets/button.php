@@ -482,9 +482,9 @@ class Widget_Button extends Widget_Base {
 		}
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-				<?php $this->render_text(); ?>
+		<div <?php echo esc_html($this->get_render_attribute_string( 'wrapper' )); ?>>
+			<a <?php echo wp_kses_post($this->get_render_attribute_string( 'button' )); ?>>
+				<?php esc_html($this->render_text()); ?>
 			</a>
 		</div>
 		<?php
@@ -548,13 +548,13 @@ class Widget_Button extends Widget_Base {
 
 		$this->add_inline_editing_attributes( 'text', 'none' );
 		?>
-		<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
+		<span <?php echo wp_kses_post($this->get_render_attribute_string( 'content-wrapper' )); ?>>
 			<?php if ( ! empty( $settings['icon'] ) ) : ?>
-			<span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
+			<span <?php echo wp_kses_post($this->get_render_attribute_string( 'icon-align' )); ?>>
 				<i class="<?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
 			</span>
 			<?php endif; ?>
-			<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo $settings['text']; ?></span>
+			<span <?php echo wp_kses_post($this->get_render_attribute_string( 'text' )); ?>><?php echo esc_html($settings['text']); ?></span>
 		</span>
 		<?php
 	}

@@ -4,10 +4,10 @@ add_action( 'tgmpa_register', 'skyre_register_required_plugins' );
 function skyre_register_required_plugins() {
     $protocol = is_ssl() ? 'http' : 'http';
     $plugins = array(
-        // This is an example of how to include a plugin from the WordPress Plugin Repository.      
+              
         array(
             'name'               => esc_html__( 'Elementor Page Builder', 'skyre' ),
-            'slug'               => 'elementor',
+            'slug'               => 'skyre',
             'required'           => true,
             'force_activation'   => false,
             'force_deactivation' => false,

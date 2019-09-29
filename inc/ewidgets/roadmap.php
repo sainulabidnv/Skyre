@@ -164,7 +164,7 @@ class Widget_Roadmap extends Widget_Base {
 			'list_content', [
 				'label' => __( 'Content', 'skyre' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => __( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' , 'plugin-domain' ),
+				'default' => __( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry' , 'skyre' ),
 				'show_label' => false,
 			]
 		);
@@ -204,13 +204,13 @@ class Widget_Roadmap extends Widget_Base {
 					[
 						'list_title' => __( 'Roadmap Title #1', 'skyre' ),
 						'list_content' => __( '1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry', 'skyre' ),
-						'list_date' => __( date('Y-m-d', strtotime("-10 days")), 'skyre' ),
+						'list_date' => date('Y-m-d', strtotime("-10 days")),
 						'list_status' => 'finished',
 					],
 					[
 						'list_title' => __( 'Roadmap Title #2', 'skyre' ),
 						'list_content' => __( '2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry', 'skyre' ),
-						'list_date' => __( date('Y-m-d', strtotime("+20 days")), 'skyre' ),
+						'list_date' => date('Y-m-d', strtotime("+20 days")),
 						'list_status' => 'active',
 					],
 				],
@@ -552,7 +552,7 @@ class Widget_Roadmap extends Widget_Base {
 					<a href="#roadmap" class="rmap-end-btn"></a>
 				</div><!--rmap-wrap-->';       
 		}
-		echo $html;
+		echo wp_kses_post($html);
 	}
 
 	protected function _content_template() {

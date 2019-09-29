@@ -173,29 +173,29 @@ if ( $title )
 					$event_group = get_post_meta( $event->ID, 'sp_day', true );
 					if ( ! isset( $group ) || $event_group !== $group ):
 						$group = $event_group;
-						echo '<div><strong class="sp-event-group-name clearfix">', __( 'Match Day', 'sportspress' ), ' ', $group, '</strong></div> ';
+						echo '<div><strong class="sp-event-group-name clearfix">', __( 'Match Day', 'skyre' ), ' ', $group, '</strong></div> ';
 					endif;
 				endif;
 				?>
-				<div class="col-md-<?php echo $itemwidth; ?>" sp-post<?php echo ( $i % 2 == 0 ? ' alternate' : '' ); ?>" itemscope itemtype="http://schema.org/SportsEvent">
+				<div class="col-md-<?php echo esc_attr($itemwidth); ?>" >
 					<div class="sp-event-block-item">
 						<?php do_action( 'sportspress_event_blocks_before', $event, $usecolumns ); ?>
 						<?php echo implode( $logos, ' ' ); ?>
 						<?php 
 						if(empty($ws) and $id > 0) {  ?>
-							<div class="sp-event-date" datetime="<?php echo $event->post_date; ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
+							<div class="sp-event-date" datetime="<?php echo esc_html($event->post_date); ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
 								<?php echo sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
 							</div>
 						<?php  } 
 						foreach($usecolumns as $skcolumn){ ?>
 							<?php if($skcolumn == 'date'){ ?>
-								<div class="sp-event-date" datetime="<?php echo $event->post_date; ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
+								<div class="sp-event-date" datetime="<?php echo esc_html($event->post_date); ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
 									<?php echo sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
 								</div>
 							<?php continue; } ?>
 
 							<?php if ( $skcolumn == 'day' ): $matchday = get_post_meta( $event->ID, 'sp_day', true ); if ( $matchday != '' ): ?>
-								<div class="sp-event-matchday"><?php echo $matchday; ?></div>
+								<div class="sp-event-matchday"><?php echo esc_html($matchday); ?></div>
 							<?php continue; endif; endif; ?>
 
 							<?php if( $skcolumn == 'time' ) { ?>
@@ -206,11 +206,11 @@ if ( $title )
 
 							<?php if ( $skcolumn == 'league' ): $leagues = get_the_terms( $event, 'sp_league' ); if ( $leagues ): $league = array_shift( $leagues ); 
 								 $seasons = get_the_terms( $event, 'sp_season' ); if ( $seasons ): $season = array_shift( $seasons ); endif; ?>
-								<div class="sp-event-league"><?php echo $league->name.' '.$season->name; ?></div>
+								<div class="sp-event-league"><?php echo esc_html($league->name.' '.$season->name); ?></div>
 							<?php continue; endif; endif; ?>
 							
 							<?php if ( $skcolumn == 'venue' ): $venues = get_the_terms( $event, 'sp_venue' ); if ( $venues ): $venue = array_shift( $venues ); ?>
-								<div class="sp-event-venue" > <?php echo $venue->name; ?></div>
+								<div class="sp-event-venue" > <?php echo esc_html($venue->name); ?></div>
 							<?php continue; endif; endif; ?>
 
 							<?php if( $skcolumn == 'event' ) { ?>
@@ -234,6 +234,6 @@ if ( $title )
 	</div>
 	<?php
 	if ( $id && $show_all_events_link )
-		echo '<div class="sp-calendar-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all events', 'sportspress' ) . '</a></div>';
+		echo '<div class="sp-calendar-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all events', 'skyre' ) . '</a></div>';
 	?>
 </div>

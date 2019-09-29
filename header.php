@@ -45,8 +45,8 @@
 		<!-- Navbar -->
         <nav class="mainmenu <?php if(skyre_get_option('box_shadow')) { ?>box-shadow <?php } ?> <?php if(skyre_get_option('sticky_header') != 1) { ?>is-sticky <?php } ?> navbar navbar-expand-lg" id="mainmenu">
             <div class="container">
-                <a class="navbar-brand  animated fadeInUpShort" data-animate="fadeInDown" data-delay=".65" href="<?php echo bloginfo( 'url' ); ?>">
-                	<img class="logo logo-dark" alt="<?php echo get_bloginfo(); ?>" src="<?php echo $image[0]; ?>">
+                <a class="navbar-brand  animated fadeInUpShort" data-animate="fadeInDown" data-delay=".65" href="<?php  echo esc_url( home_url() ); ?>">
+                	<img class="logo logo-dark" alt="<?php echo get_bloginfo(); ?>" src="<?php echo esc_url($image[0]); ?>">
                 </a>
                 <button class="navbar-toggler skpbg skwc" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 	<span class="navbar-toggler-icon"></span>

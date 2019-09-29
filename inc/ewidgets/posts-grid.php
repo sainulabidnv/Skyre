@@ -2354,7 +2354,7 @@ class postsGrid extends \Elementor\Widget_Base {
 
 					$pagination = paginate_links( $paginate_args ); ?>
 					<nav class="pagination">
-						<?php echo $pagination; ?>
+						<?php echo wp_kses_post($pagination); ?>
 					</nav>
 				</div>
 				<?php
@@ -2378,35 +2378,30 @@ class postsGrid extends \Elementor\Widget_Base {
 		// Only in editor.
 		
 		// Check if post type has featured image.
-		if ( has_post_thumbnail() ) {
 
-			if ( $settings['grid_image_link'] == 'yes' ) {
-				?>
-				<div class="skyre-grid-col-image">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php
-						the_post_thumbnail(
-							'full', array(
-								'class' => 'img-responsive',
-								'alt'   => get_the_title( get_post_thumbnail_id() ),
-							)
-						); ?>
-					</a>
-				</div>
-			<?php } else { ?>
-				<div class="skyre-grid-col-image">
-					<?php
-					the_post_thumbnail(
-						'full', array(
-							'class' => 'img-responsive',
-							'alt'   => get_the_title( get_post_thumbnail_id() ),
-						)
-					); ?>
-				</div>
+		if ( $settings['grid_image_link'] == 'yes' ) {
+			?>
+			<div class="skyre-grid-col-image">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<?php 
+					if ( has_post_thumbnail() ) {
+						the_post_thumbnail( 'post-medium', array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
+					} else { ?> 
+					<img  src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
+					<?php } ?>
+				</a>
+			</div>
+		<?php } else { ?>
+			<div class="skyre-grid-col-image">
 				<?php
-			}
+				if ( has_post_thumbnail() ) {
+					the_post_thumbnail( 'post-medium', array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
+				}else { ?> 
+					<img  src="<?php echo SKYRE_THEME_URI; ?> assets/images/post-medium.jpg"> 
+				<?php } ?>
+			</div>
+			<?php
 		}
-		
 	}
 
 	/**
@@ -2416,7 +2411,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		$settings = $this->get_settings();
 
 		?>
-		<<?php echo $settings['grid_title_tag']; ?> class=" skyre-grid-title">
+		<<?php echo esc_html($settings['grid_title_tag']); ?> class=" skyre-grid-title">
 		<?php if ( $settings['grid_title_link'] == 'yes' ) { ?>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php the_title(); ?>
@@ -2425,7 +2420,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		} else {
 			the_title();
 		} ?>
-		</<?php echo $settings['grid_title_tag']; ?>>
+		</<?php echo esc_html($settings['grid_title_tag']); ?>>
 		<?php
 		
 	}
@@ -2447,7 +2442,7 @@ class postsGrid extends \Elementor\Widget_Base {
 						case 'author': ?>
 							<span class="skyre-grid-author">
 								<?php
-								echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-user"></i>' : '';
+								if( $settings['grid_meta_remove_icons'] == '' ) { ?> <i class="fa fa-user"></i> <?php } 
 
 								echo get_the_author(); ?>
 							</span>
@@ -2456,8 +2451,8 @@ class postsGrid extends \Elementor\Widget_Base {
 							break;
 						case 'date': ?>
 							<span class="skyre-grid-date">
-								<?php
-								echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-calendar"></i>' : '';
+								<?php 
+								if( $settings['grid_meta_remove_icons'] == '' ) { ?>  <i class="fa fa-calendar"></i> <?php }
 								echo get_the_date(); ?>
 							</span>
 							<?php
@@ -2483,14 +2478,13 @@ class postsGrid extends \Elementor\Widget_Base {
 ?>
 									<span class="woocommerce">
 										<?php if ($average = $product->get_average_rating()) : ?>
-										<?php echo '<span class="star-rating" title="'.sprintf(__( 'Rated %s out of 5', 'woocommerce' ), $average).'"><span style="width:'.( ( $average / 5 ) * 100 ) . '%">  &nbsp;</span> </span>'; ?>
+										<?php echo '<span class="star-rating" title="'.sprintf(__( 'Rated %s out of 5', 'skyre' ), $average).'"><span style="width:'.( ( $average / 5 ) * 100 ) . '%">  &nbsp;</span> </span>'; ?>
 										<?php endif; ?>
 								</span> 
 <?php
-									//echo comments_number( __( 'No reviews', 'skyre' ), __( '1 review', 'skyre' ), __( '% reviews', 'skyre' ) );
 								} else {
 									echo '<span class="skyre-grid-comments">';
-									echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-comment"></i>' : '';
+								if( $settings['grid_meta_remove_icons'] == '' ) { ?> <i class="fa fa-comment"></i> <?php }
 									echo comments_number( __( 'No comments', 'skyre' ), __( '1 comment', 'skyre' ), __( '% comments', 'skyre' ) );
 									echo '</span>';
 								} ?>
@@ -2615,7 +2609,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		if ( $settings['grid_content_default_btn'] == 'yes' && ! empty( $settings['grid_content_default_btn_text'] ) ) { ?>
 			<div class="skyre-grid-read-btn">
 				<a href="<?php echo get_the_permalink(); ?>"
-				   title="<?php echo $settings['grid_content_default_btn_text']; ?>"><?php echo $settings['grid_content_default_btn_text']; ?></a>
+				   title="<?php echo esc_html($settings['grid_content_default_btn_text']); ?>"><?php echo esc_html($settings['grid_content_default_btn_text']); ?></a>
 			</div>
 			<?php
 		}
@@ -2641,7 +2635,7 @@ class postsGrid extends \Elementor\Widget_Base {
 		if ( $post_type_category ) { ?>
 			<span class="skyre-grid-categories">
 				<?php
-				echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-bookmark"></i>' : '';
+				if( $settings['grid_meta_remove_icons'] == '' ) { ?> <i class="fa fa-bookmark"></i> <?php }
 
 				foreach ( $post_type_category as $category ) {
 					if ( $i == $maxCategories ) {
@@ -2649,8 +2643,8 @@ class postsGrid extends \Elementor\Widget_Base {
 					} ?>
 					<span class="skyre-grid-categories-item">
 						<a href="<?php echo get_category_link( $category->term_id ); ?>"
-						   title="<?php echo $category->name; ?>">
-							<?php echo $category->name; ?>
+						   title="<?php echo esc_html($category->name); ?>">
+							<?php echo esc_html($category->name); ?>
 						</a>
 					</span>
 					<?php
@@ -2678,15 +2672,15 @@ class postsGrid extends \Elementor\Widget_Base {
 		if ( $post_type_tags ) { ?>
 			<span class="skyre-grid-tags">
 				<?php
-				echo ( $settings['grid_meta_remove_icons'] == '' ) ? '<i class="fa fa-tags"></i>' : '';
+				if( $settings['grid_meta_remove_icons'] == '' ) { ?> <i class="fa fa-tags"></i> <?php }
 
 				foreach ( $post_type_tags as $tag ) {
 					if ( $i == $maxTags ) {
 						break;
 					} ?>
 					<span class="skyre-grid-tags-item">
-						<a href="<?php echo get_tag_link( $tag->term_id ); ?>" title="<?php echo $tag->name; ?>">
-							<?php echo $tag->name; ?>
+						<a href="<?php echo esc_url(get_tag_link( $tag->term_id )); ?>" title="<?php echo esc_attr($tag->name); ?>">
+							<?php echo esc_html($tag->name); ?>
 						</a>
 					</span>
 					<?php

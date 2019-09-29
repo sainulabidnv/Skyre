@@ -33,7 +33,7 @@ if ( ! class_exists( 'Cryptic_Control_link' ) && class_exists( 'WP_Customize_Con
        ?>
          
         <div class="inside">
-            <p><?php echo $this->content; ?></p>
+            <p><?php echo esc_html($this->content); ?></p>
         </div><?php
         }
     }

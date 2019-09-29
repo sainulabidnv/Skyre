@@ -41,11 +41,11 @@ $sidebar = empty(get_option('sportspress_single_team_sidebar')) ? 'no' : get_opt
                         <?php the_content(); ?>
                         <?php
                             wp_link_pages( array(
-                                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'icos' ) . '</span>',
+                                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'skyre' ) . '</span>',
                                 'after'       => '</div>',
                                 'link_before' => '<span>',
                                 'link_after'  => '</span>',
-                                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'icos' ) . ' </span>%',
+                                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'skyre' ) . ' </span>%',
                                 'separator'   => '<span class="screen-reader-text">, </span>',
                             ) );
                         ?>

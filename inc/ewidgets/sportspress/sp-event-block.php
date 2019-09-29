@@ -118,14 +118,14 @@ class spEventBlock extends \Elementor\Widget_Base {
 	protected function get_event_dates(){ 
 	
 		$dates = apply_filters( 'sportspress_dates', array(
-			0 => __( 'All', 'sportspress' ),
-			'-day' => __( 'Yesterday', 'sportspress' ),
-			'day' => __( 'Today', 'sportspress' ),
-			'+day' => __( 'Tomorrow', 'sportspress' ),
-			'-w' => __( 'Last week', 'sportspress' ),
-			'w' => __( 'This week', 'sportspress' ),
-			'+w' => __( 'Next week', 'sportspress' ),
-			'range' => __( 'Date range:', 'sportspress' ),
+			0 => __( 'All', 'skyre' ),
+			'-day' => __( 'Yesterday', 'skyre' ),
+			'day' => __( 'Today', 'skyre' ),
+			'+day' => __( 'Tomorrow', 'skyre' ),
+			'-w' => __( 'Last week', 'skyre' ),
+			'w' => __( 'This week', 'skyre' ),
+			'+w' => __( 'Next week', 'skyre' ),
+			'range' => __( 'Date range:', 'skyre' ),
 		));
 		return $dates ;
 	}

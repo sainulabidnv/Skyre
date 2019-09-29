@@ -84,7 +84,7 @@ if ( $columns === null )
 if ( null !== $columns && ! is_array( $columns ) )
 	$columns = explode( ',', $columns );
 
-//$output .= '<th class="data-rank">' . __( 'Pos', 'sportspress' ) . '</th>';
+//$output .= '<th class="data-rank">' . __( 'Pos', 'skyre' ) . '</th>';
 if(!empty($ws)) { 
 	foreach( $columns as $key => $label ):
 		$output .= '<th class="data-' . $key . '">' . $labels[$label] . '</th>';
@@ -196,8 +196,8 @@ $output .= '</tbody>' . '</table>';
 $output .= '</div>';
 
 if ( $show_full_table_link && $id !=1 )
-	$output .= '<div class="sp-league-table-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View full table', 'sportspress' ) . '</a></div>';
+	$output .= '<div class="sp-league-table-link sk-sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View full table', 'skyre' ) . '</a></div>';
 ?>
 <div class="sp-template sp-template-league-table">
-	<?php echo $output; ?>
+	<?php echo wp_kses_post($output); ?>
 </div>

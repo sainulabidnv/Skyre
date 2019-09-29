@@ -121,13 +121,13 @@ $next = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS yea
 		LIMIT 1");
 
 /* translators: Calendar caption: 1: month name, 2: 4-digit year */
-$calendar_caption = _x('%1$s %2$s', 'calendar caption', 'sportspress');
+$calendar_caption = _x('%1$s %2$s', 'calendar caption', 'skyre');
 $calendar_output = '
 <div class="sp-calendar-wrapper  text-center">
 <' . $caption_tag . ' class="sp-table-caption skpbg skwc row ">
     <div class="col-2 sp-previous-month" id="prev" >';
     if ( $previous ) {
-        $calendar_output .= '<a data-tooltip data-options="disable_for_touch:true" class="has-tooltip tip-right" href="' . add_query_arg( array( 'sp_year' => $previous->year, 'sp_month' => $previous->month ) ) . '" title="' . esc_attr( sprintf(_x('%1$s %2$s', 'calendar caption', 'sportspress'), $wp_locale->get_month($previous->month), date('Y', mktime(0, 0 , 0, $previous->month, 1, $previous->year)))) . '">&laquo; ' . $wp_locale->get_month_abbrev($wp_locale->get_month($previous->month)) . '</a>';
+        $calendar_output .= '<a data-tooltip data-options="disable_for_touch:true" class="has-tooltip tip-right" href="' . add_query_arg( array( 'sp_year' => $previous->year, 'sp_month' => $previous->month ) ) . '" title="' . esc_attr( sprintf(_x('%1$s %2$s', 'calendar caption', 'skyre'), $wp_locale->get_month($previous->month), date('Y', mktime(0, 0 , 0, $previous->month, 1, $previous->year)))) . '">&laquo; ' . $wp_locale->get_month_abbrev($wp_locale->get_month($previous->month)) . '</a>';
     }
     $calendar_output .= '</div>
     <div class="col-8">
@@ -135,7 +135,7 @@ $calendar_output = '
     </div>
     <div class="col-2 sp-next-month" id="next">';
     if ( $next ) { 
-        $calendar_output .= '<a data-tooltip data-options="disable_for_touch:true" class="has-tooltip tip-left" href="' . add_query_arg( array( 'sp_year' => $next->year, 'sp_month' => $next->month ) ) . '" title="' . esc_attr( sprintf(_x('%1$s %2$s', 'calendar caption', 'sportspress'), $wp_locale->get_month($next->month), date('Y', mktime(0, 0 , 0, $next->month, 1, $next->year))) ) . '">' . $wp_locale->get_month_abbrev($wp_locale->get_month($next->month)) . ' &raquo;</a>';
+        $calendar_output .= '<a data-tooltip data-options="disable_for_touch:true" class="has-tooltip tip-left" href="' . add_query_arg( array( 'sp_year' => $next->year, 'sp_month' => $next->month ) ) . '" title="' . esc_attr( sprintf(_x('%1$s %2$s', 'calendar caption', 'skyre'), $wp_locale->get_month($next->month), date('Y', mktime(0, 0 , 0, $next->month, 1, $next->year))) ) . '">' . $wp_locale->get_month_abbrev($wp_locale->get_month($next->month)) . ' &raquo;</a>';
     }
     $calendar_output .= '</div>
 
@@ -229,7 +229,7 @@ for ( $day = 1; $day <= $daysinmonth; ++$day ) {
 	$calendar_output .= '<td' . $td_properties . '>';
 
 	if ( $day_has_posts ) // any posts today?
-		$calendar_output .= '<a data-tooltip data-options="disable_for_touch:true" class="has-tip sksc" href="' . ( sizeof( $daywithpost[ $day ] ) > 1 ? add_query_arg( array( 'post_type' => 'sp_event' ), get_day_link( $thisyear, $thismonth, $day ) ) . '" title="' . sprintf( __( '%s events', 'sportspress' ), ( sizeof( $daywithpost[ $day ] ) ) ) : get_post_permalink( $daywithpost[ $day ][0], false, true ) . '" title="' . esc_attr( $ak_titles_for_day[ $day ] ) ) . "\" itemprop=\"url\">$day</a>";
+		$calendar_output .= '<a data-tooltip data-options="disable_for_touch:true" class="has-tip sksc" href="' . ( sizeof( $daywithpost[ $day ] ) > 1 ? add_query_arg( array( 'post_type' => 'sp_event' ), get_day_link( $thisyear, $thismonth, $day ) ) . '" title="' . sprintf( __( '%s events', 'skyre' ), ( sizeof( $daywithpost[ $day ] ) ) ) : get_post_permalink( $daywithpost[ $day ][0], false, true ) . '" title="' . esc_attr( $ak_titles_for_day[ $day ] ) ) . "\" itemprop=\"url\">$day</a>";
 	else
 		$calendar_output .= $day;
 	$calendar_output .= '</td>';
@@ -245,8 +245,8 @@ if ( $pad != 0 && $pad != 7 )
 $calendar_output .= "\n\t</tr>\n\t</tbody>\n\t</table>\n\t</div>";
 
 if ( $id && $show_all_events_link )
-	$calendar_output .= '<div class="sp-calendar-link sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all events', 'sportspress' ) . '</a></div>';
+	$calendar_output .= '<div class="sp-calendar-link sp-view-all-link"><a href="' . get_permalink( $id ) . '">' . __( 'View all events', 'skyre' ) . '</a></div>';
 ?>
 <div class="sp-template sp-template-event-calendar">
-	<?php echo $calendar_output; ?>
+	<?php echo wp_kses_post($calendar_output); ?>
 </div>

@@ -1,8 +1,10 @@
 <?php
 /**
- * Class: Jet_Elements_Slider
- * Name: Slider
- * Slug: sk-slider
+ * Slider widget for Elementor builder
+ *
+ * @link       https://skyresoft.com
+ * @since      1.0.0
+ *
  */
 
 namespace ewidget\Widgets;
@@ -82,7 +84,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_items_data',
 			array(
-				'label' => esc_html__( 'Items', 'sk-elements' ),
+				'label' => esc_html__( 'Items', 'skyre' ),
 			)
 		);
 
@@ -91,7 +93,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_image',
 			array(
-				'label'   => esc_html__( 'Image', 'sk-elements' ),
+				'label'   => esc_html__( 'Image', 'skyre' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
@@ -102,7 +104,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'second_content',
 			array(
-				'label'   => esc_html__( 'Secondary Content', 'sk-elements' ),
+				'label'   => esc_html__( 'Secondary Content', 'skyre' ),
 				'type'    => Controls_Manager::WYSIWYG,
 				'default' => '',
 			)
@@ -111,7 +113,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_icon',
 			array(
-				'label'       => esc_html__( 'Icon', 'sk-elements' ),
+				'label'       => esc_html__( 'Icon', 'skyre' ),
 				'type'        => Controls_Manager::ICON,
 				'label_block' => true,
 				'file'        => '',
@@ -121,7 +123,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_title',
 			array(
-				'label'   => esc_html__( 'Title', 'sk-elements' ),
+				'label'   => esc_html__( 'Title', 'skyre' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => array( 'active' => true ),
 			)
@@ -130,7 +132,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_subtitle',
 			array(
-				'label'   => esc_html__( 'Subtitle', 'sk-elements' ),
+				'label'   => esc_html__( 'Subtitle', 'skyre' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => array( 'active' => true ),
 			)
@@ -140,7 +142,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_desc',
 			array(
-				'label'   => esc_html__( 'Description', 'sk-elements' ),
+				'label'   => esc_html__( 'Description', 'skyre' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => array( 'active' => true ),
 			)
@@ -149,7 +151,7 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_button_primary_url',
 			array(
-				'label'   => esc_html__( 'Primary Button URL', 'sk-elements' ),
+				'label'   => esc_html__( 'Primary Button URL', 'skyre' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
 				'dynamic' => array(
@@ -165,16 +167,16 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_button_primary_text',
 			array(
-				'label'   => esc_html__( 'Primary Button Text', 'sk-elements' ),
+				'label'   => esc_html__( 'Primary Button Text', 'skyre' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'More', 'sk-elements' ),
+				'default' => esc_html__( 'More', 'skyre' ),
 			)
 		);
 
 		$repeater->add_control(
 			'item_button_secondary_url',
 			array(
-				'label'   => esc_html__( 'Secondary Button URL', 'sk-elements' ),
+				'label'   => esc_html__( 'Secondary Button URL', 'skyre' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '',
 				'dynamic' => array(
@@ -190,9 +192,9 @@ class skyreSlider extends Skyre_Base {
 		$repeater->add_control(
 			'item_button_secondary_text',
 			array(
-				'label'   => esc_html__( 'Secondary Button Text', 'sk-elements' ),
+				'label'   => esc_html__( 'Secondary Button Text', 'skyre' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'More', 'sk-elements' ),
+				'default' => '',
 			)
 		);
 
@@ -206,37 +208,37 @@ class skyreSlider extends Skyre_Base {
 						'item_image'                 => array(
 							'url' => Utils::get_placeholder_image_src(),
 						),
-						'item_title'                 => esc_html__( 'Slide #1', 'sk-elements' ),
-						'item_subtitle'              => esc_html__( 'SubTitle', 'sk-elements' ),
-						'item_desc'                  => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'sk-elements' ),
+						'item_title'                 => esc_html__( 'Slide #1', 'skyre' ),
+						'item_subtitle'              => esc_html__( 'SubTitle', 'skyre' ),
+						'item_desc'                  => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'skyre' ),
 						'item_button_primary_url'    => '#',
-						'item_button_primary_text'   => esc_html__( 'Button #1', 'sk-elements' ),
+						'item_button_primary_text'   => esc_html__( 'Button #1', 'skyre' ),
 						'item_button_secondary_ulr'  => '#',
-						'item_button_secondary_text' => esc_html__( 'Button #2', 'sk-elements' ),
+						'item_button_secondary_text' => esc_html__( 'Button #2', 'skyre' ),
 						),
 					array(
 						'item_image'                 => array(
 							'url' => Utils::get_placeholder_image_src(),
 						),
-						'item_title'                 => esc_html__( 'Slide #2', 'sk-elements' ),
-						'item_subtitle'              => esc_html__( 'SubTitle', 'sk-elements' ),
-						'item_desc'                  => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'sk-elements' ),
+						'item_title'                 => esc_html__( 'Slide #2', 'skyre' ),
+						'item_subtitle'              => esc_html__( 'SubTitle', 'skyre' ),
+						'item_desc'                  => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'skyre' ),
 						'item_button_primary_url'    => '#',
-						'item_button_primary_text'   => esc_html__( 'Button #1', 'sk-elements' ),
+						'item_button_primary_text'   => esc_html__( 'Button #1', 'skyre' ),
 						'item_button_secondary_ulr'  => '#',
-						'item_button_secondary_text' => esc_html__( 'Button #2', 'sk-elements' ),
+						'item_button_secondary_text' => esc_html__( 'Button #2', 'skyre' ),
 					),
 					array(
 						'item_image'                 => array(
 							'url' => Utils::get_placeholder_image_src(),
 						),
-						'item_title'                 => esc_html__( 'Slide #3', 'sk-elements' ),
-						'item_subtitle'              => esc_html__( 'SubTitle', 'sk-elements' ),
-						'item_desc'                  => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'sk-elements' ),
+						'item_title'                 => esc_html__( 'Slide #3', 'skyre' ),
+						'item_subtitle'              => esc_html__( 'SubTitle', 'skyre' ),
+						'item_desc'                  => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'skyre' ),
 						'item_button_primary_url'    => '#',
-						'item_button_primary_text'   => esc_html__( 'Button #1', 'sk-elements' ),
+						'item_button_primary_text'   => esc_html__( 'Button #1', 'skyre' ),
 						'item_button_secondary_ulr'  => '#',
-						'item_button_secondary_text' => esc_html__( 'Button #2', 'sk-elements' ),
+						'item_button_secondary_text' => esc_html__( 'Button #2', 'skyre' ),
 					),
 
 				),
@@ -250,7 +252,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_settings',
 			array(
-				'label' => esc_html__( 'Settings', 'sk-elements' ),
+				'label' => esc_html__( 'Settings', 'skyre' ),
 			)
 		);
 
@@ -265,10 +267,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_navigation',
 			array(
-				'label'        => esc_html__( 'Use navigation?', 'sk-elements' ),
+				'label'        => esc_html__( 'Use navigation?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
 			)
@@ -277,10 +279,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_navigation_on_hover',
 			array(
-				'label'        => esc_html__( 'Indicates whether the arrows will fade in only on hover', 'sk-elements' ),
+				'label'        => esc_html__( 'Indicates whether the arrows will fade in only on hover', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'false',
 				'condition' => array(
@@ -292,10 +294,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_pagination',
 			array(
-				'label'        => esc_html__( 'Use pagination?', 'sk-elements' ),
+				'label'        => esc_html__( 'Use pagination?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'false',
 			)
@@ -304,10 +306,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_autoplay',
 			array(
-				'label'        => esc_html__( 'Use autoplay?', 'sk-elements' ),
+				'label'        => esc_html__( 'Use autoplay?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
 			)
@@ -316,7 +318,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_autoplay_delay',
 			array(
-				'label'   => esc_html__( 'Autoplay delay(ms)', 'sk-elements' ),
+				'label'   => esc_html__( 'Autoplay delay(ms)', 'skyre' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'min'     => 2000,
@@ -331,13 +333,13 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slide_autoplay_on_hover',
 			array(
-				'label'   => esc_html__( 'Autoplay On Hover', 'sk-elements' ),
+				'label'   => esc_html__( 'Autoplay On Hover', 'skyre' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'pause',
 				'options' => array(
-					'none'  => esc_html__( 'None', 'sk-elements' ),
-					'pause' => esc_html__( 'Pause', 'sk-elements' ),
-					'stop'  => esc_html__( 'Stop', 'sk-elements' ),
+					'none'  => esc_html__( 'None', 'skyre' ),
+					'pause' => esc_html__( 'Pause', 'skyre' ),
+					'stop'  => esc_html__( 'Stop', 'skyre' ),
 				),
 			)
 		);
@@ -345,10 +347,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_fullScreen',
 			array(
-				'label'        => esc_html__( 'Display fullScreen button?', 'sk-elements' ),
+				'label'        => esc_html__( 'Display fullScreen button?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
 			)
@@ -357,10 +359,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_shuffle',
 			array(
-				'label'        => esc_html__( 'Indicates if the slides will be shuffled', 'sk-elements' ),
+				'label'        => esc_html__( 'Indicates if the slides will be shuffled', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'false',
 			)
@@ -369,10 +371,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_loop',
 			array(
-				'label'        => esc_html__( 'Indicates if the slides will be looped', 'sk-elements' ),
+				'label'        => esc_html__( 'Indicates if the slides will be looped', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
 			)
@@ -381,10 +383,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_fade_mode',
 			array(
-				'label'        => esc_html__( 'Use fade effect?', 'sk-elements' ),
+				'label'        => esc_html__( 'Use fade effect?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'false',
 			)
@@ -393,7 +395,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slide_distance',
 			array(
-				'label' => esc_html__( ' Between Slides Distance', 'sk-elements' ),
+				'label' => esc_html__( ' Between Slides Distance', 'skyre' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => array(
 					'px' => array(
@@ -411,7 +413,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slide_duration',
 			array(
-				'label'   => esc_html__( 'Slide Duration(ms)', 'sk-elements' ),
+				'label'   => esc_html__( 'Slide Duration(ms)', 'skyre' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 500,
 				'min'     => 100,
@@ -423,10 +425,10 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'thumbnails',
 			array(
-				'label'        => esc_html__( 'Display thumbnails?', 'sk-elements' ),
+				'label'        => esc_html__( 'Display thumbnails?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
 			)
@@ -435,7 +437,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'thumbnail_width',
 			array(
-				'label'   => esc_html__( 'Thumbnail width(px)', 'sk-elements' ),
+				'label'   => esc_html__( 'Thumbnail width(px)', 'skyre' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 120,
 				'min'     => 20,
@@ -450,7 +452,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'thumbnail_height',
 			array(
-				'label'   => esc_html__( 'Thumbnail height(px)', 'sk-elements' ),
+				'label'   => esc_html__( 'Thumbnail height(px)', 'skyre' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 80,
 				'min'     => 20,
@@ -470,7 +472,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_general_style',
 			array(
-				'label'      => esc_html__( 'General', 'sk-elements' ),
+				'label'      => esc_html__( 'General', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -479,7 +481,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_width',
 			array(
-				'label' => esc_html__( 'Slider Width(%)', 'sk-elements' ),
+				'label' => esc_html__( 'Slider Width(%)', 'skyre' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => array(
 					'%' => array(
@@ -497,7 +499,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_height',
 			array(
-				'label' => esc_html__( 'Slider Height(px)', 'sk-elements' ),
+				'label' => esc_html__( 'Slider Height(px)', 'skyre' ),
 				'type'  => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'vh',
@@ -522,7 +524,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_container_width',
 			array(
-				'label' => esc_html__( 'Slider Container Width(%)', 'sk-elements' ),
+				'label' => esc_html__( 'Slider Container Width(%)', 'skyre' ),
 				'type'  => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'%', 'px',
@@ -551,12 +553,12 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slide_image_scale_mode',
 			array(
-				'label'   => esc_html__( 'Image Scale Mode', 'sk-elements' ),
+				'label'   => esc_html__( 'Image Scale Mode', 'skyre' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'exact',
 				'options' => array(
-					'exact'   => esc_html__( 'Cover', 'sk-elements' ),
-					'contain' => esc_html__( 'Contain', 'sk-elements' ),
+					'exact'   => esc_html__( 'Cover', 'skyre' ),
+					'contain' => esc_html__( 'Contain', 'skyre' ),
 				),
 			)
 		);
@@ -588,7 +590,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_container_style',
 			array(
-				'label'      => esc_html__( 'Container', 'sk-elements' ),
+				'label'      => esc_html__( 'Container', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -597,7 +599,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'container_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -609,7 +611,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'container_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -622,7 +624,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'container_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['instance'],
 			)
@@ -631,7 +633,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'container_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -656,7 +658,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_content_slider_style',
 			array(
-				'label'      => esc_html__( 'Content', 'sk-elements' ),
+				'label'      => esc_html__( 'Content', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -665,7 +667,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_content_width',
 			array(
-				'label'      => esc_html__( 'Width', 'sk-elements' ),
+				'label'      => esc_html__( 'Width', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', '%',
@@ -686,19 +688,19 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_content_horizontal_alignment',
 			array(
-				'label'   => esc_html__( 'Horizontal Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Horizontal Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => array(
 					'flex-start' => array(
-						'title' => esc_html__( 'Start', 'sk-elements' ),
+						'title' => esc_html__( 'Start', 'skyre' ),
 						'icon'  => ! is_rtl() ? 'eicon-h-align-left' : 'eicon-h-align-right',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'flex-end' => array(
-						'title' => esc_html__( 'End', 'sk-elements' ),
+						'title' => esc_html__( 'End', 'skyre' ),
 						'icon'  => ! is_rtl() ? 'eicon-h-align-right' : 'eicon-h-align-left',
 					),
 				),
@@ -711,19 +713,19 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_content_vertical_alignment',
 			array(
-				'label'   => esc_html__( 'Vertical Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Vertical Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => array(
 					'flex-start' => array(
-						'title' => esc_html__( 'Top', 'sk-elements' ),
+						'title' => esc_html__( 'Top', 'skyre' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'eicon-v-align-middle',
 					),
 					'flex-end' => array(
-						'title' => esc_html__( 'Bottom', 'sk-elements' ),
+						'title' => esc_html__( 'Bottom', 'skyre' ),
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
@@ -744,7 +746,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_content_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'sk-elements' ),
+				'label'      => esc_html__( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -756,7 +758,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_content_margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'sk-elements' ),
+				'label'      => esc_html__( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -777,7 +779,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_content_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -797,17 +799,17 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_content_animation',
 			array(
-				'label'   => esc_html__( 'Animation', 'sk-elements' ),
+				'label'   => esc_html__( 'Animation', 'skyre' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => array(
-					''  => esc_html__( 'None', 'sk-elements' ),
-					'left' => esc_html__( 'Left', 'sk-elements' ),
-					'right' => esc_html__( 'Right', 'sk-elements' ),
-					'up' => esc_html__( 'Up', 'sk-elements' ),
-					'down' => esc_html__( 'Down', 'sk-elements' ),
-					'inf-upDown' => esc_html__( 'Infinit Up Down', 'sk-elements' ),
-					'inf-scale' => esc_html__( 'Infinit Scaling', 'sk-elements' ),
+					''  => esc_html__( 'None', 'skyre' ),
+					'left' => esc_html__( 'Left', 'skyre' ),
+					'right' => esc_html__( 'Right', 'skyre' ),
+					'up' => esc_html__( 'Up', 'skyre' ),
+					'down' => esc_html__( 'Down', 'skyre' ),
+					'inf-upDown' => esc_html__( 'Infinit Up Down', 'skyre' ),
+					'inf-scale' => esc_html__( 'Infinit Scaling', 'skyre' ),
 					
 				),
 			)
@@ -821,7 +823,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_secContent_slider_style',
 			array(
-				'label'      => esc_html__( 'Secondary Content', 'sk-elements' ),
+				'label'      => esc_html__( 'Secondary Content', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -830,7 +832,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_secContent_width',
 			array(
-				'label'      => esc_html__( 'Box Width', 'sk-elements' ),
+				'label'      => esc_html__( 'Box Width', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'%', 'em', 'px',
@@ -851,7 +853,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_secContent_height',
 			array(
-				'label'      => esc_html__( 'Box Height', 'sk-elements' ),
+				'label'      => esc_html__( 'Box Height', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'%', 'em', 'px',
@@ -872,19 +874,19 @@ class skyreSlider extends Skyre_Base {
 		/*$this->add_responsive_control(
 			'slider_secContent_text_alignment',
 			array(
-				'label'   => esc_html__( 'Text Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Text Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => array(
 					'left' => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => ! is_rtl() ? 'eicon-h-align-left' : 'eicon-h-align-right',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => ! is_rtl() ? 'eicon-h-align-right' : 'eicon-h-align-left',
 					),
 				),
@@ -897,19 +899,19 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_secContent_horizontal_alignment',
 			array(
-				'label'   => esc_html__( 'Horizontal Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Horizontal Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => array(
 					'flex-start' => array(
-						'title' => esc_html__( 'Start', 'sk-elements' ),
+						'title' => esc_html__( 'Start', 'skyre' ),
 						'icon'  => ! is_rtl() ? 'eicon-h-align-left' : 'eicon-h-align-right',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'eicon-h-align-center',
 					),
 					'flex-end' => array(
-						'title' => esc_html__( 'End', 'sk-elements' ),
+						'title' => esc_html__( 'End', 'skyre' ),
 						'icon'  => ! is_rtl() ? 'eicon-h-align-right' : 'eicon-h-align-left',
 					),
 				),
@@ -922,19 +924,19 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_secContent_vertical_alignment',
 			array(
-				'label'   => esc_html__( 'Vertical Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Vertical Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => array(
 					'flex-start' => array(
-						'title' => esc_html__( 'Top', 'sk-elements' ),
+						'title' => esc_html__( 'Top', 'skyre' ),
 						'icon'  => 'eicon-v-align-top',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'eicon-v-align-middle',
 					),
 					'flex-end' => array(
-						'title' => esc_html__( 'Bottom', 'sk-elements' ),
+						'title' => esc_html__( 'Bottom', 'skyre' ),
 						'icon'  => 'eicon-v-align-bottom',
 					),
 				),
@@ -966,7 +968,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_secContent_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'sk-elements' ),
+				'label'      => esc_html__( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -978,7 +980,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_secContent_margin',
 			array(
-				'label'      => esc_html__( 'Margin', 'sk-elements' ),
+				'label'      => esc_html__( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -999,7 +1001,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_secContent_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1020,17 +1022,17 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_secContent_animation',
 			array(
-				'label'   => esc_html__( 'Animation', 'sk-elements' ),
+				'label'   => esc_html__( 'Animation', 'skyre' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => array(
-					''  => esc_html__( 'None', 'sk-elements' ),
-					'left' => esc_html__( 'Left', 'sk-elements' ),
-					'right' => esc_html__( 'Right', 'sk-elements' ),
-					'up' => esc_html__( 'Up', 'sk-elements' ),
-					'down' => esc_html__( 'Down', 'sk-elements' ),
-					'inf-upDown' => esc_html__( 'Infinit Up Down', 'sk-elements' ),
-					'inf-scale' => esc_html__( 'Infinit Scaling', 'sk-elements' ),
+					''  => esc_html__( 'None', 'skyre' ),
+					'left' => esc_html__( 'Left', 'skyre' ),
+					'right' => esc_html__( 'Right', 'skyre' ),
+					'up' => esc_html__( 'Up', 'skyre' ),
+					'down' => esc_html__( 'Down', 'skyre' ),
+					'inf-upDown' => esc_html__( 'Infinit Up Down', 'skyre' ),
+					'inf-scale' => esc_html__( 'Infinit Scaling', 'skyre' ),
 					
 				),
 			)
@@ -1044,7 +1046,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_images_layout_overlay_style',
 			array(
-				'label'      => esc_html__( 'Overlay', 'sk-elements' ),
+				'label'      => esc_html__( 'Overlay', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1069,7 +1071,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'overlay_opacity',
 			array(
-				'label'    => esc_html__( 'Opacity', 'sk-elements' ),
+				'label'    => esc_html__( 'Opacity', 'skyre' ),
 				'type'     => Controls_Manager::NUMBER,
 				'default'  => 0.2,
 				'min'      => 0,
@@ -1090,7 +1092,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_navigation_style',
 			array(
-				'label'      => esc_html__( 'Navigation', 'sk-elements' ),
+				'label'      => esc_html__( 'Navigation', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1099,7 +1101,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_navigation_icon_arrow',
 			array(
-				'label'   => esc_html__( 'Arrow Icon', 'sk-elements' ),
+				'label'   => esc_html__( 'Arrow Icon', 'skyre' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'fa fa-angle-left',
 				'options' => jet_elements_tools()->get_available_prev_arrows_list(),
@@ -1114,14 +1116,14 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_normal_navigation_styles',
 			array(
-				'label' => esc_html__( 'Normal', 'sk-elements' ),
+				'label' => esc_html__( 'Normal', 'skyre' ),
 			)
 		);
 
 		$this->add_control(
 			'normal_navigation_color',
 			array(
-				'label' => esc_html__( 'Color', 'sk-elements' ),
+				'label' => esc_html__( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['navigation'] . ' .sp-arrow i' => 'color: {{VALUE}}',
@@ -1132,7 +1134,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'normal_navigation_bg_color',
 			array(
-				'label' => esc_html__( 'Background Color', 'sk-elements' ),
+				'label' => esc_html__( 'Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['navigation'] . ' .sp-arrow' => 'background-color: {{VALUE}}',
@@ -1143,7 +1145,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'normal_navigation_font_size',
 			array(
-				'label'      => esc_html__( 'Font Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Font Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', 'rem',
@@ -1163,7 +1165,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'normal_navigation_size',
 			array(
-				'label'      => esc_html__( 'Box Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Box Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', '%',
@@ -1184,7 +1186,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'normal_navigation_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '0px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['navigation'] . ' .sp-arrow',
@@ -1194,7 +1196,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'normal_navigation_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1206,7 +1208,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'normal_navigation_box_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1228,14 +1230,14 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_hover_navigation_styles',
 			array(
-				'label' => esc_html__( 'Hover', 'sk-elements' ),
+				'label' => esc_html__( 'Hover', 'skyre' ),
 			)
 		);
 
 		$this->add_control(
 			'hover_navigation_color',
 			array(
-				'label' => esc_html__( 'Color', 'sk-elements' ),
+				'label' => esc_html__( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['navigation'] . ' .sp-arrow:hover i' => 'color: {{VALUE}}',
@@ -1246,7 +1248,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'hover_navigation_bg_color',
 			array(
-				'label' => esc_html__( 'Background Color', 'sk-elements' ),
+				'label' => esc_html__( 'Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['navigation'] . ' .sp-arrow:hover' => 'background-color: {{VALUE}}',
@@ -1257,7 +1259,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'hover_navigation_font_size',
 			array(
-				'label'      => esc_html__( 'Font Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Font Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', 'rem',
@@ -1277,7 +1279,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'hover_navigation_size',
 			array(
-				'label'      => esc_html__( 'Box Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Box Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', '%',
@@ -1299,7 +1301,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'hover_navigation_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '0px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['navigation'] . ' .sp-arrow:hover',
@@ -1309,7 +1311,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'hover_navigation_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1321,7 +1323,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'hover_navigation_box_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1350,7 +1352,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_pagination_style',
 			array(
-				'label'      => esc_html__( 'Pagination', 'sk-elements' ),
+				'label'      => esc_html__( 'Pagination', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1361,7 +1363,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_pagination_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'sk-elements' ),
+				'label' => esc_html__( 'Normal', 'skyre' ),
 			)
 		);
 
@@ -1369,7 +1371,7 @@ class skyreSlider extends Skyre_Base {
 			\Jet_Group_Control_Box_Style::get_type(),
 			array(
 				'name'           => 'pagination_style',
-				'label'          => esc_html__( 'Dots Style', 'sk-elements' ),
+				'label'          => esc_html__( 'Dots Style', 'skyre' ),
 				'selector'       => '{{WRAPPER}} ' . $css_scheme['pagination'] . ' .sp-button',
 				'fields_options' => array(
 					'color' => array(
@@ -1388,7 +1390,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_pagination_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'sk-elements' ),
+				'label' => esc_html__( 'Hover', 'skyre' ),
 			)
 		);
 
@@ -1396,7 +1398,7 @@ class skyreSlider extends Skyre_Base {
 			\Jet_Group_Control_Box_Style::get_type(),
 			array(
 				'name'           => 'pagination_style_hover',
-				'label'          => esc_html__( 'Dots Style', 'sk-elements' ),
+				'label'          => esc_html__( 'Dots Style', 'skyre' ),
 				'selector'       => '{{WRAPPER}} ' . $css_scheme['pagination'] . ' .sp-button:hover',
 				'fields_options' => array(
 					'color' => array(
@@ -1418,7 +1420,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_pagination_active',
 			array(
-				'label' => esc_html__( 'Active', 'sk-elements' ),
+				'label' => esc_html__( 'Active', 'skyre' ),
 			)
 		);
 
@@ -1426,7 +1428,7 @@ class skyreSlider extends Skyre_Base {
 			\Jet_Group_Control_Box_Style::get_type(),
 			array(
 				'name'           => 'pagination_style_active',
-				'label'          => esc_html__( 'Dots Style', 'sk-elements' ),
+				'label'          => esc_html__( 'Dots Style', 'skyre' ),
 				'selector'       => '{{WRAPPER}} ' . $css_scheme['pagination'] . ' .sp-button.sp-selected-button',
 				'fields_options' => array(
 					'color' => array(
@@ -1450,7 +1452,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'pagination_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1463,7 +1465,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'pagination_dots_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1475,20 +1477,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'pagination_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left' => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1501,7 +1503,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'pagination_container_offset',
 			array(
-				'label'   => esc_html__( 'Pagination Container Offset', 'sk-elements' ),
+				'label'   => esc_html__( 'Pagination Container Offset', 'skyre' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => -500,
 				'max'     => 500,
@@ -1520,7 +1522,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_thumbnails_style',
 			array(
-				'label'      => esc_html__( 'Thumbnails', 'sk-elements' ),
+				'label'      => esc_html__( 'Thumbnails', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1529,7 +1531,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'thumbnail_item_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1543,7 +1545,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'thumbnails_container_offset',
 			array(
-				'label'   => esc_html__( 'Thumbnails Container Offset', 'sk-elements' ),
+				'label'   => esc_html__( 'Thumbnails Container Offset', 'skyre' ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => -500,
 				'max'     => 500,
@@ -1559,7 +1561,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_thumbnails_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'sk-elements' ),
+				'label' => esc_html__( 'Normal', 'skyre' ),
 			)
 		);
 
@@ -1575,7 +1577,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'thumbnails_normal_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'  => '{{WRAPPER}} ' . $css_scheme['thumbnail_container'] . ':before',
@@ -1607,7 +1609,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_thumbnails_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'sk-elements' ),
+				'label' => esc_html__( 'Hover', 'skyre' ),
 			)
 		);
 
@@ -1623,7 +1625,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'thumbnails_hover_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '2px',
 				'default'     => '2px',
 				'selector'  => '{{WRAPPER}} ' . $css_scheme['thumbnail_container'] . ':hover:before',
@@ -1655,7 +1657,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_thumbnails_active',
 			array(
-				'label' => esc_html__( 'Active', 'sk-elements' ),
+				'label' => esc_html__( 'Active', 'skyre' ),
 			)
 		);
 
@@ -1671,7 +1673,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'thumbnails_active_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '2px',
 				'default'     => '2px',
 				'selector'  => '{{WRAPPER}} ' . $css_scheme['thumbnail_container'] . '.sp-selected-thumbnail:before',
@@ -1710,7 +1712,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_fullscreen_style',
 			array(
-				'label'      => esc_html__( 'Fullscreen', 'sk-elements' ),
+				'label'      => esc_html__( 'Fullscreen', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1719,7 +1721,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_fullscreen_icon',
 			array(
-				'label'       => esc_html__( 'Icon', 'sk-elements' ),
+				'label'       => esc_html__( 'Icon', 'skyre' ),
 				'type'        => Controls_Manager::ICON,
 				'label_block' => true,
 				'file'        => '',
@@ -1730,7 +1732,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'fullscreen_icon_color',
 			array(
-				'label' => esc_html__( 'Icon Color', 'sk-elements' ),
+				'label' => esc_html__( 'Icon Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['fullscreen'] . ' i' => 'color: {{VALUE}}',
@@ -1741,7 +1743,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'fullscreen_icon_bg_color',
 			array(
-				'label' => esc_html__( 'Icon Background Color', 'sk-elements' ),
+				'label' => esc_html__( 'Icon Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['fullscreen'] => 'background-color: {{VALUE}}',
@@ -1752,7 +1754,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'fullscreen_icon_font_size',
 			array(
-				'label'      => esc_html__( 'Icon Font Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Icon Font Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', 'rem',
@@ -1772,7 +1774,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'fullscreen_icon_size',
 			array(
-				'label'      => esc_html__( 'Icon Box Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Icon Box Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', '%',
@@ -1793,7 +1795,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'fullscreen_icon_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['fullscreen'],
@@ -1803,7 +1805,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'fullscreen_icon_box_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1815,7 +1817,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'fullscreen_icon_box_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1840,7 +1842,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_icon_style',
 			array(
-				'label'      => esc_html__( 'Icon', 'sk-elements' ),
+				'label'      => esc_html__( 'Icon', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1849,7 +1851,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'icon_color',
 			array(
-				'label' => esc_html__( 'Icon Color', 'sk-elements' ),
+				'label' => esc_html__( 'Icon Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['icon'] . ' i' => 'color: {{VALUE}}',
@@ -1860,7 +1862,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'icon_bg_color',
 			array(
-				'label' => esc_html__( 'Icon Background Color', 'sk-elements' ),
+				'label' => esc_html__( 'Icon Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['icon'] . ' .sk-slider-icon-inner' => 'background-color: {{VALUE}}',
@@ -1871,7 +1873,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'icon_font_size',
 			array(
-				'label'      => esc_html__( 'Icon Font Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Icon Font Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', 'rem',
@@ -1891,7 +1893,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			array(
-				'label'      => esc_html__( 'Icon Box Size', 'sk-elements' ),
+				'label'      => esc_html__( 'Icon Box Size', 'skyre' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'px', 'em', '%',
@@ -1912,7 +1914,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'icon_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['icon'] . ' .sk-slider-icon-inner',
@@ -1922,7 +1924,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'icon_box_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1934,7 +1936,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'icon_box_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1954,20 +1956,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'icon_box_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'flex-start'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'flex-end' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1985,7 +1987,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_title_style',
 			array(
-				'label'      => esc_html__( 'Title', 'sk-elements' ),
+				'label'      => esc_html__( 'Title', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1994,7 +1996,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_title_color',
 			array(
-				'label'  => esc_html__( 'Title Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Title Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['title'] => 'color: {{VALUE}}',
@@ -2014,7 +2016,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_title_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2026,7 +2028,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_title_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2038,20 +2040,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_title_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -2069,7 +2071,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_subtitle_style',
 			array(
-				'label'      => esc_html__( 'Subtitle', 'sk-elements' ),
+				'label'      => esc_html__( 'Subtitle', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -2078,7 +2080,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_subtitle_color',
 			array(
-				'label'  => esc_html__( 'Subtitle Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Subtitle Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['subtitle'] => 'color: {{VALUE}}',
@@ -2098,7 +2100,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_subtitle_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2110,7 +2112,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_subtitle_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2122,20 +2124,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_subtitle_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -2153,7 +2155,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_slider_desc_style',
 			array(
-				'label'      => esc_html__( 'Description', 'sk-elements' ),
+				'label'      => esc_html__( 'Description', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -2162,7 +2164,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'slider_desc_color',
 			array(
-				'label'  => esc_html__( 'Description Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Description Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['desc'] => 'color: {{VALUE}}',
@@ -2182,7 +2184,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_desc_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2194,7 +2196,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_desc_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2206,20 +2208,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_desc_alignment',
 			array(
-				'label'   => esc_html__( 'Text Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Text Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -2232,20 +2234,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_desc_container_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'flex-start'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'flex-end' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -2258,7 +2260,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_desc_wax_width',
 			array(
-				'label' => esc_html__( 'Max Width', 'sk-elements' ),
+				'label' => esc_html__( 'Max Width', 'skyre' ),
 				'type'  => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%' ),
 				'range' => array(
@@ -2285,7 +2287,7 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_section(
 			'section_action_button_style',
 			array(
-				'label'      => esc_html__( 'Action Button', 'sk-elements' ),
+				'label'      => esc_html__( 'Action Button', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -2294,20 +2296,20 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'slider_action_button_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -2320,7 +2322,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'section_action_primary_button_heading',
 			array(
-				'label'     => esc_html__( 'Action Button #1', 'sk-elements' ),
+				'label'     => esc_html__( 'Action Button #1', 'skyre' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -2331,14 +2333,14 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_primary_button_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'sk-elements' ),
+				'label' => esc_html__( 'Normal', 'skyre' ),
 			)
 		);
 
 		$this->add_control(
 			'primary_button_bg_color',
 			array(
-				'label' => esc_html__( 'Background Color', 'sk-elements' ),
+				'label' => esc_html__( 'Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => array(
 					'type'  => Scheme_Color::get_type(),
@@ -2353,7 +2355,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'primary_button_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'sk-elements' ),
+				'label'     => esc_html__( 'Text Color', 'skyre' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['primary_button'] => 'color: {{VALUE}}',
@@ -2373,7 +2375,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'primary_button_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'sk-elements' ),
+				'label'      => esc_html__( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -2385,7 +2387,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'primary_button_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2397,7 +2399,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'primary_button_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2410,7 +2412,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'primary_button_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['primary_button'],
@@ -2430,14 +2432,14 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_primary_button_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'sk-elements' ),
+				'label' => esc_html__( 'Hover', 'skyre' ),
 			)
 		);
 
 		$this->add_control(
 			'primary_button_hover_bg_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'sk-elements' ),
+				'label'     => esc_html__( 'Background Color', 'skyre' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['primary_button'] . ':hover' => 'background-color: {{VALUE}}',
@@ -2448,7 +2450,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'primary_button_hover_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'sk-elements' ),
+				'label'     => esc_html__( 'Text Color', 'skyre' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['primary_button'] . ':hover' => 'color: {{VALUE}}',
@@ -2467,7 +2469,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'primary_button_hover_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'sk-elements' ),
+				'label'      => esc_html__( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -2479,7 +2481,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'primary_button_hover_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2491,7 +2493,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'primary_button_hover_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2504,7 +2506,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'primary_button_hover_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['primary_button'] . ':hover',
@@ -2526,7 +2528,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'section_action_secondary_button_heading',
 			array(
-				'label'     => esc_html__( 'Action Button #2', 'sk-elements' ),
+				'label'     => esc_html__( 'Action Button #2', 'skyre' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)
@@ -2537,14 +2539,14 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_secondary_button_normal',
 			array(
-				'label' => esc_html__( 'Normal', 'sk-elements' ),
+				'label' => esc_html__( 'Normal', 'skyre' ),
 			)
 		);
 
 		$this->add_control(
 			'secondary_button_bg_color',
 			array(
-				'label' => esc_html__( 'Background Color', 'sk-elements' ),
+				'label' => esc_html__( 'Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => array(
 					'type'  => Scheme_Color::get_type(),
@@ -2559,7 +2561,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'secondary_button_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'sk-elements' ),
+				'label'     => esc_html__( 'Text Color', 'skyre' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['secondary_button'] => 'color: {{VALUE}}',
@@ -2579,7 +2581,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'secondary_button_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'sk-elements' ),
+				'label'      => esc_html__( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -2591,7 +2593,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'secondary_button_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2603,7 +2605,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'secondary_button_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2616,7 +2618,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'secondary_button_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['secondary_button'],
@@ -2636,14 +2638,14 @@ class skyreSlider extends Skyre_Base {
 		$this->start_controls_tab(
 			'tab_secondary_button_hover',
 			array(
-				'label' => esc_html__( 'Hover', 'sk-elements' ),
+				'label' => esc_html__( 'Hover', 'skyre' ),
 			)
 		);
 
 		$this->add_control(
 			'secondary_button_hover_bg_color',
 			array(
-				'label'     => esc_html__( 'Background Color', 'sk-elements' ),
+				'label'     => esc_html__( 'Background Color', 'skyre' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['secondary_button'] . ':hover' => 'background-color: {{VALUE}}',
@@ -2654,7 +2656,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_control(
 			'secondary_button_hover_color',
 			array(
-				'label'     => esc_html__( 'Text Color', 'sk-elements' ),
+				'label'     => esc_html__( 'Text Color', 'skyre' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['secondary_button'] . ':hover' => 'color: {{VALUE}}',
@@ -2673,7 +2675,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'secondary_button_hover_padding',
 			array(
-				'label'      => esc_html__( 'Padding', 'sk-elements' ),
+				'label'      => esc_html__( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
@@ -2685,7 +2687,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'secondary_button_hover_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2697,7 +2699,7 @@ class skyreSlider extends Skyre_Base {
 		$this->add_responsive_control(
 			'secondary_button_hover_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -2710,7 +2712,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'secondary_button_hover_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['secondary_button'] . ':hover',
@@ -2798,33 +2800,6 @@ class skyreSlider extends Skyre_Base {
 		return vsprintf( $format, $params );
 	}
 
-	/**
-	 * [__loop_item_image_tag description]
-	 * @return [type] [description]
-	 */
-	/*protected function __loop_item_image_tag( ) {
-		$item = $this->__processed_item;
-		$loop = $this->get_settings_for_display( $setting );
-		$image = $item['item_image'];
-
-		if ( empty( $image['id'] ) ) {
-			return sprintf( '<img class="sp-image" src="%s" alt="">', Utils::get_placeholder_image_src() );
-		}
-
-		$image_sizes = get_intermediate_image_sizes();
-
-		$slider_image_size = $this->get_settings_for_display( 'slider_image_size' );
-
-		$slider_image_size = ! empty( $slider_image_size ) ? $slider_image_size : 'full';
-
-		$image_attr = array(
-			'class' => 'sp-image',
-		);
-
-		return wp_get_attachment_image( $image['id'], $slider_image_size, false, $image_attr );
-	}*/
-	
-	
 
 	/**
 	 * [render description]
@@ -2849,20 +2824,15 @@ class skyreSlider extends Skyre_Base {
 		$class_array[] = 'sp-slides';
 		
 		$classes2 = implode( ' ', $class_array );
-
-		//$container_width = $settings['slider_container_width']['size'];
-		//$container_width = ( '%' === $settings['slider_container_width']['unit'] ) ? $container_width . $settings['slider_container_width']['unit'] : $container_width;
-		
-		
 		?>
 		
 	
-		<div class="<?php echo $classes1; ?>" <?php echo $data_settings; ?>>
+		<div class="<?php echo esc_attr($classes1); ?>" <?php echo wp_kses_post($data_settings); ?>>
 			
             <span class="jet-slider-loader"></span>
-             
+						
              <div class="slider-pro">
-                <div class="<?php echo $classes2; ?>">
+                <div class="<?php echo esc_attr($classes2); ?>">
                 <!--loop start-->
                 <?php foreach ($items as $item) { 
 				$image = $item['item_image'];
@@ -2881,7 +2851,7 @@ class skyreSlider extends Skyre_Base {
                 
                 <div class="sk-slider__item sp-slide">
                     <?php
-                        echo $sliderImg;
+                        echo wp_kses_post($sliderImg);
 						if ( filter_var( $settings['thumbnails'], FILTER_VALIDATE_BOOLEAN ) ) {
 							if ( $settings['thumbnails'] ) { echo sprintf( '<img class="sp-thumbnail" src="%s" alt="">',$image['url'] ); }
 						}
@@ -2894,7 +2864,7 @@ class skyreSlider extends Skyre_Base {
 					else if ( $animation_cnt !='' ) { $animationData_cnt = 'data-show-transition="'.$animation_cnt.'"';}
 					
 					?>
-                    <div class="sk-slider__content sp-layer <?php echo $infClass_cnt; ?>" data-position="centerCenter" data-width="100%" data-height="100%" data-horizontal="0%" <?php echo $animationData_cnt; ?> data-show-duration="400" data-show-delay="400">
+                    <div class="sk-slider__content sp-layer <?php echo esc_attr($infClass_cnt); ?>" data-position="centerCenter" data-width="100%" data-height="100%" data-horizontal="0%" <?php echo esc_html($animationData_cnt); ?> data-show-duration="400" data-show-delay="400">
                         <div class="sk-slider__content-item">
                             <div class="sk-slider__content-inner">
                                 <?php
@@ -2925,11 +2895,10 @@ class skyreSlider extends Skyre_Base {
 					else if ( $animation !='' ) { $animationData = 'data-show-transition="'.$animation.'"';}
 
 					?> 
-                    <div class="sp-layer sk-slider__secContent <?php echo $infClass; ?>" data-width="100%" data-height="100%"  <?php echo $animationData; ?> data-hide-transition="up" data-show-duration="400" data-show-delay="400">
+                    <div class="sp-layer sk-slider__secContent <?php echo esc_attr($infClass); ?>" data-width="100%" data-height="100%"  <?php echo wp_kses_post($animationData); ?> data-hide-transition="up" data-show-duration="400" data-show-delay="400">
                     	<div class="sk-slider__secContent-item">
                             <div class="sk-slider__secContent-inner">
-                        		<?php echo $item['second_content'];  ?>
-                                <!--<img src="http://192.168.1.2/projects/sports/wp-content/uploads/2019/04/player.png" />-->
+                        		<?php echo wp_kses_post($item['second_content']);  ?>
                             </div>
                         </div>
                     </div>
@@ -2948,11 +2917,7 @@ class skyreSlider extends Skyre_Base {
 		
 		<?php
 		
-		/*$this->__context = 'render';
-
-		$this->__open_wrap();
-		include $this->__get_global_template( 'index' );
-		$this->__close_wrap();*/
+	
 	}
 	/**
 	 * Load the widget style dynamically if it is a widget preview

@@ -29,14 +29,14 @@ $identifier = uniqid( 'performance_' );
 if ( true == $responsive && $mode == 'values' ){
 	//sportspress_responsive_tables_css( $identifier );
 }
-$i = 0;
 ?>
-<div class="sp-template sp-template-event-performance sp-template-event-performance-<?php echo $mode; ?><?php if ( isset( $class ) ) { echo ' ' . $class; } ?>">
+
+<div class="sp-template sp-template-event-performance sp-template-event-performance-<?php echo esc_attr($mode); ?><?php if ( isset( $class ) ) { echo ' ' . esc_attr($class); } ?>">
 	<?php if ( $caption ): ?>
-		<h4 class="sp-table-caption skpbg skwc"><?php echo $caption; ?></h4>
+		<h4 class="sp-table-caption skpbg skwc"><?php echo esc_html($caption); ?></h4>
 	<?php endif; ?>
 	<div class="sp-table-wrapper">
-		<table class="sp-event-performance table <?php echo $table_style; ?>  sp-data-table<?php if ( $mode == 'values' ) { ?><?php if ( $scrollable ) { ?> sp-scrollable-table<?php }if ( $responsive ) { echo ' sp-responsive-table '.$identifier; } if ( $sortable ) { ?> sp-sortable-table<?php } ?><?php } ?>">
+		<table class="sp-event-performance table <?php echo esc_attr($table_style); ?>  sp-data-table<?php if ( $mode == 'values' ) { ?><?php if ( $scrollable ) { ?> sp-scrollable-table<?php }if ( $responsive ) { echo ' sp-responsive-table '.$identifier; } if ( $sortable ) { ?> sp-sortable-table<?php } ?><?php } ?>">
 			<thead>
 				<tr>
 					<?php if ( $mode == 'values' ): ?>
@@ -46,14 +46,14 @@ $i = 0;
 							<?php } ?>
 							<th class="data-name">
 								<?php if ( isset( $section_label ) ) { ?>
-									<?php echo $section_label; ?>
+									<?php echo esc_attr($section_label); ?>
 								<?php } else { ?>
-									<?php _e( 'Player', 'sportspress' ); ?>
+									<?php _e( 'Player', 'skyre' ); ?>
 								<?php } ?>
 							</th>
 						<?php endif; ?>
 						<?php foreach ( $labels as $key => $label ): ?>
-							<th class="data-<?php echo $key; ?>"><?php echo $label; ?></th>
+							<th class="data-<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></th>
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</tr>
@@ -79,6 +79,7 @@ $i = 0;
 
 					foreach ( $data as $player_id => $row ):
 
+						$i = 0;
 						if ( ! $player_id )
 							continue;
 
@@ -106,13 +107,13 @@ $i = 0;
 							if ( $player_stars ):
 								switch ( $stars_type ):
 									case 1:
-										$name .= ' <span class="sp-event-stars"><i class="sp-event-star dashicons dashicons-star-filled" title="' . __( 'Player of the Match', 'sportspress' ) . '"></i></span>';
+										$name .= ' <span class="sp-event-stars"><i class="sp-event-star dashicons dashicons-star-filled" title="' . __( 'Player of the Match', 'skyre' ) . '"></i></span>';
 										break;
 									case 2:
-										$name .= ' <span class="sp-event-stars">' . str_repeat( '<i class="sp-event-star dashicons dashicons-star-filled" title="' . __( 'Stars', 'sportspress' ) . '"></i>', $player_stars ) . '</span>';
+										$name .= ' <span class="sp-event-stars">' . str_repeat( '<i class="sp-event-star dashicons dashicons-star-filled" title="' . __( 'Stars', 'skyre' ) . '"></i>', $player_stars ) . '</span>';
 										break;
 									case 3:
-										$name .= ' <span class="sp-event-stars"><i class="sp-event-star sp-event-star-' . $player_stars . '  dashicons dashicons-star-filled" title="' . __( 'Stars', 'sportspress' ) . '"></i><span class="sp-event-star-number">' . $player_stars . '</span></span>';
+										$name .= ' <span class="sp-event-stars"><i class="sp-event-star sp-event-star-' . $player_stars . '  dashicons dashicons-star-filled" title="' . __( 'Stars', 'skyre' ) . '"></i><span class="sp-event-star-number">' . $player_stars . '</span></span>';
 										break;
 								endswitch;
 							endif;
@@ -195,12 +196,12 @@ $i = 0;
 							$name .= ' <small class="sp-player-position">' . $position . '</small>';
 						endif;
 
-						echo '<td class="data-name" data-label="' . ( isset( $section_label ) ? $section_label : __( 'Player', 'sportspress' ) ) .'">' . $name . '</td>';
+						echo '<td class="data-name" data-label="' . ( isset( $section_label ) ? $section_label : __( 'Player', 'skyre' ) ) .'">' . $name . '</td>';
 
 						if ( $mode == 'icons' ):
 							echo '<td class="sp-performance-icons">' . $content . '</td>';
 						else:
-							echo $content;
+							echo wp_kses_post($content);
 						endif;
 
 						echo '</tr>';
@@ -220,19 +221,19 @@ $i = 0;
 				</tbody>
 			<?php endif; ?>
 			<?php if ( apply_filters( 'sportspress_event_performance_show_footer', $show_total ) ): ?>
-				<<?php echo ( $show_players ? 'tfoot' : 'tbody' ); ?>>
+				<<?php  if( $show_players ) echo 'tfoot' ; else echo 'tbody'; ?>>
 					<?php
 					do_action( 'sportspress_event_performance_table_footer', $data, $labels, $section, $performance_ids );
 					if ( $show_total && ( ! $primary || sizeof( array_intersect_key( $totals, array_flip( (array) $primary ) ) ) ) ) {
 						?>
-						<tr class="sp-total-row <?php echo ( $i % 2 == 0 ? 'odd' : 'even' ); ?>">
+						<tr class="sp-total-row <?php if( $i % 2 == 0) echo 'odd' ; else echo 'even' ; ?>">
 							<?php
 							if ( $show_players ):
 								if ( apply_filters( 'sportspress_event_performance_show_numbers', $show_numbers, $section ) ) {
 									echo '<td class="data-number" data-label="&nbsp;">&nbsp;</td>';
 								}
 								if ( $mode == 'values' ):
-									echo '<td class="data-name" data-label="&nbsp;">' . __( 'Total', 'sportspress' ) . '</td>';
+									echo '<td class="data-name" data-label="&nbsp;">' . __( 'Total', 'skyre' ) . '</td>';
 								endif;
 							endif;
 
@@ -276,7 +277,7 @@ $i = 0;
 							?>
 						</tr>
 					<?php } ?>
-				</<?php echo ( $show_players ? 'tfoot' : 'tbody' ); ?>>
+				</<?php if( $show_players) echo 'tfoot' ; else echo 'tbody'; ?>>
 			<?php endif; ?>
 		</table>
 		<?php

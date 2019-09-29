@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * Contactform7 widget for Elementor builder
  *
  * @link       https://skyresoft.com
  * @since      1.0.0
@@ -334,7 +334,7 @@ class contactForm7 extends \Elementor\Widget_Base {
 		$this->add_control(
 			'cfy_button_border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => __( 'Border Radius', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -421,7 +421,7 @@ class contactForm7 extends \Elementor\Widget_Base {
 
  		if(!empty($settings['cf7_redirect_page'])) {  ?>
  			<script>
- 			        var theform = document.querySelector('.void-cf7-<?php echo $v_veriable; ?>');
+ 			        var theform = document.querySelector('.void-cf7-<?php echo esc_attr($v_veriable); ?>');
 						theform.addEventListener( 'wpcf7mailsent', function( event ) {
 					    location = '<?php echo get_permalink( $settings['cf7_redirect_page'] ); ?>';
 					}, false );

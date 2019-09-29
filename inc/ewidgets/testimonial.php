@@ -1,4 +1,11 @@
 <?php
+/**
+ * Testimonial widget for Elementor builder 
+ *
+ * @link       https://skyresoft.com
+ * @since      1.0.0
+ *
+ */
 namespace ewidget\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -17,9 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor testimonial widget.
+ * Elementor+Skyre testimonial widget.
  *
- * Elementor widget that displays customer testimonials that show social proof.
+ * Elementor+Skyre widget that displays customer testimonials that show social proof.
  *
  * @since 1.0.0
  */
@@ -50,7 +57,7 @@ class Widget_Testimonial extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Testimonial', 'elementor' );
+		return __( 'Testimonial', 'skyre' );
 	}
 
 	/**
@@ -93,7 +100,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'section_testimonial',
 			[
-				'label' => __( 'Testimonial', 'elementor' ),
+				'label' => __( 'Testimonial', 'skyre' ),
 			]
 		);
 
@@ -102,7 +109,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'testimonial_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => __( 'Content', 'skyre' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'dynamic' => [
 					'active' => true,
@@ -115,7 +122,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'testimonial_image',
 			[
-				'label' => __( 'Choose Image', 'elementor' ),
+				'label' => __( 'Choose Image', 'skyre' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -135,7 +142,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'testimonial_name',
 			[
-				'label' => __( 'Name', 'elementor' ),
+				'label' => __( 'Name', 'skyre' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -147,7 +154,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'testimonial_job',
 			[
-				'label' => __( 'Job', 'elementor' ),
+				'label' => __( 'Job', 'skyre' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -159,21 +166,21 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => __( 'Link to', 'elementor' ),
+				'label' => __( 'Link to', 'skyre' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'elementor' ),
+				'placeholder' => __( 'https://your-link.com', 'skyre' ),
 			]
 		);
 
 		$this->add_control(
 			'testimonial_image_position',
 			[
-				'label' => __( 'Image Position', 'elementor' ),
+				'label' => __( 'Image Position', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'top',
 				'options' => [
-					'aside' => __( 'Aside', 'elementor' ),
-					'top' => __( 'Top', 'elementor' ),
+					'aside' => __( 'Aside', 'skyre' ),
+					'top' => __( 'Top', 'skyre' ),
 				],
 				'condition' => [
 					'testimonial_image[url]!' => '',
@@ -186,20 +193,20 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'testimonial_alignment',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => __( 'Alignment', 'skyre' ),
 				'type' => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => __( 'Left', 'skyre' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => __( 'Center', 'skyre' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => __( 'Right', 'skyre' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -215,7 +222,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'testimonial_hover_content',
 			[
-				'label' => __( 'Hover', 'elementor' ),
+				'label' => __( 'Hover', 'skyre' ),
 			]
 		);
 
@@ -234,7 +241,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => __( 'View', 'elementor' ),
+				'label' => __( 'View', 'skyre' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
@@ -246,7 +253,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_testimonial_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -254,7 +261,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'content_content_color',
 			[
-				'label' => __( 'Text Color', 'elementor' ),
+				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -285,7 +292,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_testimonial_image',
 			[
-				'label' => __( 'Image', 'elementor' ),
+				'label' => __( 'Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'testimonial_image[url]!' => '',
@@ -296,7 +303,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'image_size',
 			[
-				'label' => __( 'Image Size', 'elementor' ),
+				'label' => __( 'Image Size', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'default' => [
@@ -327,7 +334,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => __( 'Border Radius', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -342,7 +349,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_testimonial_name',
 			[
-				'label' => __( 'Name', 'elementor' ),
+				'label' => __( 'Name', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -350,7 +357,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'name_text_color',
 			[
-				'label' => __( 'Text Color', 'elementor' ),
+				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -378,7 +385,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_testimonial_job',
 			[
-				'label' => __( 'Job', 'elementor' ),
+				'label' => __( 'Job', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -386,7 +393,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'job_text_color',
 			[
-				'label' => __( 'Text Color', 'elementor' ),
+				'label' => __( 'Text Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -413,7 +420,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_testimonial_hover',
 			[
-				'label' => __( 'Hover', 'elementor' ),
+				'label' => __( 'Hover', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -421,7 +428,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'hover_size',
 			[
-				'label' => __( 'Hover Size', 'elementor' ),
+				'label' => __( 'Hover Size', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'default' => [
@@ -443,7 +450,7 @@ class Widget_Testimonial extends Widget_Base {
 		$this->add_control(
 			'hover_background',
 			[
-				'label' => __( 'Background Color', 'elementor' ),
+				'label' => __( 'Background Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -517,10 +524,11 @@ class Widget_Testimonial extends Widget_Base {
 				$this->add_render_attribute( 'link', 'rel', 'nofollow' );
 			}
 		}
+		
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
+		<?php echo wp_kses_post( '<div  '.$this->get_render_attribute_string( 'wrapper' ).' >'); ?>
 		<div  class="<?php if ( $has_hover_cnt ) { echo 'staff'; } ?> ">
-        <?php if ( $has_hover_cnt ) { ?> <div class="staff-meta"> <?php echo $settings['testimonial_hover']; ?></div> <?php } ?>	
+        <?php if ( $has_hover_cnt ) { ?> <div class="staff-meta"> <?php echo wp_kses_post($settings['testimonial_hover']); ?></div> <?php } ?>	
 			<?php
 			
 			
@@ -530,11 +538,11 @@ class Widget_Testimonial extends Widget_Base {
 
 				$this->add_inline_editing_attributes( 'testimonial_content' );
 				?>
-				<div <?php echo $this->get_render_attribute_string( 'testimonial_content' ); ?>><?php echo $settings['testimonial_content']; ?></div>
+				<div <?php echo wp_kses_post($this->get_render_attribute_string( 'testimonial_content' )); ?>><?php echo wp_kses_post($settings['testimonial_content']); ?></div>
 			<?php endif; ?>
 
 			<?php if ( $has_image || $has_name || $has_job ) : ?>
-			<div <?php echo $this->get_render_attribute_string( 'meta' ); ?>>
+			<div <?php echo wp_kses_post($this->get_render_attribute_string( 'meta' )); ?>>
 				<div class="elementor-testimonial-meta-inner">
 					<?php if ( $has_image ) : ?>
 						<div class="elementor-testimonial-image">
@@ -543,7 +551,7 @@ class Widget_Testimonial extends Widget_Base {
 							if ( ! empty( $settings['link']['url'] ) ) :
 								$image_html = '<a ' . $this->get_render_attribute_string( 'link' ) . '>' . $image_html . '</a>';
 							endif;
-							echo $image_html;
+							echo wp_kses_post($image_html);
 							?>
 						</div>
 					<?php endif; ?>
@@ -561,7 +569,7 @@ class Widget_Testimonial extends Widget_Base {
 								$testimonial_name_html = '<a ' . $this->get_render_attribute_string( 'link' ) . '>' . $testimonial_name_html . '</a>';
 							endif;
 							?>
-							<h6 <?php echo $this->get_render_attribute_string( 'testimonial_name' ); ?>><?php echo $testimonial_name_html; ?></h6>
+							<h6 <?php echo wp_kses_post( $this->get_render_attribute_string( 'testimonial_name' )); ?>><?php echo wp_kses_post($testimonial_name_html); ?></h6>
 						<?php endif; ?>
 						<?php
 						if ( $has_job ) :
@@ -574,7 +582,7 @@ class Widget_Testimonial extends Widget_Base {
 								$testimonial_job_html = '<a ' . $this->get_render_attribute_string( 'link' ) . '>' . $testimonial_job_html . '</a>';
 							endif;
 							?>
-							<div <?php echo $this->get_render_attribute_string( 'testimonial_job' ); ?>><?php echo $testimonial_job_html; ?></div>
+							<div <?php echo wp_kses_post($this->get_render_attribute_string( 'testimonial_job' )); ?>><?php echo wp_kses_post($testimonial_job_html); ?></div>
 						<?php endif; ?>
 					</div>
 					<?php endif; ?>

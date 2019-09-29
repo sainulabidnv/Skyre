@@ -1,0 +1,5365 @@
+# Copyright (C) 2019 Sainul
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Skyre 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/skyre\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-25T10:29:50+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.3.0\n"
+"X-Domain: skyre\n"
+
+#. Theme Name of the theme
+#: inc/widget.php:114
+#: inc/widget.php:137
+#: inc/widget.php:161
+msgid "Skyre"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "http://templates.96h.in/skyre/"
+msgstr ""
+
+#. Description of the theme
+msgid "Skyre Wordpress template included all the necessary benefits and special features that perfectly fit for ICO development agencies, Blockchain technology consulting firm or any type of digital crypto currency / bitcoin business website."
+msgstr ""
+
+#. Author of the theme
+msgid "Sainul"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://skyresoft.com/"
+msgstr ""
+
+#: 404.php:23
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:29
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:19
+#: index.php:23
+msgid "Posts"
+msgstr ""
+
+#: archive.php:48
+#: search.php:47
+msgid "Previous page"
+msgstr ""
+
+#: archive.php:49
+#: search.php:48
+msgid "Next page"
+msgstr ""
+
+#: archive.php:50
+#: page.php:47
+#: search.php:49
+#: sportspress/single-calendar.php:51
+#: sportspress/single-event.php:51
+#: sportspress/single-list.php:47
+#: sportspress/single-player.php:87
+#: sportspress/single-staff.php:74
+#: sportspress/single-table.php:51
+#: sportspress/single-team.php:48
+msgid "Page"
+msgstr ""
+
+#. translators: %s: post title
+#: comments.php:35
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:39
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:59
+#: inc/ewidgets/posts-grid.php:2349
+msgid "Previous"
+msgstr ""
+
+#: comments.php:60
+#: inc/ewidgets/posts-grid.php:2350
+#: inc/ewidgets/sportspress/sp-event-block.php:299
+#: inc/ewidgets/sportspress/sp-event-list.php:300
+msgid "Next"
+msgstr ""
+
+#: comments.php:71
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:81
+#: inc/ewidgets/sportspress/sp-player-grid.php:140
+#: inc/ewidgets/sportspress/sp-player-grid.php:357
+#: inc/ewidgets/sportspress/sp-player-list.php:125
+#: inc/ewidgets/sportspress/sp-player-list.php:359
+#: inc/ewidgets/testimonial.php:145
+#: inc/ewidgets/testimonial.php:352
+msgid "Name"
+msgstr ""
+
+#: comments.php:86
+#: inc/ewidgets/newsletter.php:950
+#: inc/ewidgets/newsletter.php:996
+#: inc/ewidgets/newsletter.php:997
+#: inc/ewidgets/newsletter.php:998
+msgid "Email"
+msgstr ""
+
+#: comments.php:91
+msgid "Website"
+msgstr ""
+
+#: functions.php:73
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:74
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:75
+msgid "Social Icons "
+msgstr ""
+
+#. Translators: If there are characters in your language that are not supported by Libre Franklin, translate this to 'off'. Do not translate into your own language.
+#: functions.php:179
+msgctxt "Roboto font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:229
+#: sidebar.php:16
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:231
+msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr ""
+
+#: functions.php:239
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:241
+#: functions.php:251
+#: functions.php:261
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: functions.php:249
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:259
+msgid "Footer 3"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: functions.php:287
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: inc/back-compat.php:39
+#: inc/back-compat.php:51
+#: inc/back-compat.php:66
+msgid "Skyre requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/bkp_class-tgm-plugin-activation.php:3601
+#: inc/bkp_class-tgm-plugin-activation.php:3609
+msgid "%1$s done."
+msgstr ""
+
+#: inc/class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr ""
+
+#: inc/custom-header.php:49
+msgid "Default Header Image"
+msgstr ""
+
+#: inc/custom-header.php:119
+msgid "Play background video"
+msgstr ""
+
+#: inc/custom-header.php:120
+msgid "Pause background video"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:44
+msgid "Comment settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:49
+msgid "Comment style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:60
+msgid "Disable comments?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:77
+#: inc/customizer/configurations/class-skyre-configuration-page.php:153
+#: inc/customizer/configurations/class-skyre-configuration-post.php:187
+#: inc/customizer/configurations/class-skyre-configuration-post.php:452
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:66
+msgid "background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:94
+#: inc/customizer/configurations/class-skyre-configuration-page.php:114
+#: inc/customizer/configurations/class-skyre-configuration-post.php:110
+#: inc/customizer/configurations/class-skyre-configuration-post.php:488
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:83
+#: inc/ewidgets/accordion.php:239
+#: inc/ewidgets/contact_form7.php:222
+#: inc/ewidgets/newsletter.php:716
+#: inc/ewidgets/newsletter.php:882
+#: inc/ewidgets/posts-grid.php:431
+#: inc/ewidgets/posts-grid.php:805
+#: inc/ewidgets/posts-grid.php:949
+#: inc/ewidgets/posts-grid.php:1050
+#: inc/ewidgets/posts-grid.php:1175
+#: inc/ewidgets/posts-grid.php:1346
+#: inc/ewidgets/posts-grid.php:1427
+#: inc/ewidgets/posts-grid.php:2159
+#: inc/ewidgets/sk-slider.php:614
+#: inc/ewidgets/sk-slider.php:761
+#: inc/ewidgets/sk-slider.php:983
+#: inc/ewidgets/sk-slider.php:1211
+#: inc/ewidgets/sk-slider.php:1326
+#: inc/ewidgets/sk-slider.php:1468
+#: inc/ewidgets/sk-slider.php:1534
+#: inc/ewidgets/sk-slider.php:1820
+#: inc/ewidgets/sk-slider.php:1939
+#: inc/ewidgets/sk-slider.php:2031
+#: inc/ewidgets/sk-slider.php:2115
+#: inc/ewidgets/sk-slider.php:2199
+#: inc/ewidgets/sk-slider.php:2390
+#: inc/ewidgets/sk-slider.php:2484
+#: inc/ewidgets/sk-slider.php:2596
+#: inc/ewidgets/sk-slider.php:2690
+#: inc/ewidgets/sk-status.php:345
+#: inc/ewidgets/sk-status.php:434
+#: inc/ewidgets/sk-status.php:531
+#: inc/ewidgets/sk-status.php:614
+#: inc/ewidgets/sk-status.php:735
+#: inc/ewidgets/sportspress/sk-status.php:542
+#: inc/ewidgets/sportspress/sk-status.php:673
+#: inc/ewidgets/sportspress/sk-status.php:787
+#: inc/ewidgets/sportspress/sk-status.php:870
+#: inc/ewidgets/sportspress/sk-status.php:1018
+#: inc/ewidgets/sportspress/sk-status.php:1144
+#: inc/ewidgets/sportspress/sk-status.php:1286
+#: inc/ewidgets/sportspress/sk-status.php:1413
+#: inc/ewidgets/sportspress/sp-event-block.php:507
+#: inc/ewidgets/sportspress/sp-event-block.php:629
+#: inc/ewidgets/sportspress/sp-event-block.php:708
+#: inc/ewidgets/sportspress/sp-event-block.php:831
+#: inc/ewidgets/sportspress/sp-event-block.php:911
+#: inc/ewidgets/sportspress/sp-event-block.php:1033
+#: inc/ewidgets/sportspress/sp-event-block.php:1156
+#: inc/ewidgets/sportspress/sp-event-block.php:1278
+#: inc/ewidgets/sportspress/sp-event-block.php:1400
+#: inc/ewidgets/sportspress/sp-event-block.php:1522
+#: inc/ewidgets/sportspress/sp-event-block.php:1644
+#: inc/ewidgets/sportspress/sp-event-block.php:1724
+#: inc/ewidgets/sportspress/sp-event-block.php:1858
+#: inc/ewidgets/sportspress/sp-event-list.php:514
+#: inc/ewidgets/sportspress/sp-event-list.php:644
+#: inc/ewidgets/sportspress/sp-event-list.php:723
+#: inc/ewidgets/sportspress/sp-event-list.php:801
+#: inc/ewidgets/sportspress/sp-event-list.php:1128
+#: inc/ewidgets/sportspress/sp-event-list.php:1258
+#: inc/ewidgets/sportspress/sp-event-list.php:1377
+#: inc/ewidgets/sportspress/sp-league-list.php:426
+#: inc/ewidgets/sportspress/sp-league-list.php:548
+#: inc/ewidgets/sportspress/sp-league-list.php:627
+#: inc/ewidgets/sportspress/sp-league-list.php:705
+#: inc/ewidgets/sportspress/sp-league-list.php:1014
+#: inc/ewidgets/sportspress/sp-league-list.php:1144
+#: inc/ewidgets/sportspress/sp-player-grid.php:487
+#: inc/ewidgets/sportspress/sp-player-grid.php:618
+#: inc/ewidgets/sportspress/sp-player-grid.php:697
+#: inc/ewidgets/sportspress/sp-player-grid.php:822
+#: inc/ewidgets/sportspress/sp-player-grid.php:899
+#: inc/ewidgets/sportspress/sp-player-grid.php:977
+#: inc/ewidgets/sportspress/sp-player-grid.php:1126
+#: inc/ewidgets/sportspress/sp-player-grid.php:1275
+#: inc/ewidgets/sportspress/sp-player-grid.php:1423
+#: inc/ewidgets/sportspress/sp-player-grid.php:1857
+#: inc/ewidgets/sportspress/sp-player-list.php:491
+#: inc/ewidgets/sportspress/sp-player-list.php:621
+#: inc/ewidgets/sportspress/sp-player-list.php:697
+#: inc/ewidgets/sportspress/sp-player-list.php:775
+#: inc/ewidgets/sportspress/sp-player-list.php:1101
+#: inc/ewidgets/sportspress/sp-player-list.php:1213
+#: inc/ewidgets/sportspress/sp-player-list.php:1332
+msgid "Margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:111
+#: inc/customizer/configurations/class-skyre-configuration-page.php:135
+#: inc/customizer/configurations/class-skyre-configuration-post.php:131
+#: inc/customizer/configurations/class-skyre-configuration-post.php:471
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:100
+#: inc/ewidgets/accordion.php:335
+#: inc/ewidgets/accordion.php:481
+#: inc/ewidgets/button.php:430
+#: inc/ewidgets/contact_form7.php:235
+#: inc/ewidgets/icon-box.php:379
+#: inc/ewidgets/newsletter.php:704
+#: inc/ewidgets/newsletter.php:870
+#: inc/ewidgets/posts-grid.php:419
+#: inc/ewidgets/posts-grid.php:792
+#: inc/ewidgets/posts-grid.php:1063
+#: inc/ewidgets/posts-grid.php:1188
+#: inc/ewidgets/posts-grid.php:1359
+#: inc/ewidgets/posts-grid.php:2011
+#: inc/ewidgets/sk-slider.php:602
+#: inc/ewidgets/sk-slider.php:749
+#: inc/ewidgets/sk-slider.php:971
+#: inc/ewidgets/sk-slider.php:1455
+#: inc/ewidgets/sk-slider.php:2019
+#: inc/ewidgets/sk-slider.php:2103
+#: inc/ewidgets/sk-slider.php:2187
+#: inc/ewidgets/sk-slider.php:2378
+#: inc/ewidgets/sk-slider.php:2472
+#: inc/ewidgets/sk-slider.php:2584
+#: inc/ewidgets/sk-slider.php:2678
+#: inc/ewidgets/sk-status.php:333
+#: inc/ewidgets/sk-status.php:422
+#: inc/ewidgets/sk-status.php:519
+#: inc/ewidgets/sk-status.php:602
+#: inc/ewidgets/sk-status.php:723
+#: inc/ewidgets/sportspress/sk-status.php:530
+#: inc/ewidgets/sportspress/sk-status.php:661
+#: inc/ewidgets/sportspress/sk-status.php:775
+#: inc/ewidgets/sportspress/sk-status.php:858
+#: inc/ewidgets/sportspress/sk-status.php:1006
+#: inc/ewidgets/sportspress/sk-status.php:1132
+#: inc/ewidgets/sportspress/sk-status.php:1274
+#: inc/ewidgets/sportspress/sk-status.php:1401
+#: inc/ewidgets/sportspress/sk-status.php:1520
+#: inc/ewidgets/sportspress/sp-event-block.php:495
+#: inc/ewidgets/sportspress/sp-event-block.php:617
+#: inc/ewidgets/sportspress/sp-event-block.php:696
+#: inc/ewidgets/sportspress/sp-event-block.php:819
+#: inc/ewidgets/sportspress/sp-event-block.php:899
+#: inc/ewidgets/sportspress/sp-event-block.php:1021
+#: inc/ewidgets/sportspress/sp-event-block.php:1144
+#: inc/ewidgets/sportspress/sp-event-block.php:1266
+#: inc/ewidgets/sportspress/sp-event-block.php:1388
+#: inc/ewidgets/sportspress/sp-event-block.php:1510
+#: inc/ewidgets/sportspress/sp-event-block.php:1632
+#: inc/ewidgets/sportspress/sp-event-block.php:1712
+#: inc/ewidgets/sportspress/sp-event-block.php:1846
+#: inc/ewidgets/sportspress/sp-event-list.php:502
+#: inc/ewidgets/sportspress/sp-event-list.php:632
+#: inc/ewidgets/sportspress/sp-event-list.php:711
+#: inc/ewidgets/sportspress/sp-event-list.php:789
+#: inc/ewidgets/sportspress/sp-event-list.php:921
+#: inc/ewidgets/sportspress/sp-event-list.php:1047
+#: inc/ewidgets/sportspress/sp-event-list.php:1116
+#: inc/ewidgets/sportspress/sp-event-list.php:1246
+#: inc/ewidgets/sportspress/sp-event-list.php:1365
+#: inc/ewidgets/sportspress/sp-league-list.php:414
+#: inc/ewidgets/sportspress/sp-league-list.php:536
+#: inc/ewidgets/sportspress/sp-league-list.php:615
+#: inc/ewidgets/sportspress/sp-league-list.php:693
+#: inc/ewidgets/sportspress/sp-league-list.php:815
+#: inc/ewidgets/sportspress/sp-league-list.php:933
+#: inc/ewidgets/sportspress/sp-league-list.php:1002
+#: inc/ewidgets/sportspress/sp-league-list.php:1132
+#: inc/ewidgets/sportspress/sp-player-grid.php:475
+#: inc/ewidgets/sportspress/sp-player-grid.php:606
+#: inc/ewidgets/sportspress/sp-player-grid.php:685
+#: inc/ewidgets/sportspress/sp-player-grid.php:810
+#: inc/ewidgets/sportspress/sp-player-grid.php:887
+#: inc/ewidgets/sportspress/sp-player-grid.php:965
+#: inc/ewidgets/sportspress/sp-player-grid.php:1114
+#: inc/ewidgets/sportspress/sp-player-grid.php:1263
+#: inc/ewidgets/sportspress/sp-player-grid.php:1411
+#: inc/ewidgets/sportspress/sp-player-grid.php:1493
+#: inc/ewidgets/sportspress/sp-player-grid.php:1654
+#: inc/ewidgets/sportspress/sp-player-grid.php:1845
+#: inc/ewidgets/sportspress/sp-player-list.php:479
+#: inc/ewidgets/sportspress/sp-player-list.php:609
+#: inc/ewidgets/sportspress/sp-player-list.php:685
+#: inc/ewidgets/sportspress/sp-player-list.php:763
+#: inc/ewidgets/sportspress/sp-player-list.php:894
+#: inc/ewidgets/sportspress/sp-player-list.php:1020
+#: inc/ewidgets/sportspress/sp-player-list.php:1089
+#: inc/ewidgets/sportspress/sp-player-list.php:1201
+#: inc/ewidgets/sportspress/sp-player-list.php:1320
+#: inc/ewidgets/twitter.php:275
+msgid "Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:128
+#: inc/customizer/configurations/class-skyre-configuration-post.php:507
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:117
+#: inc/ewidgets/contact_form7.php:199
+#: inc/ewidgets/contact_form7.php:328
+#: inc/ewidgets/posts-grid.php:852
+#: inc/ewidgets/posts-grid.php:1980
+#: inc/ewidgets/sk-slider.php:627
+#: inc/ewidgets/sk-slider.php:1189
+#: inc/ewidgets/sk-slider.php:1304
+#: inc/ewidgets/sk-slider.php:1580
+#: inc/ewidgets/sk-slider.php:1628
+#: inc/ewidgets/sk-slider.php:1676
+#: inc/ewidgets/sk-slider.php:1798
+#: inc/ewidgets/sk-slider.php:1917
+#: inc/ewidgets/sk-slider.php:2415
+#: inc/ewidgets/sk-slider.php:2509
+#: inc/ewidgets/sk-slider.php:2621
+#: inc/ewidgets/sk-slider.php:2715
+#: inc/ewidgets/sk-status.php:358
+#: inc/ewidgets/sportspress/sk-status.php:555
+#: inc/ewidgets/sportspress/sk-status.php:696
+#: inc/ewidgets/sportspress/sk-status.php:1041
+#: inc/ewidgets/sportspress/sk-status.php:1167
+#: inc/ewidgets/sportspress/sk-status.php:1309
+#: inc/ewidgets/sportspress/sk-status.php:1436
+#: inc/ewidgets/sportspress/sk-status.php:1490
+#: inc/ewidgets/sportspress/sp-event-block.php:465
+#: inc/ewidgets/sportspress/sp-event-block.php:587
+#: inc/ewidgets/sportspress/sp-event-block.php:666
+#: inc/ewidgets/sportspress/sp-event-block.php:788
+#: inc/ewidgets/sportspress/sp-event-block.php:867
+#: inc/ewidgets/sportspress/sp-event-block.php:990
+#: inc/ewidgets/sportspress/sp-event-block.php:1113
+#: inc/ewidgets/sportspress/sp-event-block.php:1235
+#: inc/ewidgets/sportspress/sp-event-block.php:1357
+#: inc/ewidgets/sportspress/sp-event-block.php:1479
+#: inc/ewidgets/sportspress/sp-event-block.php:1601
+#: inc/ewidgets/sportspress/sp-event-block.php:1682
+#: inc/ewidgets/sportspress/sp-event-block.php:1810
+#: inc/ewidgets/sportspress/sp-event-list.php:472
+#: inc/ewidgets/sportspress/sp-event-list.php:602
+#: inc/ewidgets/sportspress/sp-event-list.php:681
+#: inc/ewidgets/sportspress/sp-event-list.php:759
+#: inc/ewidgets/sportspress/sp-event-list.php:890
+#: inc/ewidgets/sportspress/sp-event-list.php:1009
+#: inc/ewidgets/sportspress/sp-event-list.php:1086
+#: inc/ewidgets/sportspress/sp-event-list.php:1210
+#: inc/ewidgets/sportspress/sp-event-list.php:1336
+#: inc/ewidgets/sportspress/sp-league-list.php:384
+#: inc/ewidgets/sportspress/sp-league-list.php:506
+#: inc/ewidgets/sportspress/sp-league-list.php:585
+#: inc/ewidgets/sportspress/sp-league-list.php:663
+#: inc/ewidgets/sportspress/sp-league-list.php:784
+#: inc/ewidgets/sportspress/sp-league-list.php:895
+#: inc/ewidgets/sportspress/sp-league-list.php:972
+#: inc/ewidgets/sportspress/sp-league-list.php:1096
+#: inc/ewidgets/sportspress/sp-player-grid.php:445
+#: inc/ewidgets/sportspress/sp-player-grid.php:576
+#: inc/ewidgets/sportspress/sp-player-grid.php:655
+#: inc/ewidgets/sportspress/sp-player-grid.php:779
+#: inc/ewidgets/sportspress/sp-player-grid.php:856
+#: inc/ewidgets/sportspress/sp-player-grid.php:933
+#: inc/ewidgets/sportspress/sp-player-grid.php:1083
+#: inc/ewidgets/sportspress/sp-player-grid.php:1232
+#: inc/ewidgets/sportspress/sp-player-grid.php:1380
+#: inc/ewidgets/sportspress/sp-player-grid.php:1463
+#: inc/ewidgets/sportspress/sp-player-grid.php:1623
+#: inc/ewidgets/sportspress/sp-player-grid.php:1809
+#: inc/ewidgets/sportspress/sp-player-list.php:449
+#: inc/ewidgets/sportspress/sp-player-list.php:579
+#: inc/ewidgets/sportspress/sp-player-list.php:655
+#: inc/ewidgets/sportspress/sp-player-list.php:733
+#: inc/ewidgets/sportspress/sp-player-list.php:863
+#: inc/ewidgets/sportspress/sp-player-list.php:982
+#: inc/ewidgets/sportspress/sp-player-list.php:1059
+#: inc/ewidgets/sportspress/sp-player-list.php:1165
+#: inc/ewidgets/sportspress/sp-player-list.php:1291
+#: inc/ewidgets/twitter.php:289
+msgid "Border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:145
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:107
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:134
+#: inc/ewidgets/roadmap.php:461
+#: inc/ewidgets/sk-status.php:544
+#: inc/ewidgets/sportspress/sk-status.php:800
+msgid "Border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:163
+#: inc/customizer/configurations/class-skyre-configuration-page.php:391
+#: inc/customizer/configurations/class-skyre-configuration-post.php:525
+#: inc/customizer/configurations/class-skyre-configuration-post.php:610
+#: inc/customizer/configurations/class-skyre-configuration-post.php:922
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:225
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:152
+#: inc/ewidgets/accordion.php:226
+#: inc/ewidgets/button.php:373
+#: inc/ewidgets/newsletter.php:437
+#: inc/ewidgets/newsletter.php:538
+#: inc/ewidgets/newsletter.php:760
+#: inc/ewidgets/roadmap.php:283
+#: inc/ewidgets/roadmap.php:359
+#: inc/ewidgets/roadmap.php:436
+msgid "Border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:171
+msgid "Comment title"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:187
+#: inc/customizer/configurations/class-skyre-configuration-page.php:252
+#: inc/customizer/configurations/class-skyre-configuration-post.php:542
+#: inc/customizer/configurations/class-skyre-configuration-post.php:783
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:86
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:286
+msgid "Title background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:203
+#: inc/customizer/configurations/class-skyre-configuration-page.php:356
+#: inc/customizer/configurations/class-skyre-configuration-post.php:332
+#: inc/customizer/configurations/class-skyre-configuration-post.php:575
+#: inc/customizer/configurations/class-skyre-configuration-post.php:887
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:190
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:302
+msgid "Title margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:220
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:319
+msgid "Title Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:237
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:336
+msgid "Title border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:254
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:353
+msgid "Title border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:272
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:371
+msgid "Title border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:280
+msgid "Comment items"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:296
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:177
+msgid "Section background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:312
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:193
+msgid "Section margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:329
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:210
+msgid "Section Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:346
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:227
+msgid "Section border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:363
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:244
+msgid "Section border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:381
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:262
+msgid "Section border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:390
+msgid "Comment reply/child"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:406
+msgid "Reply background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:422
+msgid "Reply margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:439
+msgid "Reply Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:456
+msgid "Reply border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:473
+msgid "Reply border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:491
+msgid "Reply border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:499
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:61
+msgid "Form fields"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:515
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:640
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:77
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:202
+#: inc/ewidgets/accordion.php:296
+#: inc/ewidgets/accordion.php:384
+#: inc/ewidgets/accordion.php:457
+#: inc/ewidgets/contact_form7.php:316
+#: inc/ewidgets/icon-box.php:523
+#: inc/ewidgets/icon-box.php:557
+#: inc/ewidgets/image-carousel.php:495
+#: inc/ewidgets/image-carousel.php:557
+#: inc/ewidgets/posts-grid.php:1034
+#: inc/ewidgets/posts-grid.php:1159
+#: inc/ewidgets/posts-grid.php:1331
+#: inc/ewidgets/posts-grid.php:1411
+#: inc/ewidgets/sk-slider.php:1126
+#: inc/ewidgets/sk-slider.php:1240
+#: inc/ewidgets/sk-status.php:581
+#: inc/ewidgets/sk-status.php:666
+#: inc/ewidgets/sk-status.php:703
+#: inc/ewidgets/sportspress/sk-status.php:599
+#: inc/ewidgets/sportspress/sk-status.php:837
+#: inc/ewidgets/sportspress/sk-status.php:922
+#: inc/ewidgets/sportspress/sk-status.php:960
+#: inc/ewidgets/sportspress/sk-status.php:1086
+#: inc/ewidgets/sportspress/sk-status.php:1213
+#: inc/ewidgets/sportspress/sk-status.php:1355
+#: inc/ewidgets/sportspress/sp-event-block.php:365
+#: inc/ewidgets/sportspress/sp-event-list.php:366
+#: inc/ewidgets/sportspress/sp-league-list.php:284
+#: inc/ewidgets/sportspress/sp-player-list.php:343
+#: inc/ewidgets/twitter.php:344
+#: inc/ewidgets/twitter.php:373
+#: inc/ewidgets/twitter.php:403
+msgid "Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:532
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:94
+msgid "Form fields background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:548
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:110
+msgid "Form fields margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:565
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:127
+msgid "Form fields Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:582
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:144
+msgid "Form fields border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:599
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:161
+msgid "Form fields border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:617
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:179
+msgid "Form fields border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:625
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:187
+msgid "Form button"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:657
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:219
+msgid "Form button background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:673
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:235
+msgid "Form button margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:690
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:252
+msgid "Form button Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:707
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:269
+msgid "Form button border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:724
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:286
+msgid "Form button border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:742
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:304
+msgid "Form button border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:750
+msgid "Avatar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:761
+msgid "Disable avatar?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:778
+msgid "Avatar background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:794
+msgid "Avatar margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:811
+msgid "Avatar Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:828
+msgid "Avatar border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:845
+msgid "Avatar border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-comment.php:863
+msgid "Avatar border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:42
+#: template-parts/footer/footer-widgets.php:16
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:52
+msgid "Footer Logo/Icon"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:63
+msgid "Hide Footer Menu"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:64
+msgid "Check to hide menu in footer"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:74
+msgid "Hide Social Icon"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:85
+msgid "Footer information"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:86
+msgid "Copyright text in footer"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:93
+msgid "Footer style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:110
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:72
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:63
+#: inc/ewidgets/accordion.php:285
+#: inc/ewidgets/accordion.php:446
+#: inc/ewidgets/contact_form7.php:187
+#: inc/ewidgets/contact_form7.php:294
+#: inc/ewidgets/posts-grid.php:389
+#: inc/ewidgets/posts-grid.php:1076
+#: inc/ewidgets/posts-grid.php:1201
+#: inc/ewidgets/posts-grid.php:1372
+#: inc/ewidgets/posts-grid.php:1970
+#: inc/ewidgets/sportspress/sk-status.php:686
+#: inc/ewidgets/sportspress/sk-status.php:1031
+#: inc/ewidgets/sportspress/sk-status.php:1157
+#: inc/ewidgets/sportspress/sk-status.php:1299
+#: inc/ewidgets/sportspress/sk-status.php:1426
+#: inc/ewidgets/sportspress/sk-status.php:1480
+#: inc/ewidgets/sportspress/sp-event-block.php:455
+#: inc/ewidgets/sportspress/sp-event-block.php:577
+#: inc/ewidgets/sportspress/sp-event-block.php:656
+#: inc/ewidgets/sportspress/sp-event-block.php:778
+#: inc/ewidgets/sportspress/sp-event-block.php:857
+#: inc/ewidgets/sportspress/sp-event-block.php:980
+#: inc/ewidgets/sportspress/sp-event-block.php:1103
+#: inc/ewidgets/sportspress/sp-event-block.php:1225
+#: inc/ewidgets/sportspress/sp-event-block.php:1347
+#: inc/ewidgets/sportspress/sp-event-block.php:1469
+#: inc/ewidgets/sportspress/sp-event-block.php:1591
+#: inc/ewidgets/sportspress/sp-event-block.php:1672
+#: inc/ewidgets/sportspress/sp-event-block.php:1800
+#: inc/ewidgets/sportspress/sp-event-list.php:462
+#: inc/ewidgets/sportspress/sp-event-list.php:592
+#: inc/ewidgets/sportspress/sp-event-list.php:671
+#: inc/ewidgets/sportspress/sp-event-list.php:749
+#: inc/ewidgets/sportspress/sp-event-list.php:880
+#: inc/ewidgets/sportspress/sp-event-list.php:999
+#: inc/ewidgets/sportspress/sp-event-list.php:1076
+#: inc/ewidgets/sportspress/sp-event-list.php:1200
+#: inc/ewidgets/sportspress/sp-event-list.php:1326
+#: inc/ewidgets/sportspress/sp-league-list.php:374
+#: inc/ewidgets/sportspress/sp-league-list.php:496
+#: inc/ewidgets/sportspress/sp-league-list.php:575
+#: inc/ewidgets/sportspress/sp-league-list.php:653
+#: inc/ewidgets/sportspress/sp-league-list.php:774
+#: inc/ewidgets/sportspress/sp-league-list.php:885
+#: inc/ewidgets/sportspress/sp-league-list.php:962
+#: inc/ewidgets/sportspress/sp-league-list.php:1086
+#: inc/ewidgets/sportspress/sp-player-grid.php:435
+#: inc/ewidgets/sportspress/sp-player-grid.php:566
+#: inc/ewidgets/sportspress/sp-player-grid.php:645
+#: inc/ewidgets/sportspress/sp-player-grid.php:769
+#: inc/ewidgets/sportspress/sp-player-grid.php:846
+#: inc/ewidgets/sportspress/sp-player-grid.php:923
+#: inc/ewidgets/sportspress/sp-player-grid.php:1073
+#: inc/ewidgets/sportspress/sp-player-grid.php:1222
+#: inc/ewidgets/sportspress/sp-player-grid.php:1370
+#: inc/ewidgets/sportspress/sp-player-grid.php:1453
+#: inc/ewidgets/sportspress/sp-player-grid.php:1613
+#: inc/ewidgets/sportspress/sp-player-grid.php:1799
+#: inc/ewidgets/sportspress/sp-player-list.php:439
+#: inc/ewidgets/sportspress/sp-player-list.php:569
+#: inc/ewidgets/sportspress/sp-player-list.php:645
+#: inc/ewidgets/sportspress/sp-player-list.php:723
+#: inc/ewidgets/sportspress/sp-player-list.php:853
+#: inc/ewidgets/sportspress/sp-player-list.php:972
+#: inc/ewidgets/sportspress/sp-player-list.php:1049
+#: inc/ewidgets/sportspress/sp-player-list.php:1155
+#: inc/ewidgets/sportspress/sp-player-list.php:1281
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:121
+#: inc/customizer/configurations/class-skyre-configuration-global.php:70
+#: inc/customizer/configurations/class-skyre-configuration-header.php:86
+#: inc/customizer/configurations/class-skyre-configuration-page.php:164
+#: inc/customizer/configurations/class-skyre-configuration-page.php:263
+#: inc/customizer/configurations/class-skyre-configuration-post.php:796
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:97
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:133
+#: inc/customizer/configurations/class-skyre-configuration-global.php:82
+#: inc/customizer/configurations/class-skyre-configuration-page.php:176
+#: inc/customizer/configurations/class-skyre-configuration-page.php:275
+#: inc/customizer/configurations/class-skyre-configuration-post.php:808
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:109
+msgid "Background Size"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:138
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:158
+#: inc/customizer/configurations/class-skyre-configuration-global.php:87
+#: inc/customizer/configurations/class-skyre-configuration-global.php:105
+#: inc/customizer/configurations/class-skyre-configuration-header.php:103
+#: inc/customizer/configurations/class-skyre-configuration-page.php:181
+#: inc/customizer/configurations/class-skyre-configuration-page.php:201
+#: inc/customizer/configurations/class-skyre-configuration-page.php:280
+#: inc/customizer/configurations/class-skyre-configuration-page.php:300
+#: inc/customizer/configurations/class-skyre-configuration-post.php:813
+#: inc/customizer/configurations/class-skyre-configuration-post.php:833
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:114
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:134
+#: inc/customizer/customizer.php:121
+#: inc/customizer/customizer.php:439
+#: inc/customizer/customizer.php:460
+#: inc/customizer/customizer.php:481
+msgid "--Select--"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:139
+#: inc/customizer/configurations/class-skyre-configuration-global.php:88
+#: inc/customizer/configurations/class-skyre-configuration-page.php:182
+#: inc/customizer/configurations/class-skyre-configuration-page.php:281
+#: inc/customizer/configurations/class-skyre-configuration-post.php:814
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:115
+#: inc/customizer/customizer.php:461
+msgid "Auto"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:140
+#: inc/customizer/configurations/class-skyre-configuration-global.php:89
+#: inc/customizer/configurations/class-skyre-configuration-page.php:183
+#: inc/customizer/configurations/class-skyre-configuration-page.php:282
+#: inc/customizer/configurations/class-skyre-configuration-post.php:815
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:116
+#: inc/customizer/customizer.php:462
+#: inc/ewidgets/sk-slider.php:560
+msgid "Cover"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:141
+#: inc/customizer/configurations/class-skyre-configuration-global.php:90
+#: inc/customizer/configurations/class-skyre-configuration-page.php:184
+#: inc/customizer/configurations/class-skyre-configuration-page.php:283
+#: inc/customizer/configurations/class-skyre-configuration-post.php:816
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:117
+#: inc/customizer/customizer.php:463
+#: inc/ewidgets/sk-slider.php:561
+msgid "Contain"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:142
+#: inc/customizer/configurations/class-skyre-configuration-global.php:91
+#: inc/customizer/configurations/class-skyre-configuration-page.php:185
+#: inc/customizer/configurations/class-skyre-configuration-page.php:284
+#: inc/customizer/configurations/class-skyre-configuration-post.php:817
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:118
+#: inc/customizer/customizer.php:464
+msgid "Full fit"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:153
+#: inc/customizer/configurations/class-skyre-configuration-global.php:101
+#: inc/customizer/configurations/class-skyre-configuration-header.php:98
+#: inc/customizer/configurations/class-skyre-configuration-page.php:196
+#: inc/customizer/configurations/class-skyre-configuration-page.php:295
+#: inc/customizer/configurations/class-skyre-configuration-post.php:828
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:129
+msgid "Background Repeat"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:159
+#: inc/customizer/configurations/class-skyre-configuration-global.php:106
+#: inc/customizer/configurations/class-skyre-configuration-header.php:104
+#: inc/customizer/configurations/class-skyre-configuration-page.php:202
+#: inc/customizer/configurations/class-skyre-configuration-page.php:301
+#: inc/customizer/configurations/class-skyre-configuration-post.php:834
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:135
+#: inc/customizer/customizer.php:440
+msgid "Repeat"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:160
+#: inc/customizer/configurations/class-skyre-configuration-global.php:107
+#: inc/customizer/configurations/class-skyre-configuration-header.php:105
+#: inc/customizer/configurations/class-skyre-configuration-page.php:203
+#: inc/customizer/configurations/class-skyre-configuration-page.php:302
+#: inc/customizer/configurations/class-skyre-configuration-post.php:835
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:136
+#: inc/customizer/customizer.php:441
+msgid "Repeat X"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:161
+#: inc/customizer/configurations/class-skyre-configuration-global.php:108
+#: inc/customizer/configurations/class-skyre-configuration-header.php:106
+#: inc/customizer/configurations/class-skyre-configuration-page.php:204
+#: inc/customizer/configurations/class-skyre-configuration-page.php:303
+#: inc/customizer/configurations/class-skyre-configuration-post.php:836
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:137
+#: inc/customizer/customizer.php:442
+msgid "Repeat Y"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:162
+#: inc/customizer/configurations/class-skyre-configuration-global.php:109
+#: inc/customizer/configurations/class-skyre-configuration-header.php:107
+#: inc/customizer/configurations/class-skyre-configuration-page.php:205
+#: inc/customizer/configurations/class-skyre-configuration-page.php:304
+#: inc/customizer/configurations/class-skyre-configuration-post.php:837
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:138
+#: inc/customizer/customizer.php:443
+msgid "No Repat"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:172
+#: inc/customizer/configurations/class-skyre-configuration-global.php:119
+#: inc/customizer/configurations/class-skyre-configuration-header.php:117
+#: inc/customizer/configurations/class-skyre-configuration-page.php:215
+#: inc/customizer/configurations/class-skyre-configuration-page.php:314
+#: inc/customizer/configurations/class-skyre-configuration-post.php:847
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:148
+msgid "Background Positions"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:189
+msgid "Social Icon Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:199
+msgid "Social Icon hover color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-footer.php:209
+msgid "Footer widget area background color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:41
+msgid "Body style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:58
+msgid "Body background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:129
+msgid "Color Options"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:146
+#: inc/ewidgets/icon-box.php:256
+#: inc/ewidgets/icon-box.php:298
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:164
+#: inc/ewidgets/icon-box.php:273
+#: inc/ewidgets/icon-box.php:311
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:182
+msgid "Tertiary Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-global.php:200
+msgid "White Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:41
+msgid "Page Header"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:53
+msgid "Hide Page title?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:65
+#: inc/ewidgets/posts-grid.php:2045
+#: sportspress/single-player.php:36
+msgid "Height"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:76
+msgid "Header background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:77
+msgid "Default page header background, Onepage layout will not support"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:131
+msgid "Title padding left-right"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-header.php:142
+msgid "Title padding top-bottom"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-layout.php:42
+#: inc/customizer/configurations/class-skyre-configuration-page.php:90
+#: inc/customizer/configurations/class-skyre-configuration-post.php:86
+#: inc/customizer/configurations/class-skyre-configuration-post.php:427
+#: sportspress/functions.php:84
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-layout.php:46
+#: inc/customizer/configurations/class-skyre-configuration-page.php:94
+#: inc/customizer/configurations/class-skyre-configuration-post.php:90
+#: inc/customizer/configurations/class-skyre-configuration-post.php:431
+#: sportspress/functions.php:83
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-layout.php:50
+#: inc/customizer/configurations/class-skyre-configuration-page.php:98
+#: inc/customizer/configurations/class-skyre-configuration-post.php:94
+#: inc/customizer/configurations/class-skyre-configuration-post.php:435
+#: sportspress/functions.php:85
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-layout.php:56
+#: inc/ewidgets/posts-grid.php:266
+#: inc/ewidgets/roadmap.php:113
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-layout.php:90
+#: sportspress/functions.php:163
+#: sportspress/functions.php:186
+#: sportspress/functions.php:209
+msgid "Full width ?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-loader.php:41
+msgid "Preloader"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-loader.php:52
+msgid "Hide Pre Loader?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-loader.php:64
+msgid "Loader Background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-loader.php:74
+msgid "Loader Primary Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-loader.php:84
+msgid "Loader Secondary Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:42
+msgid "404 error page"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:53
+msgid "Select page"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:312
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:322
+msgid "Custom CSS"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:323
+msgid "Additional CSS"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:331
+msgid "Support and Documentation"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:342
+msgid "Documentation"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:348
+msgid "Content Options"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:359
+msgid "Show post excerpts?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-miscellaneous.php:370
+msgid "Display Comments on Static Pages?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:40
+msgid "Main Menu"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:49
+msgid "Disable Sticky menu"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:60
+#: inc/ewidgets/accordion.php:253
+#: inc/ewidgets/posts-grid.php:2003
+#: inc/ewidgets/sportspress/sk-status.php:719
+#: inc/ewidgets/sportspress/sk-status.php:1064
+#: inc/ewidgets/sportspress/sk-status.php:1190
+#: inc/ewidgets/sportspress/sk-status.php:1332
+#: inc/ewidgets/sportspress/sk-status.php:1459
+#: inc/ewidgets/sportspress/sk-status.php:1512
+#: inc/ewidgets/sportspress/sp-event-block.php:487
+#: inc/ewidgets/sportspress/sp-event-block.php:609
+#: inc/ewidgets/sportspress/sp-event-block.php:688
+#: inc/ewidgets/sportspress/sp-event-block.php:811
+#: inc/ewidgets/sportspress/sp-event-block.php:889
+#: inc/ewidgets/sportspress/sp-event-block.php:1013
+#: inc/ewidgets/sportspress/sp-event-block.php:1136
+#: inc/ewidgets/sportspress/sp-event-block.php:1258
+#: inc/ewidgets/sportspress/sp-event-block.php:1380
+#: inc/ewidgets/sportspress/sp-event-block.php:1502
+#: inc/ewidgets/sportspress/sp-event-block.php:1624
+#: inc/ewidgets/sportspress/sp-event-block.php:1704
+#: inc/ewidgets/sportspress/sp-event-block.php:1838
+#: inc/ewidgets/sportspress/sp-event-list.php:494
+#: inc/ewidgets/sportspress/sp-event-list.php:624
+#: inc/ewidgets/sportspress/sp-event-list.php:703
+#: inc/ewidgets/sportspress/sp-event-list.php:781
+#: inc/ewidgets/sportspress/sp-event-list.php:913
+#: inc/ewidgets/sportspress/sp-event-list.php:1037
+#: inc/ewidgets/sportspress/sp-event-list.php:1108
+#: inc/ewidgets/sportspress/sp-event-list.php:1238
+#: inc/ewidgets/sportspress/sp-event-list.php:1357
+#: inc/ewidgets/sportspress/sp-league-list.php:406
+#: inc/ewidgets/sportspress/sp-league-list.php:528
+#: inc/ewidgets/sportspress/sp-league-list.php:607
+#: inc/ewidgets/sportspress/sp-league-list.php:685
+#: inc/ewidgets/sportspress/sp-league-list.php:807
+#: inc/ewidgets/sportspress/sp-league-list.php:923
+#: inc/ewidgets/sportspress/sp-league-list.php:994
+#: inc/ewidgets/sportspress/sp-league-list.php:1124
+#: inc/ewidgets/sportspress/sp-player-grid.php:467
+#: inc/ewidgets/sportspress/sp-player-grid.php:598
+#: inc/ewidgets/sportspress/sp-player-grid.php:677
+#: inc/ewidgets/sportspress/sp-player-grid.php:802
+#: inc/ewidgets/sportspress/sp-player-grid.php:878
+#: inc/ewidgets/sportspress/sp-player-grid.php:955
+#: inc/ewidgets/sportspress/sp-player-grid.php:1106
+#: inc/ewidgets/sportspress/sp-player-grid.php:1255
+#: inc/ewidgets/sportspress/sp-player-grid.php:1403
+#: inc/ewidgets/sportspress/sp-player-grid.php:1485
+#: inc/ewidgets/sportspress/sp-player-grid.php:1646
+#: inc/ewidgets/sportspress/sp-player-grid.php:1837
+#: inc/ewidgets/sportspress/sp-player-list.php:471
+#: inc/ewidgets/sportspress/sp-player-list.php:601
+#: inc/ewidgets/sportspress/sp-player-list.php:677
+#: inc/ewidgets/sportspress/sp-player-list.php:755
+#: inc/ewidgets/sportspress/sp-player-list.php:886
+#: inc/ewidgets/sportspress/sp-player-list.php:1010
+#: inc/ewidgets/sportspress/sp-player-list.php:1081
+#: inc/ewidgets/sportspress/sp-player-list.php:1193
+#: inc/ewidgets/sportspress/sp-player-list.php:1312
+msgid "Box Shadow"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:83
+msgid "Fixed menu background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:94
+msgid "Dropdown background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:105
+msgid "Dropdown menu color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-navigation.php:116
+msgid "Dropdown menu hover color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:44
+msgid "Page Options"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:57
+msgid "Page settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:68
+msgid "Enable full width?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:85
+msgid "Page sidebar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:225
+msgid "Page Title"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:235
+msgid "Disable Page title?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:339
+#: inc/customizer/configurations/class-skyre-configuration-post.php:558
+#: inc/customizer/configurations/class-skyre-configuration-post.php:870
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:173
+msgid "Title padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-page.php:373
+#: inc/customizer/configurations/class-skyre-configuration-post.php:592
+#: inc/customizer/configurations/class-skyre-configuration-post.php:904
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:207
+msgid "Title Border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:44
+msgid "Post/archive Options"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:51
+msgid "Post settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:64
+#: inc/customizer/configurations/class-skyre-configuration-post.php:405
+msgid "Full width?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:81
+msgid "Post/Archive sidebar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:146
+msgid "Post per row"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:150
+#: inc/ewidgets/posts-grid.php:603
+msgid "1"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:151
+msgid "2"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:152
+msgid "3"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:153
+msgid "4"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:166
+msgid "Post list style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:170
+msgid "Boxed/Grid"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:171
+#: inc/ewidgets/posts-grid.php:270
+msgid "List"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:194
+msgid "Post Item style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:210
+msgid "List/box background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:226
+msgid "List/box margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:243
+msgid "List/box Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:260
+msgid "List/box border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:277
+msgid "List/box border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:295
+msgid "List/box border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:312
+#: inc/customizer/configurations/class-skyre-configuration-post.php:629
+msgid "Image margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:350
+#: inc/customizer/configurations/class-skyre-configuration-post.php:647
+msgid "Meta margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:367
+#: inc/customizer/configurations/class-skyre-configuration-post.php:664
+msgid "Content margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:384
+msgid "Read more margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:394
+msgid "Single Post Settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:422
+msgid "Single post sidebar"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:722
+msgid "Post Title"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:732
+msgid "Disable Post title?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:766
+msgid "Title color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:945
+msgid "Post field position"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:969
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1003
+#: inc/ewidgets/accordion.php:277
+#: inc/ewidgets/heading.php:104
+#: inc/ewidgets/heading.php:111
+#: inc/ewidgets/heading.php:293
+#: inc/ewidgets/icon-box.php:497
+#: inc/ewidgets/image-carousel.php:240
+#: inc/ewidgets/image-carousel.php:245
+#: inc/ewidgets/image-carousel.php:262
+#: inc/ewidgets/image-carousel.php:279
+#: inc/ewidgets/image-carousel.php:296
+#: inc/ewidgets/posts-grid.php:122
+#: inc/ewidgets/posts-grid.php:337
+#: inc/ewidgets/posts-grid.php:473
+#: inc/ewidgets/posts-grid.php:526
+#: inc/ewidgets/posts-grid.php:970
+#: inc/ewidgets/roadmap.php:156
+#: inc/ewidgets/sk-slider.php:126
+#: inc/ewidgets/sk-slider.php:1990
+#: inc/ewidgets/sk-status.php:125
+#: inc/ewidgets/sk-status.php:393
+#: inc/ewidgets/sportspress/sk-status.php:150
+#: inc/ewidgets/sportspress/sk-status.php:205
+#: inc/ewidgets/sportspress/sk-status.php:465
+#: inc/ewidgets/sportspress/sk-status.php:590
+#: inc/ewidgets/sportspress/sp-event-block.php:156
+#: inc/ewidgets/sportspress/sp-event-list.php:159
+#: inc/ewidgets/sportspress/sp-league-list.php:158
+#: inc/ewidgets/sportspress/sp-player-grid.php:204
+#: inc/ewidgets/sportspress/sp-player-list.php:189
+#: inc/ewidgets/support/class-jet-elements-tools.php:150
+msgid "Title"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:970
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1004
+#: inc/ewidgets/image-carousel.php:573
+#: inc/ewidgets/posts-grid.php:121
+#: inc/ewidgets/posts-grid.php:472
+#: inc/ewidgets/posts-grid.php:498
+#: inc/ewidgets/posts-grid.php:892
+#: inc/ewidgets/sk-slider.php:96
+#: inc/ewidgets/sportspress/sp-player-grid.php:914
+#: inc/ewidgets/testimonial.php:295
+msgid "Image"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:971
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1005
+msgid "Author, date"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:972
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1006
+#: inc/ewidgets/accordion.php:117
+#: inc/ewidgets/accordion.php:435
+#: inc/ewidgets/icon-box.php:445
+#: inc/ewidgets/image-carousel.php:666
+#: inc/ewidgets/posts-grid.php:124
+#: inc/ewidgets/posts-grid.php:475
+#: inc/ewidgets/posts-grid.php:645
+#: inc/ewidgets/posts-grid.php:1389
+#: inc/ewidgets/roadmap.php:165
+#: inc/ewidgets/sk-slider.php:661
+#: inc/ewidgets/sk-status.php:118
+#: inc/ewidgets/sportspress/sk-status.php:153
+#: inc/ewidgets/sportspress/sk-status.php:189
+#: inc/ewidgets/sportspress/sk-status.php:468
+#: inc/ewidgets/sportspress/sp-event-block.php:522
+#: inc/ewidgets/sportspress/sp-event-list.php:529
+#: inc/ewidgets/sportspress/sp-league-list.php:441
+#: inc/ewidgets/sportspress/sp-player-grid.php:502
+#: inc/ewidgets/sportspress/sp-player-list.php:506
+#: inc/ewidgets/testimonial.php:112
+#: inc/ewidgets/testimonial.php:233
+#: inc/ewidgets/testimonial.php:256
+msgid "Content"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:980
+msgid "Single Post field position"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1015
+msgid "Post next/previous"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1028
+msgid "Disable NextPreview link?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1044
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:83
+msgid "Text color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1060
+msgid "Link color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1076
+msgid "Link hover"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1093
+msgid "Next/Preview background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1109
+msgid "Next/Preview margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1126
+msgid "Next/Preview Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1143
+msgid "Next/Preview border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1160
+msgid "Next/Preview border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-post.php:1178
+msgid "Next/Preview border Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:40
+msgid "Scroll to Top"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:51
+msgid "Hide Scroll to Top?"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:73
+msgid "Hover background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-scrolltop.php:93
+msgid "Text hover color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:44
+msgid "Sportspress Options"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:50
+msgid "Sportspress settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:65
+msgid "Sportspress Settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-sportspress.php:69
+msgid "Sportspress Title"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:96
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:47
+#: inc/ewidgets/posts-grid.php:1944
+#: inc/ewidgets/sk-status.php:501
+#: inc/ewidgets/sportspress/sk-status.php:757
+#: inc/ewidgets/sportspress/sp-event-block.php:409
+#: inc/ewidgets/sportspress/sp-event-block.php:534
+#: inc/ewidgets/sportspress/sp-event-block.php:734
+#: inc/ewidgets/sportspress/sp-event-block.php:936
+#: inc/ewidgets/sportspress/sp-event-block.php:1058
+#: inc/ewidgets/sportspress/sp-event-block.php:1181
+#: inc/ewidgets/sportspress/sp-event-block.php:1303
+#: inc/ewidgets/sportspress/sp-event-block.php:1425
+#: inc/ewidgets/sportspress/sp-event-block.php:1547
+#: inc/ewidgets/sportspress/sp-event-block.php:1774
+#: inc/ewidgets/sportspress/sp-event-list.php:409
+#: inc/ewidgets/sportspress/sp-event-list.php:541
+#: inc/ewidgets/sportspress/sp-event-list.php:827
+#: inc/ewidgets/sportspress/sp-event-list.php:947
+#: inc/ewidgets/sportspress/sp-event-list.php:1156
+#: inc/ewidgets/sportspress/sp-event-list.php:1300
+#: inc/ewidgets/sportspress/sp-league-list.php:328
+#: inc/ewidgets/sportspress/sp-league-list.php:453
+#: inc/ewidgets/sportspress/sp-league-list.php:730
+#: inc/ewidgets/sportspress/sp-league-list.php:841
+#: inc/ewidgets/sportspress/sp-league-list.php:1042
+#: inc/ewidgets/sportspress/sp-player-grid.php:382
+#: inc/ewidgets/sportspress/sp-player-grid.php:515
+#: inc/ewidgets/sportspress/sp-player-grid.php:725
+#: inc/ewidgets/sportspress/sp-player-grid.php:1002
+#: inc/ewidgets/sportspress/sp-player-grid.php:1151
+#: inc/ewidgets/sportspress/sp-player-grid.php:1300
+#: inc/ewidgets/sportspress/sp-player-grid.php:1587
+#: inc/ewidgets/sportspress/sp-player-grid.php:1747
+#: inc/ewidgets/sportspress/sp-player-list.php:386
+#: inc/ewidgets/sportspress/sp-player-list.php:518
+#: inc/ewidgets/sportspress/sp-player-list.php:801
+#: inc/ewidgets/sportspress/sp-player-list.php:920
+#: inc/ewidgets/sportspress/sp-player-list.php:1129
+#: inc/ewidgets/sportspress/sp-player-list.php:1255
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:107
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:59
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:161
+msgid "Font Color"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:110
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:62
+msgid "Font Family"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:113
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:65
+msgid "Font Style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:116
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:68
+msgid "Font Weight"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:120
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:71
+msgid "Font size"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:123
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:74
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:126
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:77
+msgid "Letter Spacing"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-typo.php:129
+#: inc/customizer/configurations/class-skyre-configuration-typo_bkp.php:80
+msgid "Text Align"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:44
+msgid "Sidebar settings"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:50
+msgid "Widget style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:161
+msgid "Widget section style"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:270
+msgid "Section title"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:379
+msgid "Widget List style (li)"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:395
+msgid "List background"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:411
+msgid "List margin"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:428
+msgid "List Padding"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:445
+msgid "List border"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:462
+msgid "List border radius"
+msgstr ""
+
+#: inc/customizer/configurations/class-skyre-configuration-widget.php:480
+msgid "List border Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:122
+msgid "Left Top"
+msgstr ""
+
+#: inc/customizer/customizer.php:123
+msgid "Left Center"
+msgstr ""
+
+#: inc/customizer/customizer.php:124
+msgid "Left bottom"
+msgstr ""
+
+#: inc/customizer/customizer.php:125
+msgid "Right Top"
+msgstr ""
+
+#: inc/customizer/customizer.php:126
+msgid "Right Center"
+msgstr ""
+
+#: inc/customizer/customizer.php:127
+msgid "Right Bottom"
+msgstr ""
+
+#: inc/customizer/customizer.php:128
+msgid "Center Top"
+msgstr ""
+
+#: inc/customizer/customizer.php:129
+msgid "Center Center"
+msgstr ""
+
+#: inc/customizer/customizer.php:130
+msgid "Center Bottom"
+msgstr ""
+
+#: inc/customizer/customizer.php:197
+msgid "General Options"
+msgstr ""
+
+#: inc/customizer/customizer.php:198
+msgid "Panel to update skyre theme options"
+msgstr ""
+
+#: inc/customizer/customizer.php:421
+msgid "One Column"
+msgstr ""
+
+#: inc/customizer/customizer.php:422
+msgid "Two Column"
+msgstr ""
+
+#: inc/customizer/customizer.php:482
+#: inc/customizer/customizer.php:599
+msgid "Option 1"
+msgstr ""
+
+#: inc/customizer/customizer.php:483
+#: inc/customizer/customizer.php:600
+msgid "Option 2"
+msgstr ""
+
+#: inc/customizer/customizer.php:484
+#: inc/customizer/customizer.php:601
+msgid "Option 3"
+msgstr ""
+
+#: inc/customizer/customizer.php:485
+#: inc/customizer/customizer.php:602
+msgid "Option 4"
+msgstr ""
+
+#: inc/customizer/customizer.php:486
+msgid "Option 5"
+msgstr ""
+
+#: inc/customizer/customizer.php:487
+msgid "Option 6"
+msgstr ""
+
+#: inc/customizer/customizer.php:488
+msgid "Option 7"
+msgstr ""
+
+#: inc/customizer/customizer.php:489
+msgid "Option 8"
+msgstr ""
+
+#: inc/customizer/customizer.php:490
+msgid "Option 9"
+msgstr ""
+
+#: inc/customizer/customizer.php:491
+msgid "Option 10"
+msgstr ""
+
+#: inc/customizer/customizer.php:492
+msgid "Option 11"
+msgstr ""
+
+#: inc/customizer/customizer.php:493
+msgid "Option 12"
+msgstr ""
+
+#: inc/customizer/customizer.php:657
+msgid "Style 1"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:52
+#: inc/ewidgets/accordion.php:95
+#: inc/ewidgets/accordion.php:199
+msgid "Accordion"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:104
+msgid "Title & Content"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:106
+msgid "Accordion Title"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:119
+msgid "Accordion Content"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:127
+msgid "Accordion Items"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:132
+msgid "Accordion #1"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:133
+#: inc/ewidgets/accordion.php:137
+#: inc/ewidgets/icon-box.php:162
+msgid "Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+msgstr ""
+
+#: inc/ewidgets/accordion.php:136
+msgid "Accordion #2"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:147
+#: inc/ewidgets/button.php:264
+#: inc/ewidgets/heading.php:212
+#: inc/ewidgets/icon-box.php:107
+#: inc/ewidgets/image-carousel.php:310
+#: inc/ewidgets/testimonial.php:244
+msgid "View"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:156
+#: inc/ewidgets/accordion.php:349
+#: inc/ewidgets/button.php:218
+#: inc/ewidgets/icon-box.php:98
+#: inc/ewidgets/icon-box.php:236
+#: inc/ewidgets/sk-slider.php:116
+#: inc/ewidgets/sk-slider.php:1724
+#: inc/ewidgets/sk-slider.php:1845
+msgid "Icon"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:166
+msgid "Active Icon"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:178
+#: inc/ewidgets/icon-box.php:214
+msgid "Title HTML Tag"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:207
+#: inc/ewidgets/icon-box.php:414
+#: inc/ewidgets/newsletter.php:470
+#: inc/ewidgets/newsletter.php:571
+msgid "Border Width"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:260
+#: inc/ewidgets/button.php:410
+#: inc/ewidgets/contact_form7.php:209
+#: inc/ewidgets/contact_form7.php:337
+#: inc/ewidgets/icon-box.php:428
+#: inc/ewidgets/image-carousel.php:631
+#: inc/ewidgets/newsletter.php:484
+#: inc/ewidgets/newsletter.php:585
+#: inc/ewidgets/newsletter.php:692
+#: inc/ewidgets/newsletter.php:857
+#: inc/ewidgets/posts-grid.php:860
+#: inc/ewidgets/posts-grid.php:924
+#: inc/ewidgets/posts-grid.php:1246
+#: inc/ewidgets/posts-grid.php:1989
+#: inc/ewidgets/sk-slider.php:636
+#: inc/ewidgets/sk-slider.php:782
+#: inc/ewidgets/sk-slider.php:1004
+#: inc/ewidgets/sk-slider.php:1199
+#: inc/ewidgets/sk-slider.php:1314
+#: inc/ewidgets/sk-slider.php:1808
+#: inc/ewidgets/sk-slider.php:1927
+#: inc/ewidgets/sk-slider.php:2402
+#: inc/ewidgets/sk-slider.php:2496
+#: inc/ewidgets/sk-slider.php:2608
+#: inc/ewidgets/sk-slider.php:2702
+#: inc/ewidgets/sk-status.php:368
+#: inc/ewidgets/sportspress/sk-status.php:565
+#: inc/ewidgets/sportspress/sk-status.php:705
+#: inc/ewidgets/sportspress/sk-status.php:1050
+#: inc/ewidgets/sportspress/sk-status.php:1176
+#: inc/ewidgets/sportspress/sk-status.php:1318
+#: inc/ewidgets/sportspress/sk-status.php:1445
+#: inc/ewidgets/sportspress/sk-status.php:1498
+#: inc/ewidgets/sportspress/sp-event-block.php:473
+#: inc/ewidgets/sportspress/sp-event-block.php:595
+#: inc/ewidgets/sportspress/sp-event-block.php:674
+#: inc/ewidgets/sportspress/sp-event-block.php:797
+#: inc/ewidgets/sportspress/sp-event-block.php:875
+#: inc/ewidgets/sportspress/sp-event-block.php:999
+#: inc/ewidgets/sportspress/sp-event-block.php:1122
+#: inc/ewidgets/sportspress/sp-event-block.php:1244
+#: inc/ewidgets/sportspress/sp-event-block.php:1366
+#: inc/ewidgets/sportspress/sp-event-block.php:1488
+#: inc/ewidgets/sportspress/sp-event-block.php:1610
+#: inc/ewidgets/sportspress/sp-event-block.php:1690
+#: inc/ewidgets/sportspress/sp-event-block.php:1818
+#: inc/ewidgets/sportspress/sp-event-list.php:480
+#: inc/ewidgets/sportspress/sp-event-list.php:610
+#: inc/ewidgets/sportspress/sp-event-list.php:689
+#: inc/ewidgets/sportspress/sp-event-list.php:767
+#: inc/ewidgets/sportspress/sp-event-list.php:899
+#: inc/ewidgets/sportspress/sp-event-list.php:1017
+#: inc/ewidgets/sportspress/sp-event-list.php:1094
+#: inc/ewidgets/sportspress/sp-event-list.php:1218
+#: inc/ewidgets/sportspress/sp-event-list.php:1344
+#: inc/ewidgets/sportspress/sp-league-list.php:392
+#: inc/ewidgets/sportspress/sp-league-list.php:514
+#: inc/ewidgets/sportspress/sp-league-list.php:593
+#: inc/ewidgets/sportspress/sp-league-list.php:671
+#: inc/ewidgets/sportspress/sp-league-list.php:793
+#: inc/ewidgets/sportspress/sp-league-list.php:903
+#: inc/ewidgets/sportspress/sp-league-list.php:980
+#: inc/ewidgets/sportspress/sp-league-list.php:1104
+#: inc/ewidgets/sportspress/sp-player-grid.php:453
+#: inc/ewidgets/sportspress/sp-player-grid.php:584
+#: inc/ewidgets/sportspress/sp-player-grid.php:663
+#: inc/ewidgets/sportspress/sp-player-grid.php:788
+#: inc/ewidgets/sportspress/sp-player-grid.php:864
+#: inc/ewidgets/sportspress/sp-player-grid.php:941
+#: inc/ewidgets/sportspress/sp-player-grid.php:1092
+#: inc/ewidgets/sportspress/sp-player-grid.php:1241
+#: inc/ewidgets/sportspress/sp-player-grid.php:1389
+#: inc/ewidgets/sportspress/sp-player-grid.php:1471
+#: inc/ewidgets/sportspress/sp-player-grid.php:1632
+#: inc/ewidgets/sportspress/sp-player-grid.php:1817
+#: inc/ewidgets/sportspress/sp-player-list.php:457
+#: inc/ewidgets/sportspress/sp-player-list.php:587
+#: inc/ewidgets/sportspress/sp-player-list.php:663
+#: inc/ewidgets/sportspress/sp-player-list.php:741
+#: inc/ewidgets/sportspress/sp-player-list.php:872
+#: inc/ewidgets/sportspress/sp-player-list.php:990
+#: inc/ewidgets/sportspress/sp-player-list.php:1067
+#: inc/ewidgets/sportspress/sp-player-list.php:1173
+#: inc/ewidgets/sportspress/sp-player-list.php:1299
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:244
+#: inc/ewidgets/testimonial.php:337
+#: inc/ewidgets/twitter.php:297
+msgid "Border Radius"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:311
+#: inc/ewidgets/accordion.php:398
+msgid "Active Color"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:360
+#: inc/ewidgets/button.php:157
+#: inc/ewidgets/heading.php:182
+#: inc/ewidgets/icon-box.php:453
+#: inc/ewidgets/image-carousel.php:677
+#: inc/ewidgets/newsletter.php:147
+#: inc/ewidgets/posts-grid.php:761
+#: inc/ewidgets/posts-grid.php:990
+#: inc/ewidgets/posts-grid.php:1113
+#: inc/ewidgets/posts-grid.php:1285
+#: inc/ewidgets/posts-grid.php:1471
+#: inc/ewidgets/posts-grid.php:1727
+#: inc/ewidgets/posts-grid.php:2131
+#: inc/ewidgets/sk-slider.php:1480
+#: inc/ewidgets/sk-slider.php:1959
+#: inc/ewidgets/sk-slider.php:2043
+#: inc/ewidgets/sk-slider.php:2127
+#: inc/ewidgets/sk-slider.php:2237
+#: inc/ewidgets/sk-slider.php:2299
+#: inc/ewidgets/sk-status.php:446
+#: inc/ewidgets/sk-status.php:626
+#: inc/ewidgets/sk-status.php:747
+#: inc/ewidgets/sportspress/sk-status.php:635
+#: inc/ewidgets/sportspress/sk-status.php:882
+#: inc/ewidgets/sportspress/sk-status.php:980
+#: inc/ewidgets/sportspress/sk-status.php:1106
+#: inc/ewidgets/sportspress/sk-status.php:1248
+#: inc/ewidgets/sportspress/sk-status.php:1375
+#: inc/ewidgets/sportspress/sp-event-list.php:420
+#: inc/ewidgets/sportspress/sp-event-list.php:551
+#: inc/ewidgets/sportspress/sp-event-list.php:837
+#: inc/ewidgets/sportspress/sp-event-list.php:957
+#: inc/ewidgets/sportspress/sp-player-grid.php:393
+#: inc/ewidgets/sportspress/sp-player-grid.php:525
+#: inc/ewidgets/sportspress/sp-player-grid.php:1013
+#: inc/ewidgets/sportspress/sp-player-grid.php:1161
+#: inc/ewidgets/sportspress/sp-player-grid.php:1310
+#: inc/ewidgets/sportspress/sp-player-grid.php:1757
+#: inc/ewidgets/sportspress/sp-player-list.php:397
+#: inc/ewidgets/sportspress/sp-player-list.php:528
+#: inc/ewidgets/sportspress/sp-player-list.php:811
+#: inc/ewidgets/sportspress/sp-player-list.php:930
+#: inc/ewidgets/testimonial.php:196
+msgid "Alignment"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:364
+#: inc/ewidgets/sk-slider.php:695
+#: inc/ewidgets/sk-slider.php:906
+msgid "Start"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:368
+#: inc/ewidgets/sk-slider.php:703
+#: inc/ewidgets/sk-slider.php:914
+msgid "End"
+msgstr ""
+
+#: inc/ewidgets/accordion.php:412
+#: inc/ewidgets/icon-box.php:339
+#: inc/ewidgets/icon-box.php:506
+#: inc/ewidgets/image-carousel.php:581
+#: inc/ewidgets/newsletter.php:227
+msgid "Spacing"
+msgstr ""
+
+#: inc/ewidgets/button.php:39
+#: inc/ewidgets/button.php:105
+#: inc/ewidgets/button.php:289
+#: inc/ewidgets/newsletter.php:604
+#: inc/ewidgets/posts-grid.php:125
+#: inc/ewidgets/posts-grid.php:477
+msgid "Button"
+msgstr ""
+
+#: inc/ewidgets/button.php:85
+msgid "Extra Small"
+msgstr ""
+
+#: inc/ewidgets/button.php:86
+msgid "Small"
+msgstr ""
+
+#: inc/ewidgets/button.php:87
+msgid "Medium"
+msgstr ""
+
+#: inc/ewidgets/button.php:88
+msgid "Large"
+msgstr ""
+
+#: inc/ewidgets/button.php:89
+msgid "Extra Large"
+msgstr ""
+
+#: inc/ewidgets/button.php:112
+#: inc/ewidgets/newsletter.php:960
+msgid "Type"
+msgstr ""
+
+#: inc/ewidgets/button.php:116
+#: inc/ewidgets/icon-box.php:110
+#: inc/ewidgets/image-carousel.php:142
+#: inc/ewidgets/image-carousel.php:155
+#: inc/ewidgets/image-carousel.php:227
+#: inc/ewidgets/image-carousel.php:322
+#: inc/ewidgets/image-carousel.php:584
+#: inc/ewidgets/roadmap.php:118
+#: inc/ewidgets/sportspress/sp-event-block.php:244
+#: inc/ewidgets/sportspress/sp-event-list.php:245
+#: inc/ewidgets/sportspress/sp-player-grid.php:138
+#: inc/ewidgets/sportspress/sp-player-list.php:123
+msgid "Default"
+msgstr ""
+
+#: inc/ewidgets/button.php:117
+msgid "Info"
+msgstr ""
+
+#: inc/ewidgets/button.php:118
+msgid "Success"
+msgstr ""
+
+#: inc/ewidgets/button.php:119
+msgid "Warning"
+msgstr ""
+
+#: inc/ewidgets/button.php:120
+msgid "Danger"
+msgstr ""
+
+#: inc/ewidgets/button.php:129
+#: inc/ewidgets/newsletter.php:947
+msgid "Text"
+msgstr ""
+
+#: inc/ewidgets/button.php:134
+#: inc/ewidgets/button.php:135
+msgid "Click here"
+msgstr ""
+
+#: inc/ewidgets/button.php:142
+#: inc/ewidgets/heading.php:124
+#: inc/ewidgets/icon-box.php:173
+#: inc/ewidgets/image-carousel.php:196
+#: inc/ewidgets/image-carousel.php:210
+#: inc/ewidgets/posts-grid.php:510
+#: inc/ewidgets/posts-grid.php:556
+msgid "Link"
+msgstr ""
+
+#: inc/ewidgets/button.php:147
+#: inc/ewidgets/icon-box.php:178
+#: inc/ewidgets/image-carousel.php:212
+#: inc/ewidgets/testimonial.php:171
+msgid "https://your-link.com"
+msgstr ""
+
+#: inc/ewidgets/button.php:161
+#: inc/ewidgets/heading.php:186
+#: inc/ewidgets/icon-box.php:191
+#: inc/ewidgets/icon-box.php:457
+#: inc/ewidgets/image-carousel.php:424
+#: inc/ewidgets/image-carousel.php:681
+#: inc/ewidgets/newsletter.php:153
+#: inc/ewidgets/newsletter.php:358
+#: inc/ewidgets/posts-grid.php:765
+#: inc/ewidgets/posts-grid.php:994
+#: inc/ewidgets/posts-grid.php:1117
+#: inc/ewidgets/posts-grid.php:1289
+#: inc/ewidgets/posts-grid.php:1475
+#: inc/ewidgets/posts-grid.php:1731
+#: inc/ewidgets/posts-grid.php:2135
+#: inc/ewidgets/sk-slider.php:807
+#: inc/ewidgets/sk-slider.php:1030
+#: inc/ewidgets/sk-slider.php:1485
+#: inc/ewidgets/sk-slider.php:1964
+#: inc/ewidgets/sk-slider.php:2048
+#: inc/ewidgets/sk-slider.php:2132
+#: inc/ewidgets/sk-slider.php:2216
+#: inc/ewidgets/sk-slider.php:2242
+#: inc/ewidgets/sk-slider.php:2304
+#: inc/ewidgets/sk-status.php:451
+#: inc/ewidgets/sk-status.php:631
+#: inc/ewidgets/sk-status.php:752
+#: inc/ewidgets/sportspress/sk-status.php:640
+#: inc/ewidgets/sportspress/sk-status.php:887
+#: inc/ewidgets/sportspress/sk-status.php:985
+#: inc/ewidgets/sportspress/sk-status.php:1111
+#: inc/ewidgets/sportspress/sk-status.php:1253
+#: inc/ewidgets/sportspress/sk-status.php:1380
+#: inc/ewidgets/sportspress/sp-event-list.php:424
+#: inc/ewidgets/sportspress/sp-event-list.php:555
+#: inc/ewidgets/sportspress/sp-event-list.php:841
+#: inc/ewidgets/sportspress/sp-event-list.php:961
+#: inc/ewidgets/sportspress/sp-player-grid.php:397
+#: inc/ewidgets/sportspress/sp-player-grid.php:529
+#: inc/ewidgets/sportspress/sp-player-grid.php:1017
+#: inc/ewidgets/sportspress/sp-player-grid.php:1165
+#: inc/ewidgets/sportspress/sp-player-grid.php:1314
+#: inc/ewidgets/sportspress/sp-player-grid.php:1761
+#: inc/ewidgets/sportspress/sp-player-list.php:401
+#: inc/ewidgets/sportspress/sp-player-list.php:532
+#: inc/ewidgets/sportspress/sp-player-list.php:815
+#: inc/ewidgets/sportspress/sp-player-list.php:934
+#: inc/ewidgets/testimonial.php:201
+#: inc/typo.php:86
+#: inc/typo.php:102
+msgid "Left"
+msgstr ""
+
+#: inc/ewidgets/button.php:165
+#: inc/ewidgets/heading.php:190
+#: inc/ewidgets/icon-box.php:461
+#: inc/ewidgets/image-carousel.php:685
+#: inc/ewidgets/newsletter.php:157
+#: inc/ewidgets/newsletter.php:362
+#: inc/ewidgets/posts-grid.php:769
+#: inc/ewidgets/posts-grid.php:998
+#: inc/ewidgets/posts-grid.php:1121
+#: inc/ewidgets/posts-grid.php:1293
+#: inc/ewidgets/posts-grid.php:1479
+#: inc/ewidgets/posts-grid.php:1735
+#: inc/ewidgets/posts-grid.php:2139
+#: inc/ewidgets/sk-slider.php:699
+#: inc/ewidgets/sk-slider.php:724
+#: inc/ewidgets/sk-slider.php:910
+#: inc/ewidgets/sk-slider.php:935
+#: inc/ewidgets/sk-slider.php:1489
+#: inc/ewidgets/sk-slider.php:1968
+#: inc/ewidgets/sk-slider.php:2052
+#: inc/ewidgets/sk-slider.php:2136
+#: inc/ewidgets/sk-slider.php:2220
+#: inc/ewidgets/sk-slider.php:2246
+#: inc/ewidgets/sk-slider.php:2308
+#: inc/ewidgets/sk-status.php:455
+#: inc/ewidgets/sk-status.php:635
+#: inc/ewidgets/sk-status.php:756
+#: inc/ewidgets/sportspress/sk-status.php:644
+#: inc/ewidgets/sportspress/sk-status.php:891
+#: inc/ewidgets/sportspress/sk-status.php:989
+#: inc/ewidgets/sportspress/sk-status.php:1115
+#: inc/ewidgets/sportspress/sk-status.php:1257
+#: inc/ewidgets/sportspress/sk-status.php:1384
+#: inc/ewidgets/sportspress/sp-event-list.php:428
+#: inc/ewidgets/sportspress/sp-event-list.php:559
+#: inc/ewidgets/sportspress/sp-event-list.php:845
+#: inc/ewidgets/sportspress/sp-event-list.php:965
+#: inc/ewidgets/sportspress/sp-player-grid.php:401
+#: inc/ewidgets/sportspress/sp-player-grid.php:533
+#: inc/ewidgets/sportspress/sp-player-grid.php:1021
+#: inc/ewidgets/sportspress/sp-player-grid.php:1169
+#: inc/ewidgets/sportspress/sp-player-grid.php:1318
+#: inc/ewidgets/sportspress/sp-player-grid.php:1765
+#: inc/ewidgets/sportspress/sp-player-list.php:405
+#: inc/ewidgets/sportspress/sp-player-list.php:536
+#: inc/ewidgets/sportspress/sp-player-list.php:819
+#: inc/ewidgets/sportspress/sp-player-list.php:938
+#: inc/ewidgets/testimonial.php:205
+#: inc/typo.php:84
+#: inc/typo.php:100
+msgid "Center"
+msgstr ""
+
+#: inc/ewidgets/button.php:169
+#: inc/ewidgets/heading.php:194
+#: inc/ewidgets/icon-box.php:199
+#: inc/ewidgets/icon-box.php:465
+#: inc/ewidgets/image-carousel.php:425
+#: inc/ewidgets/image-carousel.php:689
+#: inc/ewidgets/newsletter.php:161
+#: inc/ewidgets/newsletter.php:366
+#: inc/ewidgets/posts-grid.php:773
+#: inc/ewidgets/posts-grid.php:1002
+#: inc/ewidgets/posts-grid.php:1125
+#: inc/ewidgets/posts-grid.php:1297
+#: inc/ewidgets/posts-grid.php:1483
+#: inc/ewidgets/posts-grid.php:1739
+#: inc/ewidgets/posts-grid.php:2143
+#: inc/ewidgets/sk-slider.php:808
+#: inc/ewidgets/sk-slider.php:1031
+#: inc/ewidgets/sk-slider.php:1493
+#: inc/ewidgets/sk-slider.php:1972
+#: inc/ewidgets/sk-slider.php:2056
+#: inc/ewidgets/sk-slider.php:2140
+#: inc/ewidgets/sk-slider.php:2224
+#: inc/ewidgets/sk-slider.php:2250
+#: inc/ewidgets/sk-slider.php:2312
+#: inc/ewidgets/sk-status.php:459
+#: inc/ewidgets/sk-status.php:639
+#: inc/ewidgets/sk-status.php:760
+#: inc/ewidgets/sportspress/sk-status.php:648
+#: inc/ewidgets/sportspress/sk-status.php:895
+#: inc/ewidgets/sportspress/sk-status.php:993
+#: inc/ewidgets/sportspress/sk-status.php:1119
+#: inc/ewidgets/sportspress/sk-status.php:1261
+#: inc/ewidgets/sportspress/sk-status.php:1388
+#: inc/ewidgets/sportspress/sp-event-list.php:432
+#: inc/ewidgets/sportspress/sp-event-list.php:563
+#: inc/ewidgets/sportspress/sp-event-list.php:849
+#: inc/ewidgets/sportspress/sp-event-list.php:969
+#: inc/ewidgets/sportspress/sp-player-grid.php:405
+#: inc/ewidgets/sportspress/sp-player-grid.php:537
+#: inc/ewidgets/sportspress/sp-player-grid.php:1025
+#: inc/ewidgets/sportspress/sp-player-grid.php:1173
+#: inc/ewidgets/sportspress/sp-player-grid.php:1322
+#: inc/ewidgets/sportspress/sp-player-grid.php:1769
+#: inc/ewidgets/sportspress/sp-player-list.php:409
+#: inc/ewidgets/sportspress/sp-player-list.php:540
+#: inc/ewidgets/sportspress/sp-player-list.php:823
+#: inc/ewidgets/sportspress/sp-player-list.php:942
+#: inc/ewidgets/testimonial.php:209
+#: inc/typo.php:87
+#: inc/typo.php:103
+msgid "Right"
+msgstr ""
+
+#: inc/ewidgets/button.php:173
+#: inc/ewidgets/heading.php:198
+#: inc/ewidgets/icon-box.php:469
+#: inc/ewidgets/image-carousel.php:693
+msgid "Justified"
+msgstr ""
+
+#: inc/ewidgets/button.php:185
+#: inc/ewidgets/icon-box.php:362
+#: inc/ewidgets/image-carousel.php:475
+#: inc/ewidgets/image-carousel.php:537
+#: inc/ewidgets/sportspress/sk-status.php:1532
+#: inc/ewidgets/sportspress/sp-event-block.php:1736
+#: inc/ewidgets/sportspress/sp-player-grid.php:1505
+#: inc/ewidgets/sportspress/sp-player-grid.php:1666
+msgid "Size"
+msgstr ""
+
+#: inc/ewidgets/button.php:196
+msgid "Maximum Width"
+msgstr ""
+
+#: inc/ewidgets/button.php:228
+#: inc/ewidgets/icon-box.php:186
+msgid "Icon Position"
+msgstr ""
+
+#: inc/ewidgets/button.php:232
+msgid "Before"
+msgstr ""
+
+#: inc/ewidgets/button.php:233
+msgid "After"
+msgstr ""
+
+#: inc/ewidgets/button.php:244
+#: inc/ewidgets/newsletter.php:1057
+msgid "Icon Spacing"
+msgstr ""
+
+#: inc/ewidgets/button.php:273
+msgid "Button ID"
+msgstr ""
+
+#: inc/ewidgets/button.php:276
+msgid "Add your custom id WITHOUT the Pound key. e.g: my-id"
+msgstr ""
+
+#: inc/ewidgets/button.php:278
+msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows <code>A-z 0-9</code> & underscore chars without spaces."
+msgstr ""
+
+#: inc/ewidgets/button.php:308
+#: inc/ewidgets/heading.php:337
+#: inc/ewidgets/icon-box.php:249
+#: inc/ewidgets/newsletter.php:394
+#: inc/ewidgets/newsletter.php:614
+#: inc/ewidgets/posts-grid.php:1502
+#: inc/ewidgets/posts-grid.php:1758
+#: inc/ewidgets/sk-slider.php:1119
+#: inc/ewidgets/sk-slider.php:1564
+#: inc/ewidgets/sk-slider.php:2336
+#: inc/ewidgets/sk-slider.php:2542
+#: inc/typo.php:68
+msgid "Normal"
+msgstr ""
+
+#: inc/ewidgets/button.php:315
+#: inc/ewidgets/button.php:351
+#: inc/ewidgets/contact_form7.php:134
+#: inc/ewidgets/heading.php:301
+#: inc/ewidgets/newsletter.php:275
+#: inc/ewidgets/newsletter.php:403
+#: inc/ewidgets/newsletter.php:506
+#: inc/ewidgets/newsletter.php:636
+#: inc/ewidgets/newsletter.php:749
+#: inc/ewidgets/posts-grid.php:1515
+#: inc/ewidgets/posts-grid.php:1585
+#: inc/ewidgets/posts-grid.php:1768
+#: inc/ewidgets/posts-grid.php:1826
+#: inc/ewidgets/posts-grid.php:1953
+#: inc/ewidgets/sk-slider.php:2358
+#: inc/ewidgets/sk-slider.php:2453
+#: inc/ewidgets/sk-slider.php:2564
+#: inc/ewidgets/sk-slider.php:2659
+#: inc/ewidgets/sportspress/sp-event-block.php:419
+#: inc/ewidgets/sportspress/sp-event-block.php:543
+#: inc/ewidgets/sportspress/sp-event-block.php:743
+#: inc/ewidgets/sportspress/sp-event-block.php:945
+#: inc/ewidgets/sportspress/sp-event-block.php:1067
+#: inc/ewidgets/sportspress/sp-event-block.php:1190
+#: inc/ewidgets/sportspress/sp-event-block.php:1312
+#: inc/ewidgets/sportspress/sp-event-block.php:1434
+#: inc/ewidgets/sportspress/sp-event-block.php:1556
+#: inc/ewidgets/sportspress/sp-event-block.php:1783
+#: inc/ewidgets/sportspress/sp-event-list.php:445
+#: inc/ewidgets/sportspress/sp-event-list.php:576
+#: inc/ewidgets/sportspress/sp-event-list.php:862
+#: inc/ewidgets/sportspress/sp-event-list.php:982
+#: inc/ewidgets/sportspress/sp-event-list.php:1165
+#: inc/ewidgets/sportspress/sp-event-list.php:1309
+#: inc/ewidgets/sportspress/sp-league-list.php:338
+#: inc/ewidgets/sportspress/sp-league-list.php:462
+#: inc/ewidgets/sportspress/sp-league-list.php:739
+#: inc/ewidgets/sportspress/sp-league-list.php:850
+#: inc/ewidgets/sportspress/sp-league-list.php:1051
+#: inc/ewidgets/sportspress/sp-player-grid.php:418
+#: inc/ewidgets/sportspress/sp-player-grid.php:550
+#: inc/ewidgets/sportspress/sp-player-grid.php:734
+#: inc/ewidgets/sportspress/sp-player-grid.php:1038
+#: inc/ewidgets/sportspress/sp-player-grid.php:1186
+#: inc/ewidgets/sportspress/sp-player-grid.php:1335
+#: inc/ewidgets/sportspress/sp-player-grid.php:1596
+#: inc/ewidgets/sportspress/sp-player-grid.php:1782
+#: inc/ewidgets/sportspress/sp-player-list.php:422
+#: inc/ewidgets/sportspress/sp-player-list.php:553
+#: inc/ewidgets/sportspress/sp-player-list.php:836
+#: inc/ewidgets/sportspress/sp-player-list.php:955
+#: inc/ewidgets/sportspress/sp-player-list.php:1138
+#: inc/ewidgets/sportspress/sp-player-list.php:1264
+#: inc/ewidgets/testimonial.php:264
+#: inc/ewidgets/testimonial.php:360
+#: inc/ewidgets/testimonial.php:396
+msgid "Text Color"
+msgstr ""
+
+#: inc/ewidgets/button.php:327
+#: inc/ewidgets/button.php:362
+#: inc/ewidgets/newsletter.php:423
+#: inc/ewidgets/newsletter.php:524
+#: inc/ewidgets/newsletter.php:621
+#: inc/ewidgets/newsletter.php:738
+#: inc/ewidgets/posts-grid.php:1536
+#: inc/ewidgets/posts-grid.php:1606
+#: inc/ewidgets/posts-grid.php:1786
+#: inc/ewidgets/posts-grid.php:1844
+#: inc/ewidgets/sk-slider.php:1137
+#: inc/ewidgets/sk-slider.php:1251
+#: inc/ewidgets/sk-slider.php:2343
+#: inc/ewidgets/sk-slider.php:2442
+#: inc/ewidgets/sk-slider.php:2549
+#: inc/ewidgets/sk-slider.php:2648
+#: inc/ewidgets/sk-status.php:677
+#: inc/ewidgets/sportspress/sk-status.php:933
+#: inc/ewidgets/testimonial.php:453
+#: inc/ewidgets/twitter.php:263
+msgid "Background Color"
+msgstr ""
+
+#: inc/ewidgets/button.php:344
+#: inc/ewidgets/icon-box.php:291
+#: inc/ewidgets/newsletter.php:731
+#: inc/ewidgets/posts-grid.php:1572
+#: inc/ewidgets/posts-grid.php:1816
+#: inc/ewidgets/sk-slider.php:1233
+#: inc/ewidgets/sk-slider.php:1612
+#: inc/ewidgets/sk-slider.php:2435
+#: inc/ewidgets/sk-slider.php:2641
+#: inc/ewidgets/testimonial.php:225
+#: inc/ewidgets/testimonial.php:423
+msgid "Hover"
+msgstr ""
+
+#: inc/ewidgets/button.php:387
+#: inc/ewidgets/icon-box.php:327
+msgid "Hover Animation"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:43
+msgid "Contact Form7"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:78
+msgid "No contect From 7 form found"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:95
+msgid "No Pages Found!"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:106
+#: inc/plugin-requires.php:17
+msgid "Contact Form 7"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:113
+msgid "Select Contact Form"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:114
+msgid "Contact form 7 - plugin must be installed and there must be some contact forms made with the contact form 7"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:126
+msgid "Contact Form"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:150
+msgid "Placeholder Color"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:177
+#: inc/ewidgets/newsletter.php:900
+#: inc/ewidgets/posts-grid.php:451
+#: inc/ewidgets/posts-grid.php:468
+#: inc/ewidgets/sportspress/sk-status.php:446
+#: inc/ewidgets/sportspress/sp-league-list.php:295
+msgid "Fields"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:248
+msgid "Field width"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:284
+msgid "Submit Button"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:304
+#: inc/ewidgets/posts-grid.php:405
+msgid "Hover Background"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:354
+msgid "Style Contact Form"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:362
+msgid "Global CSS For all fields"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:363
+msgid "This is the global css for all fields of cf7. It will not effect the other fileds but if you want to define things such as color, background color use this."
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:377
+msgid "Responce CSS"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:393
+msgid "After Submit Redirect Setting"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:401
+msgid "On Success Redirect To"
+msgstr ""
+
+#: inc/ewidgets/contact_form7.php:402
+msgid "Select a page which you want users to redirect to when the contact fom is submitted and is successful. Leave Blank to Disable"
+msgstr ""
+
+#: inc/ewidgets/heading.php:45
+#: inc/ewidgets/sportspress/sp-event-block.php:397
+#: inc/ewidgets/sportspress/sp-event-list.php:397
+#: inc/ewidgets/sportspress/sp-league-list.php:316
+#: inc/ewidgets/sportspress/sp-player-grid.php:370
+#: inc/ewidgets/sportspress/sp-player-list.php:374
+msgid "Heading"
+msgstr ""
+
+#: inc/ewidgets/heading.php:116
+#: inc/ewidgets/icon-box.php:149
+msgid "Enter your title"
+msgstr ""
+
+#: inc/ewidgets/heading.php:117
+msgid "Add Your Heading Text Here"
+msgstr ""
+
+#: inc/ewidgets/heading.php:141
+#: inc/ewidgets/heading.php:239
+#: inc/ewidgets/sk-slider.php:1148
+#: inc/ewidgets/sk-slider.php:1262
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:169
+msgid "Font Size"
+msgstr ""
+
+#: inc/ewidgets/heading.php:162
+#: inc/ewidgets/sk-status.php:133
+msgid "HTML Tag"
+msgstr ""
+
+#: inc/ewidgets/heading.php:223
+msgid "Wrap Title"
+msgstr ""
+
+#: inc/ewidgets/heading.php:231
+msgid "Title Wrap"
+msgstr ""
+
+#: inc/ewidgets/heading.php:233
+msgid "Enter your wrap title"
+msgstr ""
+
+#: inc/ewidgets/heading.php:265
+msgid "Hight between"
+msgstr ""
+
+#: inc/ewidgets/heading.php:334
+msgid "Blend Mode"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:48
+#: inc/ewidgets/icon-box.php:91
+msgid "Icon Box"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:111
+msgid "Stacked"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:112
+msgid "Framed"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:125
+msgid "Shape"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:128
+msgid "Circle"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:129
+msgid "Square"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:143
+msgid "Title & Description"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:148
+msgid "This is the heading"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:163
+msgid "Enter your description"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:195
+#: inc/ewidgets/icon-box.php:485
+#: inc/ewidgets/sk-slider.php:720
+#: inc/ewidgets/sk-slider.php:931
+#: inc/ewidgets/support/class-jet-elements-tools.php:182
+#: inc/ewidgets/testimonial.php:183
+msgid "Top"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:399
+msgid "Rotate"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:482
+#: inc/ewidgets/sk-slider.php:716
+#: inc/ewidgets/sk-slider.php:927
+msgid "Vertical Alignment"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:486
+#: inc/ewidgets/support/class-jet-elements-tools.php:183
+msgid "Middle"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:487
+#: inc/ewidgets/sk-slider.php:728
+#: inc/ewidgets/sk-slider.php:939
+#: inc/ewidgets/support/class-jet-elements-tools.php:184
+msgid "Bottom"
+msgstr ""
+
+#: inc/ewidgets/icon-box.php:548
+#: inc/ewidgets/image-carousel.php:246
+#: inc/ewidgets/image-carousel.php:257
+#: inc/ewidgets/image-carousel.php:263
+#: inc/ewidgets/image-carousel.php:280
+#: inc/ewidgets/image-carousel.php:297
+#: inc/ewidgets/sk-slider.php:145
+#: inc/ewidgets/sk-slider.php:2158
+#: inc/ewidgets/sk-status.php:269
+#: inc/ewidgets/sk-status.php:694
+#: inc/ewidgets/sportspress/sk-status.php:433
+#: inc/ewidgets/sportspress/sk-status.php:951
+msgid "Description"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:51
+#: inc/ewidgets/image-carousel.php:108
+msgid "Image Carousel"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:115
+msgid "Add Images"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:139
+msgid "Slides to Show"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:151
+msgid "Slides to Scroll"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:153
+msgid "Set how many slides are scrolled per swipe."
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:167
+msgid "Image Stretch"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:171
+#: inc/ewidgets/image-carousel.php:229
+#: inc/ewidgets/image-carousel.php:346
+#: inc/ewidgets/image-carousel.php:360
+#: inc/ewidgets/image-carousel.php:384
+#: inc/ewidgets/sk-slider.php:273
+#: inc/ewidgets/sk-slider.php:285
+#: inc/ewidgets/sk-slider.php:300
+#: inc/ewidgets/sk-slider.php:312
+#: inc/ewidgets/sk-slider.php:353
+#: inc/ewidgets/sk-slider.php:365
+#: inc/ewidgets/sk-slider.php:377
+#: inc/ewidgets/sk-slider.php:389
+#: inc/ewidgets/sk-slider.php:431
+#: inc/ewidgets/sk-status.php:164
+#: inc/ewidgets/sportspress/sk-status.php:254
+#: inc/ewidgets/sportspress/sk-status.php:269
+#: inc/ewidgets/sportspress/sk-status.php:285
+#: inc/ewidgets/sportspress/sk-status.php:300
+#: inc/ewidgets/sportspress/sk-status.php:328
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:256
+msgid "No"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:172
+#: inc/ewidgets/image-carousel.php:228
+#: inc/ewidgets/image-carousel.php:345
+#: inc/ewidgets/image-carousel.php:359
+#: inc/ewidgets/image-carousel.php:383
+#: inc/ewidgets/sk-slider.php:272
+#: inc/ewidgets/sk-slider.php:284
+#: inc/ewidgets/sk-slider.php:299
+#: inc/ewidgets/sk-slider.php:311
+#: inc/ewidgets/sk-slider.php:352
+#: inc/ewidgets/sk-slider.php:364
+#: inc/ewidgets/sk-slider.php:376
+#: inc/ewidgets/sk-slider.php:388
+#: inc/ewidgets/sk-slider.php:430
+#: inc/ewidgets/sk-status.php:163
+#: inc/ewidgets/sportspress/sk-status.php:253
+#: inc/ewidgets/sportspress/sk-status.php:268
+#: inc/ewidgets/sportspress/sk-status.php:284
+#: inc/ewidgets/sportspress/sk-status.php:299
+#: inc/ewidgets/sportspress/sk-status.php:327
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:255
+msgid "Yes"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:180
+#: inc/ewidgets/image-carousel.php:436
+#: inc/ewidgets/sk-slider.php:1095
+msgid "Navigation"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:184
+msgid "Arrows and Dots"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:185
+#: inc/ewidgets/image-carousel.php:447
+msgid "Arrows"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:186
+#: inc/ewidgets/image-carousel.php:509
+msgid "Dots"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:187
+#: inc/ewidgets/image-carousel.php:200
+#: inc/ewidgets/image-carousel.php:244
+#: inc/ewidgets/image-carousel.php:261
+#: inc/ewidgets/image-carousel.php:278
+#: inc/ewidgets/image-carousel.php:295
+#: inc/ewidgets/newsletter.php:453
+#: inc/ewidgets/newsletter.php:554
+#: inc/ewidgets/sk-slider.php:340
+#: inc/ewidgets/sk-slider.php:806
+#: inc/ewidgets/sk-slider.php:1029
+#: inc/ewidgets/sportspress/sp-player-grid.php:281
+#: inc/ewidgets/sportspress/sp-player-list.php:279
+#: inc/ewidgets/support/class-jet-elements-tools.php:147
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:209
+msgid "None"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:201
+msgid "Media File"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:202
+msgid "Custom URL"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:223
+msgid "Lightbox"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:247
+#: inc/ewidgets/image-carousel.php:264
+#: inc/ewidgets/image-carousel.php:281
+#: inc/ewidgets/image-carousel.php:298
+msgid "Caption"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:248
+#: inc/ewidgets/image-carousel.php:265
+#: inc/ewidgets/image-carousel.php:282
+#: inc/ewidgets/image-carousel.php:299
+msgid "Alt"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:274
+msgid "Button Text"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:291
+msgid "Button Link"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:319
+msgid "Content Possition"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:323
+msgid "Hero"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:334
+msgid "Additional Options"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:341
+msgid "Pause on Hover"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:355
+msgid "Autoplay"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:369
+msgid "Autoplay Speed"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:379
+msgid "Infinite Loop"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:393
+msgid "Effect"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:397
+msgid "Slide"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:398
+msgid "Fade"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:410
+msgid "Animation Speed"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:420
+msgid "Direction"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:459
+#: inc/ewidgets/image-carousel.php:521
+#: inc/ewidgets/sportspress/sp-player-grid.php:280
+#: inc/ewidgets/sportspress/sp-player-list.php:278
+msgid "Position"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:463
+#: inc/ewidgets/image-carousel.php:526
+msgid "Inside"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:464
+#: inc/ewidgets/image-carousel.php:525
+msgid "Outside"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:585
+#: inc/ewidgets/sportspress/sk-status.php:106
+msgid "Custom"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:597
+msgid "Image Spacing"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:646
+#: inc/ewidgets/sk-slider.php:1074
+msgid "Opacity"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:707
+#: inc/ewidgets/roadmap.php:236
+#: inc/ewidgets/roadmap.php:312
+#: inc/ewidgets/roadmap.php:390
+#: inc/ewidgets/sk-slider.php:1999
+#: inc/ewidgets/sk-status.php:402
+msgid "Title Color"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:720
+msgid "Title Typography"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:728
+msgid "Title Margin"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:741
+#: inc/ewidgets/sk-slider.php:2167
+msgid "Description Color"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:754
+msgid "Description Typography"
+msgstr ""
+
+#: inc/ewidgets/image-carousel.php:762
+msgid "Description Margin"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:47
+msgid "News Letter"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:78
+msgid "Form Settings"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:85
+msgid "Provider"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:99
+msgid "Access Key"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:100
+msgid "Provide mailchimp/sendinblue access key "
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:110
+msgid "List ID"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:111
+msgid "The List ID (based on the seleced service) where we should subscribe the user"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:122
+msgid "Success Message"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:124
+msgid "Success!, Email hasbeen subscribed."
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:139
+msgid "Form"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:174
+msgid "Columns Gap"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:195
+msgid "Rows Gap"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:218
+#: inc/ewidgets/newsletter.php:911
+msgid "Label"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:251
+#: inc/ewidgets/newsletter.php:320
+#: inc/ewidgets/newsletter.php:649
+#: inc/ewidgets/posts-grid.php:1677
+#: inc/ewidgets/posts-grid.php:1903
+#: inc/ewidgets/sk-slider.php:670
+#: inc/ewidgets/sportspress/sp-event-block.php:1870
+#: inc/ewidgets/sportspress/sp-event-list.php:1270
+#: inc/ewidgets/sportspress/sp-league-list.php:1156
+#: inc/ewidgets/sportspress/sp-player-grid.php:1869
+#: inc/ewidgets/sportspress/sp-player-list.php:1225
+msgid "Width"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:290
+msgid "Mark Color"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:312
+msgid "Field"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:352
+#: inc/ewidgets/sportspress/sp-event-block.php:435
+#: inc/ewidgets/sportspress/sp-event-block.php:558
+#: inc/ewidgets/sportspress/sp-event-block.php:759
+#: inc/ewidgets/sportspress/sp-event-block.php:961
+#: inc/ewidgets/sportspress/sp-event-block.php:1084
+#: inc/ewidgets/sportspress/sp-event-block.php:1206
+#: inc/ewidgets/sportspress/sp-event-block.php:1328
+#: inc/ewidgets/sportspress/sp-event-block.php:1450
+#: inc/ewidgets/sportspress/sp-event-block.php:1572
+#: inc/ewidgets/sportspress/sp-event-list.php:1181
+#: inc/ewidgets/sportspress/sp-league-list.php:354
+#: inc/ewidgets/sportspress/sp-league-list.php:477
+#: inc/ewidgets/sportspress/sp-league-list.php:755
+#: inc/ewidgets/sportspress/sp-league-list.php:866
+#: inc/ewidgets/sportspress/sp-league-list.php:1067
+#: inc/ewidgets/sportspress/sp-player-grid.php:750
+#: inc/ewidgets/sportspress/sp-player-grid.php:1054
+#: inc/ewidgets/sportspress/sp-player-grid.php:1203
+#: inc/ewidgets/sportspress/sp-player-grid.php:1351
+msgid "Text alignment"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:379
+msgid "Text Padding"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:450
+#: inc/ewidgets/newsletter.php:551
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:206
+msgctxt "Border Control"
+msgid "Border Type"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:454
+#: inc/ewidgets/newsletter.php:555
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:210
+msgctxt "Border Control"
+msgid "Solid"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:455
+#: inc/ewidgets/newsletter.php:556
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:211
+msgctxt "Border Control"
+msgid "Double"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:456
+#: inc/ewidgets/newsletter.php:557
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:212
+msgctxt "Border Control"
+msgid "Dotted"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:457
+#: inc/ewidgets/newsletter.php:558
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:213
+msgctxt "Border Control"
+msgid "Dashed"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:458
+#: inc/ewidgets/newsletter.php:559
+msgctxt "Border Control"
+msgid "Groove"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:499
+msgid "Focus"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:781
+msgid "Response/Message"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:790
+msgid "Success Background"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:805
+msgid "Error Background"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:821
+msgid "Success Color"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:832
+msgid "Error Color"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:920
+msgid "Placeholder"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:928
+msgid "Field Name"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:931
+msgid "These field name must be present in your SendinBlue/mailchip account. For eg. FIRSTNAME, LASTNAME"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:939
+msgid "Required"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:948
+msgid "Password"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:951
+msgid "Textarea"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:970
+msgid "Key"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:978
+msgid "Field Width"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:1024
+msgid "Form Fields"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:1037
+msgid "Submit Icon"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:1047
+msgid "Submit Label"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:1049
+msgid "Subscribe"
+msgstr ""
+
+#: inc/ewidgets/newsletter.php:1098
+msgid "Submit"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:41
+msgid "Post Grid/List"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:123
+#: inc/ewidgets/posts-grid.php:474
+#: inc/ewidgets/posts-grid.php:572
+#: inc/ewidgets/posts-grid.php:1093
+msgid "Meta"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:127
+#: inc/ewidgets/posts-grid.php:476
+#: inc/ewidgets/posts-grid.php:1261
+msgid "Price"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:199
+#: inc/ewidgets/posts-grid.php:752
+msgid "Grid Options"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:208
+msgid "Post Type"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:217
+msgid "Filter By"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:221
+msgid "Recent Products"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:222
+msgid "Featured Products"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:223
+msgid "Best Selling Products"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:224
+msgid "Sale Products"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:225
+msgid "Top Rated Products"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:226
+msgid "Mixed order Products"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:239
+#: inc/ewidgets/posts-grid.php:253
+#: inc/ewidgets/posts-grid.php:589
+msgid "Category"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:269
+msgid "Grid"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:271
+msgid "Grid 2"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:280
+msgid "Image width"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:303
+#: inc/ewidgets/posts-grid.php:841
+#: inc/ewidgets/sk-slider.php:87
+msgid "Items"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:304
+msgid "How many items?"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:314
+#: inc/ewidgets/sportspress/sp-event-block.php:848
+msgid "Columns"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:333
+#: inc/ewidgets/sportspress/sp-player-grid.php:289
+#: inc/ewidgets/sportspress/sp-player-list.php:287
+msgid "Order by"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:336
+#: inc/ewidgets/posts-grid.php:588
+#: inc/ewidgets/roadmap.php:175
+#: inc/ewidgets/sk-status.php:478
+#: inc/ewidgets/sportspress/sk-status.php:156
+#: inc/ewidgets/sportspress/sk-status.php:1077
+#: inc/ewidgets/sportspress/sp-event-block.php:88
+#: inc/ewidgets/sportspress/sp-event-list.php:89
+#: inc/ewidgets/support/class-jet-elements-tools.php:152
+#: sportspress/event-details.php:24
+#: sportspress/event-list.php:125
+#: sportspress/event-list.php:129
+#: sportspress/event-list.php:291
+#: sportspress/event-list.php:297
+msgid "Date"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:338
+msgid "Modified date"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:339
+msgid "Comment count"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:340
+msgid "Random"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:349
+#: inc/ewidgets/posts-grid.php:2119
+#: inc/ewidgets/sk-slider.php:1355
+#: inc/ewidgets/sportspress/sp-event-list.php:1291
+#: inc/ewidgets/sportspress/sp-player-list.php:1246
+msgid "Pagination"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:361
+msgid "Grid 2 Settings"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:372
+msgid "Show hover content"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:459
+#: inc/ewidgets/sportspress/sk-status.php:452
+msgid "Select Fields"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:536
+msgid "Tag"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:581
+msgid "Display"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:587
+#: inc/ewidgets/support/class-jet-elements-tools.php:149
+msgid "Author"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:590
+#: inc/template-tags.php:88
+msgid "Tags"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:591
+msgid "Comments"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:601
+msgid "No. of Categories"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:602
+msgid "How many categories to display?"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:617
+msgid "No. of Tags"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:618
+msgid "How many tags to display?"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:629
+msgid "Remove icons"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:655
+msgid "Show full content"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:666
+msgid "Length (words)"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:667
+msgid "Length of content (words)"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:681
+msgid "Read more Button"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:693
+msgid "Button text"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:694
+#: inc/ewidgets/posts-grid.php:695
+msgid "Read more"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:706
+msgid "Sales Button"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:718
+msgid "Sales Label text"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:719
+#: inc/ewidgets/posts-grid.php:720
+msgid "Sale!"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:731
+#: inc/ewidgets/posts-grid.php:1703
+msgid "Add to Cart Button"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:818
+#: inc/ewidgets/posts-grid.php:1224
+msgid "Item Padding"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:901
+msgid "Imase Height"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1017
+#: inc/ewidgets/posts-grid.php:1143
+#: inc/ewidgets/sportspress/sk-status.php:610
+#: inc/ewidgets/sportspress/sk-status.php:1224
+#: inc/ewidgets/twitter.php:415
+msgid "Hover Color"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1211
+msgid "Item Margin"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1237
+msgid "Item Background"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1315
+msgid "Offer Price Color"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1448
+msgid "Read More Button"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1644
+#: inc/ewidgets/posts-grid.php:1876
+msgid "Button padding"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1661
+#: inc/ewidgets/posts-grid.php:1890
+msgid "Button border radius"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:1930
+msgid "Sales Label"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2023
+msgid "width"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2067
+#: inc/ewidgets/sportspress/sp-player-grid.php:1527
+#: inc/ewidgets/sportspress/sp-player-grid.php:1688
+msgid "Horizontal Position"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2089
+#: inc/ewidgets/sportspress/sp-player-grid.php:1549
+#: inc/ewidgets/sportspress/sp-player-grid.php:1710
+msgid "Vertical Position"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2481
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2488
+msgid "No comments"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2488
+msgid "1 comment"
+msgstr ""
+
+#: inc/ewidgets/posts-grid.php:2488
+msgid "% comments"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:46
+msgid "Roadmap"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:106
+msgid "Road Map"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:122
+msgid "Owal"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:135
+#: inc/ewidgets/sportspress/sk-status.php:230
+#: inc/ewidgets/sportspress/sp-event-block.php:179
+#: inc/ewidgets/sportspress/sp-event-list.php:169
+#: inc/ewidgets/sportspress/sp-league-list.php:168
+#: inc/ewidgets/sportspress/sp-player-grid.php:214
+#: inc/ewidgets/sportspress/sp-player-list.php:199
+msgid "Title Tag"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:158
+msgid "Roadmap Title"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:167
+msgid "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:184
+#: inc/ewidgets/sportspress/sk-status.php:152
+#: inc/ewidgets/sportspress/sk-status.php:467
+msgid "Status"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:188
+msgid "Finished"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:189
+msgid "Running"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:190
+msgid "Pending"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:200
+msgid "Roadmap Items"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:205
+msgid "Roadmap Title #1"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:206
+msgid "1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:211
+msgid "Roadmap Title #2"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:212
+msgid "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:228
+msgid "Finished Items"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:252
+#: inc/ewidgets/roadmap.php:327
+#: inc/ewidgets/roadmap.php:405
+msgid "Title Content"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:268
+#: inc/ewidgets/roadmap.php:343
+#: inc/ewidgets/roadmap.php:421
+#: inc/ewidgets/sk-status.php:488
+#: inc/ewidgets/sportspress/sk-status.php:744
+msgid "Date Color"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:304
+msgid "Running Items"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:382
+msgid "Pending Items"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:454
+#: inc/ewidgets/sk-slider.php:172
+msgid "More"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:478
+msgid "Year Typography"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:486
+msgid "Year Color"
+msgstr ""
+
+#: inc/ewidgets/roadmap.php:501
+msgid "End Button"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:36
+msgid "Slider"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:107
+#: inc/ewidgets/sk-slider.php:826
+msgid "Secondary Content"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:135
+#: inc/ewidgets/sk-slider.php:2074
+msgid "Subtitle"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:154
+msgid "Primary Button URL"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:170
+msgid "Primary Button Text"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:179
+msgid "Secondary Button URL"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:195
+msgid "Secondary Button Text"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:211
+msgid "Slide #1"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:212
+#: inc/ewidgets/sk-slider.php:224
+#: inc/ewidgets/sk-slider.php:236
+msgid "SubTitle"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:213
+#: inc/ewidgets/sk-slider.php:225
+#: inc/ewidgets/sk-slider.php:237
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:215
+#: inc/ewidgets/sk-slider.php:227
+#: inc/ewidgets/sk-slider.php:239
+msgid "Button #1"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:217
+#: inc/ewidgets/sk-slider.php:229
+#: inc/ewidgets/sk-slider.php:241
+msgid "Button #2"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:223
+msgid "Slide #2"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:235
+msgid "Slide #3"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:255
+msgid "Settings"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:270
+msgid "Use navigation?"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:282
+msgid "Indicates whether the arrows will fade in only on hover"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:297
+msgid "Use pagination?"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:309
+msgid "Use autoplay?"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:321
+msgid "Autoplay delay(ms)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:336
+msgid "Autoplay On Hover"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:341
+msgid "Pause"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:342
+msgid "Stop"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:350
+msgid "Display fullScreen button?"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:362
+msgid "Indicates if the slides will be shuffled"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:374
+msgid "Indicates if the slides will be looped"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:386
+msgid "Use fade effect?"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:398
+msgid " Between Slides Distance"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:416
+msgid "Slide Duration(ms)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:428
+msgid "Display thumbnails?"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:440
+msgid "Thumbnail width(px)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:455
+msgid "Thumbnail height(px)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:475
+#: inc/ewidgets/sk-status.php:286
+#: inc/ewidgets/sportspress/sk-status.php:483
+msgid "General"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:484
+msgid "Slider Width(%)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:502
+msgid "Slider Height(px)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:527
+msgid "Slider Container Width(%)"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:556
+msgid "Image Scale Mode"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:593
+msgid "Container"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:691
+#: inc/ewidgets/sk-slider.php:902
+msgid "Horizontal Alignment"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:802
+#: inc/ewidgets/sk-slider.php:1025
+msgid "Animation"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:809
+#: inc/ewidgets/sk-slider.php:1032
+msgid "Up"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:810
+#: inc/ewidgets/sk-slider.php:1033
+msgid "Down"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:811
+#: inc/ewidgets/sk-slider.php:1034
+msgid "Infinit Up Down"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:812
+#: inc/ewidgets/sk-slider.php:1035
+msgid "Infinit Scaling"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:835
+msgid "Box Width"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:856
+msgid "Box Height"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1049
+msgid "Overlay"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1104
+msgid "Arrow Icon"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1168
+#: inc/ewidgets/sk-slider.php:1282
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:188
+msgid "Box Size"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1506
+msgid "Pagination Container Offset"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1525
+msgid "Thumbnails"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1548
+msgid "Thumbnails Container Offset"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1660
+msgid "Active"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1715
+msgid "Fullscreen"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1735
+#: inc/ewidgets/sk-slider.php:1854
+msgid "Icon Color"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1746
+#: inc/ewidgets/sk-slider.php:1865
+msgid "Icon Background Color"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1757
+#: inc/ewidgets/sk-slider.php:1876
+msgid "Icon Font Size"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:1777
+#: inc/ewidgets/sk-slider.php:1896
+msgid "Icon Box Size"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:2083
+msgid "Subtitle Color"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:2211
+msgid "Text Alignment"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:2263
+msgid "Max Width"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:2290
+msgid "Action Button"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:2325
+msgid "Action Button #1"
+msgstr ""
+
+#: inc/ewidgets/sk-slider.php:2531
+msgid "Action Button #2"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:51
+#: inc/ewidgets/sportspress/sk-status.php:51
+msgid "Count Down"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:127
+#: inc/ewidgets/sportspress/sk-status.php:207
+msgid "Event Start in"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:152
+#: inc/ewidgets/sportspress/sk-status.php:218
+msgid "End Date"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:161
+#: inc/ewidgets/sportspress/sk-status.php:325
+msgid "Display Progress bar?"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:173
+#: inc/ewidgets/sportspress/sk-status.php:337
+msgid "Stage 1 Title"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:175
+#: inc/ewidgets/sportspress/sk-status.php:339
+msgid "Stage 1"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:185
+#: inc/ewidgets/sportspress/sk-status.php:349
+msgid "Stage 1 Position"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:187
+#: inc/ewidgets/sportspress/sk-status.php:351
+msgid "20"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:197
+#: inc/ewidgets/sportspress/sk-status.php:361
+msgid "Stage 2 Title"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:199
+#: inc/ewidgets/sportspress/sk-status.php:363
+msgid "Stage 2"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:209
+#: inc/ewidgets/sportspress/sk-status.php:373
+msgid "Stage 2 Position"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:211
+#: inc/ewidgets/sportspress/sk-status.php:375
+msgid "50"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:221
+#: inc/ewidgets/sportspress/sk-status.php:385
+msgid "Stage 3 Title"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:223
+#: inc/ewidgets/sportspress/sk-status.php:387
+msgid "Stage 3"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:233
+#: inc/ewidgets/sportspress/sk-status.php:397
+msgid "Stage 3 Position"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:235
+#: inc/ewidgets/sportspress/sk-status.php:399
+msgid "85"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:245
+#: inc/ewidgets/sportspress/sk-status.php:409
+msgid "Status Bar Length"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:271
+#: inc/ewidgets/sportspress/sk-status.php:435
+msgid "Dummy text"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:303
+#: inc/ewidgets/sportspress/sk-status.php:500
+msgid "Width(%)"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:572
+#: inc/ewidgets/sportspress/sk-status.php:828
+msgid "Stages"
+msgstr ""
+
+#: inc/ewidgets/sk-status.php:657
+#: inc/ewidgets/sportspress/sk-status.php:913
+msgid "Progress Bar"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:107
+msgid "Upcoming"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:115
+#: inc/ewidgets/sportspress/sp-event-list.php:75
+#: inc/ewidgets/sportspress/sp-league-list.php:81
+msgid "No event list found"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:151
+#: inc/ewidgets/sportspress/sk-status.php:466
+#: inc/ewidgets/sportspress/sk-status.php:734
+msgid "Counter"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:154
+#: inc/ewidgets/sportspress/sk-status.php:1204
+#: inc/ewidgets/sportspress/sp-event-block.php:106
+#: inc/ewidgets/sportspress/sp-event-block.php:1293
+#: inc/ewidgets/sportspress/sp-event-list.php:106
+#: sportspress/event-list.php:199
+#: sportspress/event-list.php:201
+#: sportspress/event-list.php:435
+#: sportspress/event-list.php:449
+msgid "Venue"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:155
+#: inc/ewidgets/sportspress/sk-status.php:1346
+#: inc/ewidgets/sportspress/sp-event-block.php:107
+#: inc/ewidgets/sportspress/sp-event-block.php:1415
+#: inc/ewidgets/sportspress/sp-event-list.php:107
+#: sportspress/event-list.php:189
+#: sportspress/event-list.php:415
+msgid "League"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:195
+msgid "Select Event/Match "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:251
+msgid "Show Logos"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:266
+msgid "Link to Team/Logo"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:282
+msgid "Link to Event"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:297
+msgid "Link to Venue"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:318
+msgid "Progress bar"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:461
+#: inc/ewidgets/sportspress/sp-event-block.php:376
+#: inc/ewidgets/sportspress/sp-event-list.php:377
+msgid "Event Fields"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sk-status.php:1471
+#: inc/ewidgets/sportspress/sp-event-block.php:1660
+msgid "Team Logos"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:41
+#: inc/ewidgets/sportspress/sp-event-block.php:149
+msgid "Event Block"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:67
+#: inc/ewidgets/sportspress/sp-event-block.php:121
+#: inc/ewidgets/sportspress/sp-event-block.php:245
+#: inc/ewidgets/sportspress/sp-event-list.php:67
+#: inc/ewidgets/sportspress/sp-event-list.php:123
+#: inc/ewidgets/sportspress/sp-event-list.php:246
+#: inc/ewidgets/sportspress/sp-league-list.php:73
+#: inc/ewidgets/sportspress/sp-player-grid.php:66
+#: inc/ewidgets/sportspress/sp-player-list.php:66
+msgid "All"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:75
+msgid "No event block found"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:89
+#: inc/ewidgets/sportspress/sp-event-list.php:88
+#: sportspress/event-list.php:160
+#: sportspress/event-list.php:350
+msgid "Event"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:93
+#: inc/ewidgets/sportspress/sp-event-list.php:93
+#: sportspress/event-list.php:141
+#: sportspress/event-list.php:142
+#: sportspress/event-list.php:182
+#: sportspress/event-list.php:309
+#: sportspress/event-list.php:399
+msgid "Time/Results"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:98
+#: inc/ewidgets/sportspress/sp-event-block.php:1171
+#: inc/ewidgets/sportspress/sp-event-list.php:98
+#: sportspress/event-details.php:29
+#: sportspress/event-list.php:152
+#: sportspress/event-list.php:168
+#: sportspress/event-list.php:174
+#: sportspress/event-list.php:336
+#: sportspress/event-list.php:357
+#: sportspress/event-list.php:377
+msgid "Time"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:102
+#: inc/ewidgets/sportspress/sp-event-list.php:102
+#: sportspress/event-list.php:144
+#: sportspress/event-list.php:170
+#: sportspress/event-list.php:178
+#: sportspress/event-list.php:319
+#: sportspress/event-list.php:364
+#: sportspress/event-list.php:386
+#: sportspress/event-results.php:23
+msgid "Results"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:108
+#: inc/ewidgets/sportspress/sp-event-block.php:1537
+#: inc/ewidgets/sportspress/sp-event-list.php:110
+#: sportspress/event-blocks.php:176
+#: sportspress/event-details.php:46
+#: sportspress/event-list.php:210
+#: sportspress/event-list.php:479
+msgid "Match Day"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:122
+#: inc/ewidgets/sportspress/sp-event-list.php:124
+msgid "Yesterday"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:123
+#: inc/ewidgets/sportspress/sp-event-list.php:125
+msgid "Today"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:124
+#: inc/ewidgets/sportspress/sp-event-list.php:126
+msgid "Tomorrow"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:125
+#: inc/ewidgets/sportspress/sp-event-list.php:127
+msgid "Last week"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:126
+#: inc/ewidgets/sportspress/sp-event-list.php:128
+msgid "This week"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:127
+#: inc/ewidgets/sportspress/sp-event-list.php:129
+msgid "Next week"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:128
+#: inc/ewidgets/sportspress/sp-event-list.php:130
+msgid "Date range:"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:166
+msgid "Style"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:198
+#: inc/ewidgets/sportspress/sp-event-list.php:210
+msgid "Select Event/Calendar "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:207
+#: inc/ewidgets/sportspress/sp-event-list.php:219
+#: inc/ewidgets/sportspress/sp-league-list.php:218
+#: inc/ewidgets/sportspress/sp-player-grid.php:242
+#: inc/ewidgets/sportspress/sp-player-list.php:250
+msgid "Show "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:211
+#: inc/ewidgets/sportspress/sp-event-list.php:223
+#: inc/ewidgets/sportspress/sp-league-list.php:222
+msgid "Team Logo"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:212
+#: inc/ewidgets/sportspress/sp-event-list.php:224
+#: inc/ewidgets/sportspress/sp-league-list.php:223
+#: inc/ewidgets/sportspress/sp-player-grid.php:248
+#: inc/ewidgets/sportspress/sp-player-list.php:256
+msgid "List Content"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:213
+#: inc/ewidgets/sportspress/sp-event-list.php:225
+#: inc/ewidgets/sportspress/sp-league-list.php:224
+#: inc/ewidgets/sportspress/sp-player-grid.php:249
+#: inc/ewidgets/sportspress/sp-player-list.php:257
+msgid "List Image"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:221
+#: inc/ewidgets/sportspress/sp-event-list.php:233
+msgid "Number of Events to show"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:230
+#: inc/ewidgets/sportspress/sp-player-grid.php:266
+msgid "Number of Columns"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:241
+#: inc/ewidgets/sportspress/sp-event-list.php:242
+msgid "Status "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:246
+#: inc/ewidgets/sportspress/sp-event-list.php:247
+msgid "Published"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:247
+#: inc/ewidgets/sportspress/sp-event-list.php:248
+msgid "Scheduled"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:254
+#: inc/ewidgets/sportspress/sp-event-list.php:255
+msgid "Date "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:267
+#: inc/ewidgets/sportspress/sp-event-list.php:268
+msgid "Date from"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:279
+#: inc/ewidgets/sportspress/sp-event-list.php:280
+msgid "Date To"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:291
+#: inc/ewidgets/sportspress/sp-event-list.php:292
+msgid "Past"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:308
+#: inc/ewidgets/sportspress/sp-event-list.php:309
+msgid "Relative"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:310
+#: inc/ewidgets/sportspress/sp-event-block.php:338
+#: inc/ewidgets/sportspress/sp-event-list.php:311
+#: inc/ewidgets/sportspress/sp-event-list.php:339
+#: inc/ewidgets/sportspress/sp-league-list.php:245
+#: inc/ewidgets/sportspress/sp-player-grid.php:313
+#: inc/ewidgets/sportspress/sp-player-grid.php:325
+#: inc/ewidgets/sportspress/sp-player-list.php:315
+msgid "Show"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:311
+#: inc/ewidgets/sportspress/sp-event-block.php:339
+#: inc/ewidgets/sportspress/sp-event-list.php:312
+#: inc/ewidgets/sportspress/sp-event-list.php:340
+#: inc/ewidgets/sportspress/sp-league-list.php:246
+#: inc/ewidgets/sportspress/sp-player-grid.php:314
+#: inc/ewidgets/sportspress/sp-player-grid.php:326
+#: inc/ewidgets/sportspress/sp-player-list.php:316
+msgid "Hide"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:320
+#: inc/ewidgets/sportspress/sp-event-list.php:321
+#: inc/ewidgets/sportspress/sp-player-grid.php:298
+#: inc/ewidgets/sportspress/sp-player-list.php:297
+msgid "Sort Order"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:324
+#: inc/ewidgets/sportspress/sp-event-list.php:325
+#: inc/ewidgets/sportspress/sp-player-grid.php:301
+#: inc/ewidgets/sportspress/sp-player-list.php:301
+#: inc/ewidgets/support/class-jet-elements-tools.php:169
+msgid "Ascending"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:325
+#: inc/ewidgets/sportspress/sp-event-list.php:326
+#: inc/ewidgets/sportspress/sp-player-grid.php:302
+#: inc/ewidgets/sportspress/sp-player-list.php:302
+#: inc/ewidgets/support/class-jet-elements-tools.php:168
+msgid "Descending"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:336
+#: inc/ewidgets/sportspress/sp-event-list.php:337
+msgid "Display link to view all Events"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:356
+#: inc/ewidgets/sportspress/sp-event-list.php:357
+#: inc/ewidgets/sportspress/sp-league-list.php:275
+#: inc/ewidgets/sportspress/sp-player-grid.php:343
+#: inc/ewidgets/sportspress/sp-player-list.php:333
+msgid "Select Column"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:380
+msgid "league"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:381
+#: inc/ewidgets/sportspress/sp-event-list.php:383
+msgid "event"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:382
+#: inc/ewidgets/sportspress/sp-event-list.php:384
+msgid "time"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:383
+#: inc/ewidgets/sportspress/sp-event-list.php:381
+msgid "date"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:384
+#: inc/ewidgets/sportspress/sp-event-list.php:382
+msgid "venue"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:644
+#: inc/ewidgets/sportspress/sp-event-list.php:659
+#: inc/ewidgets/sportspress/sp-league-list.php:563
+#: inc/ewidgets/sportspress/sp-player-grid.php:633
+#: inc/ewidgets/sportspress/sp-player-list.php:636
+msgid "Featured Image"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:724
+msgid "Group Heading"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:926
+msgid "Event Title"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:1048
+msgid "Event Date"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-block.php:1762
+#: inc/ewidgets/sportspress/sp-event-list.php:1144
+#: inc/ewidgets/sportspress/sp-league-list.php:1030
+#: inc/ewidgets/sportspress/sp-player-grid.php:1735
+#: inc/ewidgets/sportspress/sp-player-list.php:1117
+msgid "View All Link"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:41
+#: inc/ewidgets/sportspress/sp-event-list.php:152
+msgid "Event List"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:108
+#: sportspress/event-list.php:194
+#: sportspress/event-list.php:425
+msgid "Season"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:109
+#: sportspress/event-list.php:205
+#: sportspress/event-list.php:457
+msgid "Article"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:189
+#: inc/ewidgets/sportspress/sp-league-list.php:188
+#: inc/ewidgets/sportspress/sp-player-list.php:219
+#: sportspress/functions.php:100
+msgid "Table Style"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:738
+#: inc/ewidgets/sportspress/sp-league-list.php:642
+#: inc/ewidgets/sportspress/sp-player-list.php:712
+msgid "Table"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:817
+#: inc/ewidgets/sportspress/sp-league-list.php:720
+#: inc/ewidgets/sportspress/sp-player-list.php:791
+msgid "Table Heading"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:938
+#: inc/ewidgets/sportspress/sp-league-list.php:832
+#: inc/ewidgets/sportspress/sp-player-list.php:911
+msgid "Table Column"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-event-list.php:1062
+#: inc/ewidgets/sportspress/sp-league-list.php:948
+msgid "Team logo"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:41
+#: inc/ewidgets/sportspress/sp-league-list.php:151
+msgid "League Table"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:92
+msgid "name"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:93
+msgid "pos"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:209
+msgid "Select League/Calendar "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:232
+msgid "Number of Teams to show"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:243
+msgid "Display link to view all Teams"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:299
+msgid "Pos"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:300
+#: inc/ewidgets/sportspress/sp-player-grid.php:358
+#: inc/ewidgets/sportspress/sp-player-list.php:360
+msgid "Club"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:301
+msgid "W"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:302
+msgid "D"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-league-list.php:303
+msgid "Pts"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:41
+msgid "Player Grid"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:74
+#: inc/ewidgets/sportspress/sp-player-grid.php:116
+#: inc/ewidgets/sportspress/sp-player-grid.php:149
+#: inc/ewidgets/sportspress/sp-player-list.php:74
+#: inc/ewidgets/sportspress/sp-player-list.php:101
+#: inc/ewidgets/sportspress/sp-player-list.php:134
+msgid "No player list found"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:139
+#: inc/ewidgets/sportspress/sp-player-list.php:124
+msgid "Number"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:141
+#: inc/ewidgets/sportspress/sp-player-list.php:126
+msgid "Played"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:198
+#: inc/ewidgets/sportspress/sp-player-list.php:41
+#: inc/ewidgets/sportspress/sp-player-list.php:183
+msgid "Player List"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:233
+#: inc/ewidgets/sportspress/sp-player-list.php:240
+msgid "Select Player List"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:246
+#: inc/ewidgets/sportspress/sp-player-grid.php:1574
+#: inc/ewidgets/sportspress/sp-player-list.php:358
+#: sportspress/player-list.php:154
+msgid "Rank"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:247
+#: inc/ewidgets/sportspress/sp-player-grid.php:1441
+#: inc/ewidgets/sportspress/sp-player-list.php:255
+msgid "Flag"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:257
+#: inc/ewidgets/sportspress/sp-player-list.php:265
+msgid "Number of players to show"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:277
+#: inc/ewidgets/sportspress/sp-player-list.php:274
+msgid "Group by "
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:311
+msgid "Link on player photo"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:323
+#: inc/ewidgets/sportspress/sp-player-list.php:313
+msgid "Display link to view all players"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:352
+#: inc/ewidgets/sportspress/sp-player-list.php:354
+msgid "Player Fields"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:356
+msgid "Photo"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:712
+msgid "Positions Heading"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:837
+msgid "Column"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:992
+msgid "Name Field"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:1141
+msgid "Team Field"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-grid.php:1290
+msgid "More Fields"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-list.php:254
+msgid "Player Photo"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-list.php:361
+#: sportspress/single-player.php:62
+msgid "Goals"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-list.php:362
+msgid "Assists"
+msgstr ""
+
+#: inc/ewidgets/sportspress/sp-player-list.php:1035
+msgid "Player Image"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:96
+msgid "Full"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:148
+msgid "ID"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:151
+msgid "Name (slug)"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:153
+msgid "Modified"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:154
+msgid "Rand"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:155
+msgid "Comment Count"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:156
+msgid "Menu Order"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:181
+msgid "Baseline"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:185
+msgid "Sub"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:186
+msgid "Super"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:187
+msgid "Text Top"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:188
+msgid "Text Bottom"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:331
+#: inc/ewidgets/support/class-jet-elements-tools.php:354
+msgid "Angle"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:332
+#: inc/ewidgets/support/class-jet-elements-tools.php:355
+msgid "Chevron"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:333
+#: inc/ewidgets/support/class-jet-elements-tools.php:356
+msgid "Angle Double"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:334
+#: inc/ewidgets/support/class-jet-elements-tools.php:357
+msgid "Arrow"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:335
+#: inc/ewidgets/support/class-jet-elements-tools.php:358
+msgid "Caret"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:336
+#: inc/ewidgets/support/class-jet-elements-tools.php:359
+msgid "Long Arrow"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:337
+#: inc/ewidgets/support/class-jet-elements-tools.php:360
+msgid "Arrow Circle"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:338
+#: inc/ewidgets/support/class-jet-elements-tools.php:361
+msgid "Chevron Circle"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-elements-tools.php:339
+#: inc/ewidgets/support/class-jet-elements-tools.php:362
+msgid "Caret Square"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:27
+msgctxt "Background Control"
+msgid "Background Type"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:31
+msgctxt "Background Control"
+msgid "Classic"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:35
+msgctxt "Background Control"
+msgid "Gradient"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:44
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:47
+msgctxt "Background Control"
+msgid "Background Color"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:57
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:83
+msgctxt "Background Control"
+msgid "Location"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:72
+msgctxt "Background Control"
+msgid "Second Background Color"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:98
+msgctxt "Background Control"
+msgid "Type"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:101
+msgctxt "Background Control"
+msgid "Linear"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:102
+msgctxt "Background Control"
+msgid "Radial"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:113
+msgctxt "Background Control"
+msgid "Angle"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:136
+msgctxt "Background Control"
+msgid "Position"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:139
+msgctxt "Background Control"
+msgid "Center Center"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:140
+msgctxt "Background Control"
+msgid "Center Left"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:141
+msgctxt "Background Control"
+msgid "Center Right"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:142
+msgctxt "Background Control"
+msgid "Top Center"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:143
+msgctxt "Background Control"
+msgid "Top Left"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:144
+msgctxt "Background Control"
+msgid "Top Right"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:145
+msgctxt "Background Control"
+msgid "Bottom Center"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:146
+msgctxt "Background Control"
+msgid "Bottom Left"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:147
+msgctxt "Background Control"
+msgid "Bottom Right"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:221
+msgctxt "Border Control"
+msgid "Width"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:232
+msgctxt "Border Control"
+msgid "Color"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:253
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:263
+msgctxt "Box Shadow Control"
+msgid "Box Shadow"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:274
+msgctxt "Box Shadow Control"
+msgid "Position"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:277
+msgctxt "Box Shadow Control"
+msgid "Outline"
+msgstr ""
+
+#: inc/ewidgets/support/class-jet-group-control-box-style.php:278
+msgctxt "Box Shadow Control"
+msgid "Inset"
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:44
+msgid "What type of form is submitted."
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:49
+msgid "The security key"
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:54
+msgid "The form must have data"
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:59
+#: inc/ewidgets/support/newsletter-rest.php:64
+msgid "The form identifier."
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:83
+msgid "Something went wrong"
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:100
+msgid "Invalid Data "
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:123
+msgid "Invalid email."
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:152
+msgid "Wrong email configuration! Please contact administration!"
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:263
+msgid "Sorry!, somthing went wrong"
+msgstr ""
+
+#: inc/ewidgets/support/newsletter-rest.php:347
+#: inc/ewidgets/support/newsletter-rest.php:359
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:60
+#: inc/ewidgets/testimonial.php:103
+msgid "Testimonial"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:125
+msgid "Choose Image"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:157
+#: inc/ewidgets/testimonial.php:388
+msgid "Job"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:169
+msgid "Link to"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:178
+msgid "Image Position"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:182
+msgid "Aside"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:237
+msgid "You can use HTML Tags here"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:306
+msgid "Image Size"
+msgstr ""
+
+#: inc/ewidgets/testimonial.php:431
+msgid "Hover Size"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:33
+msgid "Twitter Feed"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:48
+msgid "Account Settings"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:55
+msgid "Account Name"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:59
+msgid "Use @ sign with your account name."
+msgstr ""
+
+#: inc/ewidgets/twitter.php:67
+msgid "Hashtag Name"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:70
+msgid "Remove # sign from your hashtag name."
+msgstr ""
+
+#: inc/ewidgets/twitter.php:78
+msgid "Consumer Key"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:89
+msgid "Consumer Secret"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:102
+msgid "Layout Settings"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:140
+msgid "Content Length"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:150
+msgid "Post Limit"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:160
+msgid "Show Media Elements"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:162
+#: inc/ewidgets/twitter.php:183
+#: inc/ewidgets/twitter.php:212
+#: inc/ewidgets/twitter.php:225
+#: inc/ewidgets/twitter.php:237
+msgid "yes"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:163
+#: inc/ewidgets/twitter.php:184
+#: inc/ewidgets/twitter.php:213
+#: inc/ewidgets/twitter.php:226
+#: inc/ewidgets/twitter.php:238
+msgid "no"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:174
+msgid "Card Settings"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:181
+msgid "Show Thumb"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:193
+msgid "Avatar Style"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:210
+msgid "Show Name"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:223
+msgid "Show Date"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:235
+msgid "Show Read More"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:255
+msgid "Card Style"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:328
+msgid "Color &amp; Typography"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:336
+msgid "Title Style"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:364
+msgid "Content Style"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:394
+msgid "Link Style"
+msgstr ""
+
+#: inc/ewidgets/twitter.php:574
+msgid "%s ago"
+msgstr ""
+
+#: inc/icon-functions.php:39
+msgid "Please define default parameters in the form of an array."
+msgstr ""
+
+#: inc/icon-functions.php:44
+msgid "Please define an SVG icon filename."
+msgstr ""
+
+#: inc/plugin-requires.php:9
+msgid "Elementor Page Builder"
+msgstr ""
+
+#: inc/plugin-requires.php:22
+msgid "One Click Demo Import"
+msgstr ""
+
+#: inc/plugin-requires.php:27
+msgid "GDPR Cookie Consent"
+msgstr ""
+
+#: inc/template-functions.php:225
+msgid " <a class=\"post-readmore\" href=\"%s\"> Read More</a>"
+msgstr ""
+
+#: inc/template-functions.php:229
+#: page.php:43
+#: sportspress/single-calendar.php:47
+#: sportspress/single-event.php:47
+#: sportspress/single-list.php:43
+#: sportspress/single-player.php:83
+#: sportspress/single-staff.php:70
+#: sportspress/single-table.php:47
+#: sportspress/single-team.php:44
+msgid "Pages:"
+msgstr ""
+
+#: inc/template-functions.php:299
+msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">says:</span>"
+msgstr ""
+
+#: inc/template-functions.php:305
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/template-functions.php:310
+msgid "(Edit)"
+msgstr ""
+
+#: inc/template-functions.php:333
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-functions.php:364
+msgid "Disable Title?"
+msgstr ""
+
+#: inc/template-functions.php:422
+msgid "After you import this demo, you will have to setup menu separately."
+msgstr ""
+
+#: inc/template-functions.php:433
+msgid "After you import this demo, you will have to setup the menu separately."
+msgstr ""
+
+#. translators: %s: post author
+#: inc/template-tags.php:21
+msgid "by %s"
+msgstr ""
+
+#. translators: %s: post date
+#: inc/template-tags.php:51
+msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:65
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:84
+msgid "Categories"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:116
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: inc/template-tags.php:150
+msgid "Front Page Section %1$s Placeholder"
+msgstr ""
+
+#: inc/typo.php:69
+msgid "Italic"
+msgstr ""
+
+#: inc/typo.php:70
+msgid "Oblique"
+msgstr ""
+
+#: inc/typo.php:71
+#: inc/typo.php:83
+#: inc/typo.php:99
+msgid "Inherit"
+msgstr ""
+
+#: inc/typo.php:85
+#: inc/typo.php:101
+msgid "Justify"
+msgstr ""
+
+#. translators: 1: Plugin name 2: Elementor
+#: inc/widget.php:113
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr ""
+
+#: inc/widget.php:115
+#: inc/widget.php:138
+msgid "Elementor"
+msgstr ""
+
+#. translators: 1: Plugin name 2: Elementor 3: Required Elementor version
+#. translators: 1: Plugin name 2: PHP 3: Required PHP version
+#: inc/widget.php:136
+#: inc/widget.php:160
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr ""
+
+#: inc/widget.php:162
+msgid "PHP"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:36
+msgid "Recent Posts with image"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:39
+msgid "A widget that displays the recent posts of your blog"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:137
+msgid "Recent Posts"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:156
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:160
+msgid "Number of posts to show:"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:164
+msgid "Widget Style:"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:166
+msgid "Small Thumbnail"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:167
+msgid "Big Thumbnail"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:173
+msgid "Show Thumbnails"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:179
+msgid "Show Categories"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:185
+msgid "Show Post Author"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:191
+msgid "Show Post Date"
+msgstr ""
+
+#: inc/widgets/widget-recent-posts.php:197
+msgid "Show Post Comments"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Landing Page"
+msgstr ""
+
+#: page-templates/template-landingpage.php:17
+msgid "Page Canvas For Page Builder"
+msgstr ""
+
+#: search.php:18
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:20
+#: template-parts/post/content-none.php:15
+msgid "Nothing Found"
+msgstr ""
+
+#: search.php:54
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: searchform.php:15
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:17
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:18
+msgctxt "submit button"
+msgid " &nbsp; Search &nbsp; "
+msgstr ""
+
+#: single.php:34
+msgid "Previous Post"
+msgstr ""
+
+#: single.php:46
+msgid "Next Post"
+msgstr ""
+
+#: sportspress/event-blocks.php:237
+#: sportspress/event-calendar.php:248
+#: sportspress/event-list.php:508
+msgid "View all events"
+msgstr ""
+
+#. translators: Calendar caption: 1: month name, 2: 4-digit year
+#: sportspress/event-calendar.php:124
+#: sportspress/event-calendar.php:130
+#: sportspress/event-calendar.php:138
+msgctxt "calendar caption"
+msgid "%1$s %2$s"
+msgstr ""
+
+#: sportspress/event-calendar.php:232
+msgid "%s events"
+msgstr ""
+
+#: sportspress/event-details.php:55
+msgid "Full Time"
+msgstr ""
+
+#: sportspress/event-details.php:63
+#: sportspress/functions.php:131
+msgid "Details"
+msgstr ""
+
+#: sportspress/event-list.php:137
+#: sportspress/event-list.php:305
+msgid "Home"
+msgstr ""
+
+#: sportspress/event-list.php:148
+#: sportspress/event-list.php:332
+msgid "Away"
+msgstr ""
+
+#: sportspress/event-list.php:158
+#: sportspress/event-list.php:346
+msgid "Teams"
+msgstr ""
+
+#: sportspress/event-list.php:451
+msgid "N/A"
+msgstr ""
+
+#: sportspress/event-list.php:467
+msgid "Recap"
+msgstr ""
+
+#: sportspress/event-list.php:469
+msgid "Preview"
+msgstr ""
+
+#: sportspress/event-performance-table.php:51
+#: sportspress/event-performance-table.php:199
+msgid "Player"
+msgstr ""
+
+#: sportspress/event-performance-table.php:110
+msgid "Player of the Match"
+msgstr ""
+
+#: sportspress/event-performance-table.php:113
+#: sportspress/event-performance-table.php:116
+msgid "Stars"
+msgstr ""
+
+#: sportspress/event-performance-table.php:236
+msgid "Total"
+msgstr ""
+
+#: sportspress/event-results.php:106
+msgid "Team"
+msgstr ""
+
+#: sportspress/functions.php:78
+msgid "Sidebar"
+msgstr ""
+
+#: sportspress/functions.php:124
+msgid "Dropdown"
+msgstr ""
+
+#: sportspress/functions.php:125
+msgid "Players"
+msgstr ""
+
+#: sportspress/functions.php:137
+msgid "Excerpt"
+msgstr ""
+
+#: sportspress/functions.php:143
+msgid "Sainul Excerpt"
+msgstr ""
+
+#: sportspress/functions.php:159
+#: sportspress/functions.php:182
+#: sportspress/functions.php:205
+msgid "Featured image"
+msgstr ""
+
+#: sportspress/functions.php:166
+#: sportspress/functions.php:189
+#: sportspress/functions.php:212
+msgid "Hide title"
+msgstr ""
+
+#: sportspress/league-table.php:199
+msgid "View full table"
+msgstr ""
+
+#: sportspress/player-gallery.php:235
+#: sportspress/player-list.php:288
+msgid "View all players"
+msgstr ""
+
+#: sportspress/single-player.php:36
+msgid "Weight"
+msgstr ""
+
+#: template-parts/footer/site-info.php:16
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: template-parts/footer/site-info.php:17
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: template-parts/header/site-branding.php:32
+#: template-parts/navigation/navigation-top.php:27
+msgid "Scroll down to content"
+msgstr ""
+
+#: template-parts/navigation/navigation-top.php:12
+msgid "Top Menu"
+msgstr ""
+
+#: template-parts/navigation/navigation-top.php:17
+msgid "Menu"
+msgstr ""
+
+#: template-parts/post/content-none.php:21
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/post/content-none.php:25
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:55
+msgid "Your order"
+msgstr ""

@@ -96,11 +96,11 @@ function skyre_get_text_align() {
  */
 function skyre_get_text_aligns() {
 	return apply_filters( 'skyre_get_text_aligns', array(
-		'inherit' => esc_html__( 'Inherit', 'skyre_' ),
-		'center'  => esc_html__( 'Center', 'skyre_' ),
-		'justify' => esc_html__( 'Justify', 'skyre_' ),
-		'left'    => esc_html__( 'Left', 'skyre_' ),
-		'right'   => esc_html__( 'Right', 'skyre_' ),
+		'inherit' => esc_html__( 'Inherit', 'skyre' ),
+		'center'  => esc_html__( 'Center', 'skyre' ),
+		'justify' => esc_html__( 'Justify', 'skyre' ),
+		'left'    => esc_html__( 'Left', 'skyre' ),
+		'right'   => esc_html__( 'Right', 'skyre' ),
 	) );
 }
 

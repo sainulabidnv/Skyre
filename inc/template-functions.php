@@ -219,7 +219,8 @@ function skyre_post_content(){
 		if(is_single() || get_post_format() =='video' || get_post_format() =='gallery') {
 			 the_content(); 
 		}elseif (has_excerpt()) {
-		  echo  $excerpt = wp_strip_all_tags(get_the_excerpt());
+		  $excerpt = wp_strip_all_tags(get_the_excerpt());
+		  echo esc_html($excerpt);
 		}else{
 			echo wp_trim_words(get_the_content(), 20, sprintf( __( ' <a class="post-readmore" href="%s"> Read More</a>', 'skyre' ), get_the_permalink() ) );
 			}
@@ -265,7 +266,7 @@ function skyre_post_image(){
 				if ( has_post_thumbnail() )  {
 					if( is_single()) { the_post_thumbnail( 'full' );} 
 					else { the_post_thumbnail( 'featuredthumb' ); } 
-				}else if( !is_single()) echo '<img height="300" width="450" src="'.SKYRE_THEME_URI.'assets/img/place-holder.svg">';
+				}else if( !is_single()) echo '<img height="300" width="450" src="'.SKYRE_THEME_URI.'assets/images/featuredthumb.jpg">';
 				?>
 			</a>
 		</div><!-- .post-thumbnail -->
@@ -282,7 +283,7 @@ function skyre_comment($comment, $args, $depth) {
         $tag       = 'li';
         $add_below = 'div-comment';
     }?>
-    <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
+    <<?php echo esc_attr($tag); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
     if ( 'div' != $args['style'] ) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
     } ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Status widget for Elementor builder
+ * Status widget for Elementor builder ( if Sportspress active)
  *
  * @link       https://skyresoft.com
  * @since      1.0.0
@@ -227,7 +227,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'header_size',
 			[
-				'label' => __( 'Title Tag', 'elementor' ),
+				'label' => __( 'Title Tag', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -322,10 +322,10 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'slider_progressbar',
 			array(
-				'label'        => esc_html__( 'Display Progress bar?', 'sk-elements' ),
+				'label'        => esc_html__( 'Display Progress bar?', 'skyre' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'sk-elements' ),
-				'label_off'    => esc_html__( 'No', 'sk-elements' ),
+				'label_on'     => esc_html__( 'Yes', 'skyre' ),
+				'label_off'    => esc_html__( 'No', 'skyre' ),
 				'return_value' => 'true',
 				'default'      => 'true',
 			)
@@ -480,7 +480,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_general_style',
 			array(
-				'label'      => esc_html__( 'General', 'sk-elements' ),
+				'label'      => esc_html__( 'General', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -497,7 +497,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_general_width',
 			array(
-				'label' => esc_html__( 'Width(%)', 'sk-elements' ),
+				'label' => esc_html__( 'Width(%)', 'skyre' ),
 				'type'  => Controls_Manager::SLIDER,
 				'size_units' => array(
 					'%', 'px',
@@ -527,7 +527,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_general_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -539,7 +539,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_general_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -552,7 +552,7 @@ class spCountDown extends Widget_Base {
 			Group_Control_Border::get_type(),
 			array(
 				'name'        => 'status_general_border',
-				'label'       => esc_html__( 'Border', 'sk-elements' ),
+				'label'       => esc_html__( 'Border', 'skyre' ),
 				'placeholder' => '1px',
 				'default'     => '0px',
 				'selector'    => '{{WRAPPER}} ' . $css_scheme['general'] ,
@@ -562,7 +562,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_general_border_radius',
 			array(
-				'label'      => esc_html__( 'Border Radius', 'sk-elements' ),
+				'label'      => esc_html__( 'Border Radius', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -587,7 +587,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_title_style',
 			array(
-				'label'      => esc_html__( 'Title', 'sk-elements' ),
+				'label'      => esc_html__( 'Title', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -596,7 +596,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_title_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['title'].'a, {{WRAPPER}} ' . $css_scheme['title'] => 'color: {{VALUE}}',
@@ -607,7 +607,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_title_hover_color',
 			array(
-				'label'  => esc_html__( 'Hover Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Hover Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['title'].'a:hover' => 'color: {{VALUE}}',
@@ -632,20 +632,20 @@ class spCountDown extends Widget_Base {
         $this->add_responsive_control(
 			'status_title_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'title' => esc_html__( 'Left', 'sk-elements' ),
+						'title' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'title' => esc_html__( 'Center', 'sk-elements' ),
+						'title' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'title' => esc_html__( 'Right', 'sk-elements' ),
+						'title' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -658,7 +658,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_title_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -670,7 +670,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_title_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -741,7 +741,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_date_color',
 			array(
-				'label'  => esc_html__( 'Date Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Date Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['counter'] => 'color: {{VALUE}}',
@@ -772,7 +772,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_date_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -784,7 +784,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_date_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -825,7 +825,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_stage_style',
 			array(
-				'label'      => esc_html__( 'Stages', 'sk-elements' ),
+				'label'      => esc_html__( 'Stages', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -834,7 +834,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_stage_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['stage'] => 'color: {{VALUE}}',
@@ -855,7 +855,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_stage_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -867,7 +867,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_stage_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -879,20 +879,20 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_stage_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'stage' => esc_html__( 'Left', 'sk-elements' ),
+						'stage' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'stage' => esc_html__( 'Center', 'sk-elements' ),
+						'stage' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'stage' => esc_html__( 'Right', 'sk-elements' ),
+						'stage' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -910,7 +910,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_bar_style',
 			array(
-				'label'      => esc_html__( 'Progress Bar', 'sk-elements' ),
+				'label'      => esc_html__( 'Progress Bar', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -919,7 +919,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_bar_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .progress-bar' => 'background-color: {{VALUE}}',
@@ -930,7 +930,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_bar_background_color',
 			array(
-				'label'  => esc_html__( 'Background Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Background Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .progress' => 'background-color: {{VALUE}}',
@@ -948,7 +948,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_description_style',
 			array(
-				'label'      => esc_html__( 'Description', 'sk-elements' ),
+				'label'      => esc_html__( 'Description', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -957,7 +957,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_description_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['description'] => 'color: {{VALUE}}',
@@ -977,20 +977,20 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_description_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'description' => esc_html__( 'Left', 'sk-elements' ),
+						'description' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'description' => esc_html__( 'Center', 'sk-elements' ),
+						'description' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'description' => esc_html__( 'Right', 'sk-elements' ),
+						'description' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1003,7 +1003,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_description_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1015,7 +1015,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_description_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1074,7 +1074,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_date_time_style',
 			array(
-				'label'      => esc_html__( 'Date', 'sk-elements' ),
+				'label'      => esc_html__( 'Date', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1083,7 +1083,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_date_time_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['date'] => 'color: {{VALUE}}',
@@ -1103,20 +1103,20 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_date_time_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'description' => esc_html__( 'Left', 'sk-elements' ),
+						'description' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'description' => esc_html__( 'Center', 'sk-elements' ),
+						'description' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'description' => esc_html__( 'Right', 'sk-elements' ),
+						'description' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1129,7 +1129,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_date_time_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1141,7 +1141,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_date_time_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1201,7 +1201,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_venue_style',
 			array(
-				'label'      => esc_html__( 'Venue', 'sk-elements' ),
+				'label'      => esc_html__( 'Venue', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1210,7 +1210,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_venue_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['venue'].'a, {{WRAPPER}} ' . $css_scheme['venue'] => 'color: {{VALUE}}',
@@ -1221,7 +1221,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_venue_hover_color',
 			array(
-				'label'  => esc_html__( 'Hover Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Hover Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['venue'].'a:hover' => 'color: {{VALUE}}',
@@ -1245,20 +1245,20 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_venue_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'description' => esc_html__( 'Left', 'sk-elements' ),
+						'description' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'description' => esc_html__( 'Center', 'sk-elements' ),
+						'description' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'description' => esc_html__( 'Right', 'sk-elements' ),
+						'description' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1271,7 +1271,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_venue_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1283,7 +1283,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_venue_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1343,7 +1343,7 @@ class spCountDown extends Widget_Base {
 		$this->start_controls_section(
 			'status_league_style',
 			array(
-				'label'      => esc_html__( 'League', 'sk-elements' ),
+				'label'      => esc_html__( 'League', 'skyre' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			)
@@ -1352,7 +1352,7 @@ class spCountDown extends Widget_Base {
 		$this->add_control(
 			'status_league_color',
 			array(
-				'label'  => esc_html__( 'Color', 'sk-elements' ),
+				'label'  => esc_html__( 'Color', 'skyre' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} ' . $css_scheme['league'] => 'color: {{VALUE}}',
@@ -1372,20 +1372,20 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_league_alignment',
 			array(
-				'label'   => esc_html__( 'Alignment', 'sk-elements' ),
+				'label'   => esc_html__( 'Alignment', 'skyre' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => array(
 					'left'    => array(
-						'description' => esc_html__( 'Left', 'sk-elements' ),
+						'description' => esc_html__( 'Left', 'skyre' ),
 						'icon'  => 'fa fa-align-left',
 					),
 					'center' => array(
-						'description' => esc_html__( 'Center', 'sk-elements' ),
+						'description' => esc_html__( 'Center', 'skyre' ),
 						'icon'  => 'fa fa-align-center',
 					),
 					'right' => array(
-						'description' => esc_html__( 'Right', 'sk-elements' ),
+						'description' => esc_html__( 'Right', 'skyre' ),
 						'icon'  => 'fa fa-align-right',
 					),
 				),
@@ -1398,7 +1398,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_league_padding',
 			array(
-				'label'      => __( 'Padding', 'sk-elements' ),
+				'label'      => __( 'Padding', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1410,7 +1410,7 @@ class spCountDown extends Widget_Base {
 		$this->add_responsive_control(
 			'status_league_margin',
 			array(
-				'label'      => __( 'Margin', 'sk-elements' ),
+				'label'      => __( 'Margin', 'skyre' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
@@ -1686,7 +1686,7 @@ class spCountDown extends Widget_Base {
 		?>
 		<!--sk-countdown--> 
         <div class="sk-countdown text-center ">
-            <?php echo $html; ?>
+            <?php echo wp_kses_post($html); ?>
         </div>
         <!--End sk-countdown-->
 		<?php

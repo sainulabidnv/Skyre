@@ -28,13 +28,12 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
  * as indicating support for post thumbnails.
  */
 function skyre_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Skyre, use a find and replace
-	 * to change 'skyre' to the name of your theme in all the template files.
+	
+	/**
+	 * Load translations for skyre
 	 */
-	load_theme_textdomain( 'skyre' );
+	load_theme_textdomain('skyre', get_template_directory() . '/languages');
+
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -46,6 +45,7 @@ function skyre_setup() {
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
+	
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -58,9 +58,7 @@ function skyre_setup() {
 
 	add_image_size( 'skyre-thumbnail-avatar', 100, 100, true );
 
-	add_image_size( 'skyre-player-medium', 220, 250, true );
-
-	add_image_size( 'skyre-player-large', 440, 500, true );
+	add_image_size( 'post-medium', 700, 490, true );
 	
 	add_image_size( 'featuredthumb', 450, 300, true ); 
 	
@@ -113,7 +111,8 @@ function skyre_setup() {
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
-
+	
+	
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, and column width.

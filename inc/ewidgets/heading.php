@@ -405,7 +405,7 @@ class Widget_Heading extends Widget_Base {
 
 		$title_html = sprintf( '<%1$s class="elementor-heading-title" %2$s>%3$s %4$s</%1$s>', $settings['header_size'], $this->get_render_attribute_string( 'title' ), $title, $wrptitle );
 
-		echo $title_html;
+		echo wp_kses_post($title_html);
 	}
 
 	/**

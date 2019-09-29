@@ -2,13 +2,9 @@
 namespace ewidget\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-//use Elementor\Group_Control_Image_Size;
-//use Elementor\Utils;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-//use Elementor\Group_Control_Background;
-//use Elementor\Group_Control_Border;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor icon box widget.
+ * Elementor+Skyre icon box widget.
  *
- * Elementor widget that displays an icon, a headline and a text.
+ * Elementor+Skyre widget that displays an icon, a headline and a text.
  *
  * @since 1.0.0
  */
@@ -49,7 +45,7 @@ class Icon_Box extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Icon Box', 'elementor' );
+		return __( 'Icon Box', 'skyre' );
 	}
 
 	/**
@@ -92,14 +88,14 @@ class Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon',
 			[
-				'label' => __( 'Icon Box', 'elementor' ),
+				'label' => __( 'Icon Box', 'skyre' ),
 			]
 		);
 
 		$this->add_control(
 			'icon',
 			[
-				'label' => __( 'Icon', 'elementor' ),
+				'label' => __( 'Icon', 'skyre' ),
 				'type' => Controls_Manager::ICON,
 				'default' => 'fa fa-star',
 			]
@@ -108,12 +104,12 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => __( 'View', 'elementor' ),
+				'label' => __( 'View', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => __( 'Default', 'elementor' ),
-					'stacked' => __( 'Stacked', 'elementor' ),
-					'framed' => __( 'Framed', 'elementor' ),
+					'default' => __( 'Default', 'skyre' ),
+					'stacked' => __( 'Stacked', 'skyre' ),
+					'framed' => __( 'Framed', 'skyre' ),
 				],
 				'default' => 'default',
 				'prefix_class' => 'elementor-view-',
@@ -126,11 +122,11 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'shape',
 			[
-				'label' => __( 'Shape', 'elementor' ),
+				'label' => __( 'Shape', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'circle' => __( 'Circle', 'elementor' ),
-					'square' => __( 'Square', 'elementor' ),
+					'circle' => __( 'Circle', 'skyre' ),
+					'square' => __( 'Square', 'skyre' ),
 				],
 				'default' => 'circle',
 				'condition' => [
@@ -144,13 +140,13 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_text',
 			[
-				'label' => __( 'Title & Description', 'elementor' ),
+				'label' => __( 'Title & Description', 'skyre' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => __( 'This is the heading', 'elementor' ),
-				'placeholder' => __( 'Enter your title', 'elementor' ),
+				'default' => __( 'This is the heading', 'skyre' ),
+				'placeholder' => __( 'Enter your title', 'skyre' ),
 				'label_block' => true,
 			]
 		);
@@ -163,8 +159,8 @@ class Icon_Box extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
-				'placeholder' => __( 'Enter your description', 'elementor' ),
+				'default' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'skyre' ),
+				'placeholder' => __( 'Enter your description', 'skyre' ),
 				'rows' => 10,
 				'separator' => 'none',
 				'show_label' => false,
@@ -174,12 +170,12 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => __( 'Link', 'elementor' ),
+				'label' => __( 'Link', 'skyre' ),
 				'type' => Controls_Manager::URL,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://your-link.com', 'elementor' ),
+				'placeholder' => __( 'https://your-link.com', 'skyre' ),
 				'separator' => 'before',
 			]
 		);
@@ -187,20 +183,20 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'position',
 			[
-				'label' => __( 'Icon Position', 'elementor' ),
+				'label' => __( 'Icon Position', 'skyre' ),
 				'type' => Controls_Manager::CHOOSE,
 				'default' => 'top',
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => __( 'Left', 'skyre' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'top' => [
-						'title' => __( 'Top', 'elementor' ),
+						'title' => __( 'Top', 'skyre' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => __( 'Right', 'skyre' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -215,7 +211,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_size',
 			[
-				'label' => __( 'Title HTML Tag', 'elementor' ),
+				'label' => __( 'Title HTML Tag', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -237,7 +233,7 @@ class Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_icon',
 			[
-				'label' => __( 'Icon', 'elementor' ),
+				'label' => __( 'Icon', 'skyre' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'icon!' => '',
@@ -250,14 +246,14 @@ class Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'icon_colors_normal',
 			[
-				'label' => __( 'Normal', 'elementor' ),
+				'label' => __( 'Normal', 'skyre' ),
 			]
 		);
 
 		$this->add_control(
 			'primary_color',
 			[
-				'label' => __( 'Primary Color', 'elementor' ),
+				'label' => __( 'Primary Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -274,7 +270,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'secondary_color',
 			[
-				'label' => __( 'Secondary Color', 'elementor' ),
+				'label' => __( 'Secondary Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
@@ -292,14 +288,14 @@ class Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'icon_colors_hover',
 			[
-				'label' => __( 'Hover', 'elementor' ),
+				'label' => __( 'Hover', 'skyre' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_primary_color',
 			[
-				'label' => __( 'Primary Color', 'elementor' ),
+				'label' => __( 'Primary Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -312,7 +308,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'hover_secondary_color',
 			[
-				'label' => __( 'Secondary Color', 'elementor' ),
+				'label' => __( 'Secondary Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
@@ -328,7 +324,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'elementor' ),
+				'label' => __( 'Hover Animation', 'skyre' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -340,7 +336,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_space',
 			[
-				'label' => __( 'Spacing', 'elementor' ),
+				'label' => __( 'Spacing', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -363,7 +359,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => __( 'Size', 'elementor' ),
+				'label' => __( 'Size', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -380,7 +376,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_padding',
 			[
-				'label' => __( 'Padding', 'elementor' ),
+				'label' => __( 'Padding', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
@@ -400,7 +396,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'rotate',
 			[
-				'label' => __( 'Rotate', 'elementor' ),
+				'label' => __( 'Rotate', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -415,7 +411,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'border_width',
 			[
-				'label' => __( 'Border Width', 'elementor' ),
+				'label' => __( 'Border Width', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -429,7 +425,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => __( 'Border Radius', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -446,7 +442,7 @@ class Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => __( 'Content', 'skyre' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -454,23 +450,23 @@ class Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => __( 'Alignment', 'skyre' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => __( 'Left', 'skyre' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => __( 'Center', 'skyre' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => __( 'Right', 'skyre' ),
 						'icon' => 'fa fa-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'elementor' ),
+						'title' => __( 'Justified', 'skyre' ),
 						'icon' => 'fa fa-align-justify',
 					],
 				],
@@ -483,12 +479,12 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'content_vertical_alignment',
 			[
-				'label' => __( 'Vertical Alignment', 'elementor' ),
+				'label' => __( 'Vertical Alignment', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'top' => __( 'Top', 'elementor' ),
-					'middle' => __( 'Middle', 'elementor' ),
-					'bottom' => __( 'Bottom', 'elementor' ),
+					'top' => __( 'Top', 'skyre' ),
+					'middle' => __( 'Middle', 'skyre' ),
+					'bottom' => __( 'Bottom', 'skyre' ),
 				],
 				'default' => 'top',
 				'prefix_class' => 'elementor-vertical-align-',
@@ -498,7 +494,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'heading_title',
 			[
-				'label' => __( 'Title', 'elementor' ),
+				'label' => __( 'Title', 'skyre' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -507,7 +503,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'title_bottom_space',
 			[
-				'label' => __( 'Spacing', 'elementor' ),
+				'label' => __( 'Spacing', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -524,7 +520,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -549,7 +545,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'heading_description',
 			[
-				'label' => __( 'Description', 'elementor' ),
+				'label' => __( 'Description', 'skyre' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -558,7 +554,7 @@ class Icon_Box extends Widget_Base {
 		$this->add_control(
 			'description_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -628,16 +624,16 @@ class Icon_Box extends Widget_Base {
 		<div class="elementor-icon-box-wrapper">
 		<?php if ( $has_icon ) : ?>
 			<div class="elementor-icon-box-icon">
-				<<?php echo implode( ' ', [ $icon_tag, $icon_attributes, $link_attributes ] ); ?>>
-				<i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
-				</<?php echo $icon_tag; ?>>
+				<<?php echo wp_kses_post(implode( ' ', [ $icon_tag, $icon_attributes, $link_attributes ] )); ?>>
+				<i <?php echo wp_kses_post($this->get_render_attribute_string( 'i' )); ?>></i>
+				</<?php echo esc_attr($icon_tag); ?>>
 			</div>
 			<?php endif; ?>
 			<div class="elementor-icon-box-content">
-				<<?php echo $settings['title_size']; ?> class="elementor-icon-box-title">
-					<<?php echo implode( ' ', [ $icon_tag, $link_attributes ] ); ?><?php echo $this->get_render_attribute_string( 'title_text' ); ?>><?php echo $settings['title_text']; ?></<?php echo $icon_tag; ?>>
-				</<?php echo $settings['title_size']; ?>>
-				<p <?php echo $this->get_render_attribute_string( 'description_text' ); ?>><?php echo $settings['description_text']; ?></p>
+				<<?php echo esc_attr($settings['title_size']); ?> class="elementor-icon-box-title">
+					<<?php echo wp_kses_post(implode( ' ', [ $icon_tag, $link_attributes ]) );  echo esc_attr($this->get_render_attribute_string( 'title_text' )); ?>><?php echo esc_html($settings['title_text']); ?></<?php echo esc_attr($icon_tag); ?>>
+				</<?php echo esc_attr($settings['title_size']); ?>>
+				<p <?php echo wp_kses_post($this->get_render_attribute_string( 'description_text' )); ?>><?php echo esc_html($settings['description_text']); ?></p>
 			</div>
 		</div>
 		<?php

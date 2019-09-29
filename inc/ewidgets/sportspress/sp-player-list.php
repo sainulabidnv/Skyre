@@ -120,10 +120,10 @@ class spPlayers extends \Elementor\Widget_Base {
 				);
 			
 			$fields = array(
-				'default' => __( 'Default', 'sportspress' ),
-				'number' => __( 'Number', 'sportspress' ),
-				'name' => __( 'Name', 'sportspress' ),
-				'eventsplayed' => __( 'Played', 'sportspress' )
+				'default' => __( 'Default', 'skyre' ),
+				'number' => __( 'Number', 'skyre' ),
+				'name' => __( 'Name', 'skyre' ),
+				'eventsplayed' => __( 'Played', 'skyre' )
 				);
 			if( $columns = get_posts($args)){
 			foreach ( $columns as $column ) {

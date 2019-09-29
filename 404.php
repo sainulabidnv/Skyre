@@ -14,7 +14,7 @@ if(skyre_get_option('errorpage')) :
 	$id=skyre_get_option('errorpage'); 
 	$post = get_post($id); 
 	$content = apply_filters('the_content', $post->post_content); 
-	echo $content;
+	echo wp_kses_post($content);
 else:
 ?>
     

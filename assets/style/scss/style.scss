@@ -119,6 +119,27 @@ a:hover, .active a, .current-menu-item a, .current { color:$sk-secondary; }
 .skyre-grid-pagination { width:100%;}
 .pagination a, .pagination span { padding:10px; }
 
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone { margin: 5px 20px 20px 0; }
+.aligncenter, div.aligncenter {  display: block;  margin: 5px auto 5px auto; }
+.alignright { float:right; margin: 5px 0 20px 20px; }
+.alignleft { float: left; margin: 5px 20px 20px 0; }
+a img.alignright { float: right; margin: 5px 0 20px 20px; }
+a img.alignnone {  margin: 5px 20px 20px 0; }
+a img.alignleft { float: left;  margin: 5px 20px 20px 0; }
+a img.aligncenter {  display: block;  margin-left: auto; margin-right: auto; }
+.wp-caption { background: #fff; border: 1px solid #f0f0f0; max-width: 96%; /* Image does not overflow the content area */  padding: 5px 3px 10px;  text-align: center; }
+.wp-caption.alignnone {  margin: 5px 20px 20px 0; }
+.wp-caption.alignleft {  margin: 5px 20px 20px 0; }
+.wp-caption.alignright {  margin: 5px 0 20px 20px; }
+.wp-caption img { border: 0 none; height: auto; margin: 0; max-width: 98.5%; padding: 0; width: auto; }
+.wp-caption p.wp-caption-text { font-size: 11px;  line-height: 17px; margin: 0; padding: 0 4px 5px; }
+/* Text meant only for screen readers. */
+.screen-reader-text { border: 0; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute !important; width: 1px; word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+.screen-reader-text:focus { background-color: #eee; clip: auto !important; clip-path: none; color: #444; display: block; font-size: 1em; height: auto; left: 5px; line-height: normal; padding: 15px 23px 14px; text-decoration: none; top: 5px; width: auto; z-index: 100000; /* Above WP toolbar. */ }
+.bypostauthor { text-decoration: none; }
+
 /* 02.0 - Header Section */
 header { position:relative;}
 .mainmenu {
@@ -202,8 +223,8 @@ header { position:relative;}
 	}
 .rmap-items::after { clear:both; height:1px; position:relative; content: '';}
 .rmap-item {
-		 z-index:2; border-right:solid 4px rgba($sk-secondary, .20); position:relative; color:rgba($white,.5);
-		 h6 { color:rgba($white,.5);}
+		 z-index:2; border-right:solid 4px rgba($sk-secondary, .20); position:relative; color:rgba($sk-primary,.5);
+		 h6 { color:rgba($sk-primary,.5);}
 		 .date{ color:rgba($sk-secondary, .5); font-weight:400; font-size:$font-size-base * .9 ; float:right}
 	}
 .rmap-item-details {
@@ -223,15 +244,15 @@ header { position:relative;}
 	.rmap-circle { left:px(-15); }
 	}
 .finished {
-	 color:rgba($white,.7);
-	 h6 { color:rgba($white,.7); }
+	 color:rgba($sk-primary,.7);
+	 h6 { color:rgba($sk-primary,.7); }
 	&.rmap-item, .rmap-item-details, .rmap-item-sets, .rmap-circle { border-color:rgba($sk-secondary, .5);}
 	.rmap-circle { span { background-color:rgba($sk-secondary, .5) } }
 	.date{ color:rgba($sk-secondary, .8);}
 	}
 .active {
-	color:rgba($white,.7);
-	 h6 { color:rgba($white,.7); }
+	color:rgba($sk-primary,.7);
+	 h6 { color:rgba($sk-primary,.7); }
 	.rmap-item-details, .rmap-circle { border-color:rgba($sk-primary, 1); border-style:dashed}
 	.rmap-item-sets { border-color:rgba($sk-primary, 1); border-bottom-style:dashed}
 	.rmap-circle { span { background-color:rgba($sk-primary, 1) } }

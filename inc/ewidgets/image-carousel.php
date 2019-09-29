@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor image carousel widget.
+ * Elementor+Skyre image carousel widget.
  *
- * Elementor widget that displays a set of images in a rotating carousel or
+ * Elementor+Skyre widget that displays a set of images in a rotating carousel or
  * slider.
  *
  * @since 1.0.0
@@ -48,7 +48,7 @@ class Image_Carousel extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Image Carousel', 'elementor' );
+		return __( 'Image Carousel', 'skyre' );
 	}
 
 	/**
@@ -105,14 +105,14 @@ class Image_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_image_carousel',
 			[
-				'label' => __( 'Image Carousel', 'elementor' ),
+				'label' => __( 'Image Carousel', 'skyre' ),
 			]
 		);
 
 		$this->add_control(
 			'carousel',
 			[
-				'label' => __( 'Add Images', 'elementor' ),
+				'label' => __( 'Add Images', 'skyre' ),
 				'type' => Controls_Manager::GALLERY,
 				'default' => [],
 				'show_label' => false,
@@ -136,10 +136,10 @@ class Image_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'slides_to_show',
 			[
-				'label' => __( 'Slides to Show', 'elementor' ),
+				'label' => __( 'Slides to Show', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Default', 'elementor' ),
+					'' => __( 'Default', 'skyre' ),
 				] + $slides_to_show,
 				'frontend_available' => true,
 			]
@@ -148,11 +148,11 @@ class Image_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'slides_to_scroll',
 			[
-				'label' => __( 'Slides to Scroll', 'elementor' ),
+				'label' => __( 'Slides to Scroll', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
-				'description' => __( 'Set how many slides are scrolled per swipe.', 'elementor' ),
+				'description' => __( 'Set how many slides are scrolled per swipe.', 'skyre' ),
 				'options' => [
-					'' => __( 'Default', 'elementor' ),
+					'' => __( 'Default', 'skyre' ),
 				] + $slides_to_show,
 				'condition' => [
 					'slides_to_show!' => '1',
@@ -164,12 +164,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_stretch',
 			[
-				'label' => __( 'Image Stretch', 'elementor' ),
+				'label' => __( 'Image Stretch', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'no',
 				'options' => [
-					'no' => __( 'No', 'elementor' ),
-					'yes' => __( 'Yes', 'elementor' ),
+					'no' => __( 'No', 'skyre' ),
+					'yes' => __( 'Yes', 'skyre' ),
 				],
 			]
 		);
@@ -177,14 +177,14 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'navigation',
 			[
-				'label' => __( 'Navigation', 'elementor' ),
+				'label' => __( 'Navigation', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'both',
 				'options' => [
-					'both' => __( 'Arrows and Dots', 'elementor' ),
-					'arrows' => __( 'Arrows', 'elementor' ),
-					'dots' => __( 'Dots', 'elementor' ),
-					'none' => __( 'None', 'elementor' ),
+					'both' => __( 'Arrows and Dots', 'skyre' ),
+					'arrows' => __( 'Arrows', 'skyre' ),
+					'dots' => __( 'Dots', 'skyre' ),
+					'none' => __( 'None', 'skyre' ),
 				],
 				'frontend_available' => true,
 			]
@@ -193,13 +193,13 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'link_to',
 			[
-				'label' => __( 'Link', 'elementor' ),
+				'label' => __( 'Link', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none' => __( 'None', 'elementor' ),
-					'file' => __( 'Media File', 'elementor' ),
-					'custom' => __( 'Custom URL', 'elementor' ),
+					'none' => __( 'None', 'skyre' ),
+					'file' => __( 'Media File', 'skyre' ),
+					'custom' => __( 'Custom URL', 'skyre' ),
 				],
 			]
 		);
@@ -207,9 +207,9 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => __( 'Link', 'elementor' ),
+				'label' => __( 'Link', 'skyre' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'elementor' ),
+				'placeholder' => __( 'https://your-link.com', 'skyre' ),
 				'condition' => [
 					'link_to' => 'custom',
 				],
@@ -220,13 +220,13 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label' => __( 'Lightbox', 'elementor' ),
+				'label' => __( 'Lightbox', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'default' => __( 'Default', 'elementor' ),
-					'yes' => __( 'Yes', 'elementor' ),
-					'no' => __( 'No', 'elementor' ),
+					'default' => __( 'Default', 'skyre' ),
+					'yes' => __( 'Yes', 'skyre' ),
+					'no' => __( 'No', 'skyre' ),
 				],
 				'condition' => [
 					'link_to' => 'file',
@@ -237,15 +237,15 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'content_title',
 			[
-				'label' => __( 'Title', 'elementor' ),
+				'label' => __( 'Title', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'elementor' ),
-					'title' => __( 'Title', 'elementor' ),
-					'description' => __( 'Description', 'elementor' ),
-					'caption' => __( 'Caption', 'elementor' ),
-					'alt' => __( 'Alt', 'elementor' ),
+					'' => __( 'None', 'skyre' ),
+					'title' => __( 'Title', 'skyre' ),
+					'description' => __( 'Description', 'skyre' ),
+					'caption' => __( 'Caption', 'skyre' ),
+					'alt' => __( 'Alt', 'skyre' ),
 					
 				],
 			]
@@ -254,15 +254,15 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'content_des',
 			[
-				'label' => __( 'Description', 'elementor' ),
+				'label' => __( 'Description', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'elementor' ),
-					'title' => __( 'Title', 'elementor' ),
-					'description' => __( 'Description', 'elementor' ),
-					'caption' => __( 'Caption', 'elementor' ),
-					'alt' => __( 'Alt', 'elementor' ),
+					'' => __( 'None', 'skyre' ),
+					'title' => __( 'Title', 'skyre' ),
+					'description' => __( 'Description', 'skyre' ),
+					'caption' => __( 'Caption', 'skyre' ),
+					'alt' => __( 'Alt', 'skyre' ),
 					
 				],
 			]
@@ -271,15 +271,15 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'content_button',
 			[
-				'label' => __( 'Button Text', 'elementor' ),
+				'label' => __( 'Button Text', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'elementor' ),
-					'title' => __( 'Title', 'elementor' ),
-					'description' => __( 'Description', 'elementor' ),
-					'caption' => __( 'Caption', 'elementor' ),
-					'alt' => __( 'Alt', 'elementor' ),
+					'' => __( 'None', 'skyre' ),
+					'title' => __( 'Title', 'skyre' ),
+					'description' => __( 'Description', 'skyre' ),
+					'caption' => __( 'Caption', 'skyre' ),
+					'alt' => __( 'Alt', 'skyre' ),
 					
 				],
 			]
@@ -288,15 +288,15 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'content_button_link',
 			[
-				'label' => __( 'Button Link', 'elementor' ),
+				'label' => __( 'Button Link', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'elementor' ),
-					'title' => __( 'Title', 'elementor' ),
-					'description' => __( 'Description', 'elementor' ),
-					'caption' => __( 'Caption', 'elementor' ),
-					'alt' => __( 'Alt', 'elementor' ),
+					'' => __( 'None', 'skyre' ),
+					'title' => __( 'Title', 'skyre' ),
+					'description' => __( 'Description', 'skyre' ),
+					'caption' => __( 'Caption', 'skyre' ),
+					'alt' => __( 'Alt', 'skyre' ),
 					
 				],
 			]
@@ -307,7 +307,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => __( 'View', 'elementor' ),
+				'label' => __( 'View', 'skyre' ),
 				'type' => Controls_Manager::HIDDEN,
 				'default' => 'traditional ',
 			]
@@ -316,11 +316,11 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'content_position',
 			[
-				'label' => __( 'Content Possition', 'elementor' ),
+				'label' => __( 'Content Possition', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Default', 'elementor' ),
-					'hero' => __( 'Hero', 'elementor' ),
+					'' => __( 'Default', 'skyre' ),
+					'hero' => __( 'Hero', 'skyre' ),
 				],
 				'default' => '',
 			]
@@ -331,19 +331,19 @@ class Image_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_additional_options',
 			[
-				'label' => __( 'Additional Options', 'elementor' ),
+				'label' => __( 'Additional Options', 'skyre' ),
 			]
 		);
 
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label' => __( 'Pause on Hover', 'elementor' ),
+				'label' => __( 'Pause on Hover', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'yes',
 				'options' => [
-					'yes' => __( 'Yes', 'elementor' ),
-					'no' => __( 'No', 'elementor' ),
+					'yes' => __( 'Yes', 'skyre' ),
+					'no' => __( 'No', 'skyre' ),
 				],
 				'frontend_available' => true,
 			]
@@ -352,12 +352,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label' => __( 'Autoplay', 'elementor' ),
+				'label' => __( 'Autoplay', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'yes',
 				'options' => [
-					'yes' => __( 'Yes', 'elementor' ),
-					'no' => __( 'No', 'elementor' ),
+					'yes' => __( 'Yes', 'skyre' ),
+					'no' => __( 'No', 'skyre' ),
 				],
 				'frontend_available' => true,
 			]
@@ -366,7 +366,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label' => __( 'Autoplay Speed', 'elementor' ),
+				'label' => __( 'Autoplay Speed', 'skyre' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 5000,
 				'frontend_available' => true,
@@ -376,12 +376,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'infinite',
 			[
-				'label' => __( 'Infinite Loop', 'elementor' ),
+				'label' => __( 'Infinite Loop', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'yes',
 				'options' => [
-					'yes' => __( 'Yes', 'elementor' ),
-					'no' => __( 'No', 'elementor' ),
+					'yes' => __( 'Yes', 'skyre' ),
+					'no' => __( 'No', 'skyre' ),
 				],
 				'frontend_available' => true,
 			]
@@ -390,12 +390,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'effect',
 			[
-				'label' => __( 'Effect', 'elementor' ),
+				'label' => __( 'Effect', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'slide',
 				'options' => [
-					'slide' => __( 'Slide', 'elementor' ),
-					'fade' => __( 'Fade', 'elementor' ),
+					'slide' => __( 'Slide', 'skyre' ),
+					'fade' => __( 'Fade', 'skyre' ),
 				],
 				'condition' => [
 					'slides_to_show' => '1',
@@ -407,7 +407,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label' => __( 'Animation Speed', 'elementor' ),
+				'label' => __( 'Animation Speed', 'skyre' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 500,
 				'frontend_available' => true,
@@ -417,12 +417,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'direction',
 			[
-				'label' => __( 'Direction', 'elementor' ),
+				'label' => __( 'Direction', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'ltr',
 				'options' => [
-					'ltr' => __( 'Left', 'elementor' ),
-					'rtl' => __( 'Right', 'elementor' ),
+					'ltr' => __( 'Left', 'skyre' ),
+					'rtl' => __( 'Right', 'skyre' ),
 				],
 				'frontend_available' => true,
 			]
@@ -433,7 +433,7 @@ class Image_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label' => __( 'Navigation', 'elementor' ),
+				'label' => __( 'Navigation', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation' => [ 'arrows', 'dots', 'both' ],
@@ -444,7 +444,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'heading_style_arrows',
 			[
-				'label' => __( 'Arrows', 'elementor' ),
+				'label' => __( 'Arrows', 'skyre' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -456,12 +456,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_position',
 			[
-				'label' => __( 'Position', 'elementor' ),
+				'label' => __( 'Position', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'inside',
 				'options' => [
-					'inside' => __( 'Inside', 'elementor' ),
-					'outside' => __( 'Outside', 'elementor' ),
+					'inside' => __( 'Inside', 'skyre' ),
+					'outside' => __( 'Outside', 'skyre' ),
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -472,7 +472,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_size',
 			[
-				'label' => __( 'Size', 'elementor' ),
+				'label' => __( 'Size', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -492,7 +492,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-image-carousel-wrapper .slick-slider .slick-prev:before, {{WRAPPER}} .elementor-image-carousel-wrapper .slick-slider .slick-next:before' => 'color: {{VALUE}};',
@@ -506,7 +506,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'heading_style_dots',
 			[
-				'label' => __( 'Dots', 'elementor' ),
+				'label' => __( 'Dots', 'skyre' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -518,12 +518,12 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_position',
 			[
-				'label' => __( 'Position', 'elementor' ),
+				'label' => __( 'Position', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'outside',
 				'options' => [
-					'outside' => __( 'Outside', 'elementor' ),
-					'inside' => __( 'Inside', 'elementor' ),
+					'outside' => __( 'Outside', 'skyre' ),
+					'inside' => __( 'Inside', 'skyre' ),
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -534,7 +534,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_size',
 			[
-				'label' => __( 'Size', 'elementor' ),
+				'label' => __( 'Size', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -554,7 +554,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => __( 'Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-image-carousel-wrapper .elementor-image-carousel .slick-dots li button:before' => 'color: {{VALUE}};',
@@ -570,7 +570,7 @@ class Image_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label' => __( 'Image', 'elementor' ),
+				'label' => __( 'Image', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -578,11 +578,11 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_spacing',
 			[
-				'label' => __( 'Spacing', 'elementor' ),
+				'label' => __( 'Spacing', 'skyre' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Default', 'elementor' ),
-					'custom' => __( 'Custom', 'elementor' ),
+					'' => __( 'Default', 'skyre' ),
+					'custom' => __( 'Custom', 'skyre' ),
 				],
 				'default' => '',
 				'condition' => [
@@ -594,7 +594,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_spacing_custom',
 			[
-				'label' => __( 'Image Spacing', 'elementor' ),
+				'label' => __( 'Image Spacing', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -628,7 +628,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => __( 'Border Radius', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default' => [
@@ -643,7 +643,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_opacity',
 			[
-				'label' => __( 'Opacity', 'elementor' ),
+				'label' => __( 'Opacity', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -663,7 +663,7 @@ class Image_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_caption',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => __( 'Content', 'skyre' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'content_title!' => '',
@@ -674,23 +674,23 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'caption_align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => __( 'Alignment', 'skyre' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => __( 'Left', 'skyre' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => __( 'Center', 'skyre' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => __( 'Right', 'skyre' ),
 						'icon' => 'fa fa-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'elementor' ),
+						'title' => __( 'Justified', 'skyre' ),
 						'icon' => 'fa fa-align-justify',
 					],
 				],
@@ -704,7 +704,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'caption_text_color',
 			[
-				'label' => __( 'Title Color', 'elementor' ),
+				'label' => __( 'Title Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -717,7 +717,7 @@ class Image_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'caption_typography',
-				'label' => __( 'Title Typography', 'plugin-domain' ),
+				'label' => __( 'Title Typography', 'skyre' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .sk-carousel-title',
 			]
@@ -725,7 +725,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_margin',
 			[
-				'label' => __( 'Title Margin', 'elementor' ),
+				'label' => __( 'Title Margin', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				
@@ -738,7 +738,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_control(
 			'description_text_color',
 			[
-				'label' => __( 'Description Color', 'elementor' ),
+				'label' => __( 'Description Color', 'skyre' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -751,7 +751,7 @@ class Image_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'description_typography',
-				'label' => __( 'Description Typography', 'plugin-domain' ),
+				'label' => __( 'Description Typography', 'skyre' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .sk-carousel-description',
 			]
@@ -759,7 +759,7 @@ class Image_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'description_margin',
 			[
-				'label' => __( 'Description Margin', 'elementor' ),
+				'label' => __( 'Description Margin', 'skyre' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				
@@ -871,8 +871,8 @@ class Image_Carousel extends Widget_Base {
 		}
 
 		?>
-		<div class="elementor-image-carousel-wrapper elementor-slick-slider" dir="<?php echo $settings['direction']; ?>">
-			<div <?php echo $this->get_render_attribute_string( 'carousel' ); ?>>
+		<div class="elementor-image-carousel-wrapper elementor-slick-slider" dir="<?php echo esc_attr($settings['direction']); ?>">
+			<div <?php echo wp_kses_post($this->get_render_attribute_string( 'carousel' )); ?>>
 				<?php echo implode( '', $slides ); ?>
 			</div>
 		</div>
