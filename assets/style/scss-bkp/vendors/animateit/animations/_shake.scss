@@ -1,0 +1,55 @@
+/********
+* Shake *
+********/
+
+@mixin shake-frames(){
+  0%, 100% {
+    @include translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    @include translateX( -10px );
+  }
+  20%, 40%, 60%, 80% {
+    @include translateX( 10px );
+  }
+}
+
+@-webkit-keyframes shake {
+  @include shake-frames;
+}
+
+@keyframes shake {
+  @include shake-frames;
+}
+
+.shake.go {
+  @include animation( shake );
+}
+
+/********
+* ShakeUp *
+********/
+
+@mixin shakeUp-frames(){
+  0%, 100% {
+    @include translateY(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    @include translateY( -10px );
+  }
+  20%, 40%, 60%, 80% {
+    @include translateY( 10px );
+  }
+}
+
+@-webkit-keyframes shakeUp {
+  @include shakeUp-frames;
+}
+
+@keyframes shakeUp {
+  @include shakeUp-frames;
+}
+
+.shakeUp.go {
+  @include animation( shakeUp );
+}

@@ -19,6 +19,8 @@
 
 <?php wp_head(); 
 //delete_option( 'skyre_post' );
+//echo '<pre>';
+//print_r(get_option( 'skyre_page' ));
 ?>
 </head>
 <body <?php body_class('white'); ?> >  
@@ -46,7 +48,9 @@
         <nav class="mainmenu <?php if(skyre_get_option('box_shadow')) { ?>box-shadow <?php } ?> <?php if(skyre_get_option('sticky_header') != 1) { ?>is-sticky <?php } ?> navbar navbar-expand-lg" id="mainmenu">
             <div class="container">
                 <a class="navbar-brand  animated fadeInUpShort" data-animate="fadeInDown" data-delay=".65" href="<?php  echo esc_url( home_url() ); ?>">
-                	<img class="logo logo-dark" alt="<?php echo get_bloginfo(); ?>" src="<?php echo esc_url($image[0]); ?>">
+					<?php if ( get_theme_mod( 'custom_logo' ) ) { ?>
+					<img class="logo my-1" alt="<?php echo get_bloginfo(); ?>" src="<?php echo esc_url($image[0]); ?>">
+					<?php }else { echo '<p class=my-1>' . get_bloginfo( 'name' ) . '</p>'; } ?>
                 </a>
                 <button class="navbar-toggler skpbg skwc" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 	<span class="navbar-toggler-icon"></span>
@@ -55,7 +59,7 @@
                    <?php
 						wp_nav_menu( array(
 							'theme_location'  => 'primary',
-							'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+							'depth'	          => '11', // 1 = no dropdowns, 2 = with dropdowns.
 							'container'       => '',
 							'container_class' => 'collapse navbar-collapse justify-content-end',
 							'container_id'    => 'navbarToggle',

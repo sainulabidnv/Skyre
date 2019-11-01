@@ -1,0 +1,178 @@
+.fadeInRight,
+.fadeInLeft,
+.fadeInUp,
+.fadeInDown {
+  @include opacity;
+  @include translateX( 400px );
+}
+
+/**********
+* Fade In *
+**********/
+
+@mixin fadeIn-frames(){
+  0% {
+    @include opacity;
+  }
+  100% {
+    display: block;
+
+    @include opacity( 1 );
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  @include fadeIn-frames;
+}
+
+@keyframes fadeIn {
+  @include fadeIn-frames;
+}
+
+.fadeIn {
+  @include opacity;
+
+  &.go {
+    @include animation( fadeIn );
+  }
+}
+
+/*************
+* FadeInLeft *
+*************/
+
+@mixin fadeInLeft-frames(){
+  0% {
+    @include opacity;
+    @include translateX( -400px );
+  }
+  50% {
+    @include opacity( .3 );
+  }
+  100% {
+    @include opacity( 1 );
+    @include translateX;
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  @include fadeInLeft-frames;
+}
+
+@keyframes fadeInLeft {
+  @include fadeInLeft-frames;
+}
+
+.fadeInLeft {
+  @include opacity;
+  @include translateX( -400px );
+
+  &.go {
+    @include animation( fadeInLeft );
+  }
+}
+
+/*************
+* FadeInRight *
+*************/
+
+@mixin fadeInRight-frames(){
+  0% {
+    @include opacity;
+    @include translateX( 400px );
+  }
+  50% {
+    @include opacity( .3 );
+  }
+  100% {
+    @include opacity( 1 );
+    @include translateX;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  @include fadeInRight-frames;
+}
+
+@keyframes fadeInRight {
+  @include fadeInRight-frames;
+}
+
+.fadeInRight {
+  @include opacity;
+  @include translateX( 400px );
+
+  &.go {
+    @include animation( fadeInRight );
+  }
+}
+
+/*************
+* FadeInUp *
+*************/
+
+@mixin fadeInUp-frames(){
+  0% {
+    @include opacity;
+    @include translateY( 400px );
+  }
+  50% {
+    @include opacity( .3 );
+  }
+  100% {
+    @include opacity( 1 );
+    @include translateY;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  @include fadeInUp-frames;
+}
+
+@keyframes fadeInUp {
+  @include fadeInUp-frames;
+}
+
+.fadeInUp {
+  @include opacity;
+  @include translateY( 400px );
+
+  &.go {
+    @include animation( fadeInUp );
+  }
+}
+
+/*************
+* FadeInDown *
+*************/
+
+@mixin fadeInDown-frames(){
+  0% {
+    @include opacity;
+    @include translateY( -400px );
+  }
+  50% {
+    @include opacity( .3 );
+  }
+  100% {
+    @include opacity( 1 );
+    @include translateY;
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  @include fadeInDown-frames;
+}
+
+@keyframes fadeInDown {
+  @include fadeInDown-frames;
+}
+
+.fadeInDown {
+  @include opacity;
+  @include translateY( -400px );
+
+  &.go {
+    @include animation( fadeInDown );
+  }
+}

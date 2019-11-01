@@ -31,32 +31,37 @@ get_header(); ?>
     <div class="container<?php if(skyre_get_post_option('blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
         <div class="row">
             <div class="<?php if(skyre_get_post_option('blog_layout') != '2' ) { ?> col-lg-8 <?php } else {?> col-lg-12 <?php } ?>">
-            	<div class="row">
-
-					<?php
-                    if ( have_posts() ) :
-            
-                        /* Start the Loop */
-                        while ( have_posts() ) : the_post();
-            
-                            /*
-                             * Include the Post-Format-specific template for the content.
-                             * If you want to override this in a child theme, then include a file
-                             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                             */
-                            get_template_part( 'template-parts/post/content', get_post_format() );
-            
-                        endwhile;
-            
-                        skyre_pagination();
-            
-                    else :
-            
-                        get_template_part( 'template-parts/post/content', 'none' );
-            
-                    endif;
+                <?php
+                if ( have_posts() ) :
                     ?>
-				</div>
+                    <div class='sk-post-wrap row'>
+                    <?php
+        
+                    /* Start the Loop */
+                    while ( have_posts() ) : the_post();
+        
+                        /*
+                            * Include the Post-Format-specific template for the content.
+                            * If you want to override this in a child theme, then include a file
+                            * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                            */
+                        
+                            get_template_part( 'template-parts/post/content', get_post_format() );
+        
+                    endwhile;
+                    ?>
+                    </div> 
+                    <div class='clear'></div>
+                    <?php
+        
+                    do_action('skyre_index_pagination');
+        
+                else :
+        
+                    get_template_part( 'template-parts/post/content', 'none' );
+        
+                endif;
+                ?>
             </div>
             <?php if(skyre_get_post_option('blog_layout') != '2' ) { ?> 
             <div class="col-lg-4 <?php if(skyre_get_post_option('blog_layout') == '1') { ?> order-first <?php } ?>">

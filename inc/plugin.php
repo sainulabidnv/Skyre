@@ -101,7 +101,7 @@ class Plugin {
 		require SKYRE_THEME_DIR .'inc/ewidgets/image-carousel.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/icon-box.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/sk-slider.php' ;
-		require SKYRE_THEME_DIR .'inc/ewidgets/support/class-jet-elements-tools.php' ;
+		//require SKYRE_THEME_DIR .'inc/ewidgets/support/class-jet-elements-tools.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/twitter.php' ;
 	}
 

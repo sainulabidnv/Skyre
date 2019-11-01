@@ -93,16 +93,6 @@ if ( ! class_exists( 'Skyre_Configuration_Layout' ) ) {
 					'type'      => 'checkbox'
 			) );
 			
-			/* Add divider  */
-			$wp_customize->register_control_type( 'Skyre_Control_Divider' );
-			
-			$wp_customize->add_setting( 'divider_'.$option['id'], 
-				array( 'type'  => 'option', ) 
-			);
-			$wp_customize->add_control( new Skyre_Control_Divider( $wp_customize, 'divider_'.$option['id'],
-				array( 'section' => 'skyre_layout', )
-			) );
-			/* Add divider  */
 			
 		}
 }

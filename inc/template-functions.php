@@ -138,10 +138,21 @@ function skyre_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'skyre_body_classes' );
+function testet(){
+	echo 125454644554546;
+}
+
+add_action('skyre_index_pagination','skyre_pagination');
+add_action('skyre_search_pagination','skyre_pagination');
+add_action('skyre_archive_pagination','skyre_pagination');
+
 
 /** Pagination **/
 if ( ! function_exists( 'skyre_pagination' ) ) :
-function skyre_pagination($prev = '<i class="fa fa-angle-double-left"></i>', $next = '<i class="fa fa-angle-double-right"></i>', $pages='') {
+function skyre_pagination($prev = '', $next='', $pages='') {
+	$prev = empty($prev )? '<i class="fa fa-angle-double-left"></i>': $prev ;
+	$next = empty($next )? '<i class="fa fa-angle-double-right"></i>': $next ;
+	
   global $wp_query, $wp_rewrite;
   $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
   if($pages==''){
@@ -211,6 +222,28 @@ function skyre_post_title(){
 		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 	} 
 }
+
+add_action('skyre_single_header','skyre_post_modern_header');
+
+function skyre_post_modern_header(){
+	global $post;
+	if(skyre_get_post_option('template_style') == 'modern' && is_single()) :  ?>
+    <div class="post-modern-title single-post-title skpbg" <?php if ( has_post_thumbnail() )  {  echo sprintf( 'style="background-image:url(%s); background-size: cover;"', get_the_post_thumbnail_url() ); } ?> > 
+        <div class="container<?php if(skyre_get_post_option('blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
+            <h1 class="skwc"><?php the_title(); ?></h1>
+            <?php 
+            $byline = sprintf(
+                /* translators: %s: post author */
+                __( ' Publicshed By %s', 'skyre' ),
+                '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . get_the_author_meta( 'display_name', $post->post_author ) . '</a></span>'
+            );
+             echo '<div class="post-meta skwc"> <span class="byline"> ' . $byline . '</span>  <span class="posted-on">' . __(' on ','skyre').get_the_date() . '</span> </div>';
+            ?>
+        </div>
+    </div>
+    <?php endif;
+}
+
 function skyre_post_content(){
 	?>
 	<div class="post-content">
@@ -233,6 +266,7 @@ function skyre_post_content(){
 		) );
 		?>
 	</div><!-- .entry-content -->
+	<div class="clear"></div>
 <?php
 	
 }
@@ -252,25 +286,29 @@ function skyre_post_meta(){
 	?>
 		<?php if ( 'post' === get_post_type() ) { ?>
 			<div class="post-meta">
-				<?php if ( is_single() ) { skyre_posted_on(); } else { echo skyre_time_link(); skyre_edit_link(); }; ?>
+				<?php  skyre_posted_on(); ?>
 			</div><!-- .entry-meta -->
 		<?php } ?>
     <?php
 }
 
 function skyre_post_image(){
+	if ( has_post_thumbnail() )  {
 	 ?>
 		<div class="post-image">
 			<a href="<?php the_permalink(); ?>">
 				<?php 
-				if ( has_post_thumbnail() )  {
-					if( is_single()) { the_post_thumbnail( 'full' );} 
-					else { the_post_thumbnail( 'featuredthumb' ); } 
-				}else if( !is_single()) echo '<img height="300" width="450" src="'.SKYRE_THEME_URI.'assets/images/featuredthumb.jpg">';
+				if( is_single()) { 
+					the_post_thumbnail( 'full' );
+				} 
+				else { 
+					the_post_thumbnail( 'featuredthumb' ); 
+				} 
 				?>
 			</a>
 		</div><!-- .post-thumbnail -->
 	<?php 
+	}
 }
 
 //custom post comment
@@ -282,13 +320,15 @@ function skyre_comment($comment, $args, $depth) {
     } else {
         $tag       = 'li';
         $add_below = 'div-comment';
-    }?>
+	}
+	
+	?>
     <<?php echo esc_attr($tag); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
     if ( 'div' != $args['style'] ) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
     } ?>
         <div class="row">
-        	<?php if(skyre_get_post_option('avatar_status') != 1) { ?>
+        	<?php if(skyre_get_post_option('avatar_status') != 1 and get_option('show_avatars') == 1 ) { ?>
             <div class="avatar-wrap"> 
 				<?php if ( $args['avatar_size'] != 0 ) {
 					echo get_avatar( $comment, $args['avatar_size'] ); 

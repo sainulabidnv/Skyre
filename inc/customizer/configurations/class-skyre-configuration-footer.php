@@ -46,7 +46,8 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
 			
 			$wp_customize->add_setting('skyre[footer_logo]', array(
                 'default' => '',
-                'type'  => 'option'
+                'type'  => 'option',
+                'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre[footer_logo]', array(
                 'label' => __('Footer Logo/Icon', 'skyre'),
@@ -115,7 +116,8 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
 			
 			$wp_customize->add_setting('skyre[footer_bg_image]', array(
                 'default' => '',
-                'type'  => 'option'
+                'type'  => 'option',
+                'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre[footer_bg_image]', array(
                 'label' => __('Background Image', 'skyre'),

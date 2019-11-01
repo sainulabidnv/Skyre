@@ -31,25 +31,33 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$larray = explode(",", $color);
 			$light = $larray[0].','.$larray[1].','.$larray[2].',.15)';
 			$dark = $larray[0].','.$larray[1].','.$larray[2].',.5)';
-			$style_css .= 'body, a, .skpc, a.sksc:hover, .sksc a:hover, body, .widget_search .search-field { color:'.$color.'; }';
-			$style_css .= '.skpbg, a.sksbg:hover, .has-fixed.navbar { background-color:'.$color.'; }';
+			$style_css .= 'body, a, .skpc, a.sksc:hover, .sksc a:hover, body, .widget_search .search-field, .dropdown-menu a, .form-control { color:'.$color.'; }';
+			$style_css .= '.skpbg, a.sksbg:hover, .has-fixed.navbar, .btn-skyre:hover { background-color:'.$color.'; }';
 			$style_css .= '.skpbg5 { background-color:'.$dark.' ; }';
 			$style_css .= '.skpbg15 { background-color:'.$light.' ; }';
-			$style_css .= '.sk-border-15 { border-color:'.$light.' ; }';
+			$style_css .= '.sk-border-15, .widget li{ border-color:'.$light.' ; }';
+			$style_css .= '.form-control { border-color:'.$dark.' ; }';
 			$style_css .= '.sk-border { border-color:'.$color.'; }';
 			$style_css .= '.sk-light-bg, .widget_search .search-field { background-color:'.$light.'; }';
+			$style_css .= '.meta span, .meta a, .meta time { color:'.$dark.' ; }';
+			
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.button { background-color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-tabs .tabs li.active { background-color:'.$color.' !important; }';
 				$style_css .= '.woocommerce-tabs .tabs li { background-color:'.$light.' !important; }';
+				$style_css .= '.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register { border-color:'.$light.'; }';
+
+				
 				
 			  }
 		}
 		//Secondary Color
 		if(skyre_get_option('secondary_color') ){
+			//cat-links
+			//.post-content  a
 			$color = skyre_get_option("secondary_color");
-			$style_css .= 'a:hover, .active a, .current-menu-item a, .sksc, .sksc a, a.skpc:hover, .skwc a:hover, .skpc a:hover, .has-fixed a:hover, .current { color:'.$color.'; }';
-			$style_css .= '.sksbg, a.skpbg:hover, .scrollTop { background-color:'.$color.'; }';
+			$style_css .= 'a:hover, .active > a, .current-menu-item a, .sksc, .sksc a, a.skpc:hover, .skwc a:hover, .skpc a:hover, .has-fixed a:hover, .current, .post-content a, .page-content a, .tags-links a, .dropdown-menu a:hover, .dropdown-menu .active a { color:'.$color.'; }';
+			$style_css .= '.sksbg, a.skpbg:hover, .scrollTop, .pagination a.current, .pagination span.current, .cat-links a, .btn-skyre { background-color:'.$color.'; }';
 			$style_css .= '.cssload-loading:after, .cssload-loading:before { border:solid 1px '.$color.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.button:hover, .woocommerce .onsale { background-color:'.$color.'  !important; }';
@@ -69,7 +77,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 		//White Color
 		if(skyre_get_option('white_color') ){
 			$color = skyre_get_option("white_color");
-			$style_css .= '.skwc, .skwc a, a.skpc:hover, .scrollTop a { color:'.$color.'; }';
+			$style_css .= '.skwc, .skwc a, a.skpc:hover, .scrollTop a, .btn-skyre, .has-fixed .nav-link, .pagination a.current, .pagination span.current { color:'.$color.'; }';
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.button, a.button { color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-tabs .tabs li a { color:'.$color.' !important; }';

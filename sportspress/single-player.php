@@ -59,9 +59,9 @@ $statistics = $player->statistics;
                 </div>
                 <div class="col-md-7"> 
                     <ul class="player-meta">
-                    <li><span><?php echo !empty($sta['goals']) ? $sta['goals']:'0' ?></span> <?php _e('Goals','skyre'); ?> ss</li>
-                    <li><span><?php echo !empty($sta['assists']) ? $sta['assists']:'0' ?></span> Assists </li>
-                    <li><span><?php echo !empty($sta['winratio']) ? $sta['winratio']:'0' ?></span> Win Ratio </li>
+                    <li><span><?php echo !empty($sta['goals']) ? $sta['goals']:'0' ?></span> <?php _e('Goals','skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta['assists']) ? $sta['assists']:'0' ?></span> <?php _e('Assists','skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta['winratio']) ? $sta['winratio']:'0' ?></span> <?php _e('Win Ratio','skyre'); ?> </li>
                     <div class="clearfilter"></div>  
                     
                     </ul>

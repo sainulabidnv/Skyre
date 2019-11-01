@@ -8,9 +8,10 @@
  * @version 1.0
  */
 
-get_header(); ?>
+get_header();  
+do_action('skyre_single_header');  
 
-    
+?>
 </header>
 
 <section id="single" class="skyre-single sk-border-15" >
@@ -20,7 +21,8 @@ get_header(); ?>
 
 			<?php
 			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+            while ( have_posts() ) : the_post();
+            
 
 				get_template_part( 'template-parts/post/content', get_post_format() );
 				$prev_post = get_previous_post();
@@ -50,7 +52,7 @@ get_header(); ?>
                             </div>
                         </div>
                         <?php endif; ?>
-                        <div class="clearfix"></div>
+                        <div class="clear"></div>
                     </div>
                 </div>
 

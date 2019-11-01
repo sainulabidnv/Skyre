@@ -158,7 +158,8 @@ if ( ! class_exists( 'Skyre_Configuration_Page' ) ) {
 			
 			$wp_customize->add_setting('skyre_page[bg_image]', array(
                 'default' => '',
-                'type'  => 'option'
+				'type'  => 'option', 
+				'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre_page[bg_image]', array(
                 'label' => __('Background Image', 'skyre'),
@@ -257,7 +258,8 @@ if ( ! class_exists( 'Skyre_Configuration_Page' ) ) {
 			
 			$wp_customize->add_setting('skyre_page[title_bg_image]', array(
                 'default' => '',
-                'type'  => 'option'
+				'type'  => 'option', 
+				'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre_page[title_bg_image]', array(
                 'label' => __('Background Image', 'skyre'),

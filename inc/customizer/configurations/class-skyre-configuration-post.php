@@ -406,7 +406,22 @@ if ( ! class_exists( 'Skyre_Configuration_Post' ) ) {
                     'section'   => 'skyre_single_post_style',
                     'priority'  => 10,
                     'type'      => 'checkbox'
-            ) );
+			) );
+			
+			$wp_customize->add_setting( 'skyre_post[template_style]', array(
+				'type'  => 'option',
+				'sanitize_callback' => 'skyre_sanitize_template_style',
+			) );
+			// add checkbox control for excerpts/full posts toggle
+			$wp_customize->add_control( 'skyre_post[template_style]', array(
+					'label'     => esc_html__( 'Template Style', 'skyre' ),
+					'section'   => 'skyre_single_post_style',
+					'priority'  => 10,
+					'type' => 'select',
+					'choices' => array(
+						'' => __( 'Custom', 'skyre' ),
+						'modern' => __( 'Modern', 'skyre' ), ),
+			) );
 			
 			/*Post/Post archive layout*/
 			$wp_customize->register_control_type( 'Skyre_Control_Radio_Image' );
@@ -667,56 +682,6 @@ if ( ! class_exists( 'Skyre_Configuration_Post' ) ) {
 					
 				)
 			) );
-			
-		
-			
-			
-			
-		
-			
-			
-			
-			/*Post/Post archive layout*/
-			/*$wp_customize->register_control_type( 'Skyre_Control_Radio_Image' );
-			$wp_customize->add_setting( 'skyre_post[single_blog_layout]',
-				array(
-					'default' => '',
-					'type'  => 'option',
-					'sanitize_callback' => 'skyre_radio_image_sanitization'
-				)
-			);
-			$wp_customize->add_control( new Skyre_Control_Radio_Image( $wp_customize, 'skyre_post[single_blog_layout]',
-				array(
-					'label' => __( 'Single Blog', 'skyre' ),
-					'section' => 'skyre_post_layout',
-					'choices' => array(
-						'1' => array(
-							'path' => trailingslashit( get_template_directory_uri() ) . 'inc/customizer/images/sidebar-left.png',
-							'label' => __( 'Left Sidebar', 'skyre' )
-						),
-						'2' => array(
-							'path' => trailingslashit( get_template_directory_uri() ) . 'inc/customizer/images/sidebar-none.png',
-							'label' => __( 'No Sidebar', 'skyre' )
-						),
-						'3' => array(
-							'path' => trailingslashit( get_template_directory_uri() ) . 'inc/customizer/images/sidebar-right.png',
-							'label' => __( 'Right Sidebar', 'skyre' )
-						)
-					)
-				)
-			) );
-			
-			$wp_customize->add_setting( 'skyre_post[single_post_fullwidth]', array(
-                    'type'  => 'option',
-                    'sanitize_callback' => 'skyre_sanitize_checkbox',
-            ) );
-            $wp_customize->add_control( 'skyre_post[single_post_fullwidth]', array(
-                    'label'     => esc_html__( 'Full width?', 'skyre' ),
-                    'section'   => 'skyre_post_layout',
-                    'priority'  => 10,
-                    'type'      => 'checkbox'
-            ) );*/
-			
 		
         $wp_customize->add_section('skyre_post_heading', array(
             'title' => __('Post Title', 'skyre'),
@@ -735,22 +700,6 @@ if ( ! class_exists( 'Skyre_Configuration_Post' ) ) {
                     'type'      => 'checkbox'
             ) );
 			
-			/*$wp_customize->register_control_type( 'Skyre_Control_Responsive' );
-			$wp_customize->add_setting( 'skyre_post[title_height]',
-				array(
-					'default' => '',
-					'type'  => 'option',
-					'sanitize_callback' => 'sanitize_responsive_typo'
-				)
-			);
-			$wp_customize->add_control( new Skyre_Control_Responsive( $wp_customize, 'skyre_post[title_height]',
-				array(
-					'label' => __( 'Title hight', 'skyre' ),
-					'section' => 'skyre_post_heading',
-					'units' => array('px'=>'px','%'=>'%',),
-					
-				)
-			) );*/
 			
 			$wp_customize->register_control_type( 'Skyre_Control_Color' );
 			$wp_customize->add_setting( 'skyre_post[title_color]',
@@ -790,7 +739,8 @@ if ( ! class_exists( 'Skyre_Configuration_Post' ) ) {
 			
 			$wp_customize->add_setting('skyre_post[title_bg_image]', array(
                 'default' => '',
-                'type'  => 'option'
+				'type'  => 'option',
+				'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre_post[title_bg_image]', array(
                 'label' => __('Background Image', 'skyre'),

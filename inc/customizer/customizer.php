@@ -8,27 +8,6 @@
  */
  
 
-/*//Get saved post responsive count
-if ( ! function_exists( 'skyre_get_post_res_count' ) ) :
-function skyre_get_post_res_count( $name, $device ) {
-
-	$option_name = '';
-	// Get option settings from database
-	$options = get_option( 'skyre_post' );
-
-	// Return specific option
-	if ( isset( $options[$name][$device] ) ) {
-		$value = $options[$name][$device];
-		$med = $options[$name][$device.'-unit'];
-		return $value.$med;
-	}
-	
-
-	return '';
-}
-endif;*/
-
-
 if ( ! function_exists( 'skyre_get_res_count' ) ) :
 function skyre_get_res_count( $name, $device ) {
 
@@ -261,7 +240,8 @@ function skyre_customize_register( $wp_customize ) {
 function divider($id, $wp_customize){
 	$wp_customize->register_control_type( 'Skyre_Control_Divider' );
 	$wp_customize->add_setting( 'divider', 
-		array( 'type'  => 'option', ) 
+		array( 'type'  => 'option',
+		'sanitize_callback' => 'skyre_sanitize_checkbox' )
 	);
 	$wp_customize->add_control( new Skyre_Control_Divider( $wp_customize, 'divider',
 		array( 'section' => $id, )
@@ -420,6 +400,23 @@ function skyre_sanitize_page_layout( $input ) {
 	$valid = array(
 		'one-column' => __( 'One Column', 'skyre' ),
 		'two-column' => __( 'Two Column', 'skyre' ),
+	);
+
+	if ( array_key_exists( $input, $valid ) ) {
+		return $input;
+	}
+
+	return '';
+}
+
+/**
+ * Sanitize the Post template.
+ *
+ */
+function skyre_sanitize_template_style( $input ) {
+	$valid = array(
+		'' => __( 'Custom', 'skyre' ),
+		'modern' => __( 'Modern', 'skyre' ),
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {

@@ -80,7 +80,8 @@ if ( ! class_exists( 'Skyre_Configuration_Header' ) ) {
 			
 			$wp_customize->add_setting('skyre[header_bg_image]', array(
                 'default' => '',
-                'type'  => 'option'
+                'type'  => 'option',
+                'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre[header_bg_image]', array(
                 'label' => __('Background Image', 'skyre'),

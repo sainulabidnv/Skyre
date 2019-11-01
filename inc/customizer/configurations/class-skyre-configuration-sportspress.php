@@ -91,7 +91,8 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 			
 			$wp_customize->add_setting('skyre_page[sp_title_bg_image]', array(
                 'default' => '',
-                'type'  => 'option'
+				'type'  => 'option', 
+				'sanitize_callback' => 'absint'
             ));
             $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre_page[sp_title_bg_image]', array(
                 'label' => __('Background Image', 'skyre'),

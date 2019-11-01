@@ -33,7 +33,7 @@
   line-height: inherit;
 }
 
-/*Only for Skyre theme*/
+/*Only for CryptICO theme*/
 /* Customized icons sett for ICO theme */
 .fa-facebook-f:before {
   content: "\f39e";
@@ -81,6 +81,14 @@
 
 .fa-angle-double-right:before {
   content: "\f101";
+}
+
+.fa-caret-down:before {
+  content: "\f0d7";
+}
+
+.fa-caret-up:before {
+  content: "\f0d8";
 }
 
 /*Solid*/

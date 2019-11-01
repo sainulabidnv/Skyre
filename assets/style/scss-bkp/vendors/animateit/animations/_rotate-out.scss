@@ -1,0 +1,115 @@
+/************
+* rotateOut *
+*************/
+
+@mixin rotateOut-frames(){
+  0% {
+    @include rotateX( 0 );
+    @include transform-origin( center center );
+    @include opacity( 1 );
+  }
+  100% {
+    @include rotateX( 200deg );
+    @include transform-origin( center center );
+    @include opacity;
+  }
+}
+
+@-webkit-keyframes rotateOut {
+  @include rotateOut-frames;
+}
+
+@keyframes rotateOut {
+  @include rotateOut-frames;
+}
+
+.rotateOut.go {
+  @include animation( rotateOut );
+}
+
+/************
+* rotateOutUpLeft *
+*************/
+
+@mixin rotateOutUpLeft-frames(){
+  0% {
+    @include rotate( 0 );
+    @include transform-origin( left bottom );
+    @include opacity( 1 );
+  }
+  100% {
+    @include rotate( -90deg );
+    @include transform-origin( left bottom );
+    @include opacity;
+  }
+}
+
+@-webkit-keyframes rotateOutUpLeft {
+  @include rotateOutUpLeft-frames;
+}
+
+@keyframes rotateOutUpLeft {
+  @include rotateOutUpLeft-frames;
+}
+
+.rotateOutUpLeft.go {
+  @include animation( rotateOutUpLeft );
+}
+
+/************
+* rotateOutDownLeft *
+*************/
+
+@mixin rotateOutDownLeft-frames(){
+  0% {
+    @include rotate( 0 );
+    @include transform-origin( left bottom );
+    @include opacity( 1 );
+  }
+  100% {
+    @include rotate( 90deg );
+    @include transform-origin( left bottom );
+    @include opacity;
+  }
+}
+
+@-webkit-keyframes rotateOutDownLeft {
+  @include rotateOutDownLeft-frames;
+}
+
+@keyframes rotateOutDownLeft {
+  @include rotateOutDownLeft-frames;
+}
+
+.rotateOutDownLeft.go {
+  @include animation( rotateOutDownLeft );
+}
+
+/************
+* rotateOutUpRight *
+*************/
+
+@mixin rotateOutUpRight-frames(){
+  0% {
+    @include rotate( 0 );
+    @include transform-origin( right bottom );
+    @include opacity( 1 );
+  }
+  100% {
+    @include rotate( 90deg );
+    @include transform-origin( right bottom );
+    @include opacity;
+  }
+}
+
+@-webkit-keyframes rotateOutUpRight {
+  @include rotateOutUpRight-frames;
+}
+
+@keyframes rotateOutUpRight {
+  @include rotateOutUpRight-frames;
+}
+
+.rotateOutUpRight.go {
+  @include animation( rotateOutUpRight );
+}

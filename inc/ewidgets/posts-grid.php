@@ -2698,9 +2698,15 @@ class postsGrid extends \Elementor\Widget_Base {
 	 * This way we are sure that the assets files are loaded only when this block is present in page.
 	 */
 	protected function load_widget_style() {
-		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() === true ) { ?>
+
+		WP_Filesystem();
+		global $wp_filesystem;
+
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() === true ) { 
+			$tyle = $wp_filesystem->get_contents( get_template_directory_uri() . '/inc/assets/style/elementor-posts-grid.css' );
+			?>
 			<style>
-				<?php echo file_get_contents( get_template_directory_uri() . '/inc/assets/style/elementor-posts-grid.css' ) ?>
+				<?php echo esc_html($tyle); ?>
 			</style>
 			<?php
 		} else {

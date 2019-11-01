@@ -49,7 +49,10 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 			$indent = str_repeat( $t, $depth );
 			// Default class to add to the file.
-			$classes = array( 'dropdown-menu' );
+			
+			if ($depth == 0) { $classes = array( 'dropdown-menu'); }
+			else if ($depth % 2 == 0) { $classes = array( 'dropdown-menu','sk-drop-odd' ); }
+			else { $classes = array( 'dropdown-menu','sk-drop-even' ); }
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *
@@ -118,6 +121,9 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			 */
 			$classes = self::separate_linkmods_and_icons_from_classes( $classes, $linkmod_classes, $icon_classes, $depth );
 
+			if ( isset( $args->has_children ) && $args->has_children ) {
+				$icon_classes[] = 'fa fa-caret-down';
+			}
 			// Join any icon classes plucked from $classes into a string.
 			$icon_class_string = join( ' ', $icon_classes );
 
@@ -132,6 +138,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			 */
 			$args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
 
+			
 			// Add .dropdown or .active classes where they are needed.
 			if ( isset( $args->has_children ) && $args->has_children ) {
 				$classes[] = 'dropdown';
@@ -186,13 +193,14 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$atts['data-toggle']   = 'dropdown';
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'false';
-				$atts['class']         = 'dropdown-toggle nav-link';
+				$atts['class']         = 'dropdown-toggle nav-link ';
 				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
 				// Items in dropdowns use .dropdown-item instead of .nav-link.
 				if ( $depth > 0 ) {
 					$atts['class'] = 'dropdown-item';
+					
 				} else {
 					$atts['class'] = 'nav-link';
 				}
@@ -271,7 +279,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 
 			// Put the item contents into $output.
-			$item_output .= isset( $args->link_before ) ? $args->link_before . $icon_html . $title . $args->link_after : '';
+			$item_output .= isset( $args->link_before ) ? $args->link_before . $title . $icon_html .  $args->link_after : '';
 			/**
 			 * This is the end of the internal nav item. We need to close the
 			 * correct element depending on the type of link or link mod.

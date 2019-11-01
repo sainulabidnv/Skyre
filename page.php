@@ -38,10 +38,11 @@ get_header();
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_post_thumbnail() ?>
                         <?php the_content(); ?>
+                        <div class="clear"></div> 
                         <?php
                             wp_link_pages( array(
                                 'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'skyre' ) . '</span>',
-                                'after'       => '</div>',
+                                'after'       => '</div> <div class="clear"></div> ',
                                 'link_before' => '<span>',
                                 'link_after'  => '</span>',
                                 'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'skyre' ) . ' </span>%',
@@ -56,6 +57,7 @@ get_header();
                         ?>      
                     <?php endwhile; ?>
                 </div>
+                <div class="clear"></div>
                 
                 <?php echo skyre_pagination(); ?>
 

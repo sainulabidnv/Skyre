@@ -1080,8 +1080,6 @@ protected function render( $instance = array() ) {
 		$settings = $this->get_settings();
 		$instance = $this->get_settings();
 
-		//$this->maybe_load_widget_style();
-
 		if ( empty( $this->forms_config['fields'] ) ) {
 			//return;
 		}
@@ -1102,7 +1100,7 @@ protected function render( $instance = array() ) {
 		} ?>
         <fieldset class="submit-form newsletter">
             <button type="submit" name="submit" value="submit-newsletter-<?php echo esc_attr($form_id);
-            ?>" class="btn btn-sk-primary <?php $this->get_render_attribute_string( 'button' ); ?>">
+            ?>" class="btn btn-skyre <?php $this->get_render_attribute_string( 'button' ); ?>">
 	            <?php echo esc_html($btn_label); ?>
                 <?php if ( ! empty( $instance['button_icon'] ) ){ ?><span <?php echo esc_html($this->get_render_attribute_string( 'content-wrapper' )); // TODO: what to do about content-wrapper 
 				echo esc_html($this->get_render_attribute_string( 'icon-align' )); ?>>
@@ -1114,24 +1112,6 @@ protected function render( $instance = array() ) {
 		<?php
 
 		$this->render_form_footer();
-	}
-
-	/**
-	 * Either enqueue the widget style registered by the library
-	 * or load an inline version for the preview only
-	 */
-	protected function maybe_load_widget_style() {
-		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) { ?>
-            
-			<style>
-                <?php echo file_get_contents( plugin_dir_path( __FILE__ ) . '/assets/content-forms.css' ) ?>
-            </style>
-			<?php
-		} else {
-			// if `themeisle_content_forms_register_default_style` is false, the style won't be registered anyway
-			wp_enqueue_script( 'content-forms' );
-			wp_enqueue_style( 'content-forms' );
-		}
 	}
 
 	/**

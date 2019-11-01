@@ -1,0 +1,30 @@
+$fa-font-path:      "../../fonts/fontawesome";
+$sk-primary: 		#030e20;
+$sk-secondary: 		#d7372b;
+$sk-tertiary: 		#dee003;
+$sk-text-color: 	#50617d;
+$white: 			#fff;
+
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "sk-primary":    	$sk-primary,
+	"sk-secondary":  	$sk-secondary, 
+	"sk-tertiary":  	$sk-tertiary,
+	"sk-text-color":   	$sk-primary,
+	"light-10":			rgba($white, .10)), $theme-colors
+);
+
+$font-family-sans-serif:      Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-base:        $font-family-sans-serif !default;
+$font-secondary:      Roboto Condensed;
+$font-weight-base: 300;
+$line-height-base:            1.8 ;
+$font-size-base:              1rem ;
+$h1-font-size:            $font-size-base * 2.87 ; // ~46px
+$h2-font-size:            $font-size-base * 2.75 ; // ~44px
+$h3-font-size:            $font-size-base * 2 ; // ~32px
+$h4-font-size:            $font-size-base * 1.5; // ~22px
+$h5-font-size:            $font-size-base * 1.25; //20 px
+$h6-font-size:            $font-size-base * 1.1 ; // ~18px

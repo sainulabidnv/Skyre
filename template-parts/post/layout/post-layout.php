@@ -25,15 +25,20 @@
 
 	if($entry_layout =='2' and in_array('image', $item_postion)) {
 		
-		//filter images for listing
+		//filter image for grid listing
 		if (($key = array_search('image', $item_postion)) !== false) {
 			unset($item_postion[$key]);
 		}
 		
 		?>
 		<div class="row">
-			<div class="col-md-5"> <?php skyre_post_image(); ?></div>
-			<div class="col-md-7"> <?php skyre_get_post_field($item_postion); ?></div>
+			<?php if ( has_post_thumbnail() )  { ?>
+				<div class="col-md-5"> <?php skyre_post_image(); ?></div>
+				<div class="col-md-7"> <?php skyre_get_post_field($item_postion); ?></div>
+			<?php } else { ?>
+				<div class="col-md-12"> <?php skyre_get_post_field($item_postion); ?></div>
+			<?php } ?>
+			
 		</div>
 		<?php
 	 

@@ -16,14 +16,15 @@ if ( ! function_exists( 'skyre_posted_on' ) ) :
 function skyre_posted_on() {
 
 	// Get the author name; wrap it in a link.
+	
 	$byline = sprintf(
 		/* translators: %s: post author */
-		__( 'by %s', 'skyre' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>'
+		__( ' By %s', 'skyre' ),
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author_meta( 'display_name' ) . '</a></span>'
 	);
 
 	// Finally, let's write all of this to the page.
-	echo '<span class="posted-on">' . skyre_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="posted-on">' . get_the_date() . '</span><span class="byline"> ' . $byline . '</span>';
 }
 endif;
 
@@ -62,7 +63,7 @@ if ( ! function_exists( 'skyre_entry_footer' ) ) :
 function skyre_entry_footer() {
 
 	/* translators: used between list items, there is a space after the comma */
-	$separate_meta = __( ', ', 'skyre' );
+	$separate_meta = __( ' ', 'skyre' );
 
 	// Get Categories for posts.
 	$categories_list = get_the_category_list( $separate_meta );

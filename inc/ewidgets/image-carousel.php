@@ -837,7 +837,7 @@ class Image_Carousel extends Widget_Base {
 				
 				if ( ! empty( $content_title ) ) { $slide_html .= '<h1 class="sk-carousel-title">' . $content_title . '</h1> '; } 
 				if ( ! empty( $content_des ) ) { $slide_html .= '<p class="sk-carousel-description">' . $content_des . '</p>  '; }
-				if ( ! empty( $content_button ) ) { $slide_html .= '<a class="btn btn-sk-primary" href="'.$content_button_link.'">' . $content_button . '</a>  '; }
+				if ( ! empty( $content_button ) ) { $slide_html .= '<a class="btn btn-skyre" href="'.$content_button_link.'">' . $content_button . '</a>  '; }
 
 				$slide_html .= '</div> </div>';
 				

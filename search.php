@@ -31,6 +31,9 @@ get_header(); ?>
 
 		<?php
 		if ( have_posts() ) :
+			?>
+			<div class='sk-search-wrap row'>
+			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
@@ -43,11 +46,12 @@ get_header(); ?>
 
 			endwhile; // End of the loop.
 
-			the_posts_pagination( array(
-				'prev_text' => skyre_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'skyre' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'skyre' ) . '</span>' . skyre_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'skyre' ) . ' </span>',
-			) );
+			?>
+			</div> 
+			<div class='clear'></div>
+			<?php
+
+			do_action('skyre_search_pagination');
 
 		else : ?>
 

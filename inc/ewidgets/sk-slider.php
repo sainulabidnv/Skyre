@@ -43,16 +43,34 @@ class skyreSlider extends Skyre_Base {
 	public function get_categories() {
 		return array( 'general' );
 	}
-	
-	
 
 	public function get_script_depends() {
 		return array( 'imagesloaded', 'sliderPro', 'sliderCustom' );
 	}
 
-	/*public function get_style_depends() {
-		return array( 'sliderProCSS','sliderCustomCSS' );
-	}*/
+	
+	/**
+	 * Return availbale arrows list
+	 * @return [type] [description]
+	 */
+	public function get_slider_arrows_list() {
+
+		return apply_filters(
+			'slider_arrows_list',
+			array(
+				'fa fa-angle-left'          => __( 'Angle', 'skyre' ),
+				'fa fa-chevron-left'        => __( 'Chevron', 'skyre' ),
+				'fa fa-angle-double-left'   => __( 'Angle Double', 'skyre' ),
+				'fa fa-arrow-left'          => __( 'Arrow', 'skyre' ),
+				'fa fa-caret-left'          => __( 'Caret', 'skyre' ),
+				'fa fa-long-arrow-left'     => __( 'Long Arrow', 'skyre' ),
+				'fa fa-arrow-circle-left'   => __( 'Arrow Circle', 'skyre' ),
+				'fa fa-chevron-circle-left' => __( 'Chevron Circle', 'skyre' ),
+				'fa fa-caret-square-o-left' => __( 'Caret Square', 'skyre' ),
+			)
+		);
+
+	}
 
 	protected function _register_controls() {
 
@@ -1104,7 +1122,7 @@ class skyreSlider extends Skyre_Base {
 				'label'   => esc_html__( 'Arrow Icon', 'skyre' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'fa fa-angle-left',
-				'options' => jet_elements_tools()->get_available_prev_arrows_list(),
+				'options' => $this->get_slider_arrows_list(),
 				'condition' => array(
 					'slider_navigation' => 'true',
 				),
@@ -1358,96 +1376,7 @@ class skyreSlider extends Skyre_Base {
 			)
 		);
 
-		/*$this->start_controls_tabs( 'tabs_dots_style' );
-
-		$this->start_controls_tab(
-			'tab_pagination_normal',
-			array(
-				'label' => esc_html__( 'Normal', 'skyre' ),
-			)
-		);
-
-		$this->add_group_control(
-			\Jet_Group_Control_Box_Style::get_type(),
-			array(
-				'name'           => 'pagination_style',
-				'label'          => esc_html__( 'Dots Style', 'skyre' ),
-				'selector'       => '{{WRAPPER}} ' . $css_scheme['pagination'] . ' .sp-button',
-				'fields_options' => array(
-					'color' => array(
-						'default' => '#fff',
-					),
-				),
-				'exclude' => array(
-					'box_font_color',
-					'box_font_size',
-				),
-			)
-		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'tab_pagination_hover',
-			array(
-				'label' => esc_html__( 'Hover', 'skyre' ),
-			)
-		);
-
-		$this->add_group_control(
-			\Jet_Group_Control_Box_Style::get_type(),
-			array(
-				'name'           => 'pagination_style_hover',
-				'label'          => esc_html__( 'Dots Style', 'skyre' ),
-				'selector'       => '{{WRAPPER}} ' . $css_scheme['pagination'] . ' .sp-button:hover',
-				'fields_options' => array(
-					'color' => array(
-						'scheme' => array(
-							'type'  => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						),
-					),
-				),
-				'exclude' => array(
-					'box_font_color',
-					'box_font_size',
-				),
-			)
-		);
 		
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'tab_pagination_active',
-			array(
-				'label' => esc_html__( 'Active', 'skyre' ),
-			)
-		);
-
-		$this->add_group_control(
-			\Jet_Group_Control_Box_Style::get_type(),
-			array(
-				'name'           => 'pagination_style_active',
-				'label'          => esc_html__( 'Dots Style', 'skyre' ),
-				'selector'       => '{{WRAPPER}} ' . $css_scheme['pagination'] . ' .sp-button.sp-selected-button',
-				'fields_options' => array(
-					'color' => array(
-						'scheme' => array(
-							'type'  => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						),
-					),
-				),
-				'exclude' => array(
-					'box_font_color',
-					'box_font_size',
-				),
-			)
-		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();*/
 
 		$this->add_responsive_control(
 			'pagination_padding',
@@ -2806,7 +2735,6 @@ class skyreSlider extends Skyre_Base {
 	 * @return [type] [description]
 	 */
 	protected function render() {
-
 		$this->maybe_load_widget_style();
 		$sliderImg = '';
 		$thumbImg = '';
@@ -2829,15 +2757,16 @@ class skyreSlider extends Skyre_Base {
 	
 		<div class="<?php echo esc_attr($classes1); ?>" <?php echo wp_kses_post($data_settings); ?>>
 			
-            <span class="jet-slider-loader"></span>
+            <span class="sk-slider-loader"></span>
 						
              <div class="slider-pro">
                 <div class="<?php echo esc_attr($classes2); ?>">
                 <!--loop start-->
                 <?php foreach ($items as $item) { 
 				$image = $item['item_image'];
+				$alt = empty($item['item_title']) ? __('No Image','skyre') : $item['item_title'];
 				if ( empty( $image['id'] ) ) {
-					$sliderImg = sprintf( '<img class="sp-image" src="%s" alt="">', Utils::get_placeholder_image_src() );
+					$sliderImg = sprintf( '<img class="sp-image" src="%s" alt="%s">', Utils::get_placeholder_image_src(), $alt  );
 				} else {
 				$image_sizes = get_intermediate_image_sizes();
 				$slider_image_size = $this->get_settings_for_display( 'slider_image_size' );
@@ -2853,7 +2782,7 @@ class skyreSlider extends Skyre_Base {
                     <?php
                         echo wp_kses_post($sliderImg);
 						if ( filter_var( $settings['thumbnails'], FILTER_VALIDATE_BOOLEAN ) ) {
-							if ( $settings['thumbnails'] ) { echo sprintf( '<img class="sp-thumbnail" src="%s" alt="">',$image['url'] ); }
+							if ( $settings['thumbnails'] ) { echo sprintf( '<img class="sp-thumbnail" src="%s" alt=%s"">',$image['url'], $alt ); }
 						}
                     
 					$animationData_cnt = '';
@@ -2926,13 +2855,19 @@ class skyreSlider extends Skyre_Base {
 	 * This way we are sure that the assets files are loaded only when this block is present in page.
 	 */
 	protected function maybe_load_widget_style() {
-		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() === true ) { ?>
+		
+		WP_Filesystem();
+		global $wp_filesystem;
+		$style ='';
+		
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() === true ) {
+			$style .= $wp_filesystem->get_contents( get_template_directory_uri() . '/inc/assets/style/slider-pro/slider-pro.css' );
+			$style .= $wp_filesystem->get_contents( get_template_directory_uri() . '/inc/assets/style/slider-pro/custom.css' );
+			?>
 			<style>
-				<?php echo file_get_contents( get_template_directory_uri() . '/inc/assets/style/slider-pro/slider-pro.css' ) ?>
+				<?php echo esc_html($style);  ?>
 			</style>
-            <style>
-				<?php echo file_get_contents( get_template_directory_uri() . '/inc/assets/style/slider-pro/custom.css' ) ?>
-			</style>
+            
 			<?php
 		} else {
 			wp_enqueue_style( 'sliderProCSS' );

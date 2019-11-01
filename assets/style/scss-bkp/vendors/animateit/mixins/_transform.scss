@@ -1,0 +1,14 @@
+@mixin transform($arguments){
+  transform: $arguments;
+
+ -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+     -ms-transform: $arguments;
+      -o-transform: $arguments;
+}
+
+@mixin transform-origin($arguments){
+  transform-origin: $arguments;
+
+  -webkit-transform-origin: $arguments;
+}
