@@ -806,11 +806,12 @@ if ( ! class_exists( 'Skyre_Configuration_Post' ) ) {
 			$wp_customize->register_control_type( 'Skyre_Control_Dimension' );
 			$wp_customize->add_setting( 'skyre_post[title_padding]',
 				array(
-					'default' => array(
+					/*'default' => array(
 						'desktop'      => array(
 							'top'  => '20',
 							'bottom'  => '20',
 						),),
+						*/
 					'type'  => 'option',
 					'sanitize_callback' => 'sanitize_responsive_dimension',
 				)

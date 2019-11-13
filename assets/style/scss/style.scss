@@ -116,9 +116,14 @@ a:hover,
   clear:both; 
   height:1px;
 }
+.el-right .elementor-container  {
+  margin-right: 0 !important;
+}
+.el-left .elementor-container  {
+  margin-left: 0 !important;
+}
 
 table>tbody>tr {
-  border-bottom: 1px solid #eee;
   th,td{
     padding: 12px 8px;
     vertical-align: middle;
@@ -154,6 +159,7 @@ a.sksc:hover,
 .sksc a:hover {
   color: $sk-primary;
 } //Skyre Tertiary Color
+.skpc-5 { color:rgba($sk-primary, 0.5)}
 .sksc,
 .sksc a,
 a.skpc:hover,
@@ -237,8 +243,14 @@ a.skpc:hover {
   font-size: $font-size-base * 1.2;
   font-weight: 400;
 }
-.elementor-button.btn-primary {
+.btn.btn-primary, .btn.elementor-button {
   background-color: $sk-primary;
+  border:none;
+  &:hover {
+    background-color: rgba($sk-secondary, 1);
+    
+  }
+
 }
 
 .box-shadow {
@@ -418,8 +430,6 @@ header {
   }
   z-index: 4;
   padding: 0;
-  -webkit-box-shadow: 0 1px 10px -6px rgba(0, 0, 0, 0.42), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px -2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 10px -6px rgba(0, 0, 0, 0.42), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px -2px rgba(0, 0, 0, 0.1);
   .navbar-nav a.nav-link {
     padding-left: 15px;
     padding-right: 15px;
@@ -557,11 +567,6 @@ header {
 .sk-countdown {
   padding: 20px;
   border-radius: 3px;
-  .sk_status_title,
-  .progress span,
-  .sk-status-desc {
-    color: rgba($white, 0.9);
-  }
 }
 .navbar-toggler {
   padding: px(2) px(5);
@@ -574,17 +579,15 @@ header {
   padding: 0.7rem;
   border-radius: 3px;
   font-weight: 500;
-  color: $white;
-  background-color: rgba($white, 0.2);
   font-size: $font-size-base * 1.63;
   text-align: center;
   span {
     font-size: $font-size-base * 0.8;
     display: block;
     font-weight: 300;
-    color: rgba($white, 0.5);
   }
 }
+.sk-cstime { display:none;}
 .sk-progress {
   position: relative;
   margin-top: 50px;
@@ -594,11 +597,12 @@ header {
     bottom: 0;
     &::after {
       content: "";
-      border-left: solid px(1) rgba($white, 0.3);
+      border-left: solid px(1) ;
       position: absolute;
       left: 50%;
       bottom: 0;
       height: px(30);
+      opacity: 0.5;
     }
   }
 }

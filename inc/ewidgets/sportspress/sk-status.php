@@ -348,10 +348,15 @@ class spCountDown extends Widget_Base {
 			[
 				'label' => __( 'Stage 1 Position', 'skyre' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => __( '20', 'skyre' ),
+				'default' => __( '1', 'skyre' ),
 				'condition' => array(
 					'slider_progressbar' => 'true',
 				),
+				'selectors'  => array(
+					'{{WRAPPER}} .sk-progress .level-1'   => 'left: {{SIZE}}%;',
+				),
+				
+				
 			]
 		);
 		
@@ -372,9 +377,12 @@ class spCountDown extends Widget_Base {
 			[
 				'label' => __( 'Stage 2 Position', 'skyre' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => __( '50', 'skyre' ),
+				'default' => __( '20', 'skyre' ),
 				'condition' => array(
 					'slider_progressbar' => 'true',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .sk-progress .level-2'   => 'left: {{SIZE}}%;',
 				),
 			]
 		);
@@ -396,9 +404,12 @@ class spCountDown extends Widget_Base {
 			[
 				'label' => __( 'Stage 3 Position', 'skyre' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => __( '85', 'skyre' ),
+				'default' => __( '75', 'skyre' ),
 				'condition' => array(
 					'slider_progressbar' => 'true',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .sk-progress .level-3'   => 'left: {{SIZE}}%;',
 				),
 			]
 		);
@@ -427,16 +438,27 @@ class spCountDown extends Widget_Base {
 			]
 		);
 
+		
+		$this->end_controls_section();
+        
+        $this->start_controls_section(
+			'section_description',
+			[
+				'label' => __( 'Descriptions', 'skyre' ),
+			]
+        );
+		
 		$this->add_control(
 			'description',
 			[
-				'label' => __( 'Description', 'skyre' ),
+				'label' => __( 'Descriptions', 'skyre' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'default' => __( 'Dummy text', 'skyre' ),
 			]
 		);
 
-        $this->end_controls_section();
+		$this->end_controls_section();
+
         
         $repeater = new \Elementor\Repeater();
 
@@ -1632,9 +1654,9 @@ class spCountDown extends Widget_Base {
                 
                 $html .= '<div class="sk-progress"> <div class="progress">';
                 $html .= '<div class="progress-bar progress-bar-striped" role="progressbar" style="width:'. $settings['statusbar']['size'].'%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>';
-                if($settings['status_stage1_title']) { $html .= '<span class="level-1" style="left:'. $settings['status_stage1_position'].'%">'.$settings['status_stage1_title'].'</span>'; }
-                if($settings['status_stage2_title']) { $html .= '<span class="level-2" style="left:'. $settings['status_stage2_position'].'%">'.$settings['status_stage2_title'].'</span>'; }
-                if($settings['status_stage3_title']) { $html .= '<span class="level-3" style="left:'. $settings['status_stage3_position'].'%">'.$settings['status_stage3_title'].'</span>'; }
+                if($settings['status_stage1_title']) { $html .= '<span class="level-1" >'.$settings['status_stage1_title'].'</span>'; }
+                if($settings['status_stage2_title']) { $html .= '<span class="level-2" >'.$settings['status_stage2_title'].'</span>'; }
+                if($settings['status_stage3_title']) { $html .= '<span class="level-3" >'.$settings['status_stage3_title'].'</span>'; }
                 $html .= '</div> </div>';
                 continue;
             }
@@ -1685,10 +1707,17 @@ class spCountDown extends Widget_Base {
 
 		?>
 		<!--sk-countdown--> 
-        <div class="sk-countdown text-center ">
+		<div class="sk-cstime">
+			<div class="col-3"><div class="sk-time skpbg15"><?php _e('%D','skyre'); ?> <span><?php _e('Days','skyre'); ?></span> </div> </div> 
+			<div class="col-3"> <div class="sk-time skpbg15"> <?php _e('%H','skyre'); ?> <span><?php _e('Hours','skyre'); ?> </span> </div> </div> 
+			<div class="col-3"> <div class="sk-time skpbg15"><?php _e('%M','skyre'); ?>  <span><?php _e('Minuts','skyre'); ?> </span> </div> </div>  
+			<div class="col-3"> <div class="sk-time skpbg15"><?php _e('%S','skyre'); ?> <span><?php _e('Seconds','skyre'); ?> </span> </div> </div>
+		</div>
+		<div class="sk-countdown text-center ">
             <?php echo wp_kses_post($html); ?>
         </div>
-        <!--End sk-countdown-->
+
+		<!--End sk-countdown-->
 		<?php
 	}
 
