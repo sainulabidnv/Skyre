@@ -305,18 +305,8 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
-			'photo_link',
-			[
-				'label' => __( 'Link on player photo', 'skyre' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'skyre' ),
-				'label_off' => __( 'Hide', 'skyre' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-		
+
+		// All player link.
 		$this->add_control(
 			'show_link',
 			[
@@ -328,11 +318,16 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'default' => '',
 			]
 		);
+
 		
-		$this->add_control(
-			'hr',
+		$this->end_controls_section();
+
+		//Section for fields 
+		
+		$this->start_controls_section(
+			'section_playe_fields',
 			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
+				'label' => __( 'Fields', 'skyre' ),
 			]
 		);
 
@@ -360,6 +355,39 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'title_field' =>'{{{column_id}}}'/*'{{column_id}}'*/ //get_the_title('{{column_id}}') ,
 			]
 		);
+		
+		$this->end_controls_section();
+
+		//Section for player image settings 
+		
+		$this->start_controls_section(
+			'section_player_image',
+			[
+				'label' => __( 'Image', 'skyre' ),
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'player_image', 
+				'default' => 'skyre-player-medium',
+				'separator' => 'none',
+			]
+		);
+
+		$this->add_control(
+			'photo_link',
+			[
+				'label' => __( 'Link on player photo', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'skyre' ),
+				'label_off' => __( 'Hide', 'skyre' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
 		
 		$this->end_controls_section();
 		
@@ -469,7 +497,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -481,7 +509,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -600,7 +628,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -612,7 +640,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -679,7 +707,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -691,7 +719,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -804,7 +832,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'table_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -816,7 +844,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'table_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -881,7 +909,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		);
 	
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'table_column_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -893,7 +921,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'table_column_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -959,7 +987,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 
 		
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'table_image_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -971,7 +999,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'table_image_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1108,7 +1136,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'name_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1120,7 +1148,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'name_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1257,7 +1285,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'team_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1269,7 +1297,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'team_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1405,7 +1433,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'more_fields_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1417,7 +1445,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'more_fields_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1487,7 +1515,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'flag_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1499,7 +1527,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'flag_size',
 			[
 				'label' => __( 'Size', 'skyre' ),
@@ -1521,7 +1549,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'flag_horizontal',
 			[
 				'label' => __( 'Horizontal Position', 'skyre' ),
@@ -1543,7 +1571,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'flag_vertical',
 			[
 				'label' => __( 'Vertical Position', 'skyre' ),
@@ -1560,7 +1588,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-flag' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .sk-player-grid .player-flag' => 'top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1648,7 +1676,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'rank_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1660,7 +1688,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'rank_size',
 			[
 				'label' => __( 'Size', 'skyre' ),
@@ -1682,7 +1710,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'rank_horizontal',
 			[
 				'label' => __( 'Horizontal Position', 'skyre' ),
@@ -1704,7 +1732,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'rank_vertical',
 			[
 				'label' => __( 'Vertical Position', 'skyre' ),
@@ -1721,7 +1749,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-rank' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .sk-player-grid .player-rank' => 'top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1839,7 +1867,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1851,7 +1879,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1911,6 +1939,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		//widge settings - ws
 		$ws['attr'] = $settings['list_attr'];
 		$ws['photo_link'] = $settings['photo_link'];
+		$ws['photo_size'] = $settings['player_image_size'];
 		
 		
 		foreach($columns as $column){

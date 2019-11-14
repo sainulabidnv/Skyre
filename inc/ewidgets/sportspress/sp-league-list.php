@@ -690,16 +690,16 @@ class spLeagueList extends \Elementor\Widget_Base {
 		$this->add_control(
 			'table_padding',
 			[
-				'label'      => __( 'Padding', 'skyre' ),
+				'label'      => __( 'Wrap Padding', 'skyre' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .sk-league-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .sp-template-league-table' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
 			]
 		);
 		
-		$this->add_control(
+		/*$this->add_control(
 			'table_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -710,6 +710,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 				]
 			]
 		);
+		*/
 
         $this->end_controls_section();
         

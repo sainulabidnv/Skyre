@@ -18,9 +18,10 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
 <?php wp_head(); 
-//delete_option( 'skyre_post' );
+delete_option( 'skyre' );
 //echo '<pre>';
-//print_r(get_option( 'skyre_page' ));
+//print_r(get_option( 'skyre' ));
+//echo '</pre>';
 ?>
 </head>
 <body <?php body_class('white'); ?> >  

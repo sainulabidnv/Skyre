@@ -10,9 +10,11 @@
 		var $count_token = $('.countdown .row');
 			if ($count_token.length > 0 ) {
 				$count_token.each(function() {
+					var $skcstime = $('.sk-cstime').html();
+					//var $skcstime = '<div class="col-3"> <div class="sk-time skpbg15">%D <span>Days</span> </div> </div>  <div class="col-3"> <div class="sk-time skpbg15">%H <span>Hours</span> </div> </div> <div class="col-3"> <div class="sk-time skpbg15">%M <span>Minuts</span> </div> </div>  <div class="col-3"> <div class="sk-time skpbg15">%S <span>Seconds</span> </div> </div>';
 					var $self = $(this), datetime = $self.attr("data-date");
 					$self.countdown(datetime).on('update.countdown', function(event) {
-						$(this).html(event.strftime('' + '<div class="col-3"> <div class="sk-time">%D <span>Days</span> </div> </div>  <div class="col-3"> <div class="sk-time">%H <span>Hours</span> </div> </div> <div class="col-3"> <div class="sk-time">%M <span>Minuts</span> </div> </div>  <div class="col-3"> <div class="sk-time">%S <span>Seconds</span> </div> </div>'));
+						$(this).html(event.strftime('' + $skcstime));
 					});
 				});
 				

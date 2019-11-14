@@ -34,6 +34,9 @@ $defaults = array(
 extract( $defaults, EXTR_SKIP );
 
 if(isset($ws['photo_link'])) $photo_link = $ws['photo_link']; else $photo_link = '';
+if(isset($ws['photo_size'])) $size = $ws['photo_size'];
+
+
 if(!empty($ws)) { 
 	if ( in_array( 'rank', $ws['attr'] )) { $show_player_rank = true; } else {$show_player_rank = false; }
 	if ( in_array( 'flag', $ws['attr'] )) { $show_player_flag = true; } else {$show_player_flag = false; }
@@ -155,7 +158,7 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 					if ( has_post_thumbnail( $player_id ) ) $thumbnail = get_the_post_thumbnail( $player_id, $size );
 					else $thumbnail = '<img src="'. get_template_directory_uri().'/sportspress/assets/img/player-medium.jpg"  alt="' . get_the_title( $player_id ). '" />';
 					$photo .= '<div class="player-photo">'.$thumbnail;
-					
+					$photo .= '</div>';
 					if ( $show_player_flag ):
 						$player = new SP_Player( $player_id );
 						$nationalities = $player->nationalities();
@@ -170,7 +173,7 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 						
 					endif;
 					
-					$photo .= '</div>';
+					
 					if ($photo_link == 'yes'){
 						$permalink = get_post_permalink( $player_id );
 						$gallery .= '<a href="' . $permalink . '">' . $photo . '</a>';

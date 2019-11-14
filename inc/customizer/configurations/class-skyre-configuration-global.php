@@ -168,9 +168,9 @@ if ( ! class_exists( 'Skyre_Configuration_Global' ) ) {
 						)
 					) );
 
-				//Tertiary Color
+				//Font Color
 					$wp_customize->register_control_type( 'Skyre_Control_Color' );
-					$wp_customize->add_setting( 'skyre[tertiary_color]',
+					$wp_customize->add_setting( 'skyre[global_font_color]',
 						array(
 							'default' => '#dee003',
 							'type'  => 'option',
@@ -178,15 +178,15 @@ if ( ! class_exists( 'Skyre_Configuration_Global' ) ) {
 							'sanitize_callback' => 'sanitize_alpha_color'
 						)
 					);
-					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[tertiary_color]',
+					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[global_font_color]',
 						array(
-							'label' => __( 'Tertiary Color', 'skyre' ),
+							'label' => __( 'Font Color', 'skyre' ),
 							'section' => 'skyre_main_color_options',
 							
 						)
 					) );
 					
-				//White Color
+				//Secondary Font Color
 					$wp_customize->register_control_type( 'Skyre_Control_Color' );
 					$wp_customize->add_setting( 'skyre[white_color]',
 						array(
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Skyre_Configuration_Global' ) ) {
 					);
 					$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[white_color]',
 						array(
-							'label' => __( 'White Color', 'skyre' ),
+							'label' => __( 'Secondary Font Color', 'skyre' ),
 							'section' => 'skyre_main_color_options',
 							
 						)

@@ -501,7 +501,14 @@ class postsGrid extends \Elementor\Widget_Base {
 
 		
 
-		
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'post_image', 
+				'default' => 'medium',
+				'separator' => 'none',
+			]
+		);
 
 		// Image link.
 		$this->add_control(
@@ -672,7 +679,14 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_grid_buttons',
+			[
+				'label' => __( 'Buttons', 'skyre' ),
+			]
+		);
 
 		// Read more button hide.
 		$this->add_control(
@@ -738,7 +752,11 @@ class postsGrid extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		
 	}
+
+
 
 	
 	/**
@@ -885,7 +903,7 @@ class postsGrid extends \Elementor\Widget_Base {
 	 * Style > Image.
 	 */
 	private function grid_image_style_section() {
-		// Tab.
+		// Image settings.
 		$this->start_controls_section(
 			'section_grid_image_style',
 			[
@@ -2378,14 +2396,15 @@ class postsGrid extends \Elementor\Widget_Base {
 		// Only in editor.
 		
 		// Check if post type has featured image.
+		
 
 		if ( $settings['grid_image_link'] == 'yes' ) {
 			?>
-			<div class="skyre-grid-col-image">
+			<div class="skyre-grid-col-image"> 
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 					<?php 
 					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'post-medium', array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
+						the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
 					} else { ?> 
 					<img  src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
 					<?php } ?>
@@ -2395,7 +2414,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			<div class="skyre-grid-col-image">
 				<?php
 				if ( has_post_thumbnail() ) {
-					the_post_thumbnail( 'post-medium', array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
+					the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
 				}else { ?> 
 					<img  src="<?php echo SKYRE_THEME_URI; ?> assets/images/post-medium.jpg"> 
 				<?php } ?>

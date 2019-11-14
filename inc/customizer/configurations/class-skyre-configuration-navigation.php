@@ -60,6 +60,7 @@ if ( ! class_exists( 'Skyre_Configuration_Nav' ) ) {
                 'label' => __('Box Shadow', 'skyre'),
                 'section' => 'skyre_menu_options',
                 'type' => 'checkbox',
+                'default' => true,
             ));
 			
 			$wp_customize->register_control_type( 'Skyre_Control_Color' );
@@ -116,6 +117,43 @@ if ( ! class_exists( 'Skyre_Configuration_Nav' ) ) {
                 'label' => __('Dropdown menu hover color', 'skyre'),
                 'section' => 'skyre_menu_options',
             )));
+
+            $wp_customize->register_control_type( 'Skyre_Control_Dimension' );
+			$wp_customize->add_setting( 'skyre[nav_border_height]',
+				array(
+					'default' => '',
+					'type'  => 'option',
+					'sanitize_callback' => 'sanitize_responsive_dimension',
+				)
+			);
+			$wp_customize->add_control( new Skyre_Control_Dimension( $wp_customize, 'skyre[nav_border_height]',
+				array(
+					'label' 	=> __( 'Title Border', 'skyre' ),
+					'section' 	=> 'skyre_menu_options',
+					'type'    	=> 'skyre-dimension'
+					
+				)
+			) );
+			
+			$wp_customize->register_control_type( 'Skyre_Control_Color' );
+			$wp_customize->add_setting( 'skyre[nav_border_color]',
+				array(
+					'default' => '',
+					'type'  => 'option',
+					/*'transport'   => 'postMessage', on chnage not working */
+					'sanitize_callback' => 'sanitize_alpha_color'
+				)
+			);
+			$wp_customize->add_control( new Skyre_Control_Color( $wp_customize, 'skyre[nav_border_color]',
+				array(
+					'label' => __( 'Border Color', 'skyre' ),
+					'section' => 'skyre_menu_options',
+					
+				)
+			) );
+
+
+
 			}
 	}
 }
