@@ -3,7 +3,10 @@
 
 .skyre-grid-style-list .skyre-widget-post-item { margin-bottom:20px; }
 .skyre-widget-post-item { padding-bottom:30px; }
+/*
+disbale for home-violoet post listing
 @media (max-width: 767px) { .skyre-widget-post-left, .skyre-widget-post-right{ float: none;width: 100%}  }
+*/
 .skyre-grid-title {margin:15px 0 5px; font-size: 20px; font-weight: 400}
 .skyre-grid-addtocart   {margin:10px 0 }
 .skyre-grid-meta { margin: 5px 0;}
@@ -24,6 +27,7 @@
 .grid2 .skyre-grid-title { margin:5px 0;}
 
 .skyre-grid-col-image { overflow: hidden; }
+.skyre-grid-col-image img { width:100%; }
 
 /*.skyre-grid:after {
 	display: block;

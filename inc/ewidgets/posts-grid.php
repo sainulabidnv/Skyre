@@ -273,11 +273,11 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		// Image width.
-		$this->add_control(
+		// colum width.
+		$this->add_responsive_control(
 			'grid_image_width',
 			[
-				'label'     => '<i class="fa fa-arrows-h"></i> ' . __( 'Image width', 'skyre' ),
+				'label'     => '<i class="fa fa-arrows-h"></i> ' . __( 'Colum width', 'skyre' ),
 				'type'      => \Elementor\Controls_Manager::SLIDER,
 				'range'     => [
 					'%' => [
@@ -290,7 +290,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .skyre-widget-post-left' => 'width: {{SIZE}}%;',
-					'{{WRAPPER}} .skyre-widget-post-right' => 'width: {{SIZE-100-3}}%;',
+					'{{WRAPPER}} .skyre-widget-post-right' => 'width: calc(99% - {{SIZE}}%);',
 				],
 			]
 		);
@@ -913,10 +913,10 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'grid_image_style_height',
 			[
-				'label' => __( 'Imase Height', 'skyre' ),
+				'label' => __( 'Image Height', 'skyre' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [

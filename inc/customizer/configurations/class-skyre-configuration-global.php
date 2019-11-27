@@ -172,7 +172,7 @@ if ( ! class_exists( 'Skyre_Configuration_Global' ) ) {
 					$wp_customize->register_control_type( 'Skyre_Control_Color' );
 					$wp_customize->add_setting( 'skyre[global_font_color]',
 						array(
-							'default' => '#dee003',
+							'default' => '#030e20',
 							'type'  => 'option',
 							/*'transport'   => 'postMessage', on chnage not working */
 							'sanitize_callback' => 'sanitize_alpha_color'

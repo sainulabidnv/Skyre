@@ -839,6 +839,15 @@ class spCountDown extends Widget_Base {
 			]
 		);
 		
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'status_description_box_shadow',
+				'label' => __( 'Box Shadow', 'skyre' ),
+				'selector' => '{{WRAPPER}} '.$css_scheme['counter'],
+			]
+        );
+		
 		$this->end_controls_section();
 		
 		/**
@@ -1716,7 +1725,6 @@ class spCountDown extends Widget_Base {
 		<div class="sk-countdown text-center ">
             <?php echo wp_kses_post($html); ?>
         </div>
-
 		<!--End sk-countdown-->
 		<?php
 	}

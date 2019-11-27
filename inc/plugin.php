@@ -98,8 +98,8 @@ class Plugin {
 		require SKYRE_THEME_DIR .'inc/ewidgets/posts-grid.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/contact_form7.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/newsletter.php' ;
-		require SKYRE_THEME_DIR .'inc/ewidgets/image-carousel.php' ;
-		require SKYRE_THEME_DIR .'inc/ewidgets/icon-box.php' ;
+		//require SKYRE_THEME_DIR .'inc/ewidgets/image-carousel.php' ;
+		//require SKYRE_THEME_DIR .'inc/ewidgets/icon-box.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/sk-slider.php' ;
 		//require SKYRE_THEME_DIR .'inc/ewidgets/support/class-jet-elements-tools.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/twitter.php' ;
@@ -127,8 +127,8 @@ class Plugin {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\postsGrid() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\contactForm7() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\NewsLetter() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Image_Carousel() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Icon_Box() );
+		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Image_Carousel() );
+		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Icon_Box() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\skyreSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\SkyreTwitter() );
 		

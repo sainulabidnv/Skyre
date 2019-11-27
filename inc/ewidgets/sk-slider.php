@@ -1966,6 +1966,14 @@ class skyreSlider extends Skyre_Base {
 			)
 		);
 
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'     => 'slider_title_background',
+				'selector' => '{{WRAPPER}} ' . $css_scheme['title'],
+			)
+		);
+
 		$this->add_responsive_control(
 			'slider_title_alignment',
 			array(
@@ -2047,6 +2055,14 @@ class skyreSlider extends Skyre_Base {
 				'selectors'  => array(
 					'{{WRAPPER}} ' . $css_scheme['subtitle'] => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'     => 'slider_subtitle_background',
+				'selector' => '{{WRAPPER}} ' . $css_scheme['subtitle'],
 			)
 		);
 
@@ -2741,24 +2757,16 @@ class skyreSlider extends Skyre_Base {
 		
 		$settings = $this->get_settings_for_display();
 		$items = $settings['item_list'];
-		
 		$data_settings = $this->generate_setting_json();
-		
 		$classes_list[] = 'sk-slider';
 		$classes_list[] = 'sk-slider__image-' . $settings['slide_image_scale_mode'];
 		$classes1 = implode( ' ', $classes_list );
-		
 		$class_array[] = 'sk-slider__items';
 		$class_array[] = 'sp-slides';
-		
 		$classes2 = implode( ' ', $class_array );
 		?>
-		
-	
 		<div class="<?php echo esc_attr($classes1); ?>" <?php echo wp_kses_post($data_settings); ?>>
-			
-            <span class="sk-slider-loader"></span>
-						
+           <span class="sk-slider-loader"></span>
              <div class="slider-pro">
                 <div class="<?php echo esc_attr($classes2); ?>">
                 <!--loop start-->
@@ -2777,21 +2785,17 @@ class skyreSlider extends Skyre_Base {
 				$sliderImg = wp_get_attachment_image( $image['id'], $slider_image_size, false, $image_attr );
 				}
 				?>
-                
                 <div class="sk-slider__item sp-slide">
                     <?php
                         echo wp_kses_post($sliderImg);
 						if ( filter_var( $settings['thumbnails'], FILTER_VALIDATE_BOOLEAN ) ) {
 							if ( $settings['thumbnails'] ) { echo sprintf( '<img class="sp-thumbnail" src="%s" alt=%s"">',$image['url'], $alt ); }
 						}
-                    
-					$animationData_cnt = '';
+ 					$animationData_cnt = '';
 					$infClass_cnt = '';
 					$animation_cnt = $settings['slider_content_animation'];
-					
 					if ( $animation_cnt == 'inf-upDown' || $animation_cnt == 'inf-scale' ) { $infClass_cnt = $animation_cnt;} 
 					else if ( $animation_cnt !='' ) { $animationData_cnt = 'data-show-transition="'.$animation_cnt.'"';}
-					
 					?>
                     <div class="sk-slider__content sp-layer <?php echo esc_attr($infClass_cnt); ?>" data-position="centerCenter" data-width="100%" data-height="100%" data-horizontal="0%" <?php echo esc_html($animationData_cnt); ?> data-show-duration="400" data-show-delay="400">
                         <div class="sk-slider__content-item">
@@ -2801,8 +2805,6 @@ class skyreSlider extends Skyre_Base {
 									if ( $item['item_title'] ) { echo sprintf( '<h5 class="sk-slider__title">%s</h5>',$item['item_title'] ); }
 									if ( $item['item_subtitle'] ) { echo sprintf( '<h5 class="sk-slider__subtitle">%s</h5>',$item['item_subtitle'] ); }
 									if ( $item['item_desc'] ) { echo html_entity_decode (sprintf( '<div  data-show-transition="up" data-hide-transition="down" data-show-duration="1000" data-show-delay="1000" class="sk-slider__desc">%s</div>',$item['item_desc'] )); }
-									
-									
                                 ?>
                                 <div class="sk-slider__button-wrapper"><?php
                                    if ( $item['item_button_primary_text'] ) { echo sprintf( '<a class="btn btn-primary sk-slider__button sk-slider__button--primary" href="%1$s">%2$s</a>',$item['item_button_primary_url'],$item['item_button_primary_text'] ); }
@@ -2812,17 +2814,13 @@ class skyreSlider extends Skyre_Base {
                             </div>
                         </div>
                     </div>
-                    
                     <?php 
 					if ( $item['second_content'] ) {
-						
 					$animationData = '';
 					$infClass = '';
 					$animation = $settings['slider_secContent_animation'];
-					
 					if ( $animation == 'inf-upDown' || $animation == 'inf-scale' ) { $infClass = $animation;} 
 					else if ( $animation !='' ) { $animationData = 'data-show-transition="'.$animation.'"';}
-
 					?> 
                     <div class="sp-layer sk-slider__secContent <?php echo esc_attr($infClass); ?>" data-width="100%" data-height="100%"  <?php echo wp_kses_post($animationData); ?> data-hide-transition="up" data-show-duration="400" data-show-delay="400">
                     	<div class="sk-slider__secContent-item">
@@ -2832,14 +2830,9 @@ class skyreSlider extends Skyre_Base {
                         </div>
                     </div>
                    <?php } ?>
-
-	
-                    
-                    
-                </div>
+               </div>
                 <!--loop end-->
                 <?php } ?>
-                
                 </div>
 			</div>
 		</div>
