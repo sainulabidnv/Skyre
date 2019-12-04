@@ -61,6 +61,15 @@ class Widget_Testimonial extends Widget_Base {
 	}
 
 	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
+
+	/**
 	 * Get widget icon.
 	 *
 	 * Retrieve testimonial widget icon.

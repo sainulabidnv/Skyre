@@ -1218,103 +1218,40 @@ header {
 }
 
 /* 15.0 - Light theme */
-/*Mis items*/
-/*====================================================
-======================light theme override=====================*/
-/*.dark 
-	{
-		color:rgba($sk-secondary, .80);
-		.main-head { 
-			background:url(../../img/bg.png) repeat $sk-text-color; color:rgba($white, .60);
-			a, .btn.btn-skyre a { color:$white; }
-			a:hover, .active a, .current-menu-item a { color:$sk-secondary;}
-			h1, h4{ color:$white; }
-		}
-	}
+/*Footer*/
+.footer {
+  margin: 70px 0 0 0;
+}
 
-.dark{
-		h1, h2{ color:$sk-secondary; }
-		h2 span { color:rgba($sk-secondary, .10)}
-		h3,h4,h5,h6{ color:rgba($sk-secondary, .80)}
-		a { color:rgba($sk-secondary, .7);}
-		a:hover { color:$sk-secondary; transition: color 0.1s ease-in; text-decoration:none; }
-		
-		.review-item { 
-			border:solid px(1) rgba($sk-secondary,.10); 
-			span { color:$sk-secondary;}
-			}
-		.btn-skyre { 
-			color:$sk-secondary; border:none;  
-			}	
-		.btn-skyre:hover { 
-			 color:$white; background:$sk-secondary;
-			}
-		
-		.rmap-year {
-			background:#c4bcf9; color:rgba($sk-secondary,.8); border:none;
-			&.finished { background:rgba($sk-secondary,1); color:$white;}
-		}	
-		.rmap-item {
-				 color:rgba($sk-secondary,.5);
-				 h6 { color:rgba($sk-secondary,.6); }
-			}
-		.rmap-item, .rmap-item-details, .rmap-item-sets, .rmap-circle { border-color:#c4bcf9;}
-		.rmap-circle span { background:#c4bcf9;}
-		.finished {
-			 color:rgba($sk-secondary,.7);
-			 h6 { color:rgba($sk-secondary,.7); }
-			&.rmap-item, .rmap-item-details, .rmap-item-sets, .rmap-circle { border-color:rgba($sk-secondary, 1);}
-			.rmap-circle { span { background-color:rgba($sk-secondary, 1) } }
-			}
-		.active {
-			color:rgba($sk-secondary,.7);
-			 h6 { color:rgba($sk-secondary,.7); }
-			.rmap-item-details, .rmap-circle { border-color:rgba($sk-secondary, 1); border-style:dashed}
-			.rmap-item-sets { border-color:rgba($sk-secondary, 1); border-bottom-style:dashed}
-			.rmap-circle { span { background-color:rgba($sk-secondary, 1) } }
-			.date{ color:rgba($sk-secondary, 1);}
-			}
-		.rmap-end-btn{
-			color:$white;
-			}
-		.staff-social a { color:rgba($white, .7)}
-		
-		.faq-item { background:$white;}
-		.faq {
-			.faq-item { background:$white;}
-			h6{ 
-				&::after { 
-					 color:rgba($sk-secondary, .6);
-				}
-				&.collapsed::after {
-					content:"\f107"; color:rgba($sk-secondary,.6);
-				}
-			}
-		}
-		.blog-item { border:solid px(1) rgba($sk-secondary, .2) }
-		.contact { 
-			.social, .subscribe {   
-				background:rgba($sk-secondary, 1); color:$white;
-				a, h5, h6, .btn-skyre { color:rgba($white, 1);}
-				.sk-form { border-color:rgba($white, .7); color:rgba($white, 1); }
-				::placeholder { color: rgba($white, .5); }
-				}
-			
-			}
-		.sk-form { border-color:rgba($sk-secondary, .7); color:rgba($sk-secondary,.6);
-			}
-		.footer-main { 
-			background:$sk-secondary; color:rgba($white, .5);
-			a { color:rgba($white, .5);}
-			
-			}
-		.footer-botom { background:$black; color:rgba($white, .5);
-			a { color:rgba($white, .5); }
-		}
-		section { padding:px(100) 0 !important;}
+.footer-widget .widget-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 0 0 15px 0;
+  margin: 0 0 20px;
+}
+.footer-widget .gallery-item {
+  float: left;
+  padding: 5px;
+  margin: 2px 0;
+}
+.footer-widget .gallery-columns-2 .gallery-item {
+  width: 50%;
+}
+.footer-widget .gallery-columns-3 .gallery-item {
+  width: 33%;
+}
+.footer-widget .gallery-columns-4 .gallery-item {
+  width: 25%;
+}
+.footer-widget .widget {
+  padding: 0;
+}
 
-	}
-*/
+@media (max-width: 575.98px) {
+  .footer-widget .widget-title {
+    margin: 30px 0 20px;
+  }
+}
 /* 16.0 - Media queries */
 /*====================================================
 ======================Media Query=====================*/

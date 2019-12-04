@@ -47,7 +47,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-post-list';
+		return 'fa fa-grip-horizontal';
 	}
 
 	/**
@@ -57,6 +57,15 @@ class spEventBlock extends \Elementor\Widget_Base {
 	 */
 	public function get_name() {
 		return 'skyre-sp-event-block';
+	}
+
+	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
 	}
 
 	
@@ -489,7 +498,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -501,7 +510,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -611,7 +620,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -623,7 +632,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -690,7 +699,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -702,7 +711,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -813,7 +822,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'group_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -825,7 +834,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'group_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -893,7 +902,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 
 		
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_column_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -905,7 +914,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_column_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1015,7 +1024,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_title_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1027,7 +1036,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_title_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1138,7 +1147,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'sp_event_date_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1150,7 +1159,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'sp_event_date_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1260,7 +1269,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_time_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1272,7 +1281,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_time_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1382,7 +1391,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_venue_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1394,7 +1403,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_venue_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1504,7 +1513,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_league_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1516,7 +1525,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_league_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1626,7 +1635,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_match_day_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1638,7 +1647,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'event_match_day_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1706,7 +1715,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'logo_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1718,7 +1727,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'logo_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1840,7 +1849,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1852,7 +1861,7 @@ class spEventBlock extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),

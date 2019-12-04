@@ -35,6 +35,7 @@ extract( $defaults, EXTR_SKIP );
 
 if(isset($ws['photo_link'])) $photo_link = $ws['photo_link']; else $photo_link = '';
 if(isset($ws['photo_size'])) $size = $ws['photo_size'];
+if(isset($ws['photo_animation'])) $photo_animation = $ws['photo_animation']; else $photo_animation = '';
 
 
 if(!empty($ws)) { 
@@ -155,8 +156,8 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 			foreach($columns as $column) {
 				if($column == 'photo') { 
 					$photo = '';
-					if ( has_post_thumbnail( $player_id ) ) $thumbnail = get_the_post_thumbnail( $player_id, $size );
-					else $thumbnail = '<img src="'. get_template_directory_uri().'/sportspress/assets/img/player-medium.jpg"  alt="' . get_the_title( $player_id ). '" />';
+					if ( has_post_thumbnail( $player_id ) ) $thumbnail = get_the_post_thumbnail( $player_id, $size, array('class' => $photo_animation) );
+					else $thumbnail = '<img class="'.$photo_animation.'" src="'. get_template_directory_uri().'/sportspress/assets/img/player-medium.jpg"  alt="' . get_the_title( $player_id ). '" />';
 					$photo .= '<div class="player-photo">'.$thumbnail;
 					$photo .= '</div>';
 					if ( $show_player_flag ):

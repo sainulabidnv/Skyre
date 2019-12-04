@@ -37,6 +37,7 @@ class Plugin {
 		return self::$_instance;
 	}
 
+
 	/**
 	 * widget_scripts
 	 *
@@ -165,6 +166,25 @@ class Plugin {
 	}
 
 	/**
+	 * Elementor Widget Category
+	 *
+	 * Load required plugin core files.
+	 *
+	 * @since 1.0
+	 */
+	
+	public function register_widget_categories() {
+		\Elementor\Plugin::instance()->elements_manager->add_category(
+            'skyre',
+            [
+				'title' => __( 'Skyre', 'skyre' ),
+				'icon'  => 'fa fas-football-ball',
+			],
+			1
+		);
+	}
+
+	/**
 	 *  Plugin class constructor
 	 *
 	 * Register plugin action hooks and filters
@@ -173,8 +193,6 @@ class Plugin {
 	 * @access public
 	 */
 	 
-	 
-	
 	public function __construct() {
 
 		//add_action( 'rest_api_init', array( $this, 'register_routes' ) );
@@ -187,7 +205,7 @@ class Plugin {
 		// Register widget scripts
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'widget_scripts' ] );
-		
+		add_action( 'elementor/elements/categories_registered', [ $this, 'register_widget_categories' ] );
 		
 
 		// Register widgets

@@ -38,6 +38,15 @@ class SkyreTwitter extends \Elementor\Widget_Base {
         return 'fa fa-twitter';
     }
 
+    /**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
+
     
     protected function _register_controls()
     {

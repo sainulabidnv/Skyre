@@ -44,38 +44,8 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
             'panel' => 'skyre_main_options'
         ));    
 			
-			$wp_customize->add_setting('skyre[footer_logo]', array(
-                'default' => '',
-                'type'  => 'option',
-                'sanitize_callback' => 'absint'
-            ));
-            $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'skyre[footer_logo]', array(
-                'label' => __('Footer Logo/Icon', 'skyre'),
-                'section' => 'skyre_footer_main',
-				'mime_type' => 'image',
-                'settings' => 'skyre[footer_logo]',
-            )));
 			
-			$wp_customize->add_setting('skyre[footer_menu_hidden]', array(
-                'type' => 'option',
-                'sanitize_callback' => 'skyre_sanitize_checkbox'
-            ));
-            $wp_customize->add_control('skyre[footer_menu_hidden]', array(
-                'label' => __('Hide Footer Menu', 'skyre'),
-                'description' => sprintf(__('Check to hide menu in footer', 'skyre')),
-                'section' => 'skyre_footer_main',
-                'type' => 'checkbox',
-            ));
 			
-			$wp_customize->add_setting('skyre[footer_social_hidden]', array(
-                'type' => 'option',
-                'sanitize_callback' => 'skyre_sanitize_checkbox'
-            ));
-            $wp_customize->add_control('skyre[footer_social_hidden]', array(
-                'label' => __('Hide Social Icon', 'skyre'),
-                'section' => 'skyre_footer_main',
-                'type' => 'checkbox',
-            ));
 			
 			$wp_customize->add_setting('skyre[custom_footer_text]', array(
                 'default' => '',
@@ -83,8 +53,7 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
                 'sanitize_callback' => 'skyre_sanitize_strip_slashes'
             ));
             $wp_customize->add_control('skyre[custom_footer_text]', array(
-                'label' => __('Footer information', 'skyre'),
-                'description' => sprintf(__('Copyright text in footer', 'skyre')),
+                'label' => __('Copyright text', 'skyre'),
                 'section' => 'skyre_footer_main',
                 'type' => 'textarea'
             ));
@@ -178,6 +147,28 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
 				'choices' => get_background_positions()
 	  
             ));
+
+            //footer Widget Section
+            $wp_customize->add_setting('skyre[footer_widget_bg_color]', array(
+                'default' => '',
+                'type'  => 'option',
+                'sanitize_callback' => 'sanitize_alpha_color'
+            ));
+            $wp_customize->add_control(new Skyre_Control_Color($wp_customize, 'skyre[footer_widget_bg_color]', array(
+                'label' => __('Footer widget area background', 'skyre'),
+                'section' => 'skyre_footer_options',
+            )));
+
+            //footer Bottom Section
+            $wp_customize->add_setting('skyre[footer_bottom_bg_color]', array(
+                'default' => '',
+                'type'  => 'option',
+                'sanitize_callback' => 'sanitize_alpha_color'
+            ));
+            $wp_customize->add_control(new Skyre_Control_Color($wp_customize, 'skyre[footer_bottom_bg_color]', array(
+                'label' => __('Footer bottom background', 'skyre'),
+                'section' => 'skyre_footer_options',
+            )));
 			
 			
 			//social icons
@@ -202,15 +193,7 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
                 'section' => 'skyre_footer_options',
             )));
 			
-			$wp_customize->add_setting('skyre[footer_widget_bg_color]', array(
-                'default' => '',
-                'type'  => 'option',
-                'sanitize_callback' => 'sanitize_alpha_color'
-            ));
-            $wp_customize->add_control(new Skyre_Control_Color($wp_customize, 'skyre[footer_widget_bg_color]', array(
-                'label' => __('Footer widget area background color', 'skyre'),
-                'section' => 'skyre_footer_options',
-            )));
+			
 
 			
 		}

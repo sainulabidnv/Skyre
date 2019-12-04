@@ -5,7 +5,7 @@
 * Author URL: https://skyresoft.com/
 */
 
-( function( $ ) {
+( function( $ ) { 
 	/**
  	 * @param $scope The Widget wrapper element as a jQuery element
 	 * @param $ The jQuery alias
@@ -39,6 +39,7 @@
 				thumbnailHeight: 80,
 				thumbnails: true,
 				rightToLeft: false,
+				touchSwipe: false,
 			},
 			instanceSettings = $target.data( 'settings' ) || {},
 			settings        = $.extend( {}, defaultSettings, instanceSettings );

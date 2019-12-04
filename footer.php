@@ -13,38 +13,49 @@
 ?>
 
     <!--Footer-->
-    <footer class="footer text-center">
-    	<div class="footer-main skpbg skwc">
-            <div class="container py-5">
-               <?php if(skyre_get_option('footer_logo')) { 
-			   $footer_image = wp_get_attachment_image_src( skyre_get_option('footer_logo'), 'full' );
-			   ?> <div class="footer-logo"> <img src="<?php echo esc_url($footer_image[0]); ?>" alt="FooterLogo"> </div> <?php } ?>
-                
-                <?php 
-				
-				if(skyre_get_option('footer_social_hidden') !=1) {
-					if ( has_nav_menu( 'social_icons' ) ) {
-						wp_nav_menu(
-							array(
-								'theme_location'  => 'social_icons',
-								'container'       => 'nav',
-								'container_id'    => 'social_icons',
-								'container_class' => '',
-								'menu_id'         => '',
-								'menu_class'      => 'social-nav ',
-								'depth'           => 1,
-								'fallback_cb'     => '',
-							/*'link_before'     => '<i class="social_icon fa"><span>',
-							'link_after'      => '</span></i>'*/
-							)
-						  );
-					  }
+    <footer class="footer skpbg skwc">
+    	<div class="footer-main">
+			
+            <!--Footer widget-->
+            <div class="footer-widget">
+            	<div class="container py-5">
+                	<div class="row">
+					<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+                        <div class="col-sm"> <?php dynamic_sidebar( 'sidebar-2' ); ?> </div>
+                    <?php endif; ?> 
+                    <?php if ( is_active_sidebar( 'sidebar-3' ) ) : ?>
+                        <div class="col-sm"> <?php dynamic_sidebar( 'sidebar-3' ); ?> </div>
+                    <?php endif; ?> 
+                    <?php if ( is_active_sidebar( 'sidebar-4' ) ) : ?>
+                        <div class="col-sm"> <?php dynamic_sidebar( 'sidebar-4' ); ?> </div>
+                    <?php endif; ?> 
+                    </div>
+                </div>
+			</div>
+			<!--Footer Nav-->
+			<?php if ( has_nav_menu( 'footer' ) || has_nav_menu( 'social_icons' ))   { ?>
+			<div class="container py-5">
+               <?php 
+				if ( has_nav_menu( 'social_icons' ) ) {
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'social_icons',
+							'container'       => 'nav',
+							'container_id'    => 'social_icons',
+							'container_class' => '',
+							'menu_id'         => '',
+							'menu_class'      => 'social-nav ',
+							'depth'           => 1,
+							'fallback_cb'     => '',
+						/*'link_before'     => '<i class="social_icon fa"><span>',
+						'link_after'      => '</span></i>'*/
+						)
+					);
 				}
 				?>
                <!--end social-->
                 <div class="clearfix"></div>
                 <?php 
-				if(skyre_get_option('footer_menu_hidden') !=1) {
 					if ( has_nav_menu( 'footer' ) ) {
 						wp_nav_menu(
 							array(
@@ -57,35 +68,14 @@
 								'depth'           => 1,
 								'fallback_cb'     => '',
 							)
-						  );
-					  }
-				}
+						);
+					}
 				?>
-            
-            
-            
             </div>
-            <!--Footer widget-->
-            <div class="footer-widget">
-            	<div class="container">
-                	<div class="row">
-					<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-                        <div class="col"> <?php dynamic_sidebar( 'sidebar-2' ); ?> </div>
-                    <?php endif; ?> 
-                    <?php if ( is_active_sidebar( 'sidebar-3' ) ) : ?>
-                        <div class="col"> <?php dynamic_sidebar( 'sidebar-3' ); ?> </div>
-                    <?php endif; ?> 
-                    <?php if ( is_active_sidebar( 'sidebar-4' ) ) : ?>
-                        <div class="col"> <?php dynamic_sidebar( 'sidebar-4' ); ?> </div>
-                    <?php endif; ?> 
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div> <!--Footer Main-->
+		</div> <!--Footer Main-->
+		<?php } ?>
         <?php if(skyre_get_option('custom_footer_text')) { ?>
-        <div class="footer-botom py-4 ">
+        <div class="footer-botom py-4 text-center">
         	<div class="container"> <?php echo skyre_get_option('custom_footer_text'); ?> </div>
         </div>
         <?php } ?>

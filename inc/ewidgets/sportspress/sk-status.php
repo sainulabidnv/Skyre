@@ -82,10 +82,15 @@ class spCountDown extends Widget_Base {
 		return [ 'sk-status' ];
 	}
 	 
+	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
 	public function get_categories() {
-		return [ 'general' ];
-    }
-    
+		return [ 'skyre' ];
+	}
+	
      /**
 	 * Mathc List
 	 *

@@ -53,6 +53,15 @@ class Widget_Accordion extends Widget_Base {
 	}
 
 	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
+
+	/**
 	 * Get widget icon.
 	 *
 	 * Retrieve accordion widget icon.

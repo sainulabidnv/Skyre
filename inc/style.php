@@ -213,6 +213,10 @@ if(!function_exists('skyre_custom_frontend_style')){
 		if(skyre_get_option('footer_widget_bg_color') ){
 			$style_css .= '.footer-widget  {  background-color: '.skyre_get_option("footer_widget_bg_color").' }';
 		}
+		if(skyre_get_option('footer_bottom_bg_color') ){
+			$style_css .= '.footer-botom  {  background-color: '.skyre_get_option("footer_bottom_bg_color").' }';
+		}
+		
 		
 		//scrollTop
 		if(skyre_get_option('scrolltop_bg') ){

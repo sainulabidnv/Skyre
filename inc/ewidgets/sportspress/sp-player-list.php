@@ -47,7 +47,7 @@ class spPlayers extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-post-list';
+		return 'fa fa-id-card';
 	}
 
 	/**
@@ -57,6 +57,15 @@ class spPlayers extends \Elementor\Widget_Base {
 	 */
 	public function get_name() {
 		return 'skyre-sp-player';
+	}
+	
+	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
 	}
 	
 	protected function get_player_list(){
@@ -473,7 +482,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -485,7 +494,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -603,7 +612,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -615,7 +624,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -679,7 +688,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -691,7 +700,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -769,18 +778,6 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		/*$this->add_control(
-			'table_margin',
-			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .sk-player-list-table' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		*/
 
         $this->end_controls_section();
 
@@ -1084,7 +1081,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1096,7 +1093,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1196,7 +1193,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1208,7 +1205,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1315,7 +1312,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'paginate_button_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1327,7 +1324,7 @@ class spPlayers extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'paginate_button_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1401,4 +1398,3 @@ class spPlayers extends \Elementor\Widget_Base {
 
 
 }
-

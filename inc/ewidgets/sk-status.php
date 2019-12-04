@@ -20,14 +20,14 @@ use Elementor\Group_Control_Box_Shadow;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * @since 1.1.0
+ * @since 1.0
  */
 class icostatus extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access public
 	 *
@@ -41,7 +41,7 @@ class icostatus extends Widget_Base {
 	/**
 	 * Retrieve the widget title.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access public
 	 *
@@ -54,14 +54,14 @@ class icostatus extends Widget_Base {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access public
 	 *
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-date';
+		return 'eicon-number-field';
 	}
 
 	/**
@@ -72,7 +72,7 @@ class icostatus extends Widget_Base {
 	 * Note that currently Elementor supports only one category.
 	 * When multiple categories passed, Elementor uses the first one.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access public
 	 *
@@ -83,7 +83,7 @@ class icostatus extends Widget_Base {
 	}
 	 
 	public function get_categories() {
-		return [ 'general' ];
+		return [ 'skyre' ];
 	}
 
 	/**
@@ -91,7 +91,7 @@ class icostatus extends Widget_Base {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access protected
 	 */
@@ -776,7 +776,7 @@ class icostatus extends Widget_Base {
 	 *
 	 * Written in PHP and used to generate the final HTML.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access protected
 	 */
@@ -814,7 +814,7 @@ class icostatus extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0
 	 *
 	 * @access protected
 	 */

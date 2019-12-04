@@ -60,6 +60,15 @@ class postsGrid extends \Elementor\Widget_Base {
 	}
 
 	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
+
+	/**
 	 * Register dependent script.
 	 *
 	 * @return array
@@ -73,13 +82,7 @@ class postsGrid extends \Elementor\Widget_Base {
 	 *
 	 * @return array
 	 */
-/*	public function get_categories() {
-		$category_args = apply_filters( 'elementor_extra_widgets_category_args', array() );
-		$slug          = isset( $category_args['slug'] ) ? $category_args['slug'] : 'skyre-elementor-widgets';
 
-		return [ $slug ];
-	}
-*/
 	/**
 	 * Get post types.
 	 */
@@ -515,6 +518,16 @@ class postsGrid extends \Elementor\Widget_Base {
 			'grid_image_link',
 			[
 				'label'   => '<i class="fa fa-link"></i> ' . __( 'Link', 'skyre' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			]
+		);
+
+		// Image Placeholder.
+		$this->add_control(
+			'grid_image_placeholder',
+			[
+				'label'   => '<i class="fa fa-pic"></i> ' . __( 'Placeholder', 'skyre' ),
 				'type'    => \Elementor\Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -971,6 +984,14 @@ class postsGrid extends \Elementor\Widget_Base {
 					'{{WRAPPER}} .skyre-grid-col-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				
+			]
+		);
+
+		$this->add_control(
+			'hover_animation',
+			[
+				'label' => __( 'Hover Animation', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
@@ -2392,11 +2413,11 @@ class postsGrid extends \Elementor\Widget_Base {
 	 */
 	protected function renderImage() {
 		$settings = $this->get_settings();
-
-		// Only in editor.
+		$animationClass = '';
 		
-		// Check if post type has featured image.
-		
+		if ( $settings['hover_animation'] ) {
+			$animationClass = 'elementor-animation-' . $settings['hover_animation'];
+		}
 
 		if ( $settings['grid_image_link'] == 'yes' ) {
 			?>
@@ -2404,9 +2425,9 @@ class postsGrid extends \Elementor\Widget_Base {
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 					<?php 
 					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
-					} else { ?> 
-					<img  src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
+						the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive '.$animationClass, 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
+					} else if ( $settings['grid_image_placeholder'] == 'yes' ) { ?> 
+					<img class="<?php echo $animationClass; ?>" src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
 					<?php } ?>
 				</a>
 			</div>
@@ -2414,9 +2435,9 @@ class postsGrid extends \Elementor\Widget_Base {
 			<div class="skyre-grid-col-image">
 				<?php
 				if ( has_post_thumbnail() ) {
-					the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive', 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
-				}else { ?> 
-					<img  src="<?php echo SKYRE_THEME_URI; ?> assets/images/post-medium.jpg"> 
+					the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive '.$animationClass, 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
+				}else if ( $settings['grid_image_placeholder'] == 'yes' ) { ?> 
+					<img class="<?php echo $animationClass; ?>"  src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
 				<?php } ?>
 			</div>
 			<?php

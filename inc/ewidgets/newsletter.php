@@ -64,6 +64,15 @@ class NewsLetter extends \Elementor\Widget_Base {
 	public function get_name() {
 		return 'newsletter';
 	}
+
+	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
 	
 
 	

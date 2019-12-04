@@ -47,7 +47,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-post-list';
+		return 'fa fa-table';
 	}
 
 	/**
@@ -57,6 +57,15 @@ class spLeagueList extends \Elementor\Widget_Base {
 	 */
 	public function get_name() {
 		return 'skyre-sp-league';
+	}
+
+	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
 	}
 
 	  /**
@@ -408,7 +417,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -420,7 +429,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_heading_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -530,7 +539,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -542,7 +551,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_content_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -609,7 +618,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -621,7 +630,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'list_image_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -699,19 +708,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		/*$this->add_control(
-			'table_margin',
-			[
-				'label'      => __( 'Margin', 'skyre' ),
-				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'selectors'  => [
-					'{{WRAPPER}} .sk-league-table' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				]
-			]
-		);
-		*/
-
+		
         $this->end_controls_section();
         
         //==========Table heading settings
@@ -997,7 +994,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1009,7 +1006,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'icon_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),
@@ -1127,7 +1124,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_padding',
 			[
 				'label'      => __( 'Padding', 'skyre' ),
@@ -1139,7 +1136,7 @@ class spLeagueList extends \Elementor\Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'view_all_button_margin',
 			[
 				'label'      => __( 'Margin', 'skyre' ),

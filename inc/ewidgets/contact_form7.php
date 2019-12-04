@@ -44,6 +44,15 @@ class contactForm7 extends \Elementor\Widget_Base {
 	}
 
 	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
+
+	/**
 	 * Widget icon.
 	 *
 	 * @return string

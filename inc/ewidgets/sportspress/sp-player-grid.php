@@ -47,7 +47,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-post-list';
+		return 'fa fa-id-badge';
 	}
 
 	/**
@@ -58,6 +58,16 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 	public function get_name() {
 		return 'skyre-sp-player-grid';
 	}
+
+	/**
+	 * Get widget categories.
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'skyre' ];
+	}
+
 	
 	protected function get_player_list(){
 	
@@ -731,7 +741,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-        $this->end_controls_section();
+		$this->end_controls_section();
 		
 		//==========Position heading settings
 		$this->start_controls_section(
@@ -1008,6 +1018,14 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .sk-player-grid .player-photo' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				]
+			]
+		);
+
+		$this->add_control(
+			'hover_animation',
+			[
+				'label' => __( 'Hover Animation', 'skyre' ),
+				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 		
@@ -1936,10 +1954,19 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$order = empty($settings['sort_order']) ? 'ASC' : $settings['sort_order'];
 		$show_all_players_link = empty($settings['show_link']) ? false : $settings['show_link'];
 		$grouping = empty($settings['group_by']) ? null : $settings['group_by'];
+
+		$animationClass = '';
+		
+		if ( $settings['hover_animation'] ) {
+			$animationClass = 'elementor-animation-' . $settings['hover_animation'];
+		}
 		//widge settings - ws
 		$ws['attr'] = $settings['list_attr'];
 		$ws['photo_link'] = $settings['photo_link'];
 		$ws['photo_size'] = $settings['player_image_size'];
+		if ( $settings['hover_animation'] ) {
+			$ws['photo_animation'] = 'elementor-animation-' . $settings['hover_animation'];
+		}
 		
 		
 		foreach($columns as $column){

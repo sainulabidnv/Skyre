@@ -37,11 +37,11 @@ class skyreSlider extends Skyre_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-date';
+		return 'eicon-post-slider';
 	}
 
 	public function get_categories() {
-		return array( 'general' );
+		return array( 'skyre' );
 	}
 
 	public function get_script_depends() {
@@ -2795,7 +2795,7 @@ class skyreSlider extends Skyre_Base {
 					$infClass_cnt = '';
 					$animation_cnt = $settings['slider_content_animation'];
 					if ( $animation_cnt == 'inf-upDown' || $animation_cnt == 'inf-scale' ) { $infClass_cnt = $animation_cnt;} 
-					else if ( $animation_cnt !='' ) { $animationData_cnt = 'data-show-transition="'.$animation_cnt.'"';}
+					else if ( $animation_cnt !='' ) { $animationData_cnt = 'data-show-transition='.$animation_cnt;}
 					?>
                     <div class="sk-slider__content sp-layer <?php echo esc_attr($infClass_cnt); ?>" data-position="centerCenter" data-width="100%" data-height="100%" data-horizontal="0%" <?php echo esc_html($animationData_cnt); ?> data-show-duration="400" data-show-delay="400">
                         <div class="sk-slider__content-item">
