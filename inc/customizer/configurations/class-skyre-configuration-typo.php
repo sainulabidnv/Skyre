@@ -54,14 +54,14 @@ if ( ! class_exists( 'Skyre_Configuration_Typo' ) ) {
 					array( 'title' => 'Page content', 'id' => 'typo_page_content', 'default' => '', 'class' => '.page-content' ),
 					
 					array( 'title' => 'Post/Archive header', 'id' => 'typo_post_header', 'default' => '', 'class' => '.post-title h1' ),
-					array( 'title' => 'Post list title', 'id' => 'typo_post_list_title', 'default' => '', 'class' => '.skyre-post .entry-title a' ),
-					array( 'title' => 'Post list content', 'id' => 'typo_post_list_content', 'default' => '', 'class' => '.skyre-post .post-content' ),
-					array( 'title' => 'Post list meta', 'id' => 'typo_post_list_meta', 'default' => '', 'class' => '.skyre-post .post-meta, .skyre-post .post-meta a' ),
+					array( 'title' => 'Post list title', 'id' => 'typo_post_list_title', 'default' => '', 'class' => '.skyre-post-item .entry-title a' ),
+					array( 'title' => 'Post list content', 'id' => 'typo_post_list_content', 'default' => '', 'class' => '.skyre-post-item .post-content' ),
+					array( 'title' => 'Post list meta', 'id' => 'typo_post_list_meta', 'default' => '', 'class' => '.skyre-post-item .post-meta, .skyre-post-item .post-meta a' ),
 					array( 'title' => 'Post list readmore', 'id' => 'typo_post_list_readmore', 'default' => '', 'class' => '.post-readmore' ),
 					
 					array( 'title' => 'Single post title', 'id' => 'typo_post_title', 'default' => '', 'class' => 'h1.single-post-title' ),
-					array( 'title' => 'Post content', 'id' => 'typo_post_content', 'default' => '', 'class' => '.skyre-single-post' ),
-					array( 'title' => 'Post meta', 'id' => 'typo_post_meta', 'default' => '', 'class' => '.skyre-single-post .post-meta, .skyre-single-post .post-meta a' ),
+					array( 'title' => 'Post content', 'id' => 'typo_post_content', 'default' => '', 'class' => '.skyre-single-post-item .post-content' ),
+					array( 'title' => 'Post meta', 'id' => 'typo_post_meta', 'default' => '', 'class' => '.skyre-single-post-item .post-meta, .skyre-single-post-item .post-meta a' ),
 										
 					array( 'title' => 'Sidebar title', 'id' => 'typo_widget_title', 'default' => '', 'class' => '.sidebar-section .widget-title' ),
 					array( 'title' => 'Sidebar content', 'id' => 'typo_widget_content', 'default' => '', 'class' => '.sidebar-section' ),

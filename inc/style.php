@@ -43,7 +43,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$style_css .= '.scrollTop:hover { background:'.$color.'; }';
 			
 			if ( class_exists( 'WooCommerce' ) ) {
-				$style_css .= '.button { background-color:'.$color.'  !important; }';
+				$style_css .= '.button, button { background-color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-tabs .tabs li.active { background-color:'.$color.' !important; }';
 				$style_css .= '.woocommerce-tabs .tabs li { background-color:'.$light.' !important; }';
 				$style_css .= '.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register { border-color:'.$light.'; }';
@@ -56,9 +56,10 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$style_css .= '.sksbg, a.skpbg:hover, .scrollTop, .pagination a.current, .pagination span.current, .cat-links a, .btn-skyre { background-color:'.$color.'; }';
 			$style_css .= '.cssload-loading:after, .cssload-loading:before { border:solid 1px '.$color.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
-				$style_css .= '.button:hover, .woocommerce .onsale { background-color:'.$color.'  !important; }';
-				$style_css .= '.woocommerce-message::before, .woocommerce .price { color:'.$color.'  !important; }';
+				$style_css .= '.button:hover, .woocommerce .onsale, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background-color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-message { border-top-color:'.$color.'  !important; }';
+				$style_css .= '.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price { color:'.$color.' ; }';
+				
 			  }
 		}
 		//Font Color
@@ -68,12 +69,16 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$light = $larray[0].','.$larray[1].','.$larray[2].',.15)';
 			$dark = $larray[0].','.$larray[1].','.$larray[2].',.5)';
 			$style_css .= 'body, a,  .widget_search .search-field, .dropdown-menu a, .form-control { color:'.$color.'; }';
-			$style_css .= '.meta span, .meta a, .meta time { color:'.$dark.' ; }';
+			$style_css .= '.meta span, .meta a, .meta time, input,  select, optgroup, textarea { color:'.$dark.' ; }';
+			if ( class_exists( 'WooCommerce' ) ) {
+				$style_css .= '.woocommerce ul.products li.product .woocommerce-loop-product__title { color:'.$color.'  !important; }';
+			  }
 		}
 		//Secondary Font Color
 		if(skyre_get_option('white_color') ){
 			$color = skyre_get_option("white_color");
 			$style_css .= '.skwc, .skwc a, a.skpc:hover, .scrollTop a, .btn-skyre, .has-fixed .nav-link, .pagination a.current, .pagination span.current { color:'.$color.'; }';
+			$style_css .= '.skwc .meta span, .skwc .meta a, .skwc .meta time, .skwc input,  .skwc select, .skwc optgroup, .skwc textarea { color:'.$color.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.button, a.button { color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-tabs .tabs li a { color:'.$color.' !important; }';

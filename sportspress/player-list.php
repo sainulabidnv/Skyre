@@ -47,12 +47,6 @@ if(!empty($ws)) {
 //if ( in_array( 'content', $settings['list_attr'] )) {
 //$id = 0;
 $paginated = true;
-//$leagues = 13;
-//$grouping = 'position';
-
-//$orderby = 'name';
-//$order = 'ASC';
-// Backward compatibility
 if ( isset( $performance ) )
 	$columns = $performance;
 
@@ -155,8 +149,6 @@ foreach ( $groups as $group ):
 		endif;
 	endif;
 
-
-//$labels =array (  'goals' => 'Goals', 'name' => 'Player', 'position' => 'Position', 'number' => '#',   'team' => 'Club',  'yellowcards' => 'Yellow Cards', 'redcards' => 'Red Cards', 'assists' => 'Assists', );
 	foreach( $labels as $key => $label ):
 		//if ( $key !== 'number' && ( ! is_array( $columns ) || $key == 'name' || in_array( $key, $columns ) ) )
 			if ( $key == 'number') { $thead .= $numthead; continue;};

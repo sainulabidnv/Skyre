@@ -19,25 +19,20 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
 
- if(skyre_get_page_option('woo_title_active') != 1 ) { ?>
-         
-         <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		 <div class="page-title skpbg">
-            <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
-              <h1 class="woocommerce-products-header__title skwc"><?php woocommerce_page_title(); ?></h1>
-            </div>
-        </div>
-		<?php endif; ?>
-		<?php } 
-		do_action( 'woocommerce_archive_description' );
+ if(skyre_get_page_option('woo_title_active') != 1 ) {  do_action( 'skyre_woo_page_title' );  } 
+		
+ 	do_action( 'woocommerce_archive_description' );
 		?>
 	</header>
 	<!-- End Header --> 
 
-	<section class="page-section" >
+	<section class="page-section sk-woo-page" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
-        <div class="row">
-            <div class="<?php if(skyre_get_page_option('layout') != '2' ) { ?> col-lg-8 <?php } else {?> col-lg-12 <?php } ?>">
+	<div class="sk-woobread skpbg15"> 
+	<?php do_action( 'skyre_shop_breadcrumb' ); ?>
+	</div>
+		<div class="row">
+            <div class="<?php if(skyre_get_page_option('woolayout') != '2' ) { ?> col-lg-9 <?php } else {?> col-lg-12 <?php } ?>">
             <div class="blog-list page-content">
 
 <?php
@@ -110,10 +105,11 @@ do_action( 'woocommerce_after_main_content' );
 	</div>
 		</div>
 		<?php
-			if(skyre_get_page_option('layout') != '2' ) { ?> 
-            <div class="col-lg-4 <?php if(skyre_get_page_option('layout') == '1') { ?> order-first <?php } ?>">
+			if(skyre_get_page_option('woolayout') != '2' ) { ?> 
+            <div class="col-lg-3 <?php if(skyre_get_page_option('woolayout') == '1') { ?> order-first <?php } ?>">
                 <div class="sidebar-section">
-                    <?php do_action( 'woocommerce_sidebar' ); ?>
+					<?php do_action( 'woocommerce_sidebar' ); 
+					?>
                 </div>
             </div>
             <?php } ?>

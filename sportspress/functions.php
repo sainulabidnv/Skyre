@@ -139,12 +139,14 @@ function sk_player_template( $options ) {
 						'action' => 'sportspress_output_post_excerpt',
 						'default' => 'yes',
 					),
+					/*
 					'name' => array(
 						'title' => __( 'Sainul Excerpt', 'skyre' ),
 						'option' => 'sportspress_player_show_excerpt_sainul',
 						'action' => 'sportspress_output_post_excerpt_sainul',
 						'default' => 'yes',
 					),
+					*/
 				);
 
 		return $options;

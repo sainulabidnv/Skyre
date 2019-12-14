@@ -20,14 +20,14 @@
             <div class="footer-widget">
             	<div class="container py-5">
                 	<div class="row">
-					<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-                        <div class="col-sm"> <?php dynamic_sidebar( 'sidebar-2' ); ?> </div>
+					<?php if ( is_active_sidebar( 'footer-sidebar-1' ) ) : ?>
+                        <div class="col-sm"> <?php dynamic_sidebar( 'footer-sidebar-1' ); ?> </div>
                     <?php endif; ?> 
-                    <?php if ( is_active_sidebar( 'sidebar-3' ) ) : ?>
-                        <div class="col-sm"> <?php dynamic_sidebar( 'sidebar-3' ); ?> </div>
+                    <?php if ( is_active_sidebar( 'footer-sidebar-2' ) ) : ?>
+                        <div class="col-sm"> <?php dynamic_sidebar( 'footer-sidebar-2' ); ?> </div>
                     <?php endif; ?> 
-                    <?php if ( is_active_sidebar( 'sidebar-4' ) ) : ?>
-                        <div class="col-sm"> <?php dynamic_sidebar( 'sidebar-4' ); ?> </div>
+                    <?php if ( is_active_sidebar( 'footer-sidebar-3' ) ) : ?>
+                        <div class="col-sm"> <?php dynamic_sidebar( 'footer-sidebar-3' ); ?> </div>
                     <?php endif; ?> 
                     </div>
                 </div>

@@ -15,14 +15,11 @@ get_header();
 ?>
 
 
-         <?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { ?>
-         
-         <div class="page-title skpbg">
-            <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
-                <?php the_title('<h1 class="skwc">', '</h1>'); ?>
-            </div>
-        </div>
-        <?php } ?>
+        <?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { 
+
+            do_action('skyre_page_title'); 
+            
+        } ?>
 	</header>
 	<!-- End Header --> 
 
@@ -59,7 +56,7 @@ get_header();
                 </div>
                 <div class="clear"></div>
                 
-                <?php echo skyre_pagination(); ?>
+                <?php do_action('skyre_page_pagination'); ?>
 
 
             </div>

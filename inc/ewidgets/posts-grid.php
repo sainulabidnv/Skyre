@@ -733,9 +733,14 @@ class postsGrid extends \Elementor\Widget_Base {
 				'label'     => '<i class="fa fa-check-square"></i> ' . __( 'Sales Button', 'skyre' ),
 				'type'      => \Elementor\Controls_Manager::SWITCHER,
 				'default'   => 'yes',
+				'condition' => [
+					'section_grid.grid_post_type' => 'product',
+				],
 				
 			]
 		);
+
+		
 
 		// Sales button text.
 		$this->add_control(
@@ -1487,7 +1492,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'label' => __( 'Read More Button', 'skyre' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
+					'section_grid_buttons.grid_content_default_btn!' => '',
 				],
 			]
 		);
@@ -1539,10 +1544,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			'grid_button_style_normal',
 			[
 				'label'     => __( 'Normal', 'skyre' ),
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1560,10 +1562,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .skyre-grid-read-btn a' => 'color: {{VALUE}};',
 				],
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1581,10 +1580,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .skyre-grid-read-btn a' => 'background-color: {{VALUE}};',
 				],
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1596,8 +1592,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selector'  => '{{WRAPPER}} .skyre-grid-read-btn a',
 				'separator' => '',
 				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
+					'section_grid_buttons.grid_content_default_btn!' => '',
 				],
 			]
 		);
@@ -1609,10 +1604,7 @@ class postsGrid extends \Elementor\Widget_Base {
 			'grid_button_style_hover',
 			[
 				'label'     => __( 'Hover', 'skyre' ),
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1630,10 +1622,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .skyre-grid-read-btn a:hover' => 'color: {{VALUE}};',
 				],
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1651,10 +1640,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .skyre-grid-read-btn a:hover' => 'background-color: {{VALUE}};',
 				],
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1665,10 +1651,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'name'      => 'grid_button_style_hover_box_shadow',
 				'selector'  => '{{WRAPPER}} .skyre-grid-read-btn a:hover',
 				'separator' => '',
-				'condition' => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 
@@ -1686,10 +1669,21 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .skyre-grid-read-btn a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'condition'  => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
+				
+			]
+		);
+
+		// Button padding.
+		$this->add_control(
+			'grid_button_style_margin',
+			[
+				'label'      => __( 'Button Margin', 'skyre' ),
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .skyre-grid-read-btn a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				
 			]
 		);
 
@@ -1703,10 +1697,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .skyre-grid-read-btn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-				'condition'  => [
-					'section_grid_content.grid_content_default_btn!' => '',
-					'section_grid_content.grid_content_product_btn!' => '',
-				],
+				
 			]
 		);
 

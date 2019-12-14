@@ -39,7 +39,7 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
 			
 			/* skyre Footer Options */
         $wp_customize->add_section('skyre_footer_main', array(
-            'title' => __('Footer', 'skyre'),
+            'title' => __('Footer text', 'skyre'),
             'priority' => 31,
             'panel' => 'skyre_main_options'
         ));    

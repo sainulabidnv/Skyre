@@ -308,7 +308,7 @@ function typostyle($args=array()){
 					if($value['mobile'] !='') { $style_resp .= ' @media (max-width: 575.98px) {'.$arg['class'].'{'.$key.': '.$value['mobile'].$value['mobile-unit'].';}} '; }
 					//$style_resp .= '@media{'.$arg['class'].'{font-size:12px}} @media2{'.$arg['class'].'{font-size:12px}}';
 					}
-				else if($value !='') { $style_obj .= $key.': '.$value.'; '; }
+				else if($value !='') { $style_obj .= $key.': '.$value.' !important; '; }
 				}
 				if($style_obj !='') { $style_css .= $arg['class'].' { '.$style_obj.' }'; }
 				if($style_resp !='') { $style_css .= $style_resp; }

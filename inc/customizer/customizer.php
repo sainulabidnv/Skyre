@@ -136,7 +136,8 @@ function include_config_files() {
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-loader.php' ;
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-header.php' ;
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-page.php' ;
-		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-sportspress.php' ;
+		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-sportspress.php';
+		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-woocommerce.php';
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-post.php' ;
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-widget.php' ;
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-comment.php' ;
@@ -186,6 +187,8 @@ function skyre_customize_register( $wp_customize ) {
 	$header_panel = new Skyre_Configuration_Header;
 	$page_panel = new Skyre_Configuration_Page;
 	$sportspress_panel = new Skyre_Configuration_Sportspress;
+	$woocommerce_panel = new Skyre_Configuration_Woocommerce;
+	
 	$post_panel = new Skyre_Configuration_Post;
 	$widget_panel = new Skyre_Configuration_Widget;
 	$comment_panel = new Skyre_Configuration_Comment;
@@ -212,8 +215,13 @@ function skyre_customize_register( $wp_customize ) {
 		$page_panel->register_configuration($wp_customize);
 
 		/* Sportspress Options */
-		$sportspress_panel->register_configuration($wp_customize);
-		
+		if ( class_exists( 'sportspress' ) ) {
+			$sportspress_panel->register_configuration($wp_customize);
+		}
+		/* Woocommerce Options */
+		if ( class_exists( 'WooCommerce' ) ) {
+			$woocommerce_panel->register_configuration($wp_customize);
+		}
 		/* skyre Post Options */
 		$post_panel->register_configuration($wp_customize);
 		

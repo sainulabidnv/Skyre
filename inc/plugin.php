@@ -121,7 +121,7 @@ class Plugin {
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\icostatus() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Button() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Heading() );
+		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Heading() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Roadmap() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Testimonial() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Accordion() );

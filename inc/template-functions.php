@@ -137,14 +137,31 @@ function skyre_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'skyre_body_classes' );
-function testet(){
-	echo 125454644554546;
-}
 
 add_action('skyre_index_pagination','skyre_pagination');
 add_action('skyre_search_pagination','skyre_pagination');
 add_action('skyre_archive_pagination','skyre_pagination');
+add_action('skyre_page_pagination','skyre_pagination');
+add_action('skyre_page_title','skyre_page_title');
+add_action('comment_form_before','skyre_comment_form_before');
+add_action('comment_form_after','skyre_comment_form_after');
+add_action( 'save_post', 'skyre_title_status_save', 1, 2 );
+add_action( 'add_meta_boxes', 'skyre_title_status_meta' );
+add_action('skyre_single_header','skyre_post_modern_header');
+
+
+/** Add div for comment reply **/
+if ( ! function_exists( 'skyre_comment_form_before' ) ) :
+	function skyre_comment_form_before() {
+		?> <div class="skyre-comment-respond sk-border-15"> <?php 
+	}
+endif;
+
+if ( ! function_exists( 'skyre_comment_form_after' ) ) :
+	function skyre_comment_form_after() {
+		?> </div> <?php 
+	}
+endif;
 
 
 /** Pagination **/
@@ -223,7 +240,7 @@ function skyre_post_title(){
 	} 
 }
 
-add_action('skyre_single_header','skyre_post_modern_header');
+
 
 function skyre_post_modern_header(){
 	global $post;
@@ -281,6 +298,15 @@ function skyre_get_post_field($fields){
 	
 	}
 
+function skyre_page_title(){
+	?>
+		<div class="page-title skpbg">
+            <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?>">
+                <?php the_title('<h1 class="skwc">', '</h1>'); ?>
+            </div>
+        </div>
+	<?php
+}
 
 function skyre_post_meta(){
 	?>
@@ -386,7 +412,7 @@ function skyre_title_status_meta() {
 
 	add_meta_box( 'skyre_title_status_meta', 'Title Status', 'skyre_title_status_render', 'page', 'side', 'default'  );
 }
-add_action( 'add_meta_boxes', 'skyre_title_status_meta' );
+
 
 /**
  * Render the metabox markup
@@ -432,7 +458,7 @@ function skyre_title_status_save( $post_id, $post ) {
 	
 	
 }
-add_action( 'save_post', 'skyre_title_status_save', 1, 2 );
+
 
 //check individual page/post title status
 
@@ -445,9 +471,6 @@ function individual_title_status(){
 	}
 
 //============= end metabox ===============
-
-//add_action( 'skyre_post_template_part', 'skyre_post_title', 2 );
-//add_action( 'skyre_post_template_part', 'skyre_post_description', 1 );
 
 function skyre_import_files() {
   return array(

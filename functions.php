@@ -226,7 +226,7 @@ add_filter( 'wp_resource_hints', 'skyre_resource_hints', 10, 2 );
  */
 function skyre_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Blog Sidebar', 'skyre' ),
+		'name'          => __( 'Post Sidebar', 'skyre' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'skyre' ),
 		'before_widget' => '<section id="%1$s" class="sk-border-15 widget  %2$s">',
@@ -237,7 +237,7 @@ function skyre_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Footer 1', 'skyre' ),
-		'id'            => 'sidebar-2',
+		'id'            => 'footer-sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'skyre' ),
 		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
 		'after_widget'  => '</section>',
@@ -247,7 +247,7 @@ function skyre_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Footer 2', 'skyre' ),
-		'id'            => 'sidebar-3',
+		'id'            => 'footer-sidebar-2',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'skyre' ),
 		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
 		'after_widget'  => '</section>',
@@ -257,8 +257,18 @@ function skyre_widgets_init() {
 	
 	register_sidebar( array(
 		'name'          => __( 'Footer 3', 'skyre' ),
-		'id'            => 'sidebar-4',
+		'id'            => 'footer-sidebar-3',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'skyre' ),
+		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title sk-border-15">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Shop', 'skyre' ),
+		'id'            => 'shop',
+		'description'   => __( 'Add widgets here to appear in your Shop page.', 'skyre' ),
 		'before_widget' => '<section id="%1$s" class="sk-border-15 widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title sk-border-15">',
@@ -495,7 +505,7 @@ require get_parent_theme_file_path( '/inc/template-tags.php' );
 /**
  * This is only for theme author.
  */
-//require get_parent_theme_file_path( '/inc/template-functions-overide.php' );
+require get_parent_theme_file_path( '/inc/template-functions-overide.php' );
 
 /**
  * SportsPress function.

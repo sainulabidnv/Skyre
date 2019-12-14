@@ -194,6 +194,19 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 					$gallery .= '<div class="player-name player-field">'.$name.'</div>';
 				}
 				
+				//===================position===================
+				else if ($column == 'position') {
+					$position = sp_array_value( $column, 'position', null );
+					if ( null === $position || ! $position ):
+						$positions = wp_strip_all_tags( get_the_term_list( $player_id, 'sp_position', '', ', ' ) );
+					else:
+						$position_term = get_term_by( 'id', $position, 'sp_position', ARRAY_A );
+						$positions = sp_array_value( $position_term, 'name', '&mdash;' );
+					endif;
+					$gallery .= '<div class="player-column player-position player-field" >' . $positions . '</div>';
+					continue;
+				}
+				
 
 				else if($column == 'team') { 
 					
@@ -207,10 +220,9 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 					$gallery .= '<div class="player-team player-field" >' . $team_name . '</div>';
 					
 				}
-				else { $gallery .= '<div class="player-field player-column">'.$labels[$column].': '.$performance[$column].'</div>';}
+				else { $gallery .= '<div class="player-field player-column">'.ucfirst($column).': '.$performance[$column].'</div>';}
 			}
 			
-
 			$gallery .= '</div> </div>';
 
 			$i++;

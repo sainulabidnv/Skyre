@@ -19,11 +19,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( 'shop' ); 
+
+if(skyre_get_page_option('woo_title_active') != 1 ) {  do_action( 'skyre_woo_page_title' );  }
+
+?>
 </header>
 
-<section id="single" class="skyre-single sk-border-15 wo-product" >
-    <div class="container<?php if(skyre_get_post_option('single_blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
+<section id="single" class="skyre-single sk-woo-page sk-border-15 wo-single-product" >
+	<div class="container<?php if(skyre_get_post_option('single_blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
+	<div class="sk-woobread skpbg15"> 
+	<?php do_action( 'skyre_shop_breadcrumb' ); ?>
+	</div>
 
 
 	<?php
