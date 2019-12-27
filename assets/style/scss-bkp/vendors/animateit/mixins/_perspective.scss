@@ -1,5 +1,0 @@
- @import "transform";
-
-@mixin perspective( $argument: 0px ){
-  @include transform( perspective( $argument ));
-}

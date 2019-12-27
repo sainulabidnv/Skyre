@@ -158,13 +158,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 			$wp_customize->register_control_type( 'Skyre_Control_Dimension' );
 			$wp_customize->add_setting( 'skyre_page[sp_title_padding]',
 				array(
-					'default' => array(
-						'desktop'      => array(
-							'top'  => '20',
-							'right'  => '',
-							'bottom'  => '20',
-							'left'  => '',
-						),),
+					
 					'type'  => 'option',
 					'sanitize_callback' => 'sanitize_responsive_dimension',
 				)
@@ -228,7 +222,89 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 					
 				)
 			) );
+
 			
+
+			$wp_customize->add_section('skyre_sportspress_player', array(
+				'title' => __('Player Featured Perfomance', 'skyre'),
+				'priority' => 31,
+				'panel' => 'skyre_sportspress_panel'
+			)); 
+				$wp_customize->add_setting( 'skyre[sp_player_field_title1]', array(
+					'default' => 'Goals',
+					'type' => 'option',
+					'sanitize_callback' => 'sanitize_text_field',
+				) );
+				
+				$wp_customize->add_control( 'skyre[sp_player_field_title1]', array(
+					'section' => 'skyre_sportspress_player',
+					'label' => __( 'Field 1 title' ),
+					'type'  => 'text',
+				) );
+
+				$wp_customize->add_setting( 'skyre[sp_player_field1]', array(
+					'default' => '',
+					'type'  => 'option',
+					'sanitize_callback' => 'sanitize_text_field',
+				) );
+				
+				$wp_customize->add_control( 'skyre[sp_player_field1]', array(
+					'section' => 'skyre_sportspress_player',
+					'label' => __( 'Field 1 variable' ),
+					'description' => __( 'Write performance variable (Configure->player->perfomance). Eg:goals ' ),
+					'type'  => 'text',
+				) );
+
+				$wp_customize->add_setting( 'skyre[sp_player_field_title2]', array(
+					'default' => 'Assists',
+					'type'  => 'option',
+					'sanitize_callback' => 'sanitize_text_field',
+				) );
+				
+				$wp_customize->add_control( 'skyre[sp_player_field_title2]', array(
+					'section' => 'skyre_sportspress_player',
+					'label' => __( 'Field 2 title' ),
+					'type'  => 'text',
+				) );
+
+				$wp_customize->add_setting( 'skyre[sp_player_field2]', array(
+					'default' => '',
+					'type'  => 'option',
+					'sanitize_callback' => 'sanitize_text_field',
+				) );
+				
+				$wp_customize->add_control( 'skyre[sp_player_field2]', array(
+					'section' => 'skyre_sportspress_player',
+					'label' => __( 'Field 2 variable' ),
+					'type'  => 'text',
+				) );
+
+				$wp_customize->add_setting( 'skyre[sp_player_field_title3]', array(
+					'default' => 'Win Ratio',
+					'type'  => 'option',
+					'sanitize_callback' => 'sanitize_text_field',
+				) );
+				
+				$wp_customize->add_control( 'skyre[sp_player_field_title3]', array(
+					'section' => 'skyre_sportspress_player',
+					'label' => __( 'Field 3 title' ),
+					'type'  => 'text',
+				) );
+
+				$wp_customize->add_setting( 'skyre[sp_player_field3]', array(
+					'default' => '',
+					'type'  => 'option',
+					'sanitize_callback' => 'sanitize_text_field',
+				) );
+				
+				$wp_customize->add_control( 'skyre[sp_player_field3]', array(
+					'section' => 'skyre_sportspress_player',
+					'label' => __( 'Field 3 variable' ),
+					'type'  => 'text',
+				) );
+			
+
+				
 		
 		
 		}

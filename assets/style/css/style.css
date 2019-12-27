@@ -69,10 +69,15 @@ a:hover {
   opacity: 0.8;
 }
 a img:hover {
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.product a:hover {
+  opacity: 1;
 }
 
 img {
+  transition: all 0.3s;
   max-width: 100%;
   height: auto;
 }
@@ -101,6 +106,10 @@ h6 {
 
 a {
   color: #030e20;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 a:hover,
@@ -1487,6 +1496,7 @@ header {
 }
 .cat-links a:hover {
   opacity: 0.7;
+  color: white;
 }
 
 .tags-links {
@@ -1500,6 +1510,7 @@ header {
 }
 .tags-links a:hover {
   opacity: 0.7;
+  color: white;
 }
 
 .avatar-wrap {

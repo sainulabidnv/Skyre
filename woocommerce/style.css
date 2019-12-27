@@ -9,6 +9,11 @@ Version	 :	1.0
 /*woocommerce / Button*/
 .woocommerce span.onsale {
   background-color: #d7372b;
+  padding: 2px 10px;
+  border-radius: 3px;
+  line-height: normal;
+  min-height: auto;
+  font-weight: normal;
 }
 .woocommerce ul.products li.product .price {
   color: #d7372b;
@@ -104,10 +109,7 @@ button:hover {
 .woocommerce div.product .woocommerce-tabs .panel {
   padding: 20px 0;
 }
-.wo-single-product{
-  border-top-width: 1px;
-  border-top-style: solid;
-}
+
 .wo-single-product h2,
 .cart-collaterals h2,
 .woocommerce-order h2 {
@@ -197,7 +199,7 @@ button:hover {
 
 .woocommerce .woocommerce-ordering select {
   border: none;
-  padding: 0 10px 7px 0;
+  padding: 8px 5px 7px 5px;
   text-transform: uppercase;
   -webkit-appearance: none;
 -moz-appearance: none;
@@ -212,8 +214,8 @@ border-bottom: solid 1px rgba(3,14,32, 0.2);
 font-family: "Font Awesome 5 Free";
 font-weight: 900;
 position: absolute;
-top: -4px;
-right: 16px;
+top: 6;
+right: 22px;
 display: inline-block;
 pointer-events: none;
 font-size: 14px;
@@ -223,11 +225,15 @@ opacity: .7;
 .sidebar-section .price_slider_wrapper { margin-top: 30px;}
 .sidebar-section .search-field {
   border: solid 1px rgba(3,14,32, 0.2);
-  padding: 3px 10px;
+  padding: 3px 8px;
 }
 .sidebar-section .woocommerce-product-search button { 
   padding: 4px 12px;
 }
+.widget .cat-item a{ font-weight: 400;}
+.widget .children .cat-item a{ font-weight: 200; margin-left: 5px;}
+.widget .wc-layered-nav-term a { display: inline-block; margin:7px 0 }
+.sidebar-section .woocommerce-product-search .search-field { margin-bottom:15px; max-width: 100%;}
 .sidebar-section  .product-title { font-weight: normal;}
 .woocommerce ul.products li.product .woocommerce-loop-product__title  { color: rgba(3,14,32, 1); font-size: 18px;}
 .woocommerce-loop-category__title .count  { font-size: 12px; opacity: .7;}

@@ -29,6 +29,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
  */
 function skyre_setup() {
 	
+	
 	/**
 	 * Load translations for skyre
 	 */
@@ -507,19 +508,7 @@ require get_parent_theme_file_path( '/inc/template-tags.php' );
  */
 require get_parent_theme_file_path( '/inc/template-functions-overide.php' );
 
-/**
- * SportsPress function.
- */
-if ( class_exists( 'sportspress' ) ) {
-	require get_parent_theme_file_path( '/sportspress/functions.php' );
-}
 
-/**
- * WooCommerce function.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_parent_theme_file_path( '/woocommerce/functions.php' );
-}
 /**
  * Additional features to allow styling of the templates.
  */
@@ -552,4 +541,18 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
  */
 require get_parent_theme_file_path( '/inc/plugin-requires.php' );
 require get_parent_theme_file_path( '/inc/widget.php' );
+
+/**
+ * SportsPress function.
+ */
+if ( class_exists( 'sportspress' ) ) {
+	require get_parent_theme_file_path( '/sportspress/functions.php' );
+}
+
+/**
+ * WooCommerce function.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_parent_theme_file_path( '/woocommerce/functions.php' );
+}
 

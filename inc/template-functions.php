@@ -148,7 +148,85 @@ add_action('comment_form_after','skyre_comment_form_after');
 add_action( 'save_post', 'skyre_title_status_save', 1, 2 );
 add_action( 'add_meta_boxes', 'skyre_title_status_meta' );
 add_action('skyre_single_header','skyre_post_modern_header');
+add_action('skyre_preloader','skyre_preloader');
+add_action('skyre_mainmenu','skyre_mainmenu');
+add_action('skyre_index_title','skyre_index_title');
+add_action('activate_elementor/elementor.php','skyre_elmentor_options');
+add_action('activate_sportspress/sportspress.php','skyre_sportspress_options');
 
+if ( ! function_exists( 'skyre_sportspress_options' ) ) :
+	function skyre_sportspress_options() {
+		update_option( 'elementor_disable_color_schemes', 'yes' );
+		update_option( 'elementor_disable_typography_schemes', 'yes' );
+	}
+endif;
+
+if ( ! function_exists( 'skyre_elmentor_options' ) ) :
+	function skyre_elmentor_options() {
+		update_option( 'sportspress_player_show_total', 'yes' );
+		update_option( 'sportspress_player_show_career_total', 'yes' );
+		update_option( 'sportspress_player_show_selector', 'no' );
+		
+	}
+endif;
+
+
+
+
+if ( ! function_exists( 'skyre_mainmenu' ) ) :
+	function skyre_mainmenu() {
+		$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+		?>
+		<!-- Navbar -->
+        <nav class="mainmenu <?php if(skyre_get_option('box_shadow') != 1 ) { ?>box-shadow <?php } ?> <?php if(skyre_get_option('sticky_header') != 1) { ?>is-sticky <?php } ?> navbar navbar-expand-lg" id="mainmenu">
+            <div class="container">
+                <a class="navbar-brand  animated fadeInUpShort" data-animate="fadeInDown" data-delay=".65" href="<?php  echo esc_url( home_url() ); ?>">
+					<?php if ( get_theme_mod( 'custom_logo' ) ) { ?>
+					<img class="logo my-1" alt="<?php echo get_bloginfo(); ?>" src="<?php echo esc_url($image[0]); ?>">
+					<?php }else { echo '<p class=my-1>' . get_bloginfo( 'name' ) . '</p>'; } ?>
+                </a>
+                <button class="navbar-toggler skpbg skwc" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                	<span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse  justify-content-end" id="navbarToggle">
+                   <?php
+						wp_nav_menu( array(
+							'theme_location'  => 'primary',
+							'depth'	          => '11', // 1 = no dropdowns, 2 = with dropdowns.
+							'container'       => '',
+							'container_class' => 'collapse navbar-collapse justify-content-end',
+							'container_id'    => 'navbarToggle',
+							'menu_class'      => 'navbar-nav menu-top text-uppercase',
+							'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'          => new WP_Bootstrap_Navwalker(),
+						) );
+					?>
+                </div>
+            </div> 
+        </nav>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'skyre_preloader' ) ) :
+	function skyre_preloader() {
+		//Preloader 
+		if(skyre_get_option('loader') !=1){ ?>
+		<div id="preloader">
+				<ul class="loader">
+					<li>
+						<span class="cssload-loading cssload-one"></span>
+						<span class="cssload-loading cssload-two"></span>
+						<span class="cssload-loading-center sk-border"></span>
+					</li>
+				</ul>
+			<div class="loader-section loader-top"></div>
+			<div class="loader-section loader-bottom"></div>
+		</div>
+		<?php } 
+		// Preloader End -->
+	}
+endif;
 
 /** Add div for comment reply **/
 if ( ! function_exists( 'skyre_comment_form_before' ) ) :
@@ -238,6 +316,21 @@ function skyre_post_title(){
 	if ( is_single() ) { the_title( '<h1 class="single-post-title">', '</h1>' );  }else {
 		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 	} 
+
+}
+
+function skyre_index_title(){
+	if(skyre_get_post_option('title') != 1) : ?>
+		<div class="post-title skpbg">
+			<div class="container<?php if(skyre_get_post_option('blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
+				<?php if ( is_home() && ! is_front_page() ) : ?> 
+				<h1 class="skwc"><?php single_post_title(); ?></h1>
+				<?php else : ?>
+				<h2 class="skwc"><?php _e( 'Posts', 'skyre' ); ?></h2>
+				<?php endif; ?>
+			</div>
+		</div>
+		<?php endif ;
 }
 
 
@@ -475,16 +568,27 @@ function individual_title_status(){
 function skyre_import_files() {
   return array(
     array(
-      'import_file_name'             => 'Demo Import [Dark]',
+      'import_file_name'             => 'Demo Import [Soccer]',
       'categories'                   => array( ),
-      'local_import_file'            => SKYRE_THEME_DIR . 'inc/data/dark/demo-content.xml',
-      'local_import_widget_file'     => SKYRE_THEME_DIR . 'inc/data/dark/widgets.wie',
-      'local_import_customizer_file' => SKYRE_THEME_DIR . 'inc/data/dark/customizer.dat',
+      'local_import_file'            => SKYRE_THEME_DIR . 'inc/data/soccer/demo-content.xml',
+      'local_import_widget_file'     => SKYRE_THEME_DIR . 'inc/data/soccer/widgets.wie',
+      'local_import_customizer_file' => SKYRE_THEME_DIR . 'inc/data/soccer/customizer.dat',
       'local_import_redux'           => array( ),
-      'import_preview_image_url'     => SKYRE_THEME_URI . 'screenshot.png',
+      'import_preview_image_url'     => SKYRE_THEME_URI . 'inc/data/soccer/screenshot.png',
       'import_notice'                => __( 'After you import this demo, you will have to setup menu separately.', 'skyre' ),
-      'preview_url'                  => 'http://www.your_domain.com/my-demo-1',
-    ),
+      'preview_url'                  => 'https://www.96h.com/skyre-sports/',
+	),
+	array(
+		'import_file_name'             => 'Demo Import [Violet]',
+		'categories'                   => array( ),
+		'local_import_file'            => SKYRE_THEME_DIR . 'inc/data/violet/demo-content.xml',
+		'local_import_widget_file'     => SKYRE_THEME_DIR . 'inc/data/violet/widgets.wie',
+		'local_import_customizer_file' => SKYRE_THEME_DIR . 'inc/data/violet/customizer.dat',
+		'local_import_redux'           => array( ),
+		'import_preview_image_url'     => SKYRE_THEME_URI . 'inc/data/violet/screenshot.png',
+		'import_notice'                => __( 'After you import this demo, you will have to setup menu separately.', 'skyre' ),
+		'preview_url'                  => 'https://www.96h.com/skyre-sports/',
+	  ),
     array(
       'import_file_name'             => 'Demo Import [Dark Animate]',
       'categories'                   => array( ),
@@ -503,11 +607,7 @@ add_filter( 'pt-ocdi/import_files', 'skyre_import_files' );
 /*-----------------------------------------------------------------------------------*/
 /*	Load Widgets
 /*-----------------------------------------------------------------------------------*/
-//include(SKYRE_THEME_DIR."inc/widgets/widget-popular-posts.php"); // Popular Posts
-//include(SKYRE_THEME_DIR."inc/widgets/widget-random-posts.php"); // Random Posts
 require SKYRE_THEME_DIR."inc/widgets/widget-recent-posts.php"; // Recent Posts
-//include(SKYRE_THEME_DIR."inc/widgets/widget-tabs.php"); // Tabs Widget
-//include(SKYRE_THEME_DIR."inc/widgets/widget-video.php"); // Video Widget
 /*-----------------------------------------------------------------------------------*/
 /*	Exceprt Length
 /*-----------------------------------------------------------------------------------*/

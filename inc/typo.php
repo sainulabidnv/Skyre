@@ -8,53 +8,9 @@
 		 */
 		 
 			
-		 function addtypo($args=array(),$wp_customize ){/*
-			 	
-				$cfonts =  getFonts();
-				
-				
-				$wp_customize->add_panel('skyre_typo_options', array(
-					'capability' => 'edit_theme_options',
-					'theme_supports' => '',
-					'title' => __('Typography', 'skyre'),
-					'priority' => 10 // Mixed with top-level-section hierarchy.
-				));
-				
-				foreach($args as $data)
-				{
-					// add "Content Options" section
-					$wp_customize->add_section( 'skyre_'.$data['id'].'_section' , array( 'title'      => esc_html__( $data['title'], 'skyre' ), 'priority'   => 50, 'panel' => 'skyre_typo_options' ) );
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][color]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_hexcolor', ));
-					$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'skyre['.$data['id'].'][color]', array( 'label' => __('Font Color', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', )));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][font-family]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_fontfamily', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][font-family]', array( 'label' => __('Font Family', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'select', 'choices' => $cfonts, ));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][font-style]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_fontstyle', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][font-style]', array( 'label' => __('Font Style', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'select', 'choices' => skyre_get_font_styles(), ));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][font-weight]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_fontweight', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][font-weight]', array( 'label' => __('Font Weight', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'select', 'choices' => skyre_get_font_weight(), ));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][font-size]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_number_px', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][font-size]', array( 'label' => __('Font size', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'text', ));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][line-height]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_number_px', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][line-height]', array( 'label' => __('Line Height', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'text',  ));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][letter-spacing]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_number_px', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][letter-spacing]', array( 'label' => __('Letter Spacing', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'text', ));
-					
-					$wp_customize->add_setting('skyre['.$data['id'].'][text-align]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_text_align', ));
-					$wp_customize->add_control('skyre['.$data['id'].'][text-align]', array( 'label' => __('Text Align', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'select', 'choices' => skyre_get_text_align(), ));
-					
-					
-					
-					
-				}
-			 
-			 */}
+		 function addtypo($args=array(),$wp_customize ){
+			 //typo
+		 }
 		
 		
 /**
@@ -277,12 +233,12 @@ function typofonts(){
 				}
 			}
 		}
-		
+		//print_r(array_filter($google_font));exit;
 		//preparing for style enque
 		if (!empty($google_font)) { 
 		//if($google_font){
 			$query_args = array(
-				'family' => urlencode( implode( '|', $google_font ) ),
+				'family' => urlencode( implode( '|', array_filter($google_font) ) ),
 				);
 			if( $query_args['family'] != '') {
 				$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );

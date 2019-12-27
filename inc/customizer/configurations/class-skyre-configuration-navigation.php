@@ -57,10 +57,9 @@ if ( ! class_exists( 'Skyre_Configuration_Nav' ) ) {
                 'sanitize_callback' => 'skyre_sanitize_checkbox'
             ));
             $wp_customize->add_control('skyre[box_shadow]', array(
-                'label' => __('Box Shadow', 'skyre'),
+                'label' => __('Disable Box Shadow', 'skyre'),
                 'section' => 'skyre_menu_options',
                 'type' => 'checkbox',
-                'default' => true,
             ));
 			
 			$wp_customize->register_control_type( 'Skyre_Control_Color' );

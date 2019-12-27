@@ -278,7 +278,7 @@ class skyreSlider extends Skyre_Base {
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'    => 'slider_image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
-				'default' => 'large',
+				'default' => 'full',
 			)
 		);
 

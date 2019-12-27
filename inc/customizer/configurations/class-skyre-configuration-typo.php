@@ -62,7 +62,9 @@ if ( ! class_exists( 'Skyre_Configuration_Typo' ) ) {
 					array( 'title' => 'Single post title', 'id' => 'typo_post_title', 'default' => '', 'class' => 'h1.single-post-title' ),
 					array( 'title' => 'Post content', 'id' => 'typo_post_content', 'default' => '', 'class' => '.skyre-single-post-item .post-content' ),
 					array( 'title' => 'Post meta', 'id' => 'typo_post_meta', 'default' => '', 'class' => '.skyre-single-post-item .post-meta, .skyre-single-post-item .post-meta a' ),
-										
+					
+					array( 'title' => 'SportsPress title', 'id' => 'typo_sportspress_title', 'default' => '', 'class' => '.sp-page-title .skwc' ),
+
 					array( 'title' => 'Sidebar title', 'id' => 'typo_widget_title', 'default' => '', 'class' => '.sidebar-section .widget-title' ),
 					array( 'title' => 'Sidebar content', 'id' => 'typo_widget_content', 'default' => '', 'class' => '.sidebar-section' ),
 					array( 'title' => 'Sidebar anchor', 'id' => 'typo_widget_anchor', 'default' => '', 'class' => '.sidebar-section a' ),
@@ -119,10 +121,10 @@ if ( ! class_exists( 'Skyre_Configuration_Typo' ) ) {
 					$wp_customize->add_setting('skyre['.$data['id'].'][font-size]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'sanitize_responsive_count', ));
 					$wp_customize->add_control( new Skyre_Control_Responsive( $wp_customize, 'skyre['.$data['id'].'][font-size]', array( 'label' => __('Font size', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'units' => array('px'=>'px','%'=>'%',), )));
 					
-					$wp_customize->add_setting('skyre['.$data['id'].'][line-height]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_number_px', ));
+					$wp_customize->add_setting('skyre['.$data['id'].'][line-height]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_textarea', ));
 					$wp_customize->add_control('skyre['.$data['id'].'][line-height]', array( 'label' => __('Line Height', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'text',  ));
 					
-					$wp_customize->add_setting('skyre['.$data['id'].'][letter-spacing]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_number_px', ));
+					$wp_customize->add_setting('skyre['.$data['id'].'][letter-spacing]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_textarea', ));
 					$wp_customize->add_control('skyre['.$data['id'].'][letter-spacing]', array( 'label' => __('Letter Spacing', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', 'type' => 'text', ));
 					
 					$wp_customize->add_setting('skyre['.$data['id'].'][text-align]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_text_align', ));

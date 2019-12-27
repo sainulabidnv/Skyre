@@ -509,10 +509,13 @@ if ( ! class_exists( 'Skyre_Configuration_Post' ) ) {
 			
 			$wp_customize->add_setting( 'skyre_post[single_border_height]',
 				array(
-					'default' => array(
+					/* sample
+					'default' => 'array(
 						'desktop'      => array(
 							'top'  => '1',
-						),),
+						),)',
+					*/
+					'default' => '',
 					'type'  => 'option',
 					'sanitize_callback' => 'sanitize_responsive_dimension',
 				)

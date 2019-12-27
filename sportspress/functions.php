@@ -27,8 +27,6 @@ function skyre_get_sp_option( $name, $default = false ) {
 	return $default;
 }
 endif;
-//echo skyre_get_page_option('sp_title_bg_color'); 
-//Customizer Style Frontend
 if(!function_exists('skyre_sp_customizer_style')){
     
     function skyre_sp_customizer_style(){
@@ -141,9 +139,9 @@ function sk_player_template( $options ) {
 					),
 					/*
 					'name' => array(
-						'title' => __( 'Sainul Excerpt', 'skyre' ),
-						'option' => 'sportspress_player_show_excerpt_sainul',
-						'action' => 'sportspress_output_post_excerpt_sainul',
+						'title' => __( 'sample Excerpt', 'skyre' ),
+						'option' => 'sportspress_player_show_excerpt_sample',
+						'action' => 'sportspress_output_post_excerpt_sample',
 						'default' => 'yes',
 					),
 					*/
@@ -242,11 +240,6 @@ function sk_staff_options( $options ) {
 }
 add_filter( 'sportspress_staff_options', 'sk_staff_options' );
 
-
-
-
-
-
 //Get saved post options
 if ( ! function_exists( 'skyre_get_player_option' ) ) :
 function skyre_get_player_option( $name, $default = false ) {
@@ -262,26 +255,3 @@ function skyre_get_player_option( $name, $default = false ) {
 	return '';
 }
 endif;
-
-//add_options('skyre_player',array('skyre_player'=>15));
-
-
-// array of options
-$data_r = array('layout' => '3');
-// add a new option
-//update_option('skyre_player', $data_r);
-// get an option
-
-//$optionas = skyre_get_player_option( 'fullwidth' );
-//print_r( $optionas );
-
-
-
-
-
-
-
-
-
-
-

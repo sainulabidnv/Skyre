@@ -59,9 +59,11 @@ $statistics = $player->statistics;
                 </div>
                 <div class="col-md-7"> 
                     <ul class="player-meta">
-                    <li><span><?php echo !empty($sta['goals']) ? $sta['goals']:'0' ?></span> <?php _e('Goals','skyre'); ?> </li>
-                    <li><span><?php echo !empty($sta['assists']) ? $sta['assists']:'0' ?></span> <?php _e('Assists','skyre'); ?> </li>
-                    <li><span><?php echo !empty($sta['winratio']) ? $sta['winratio']:'0' ?></span> <?php _e('Win Ratio','skyre'); ?> </li>
+                    <?php $pl_options = get_option( 'skyre' ) ?>
+                    <li><span><?php echo !empty($sta[$pl_options['sp_player_field1']]) ? $sta[$pl_options['sp_player_field1']]:'0' ?></span> <?php _e($pl_options['sp_player_field_title1'],'skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta[$pl_options['sp_player_field2']]) ? $sta[$pl_options['sp_player_field2']]:'0' ?></span> <?php _e($pl_options['sp_player_field_title2'],'skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta[$pl_options['sp_player_field3']]) ? $sta[$pl_options['sp_player_field3']]:'0' ?></span> <?php _e($pl_options['sp_player_field_title3'],'skyre'); ?> </li>
+                    
                     <div class="clearfilter"></div>  
                     
                     </ul>

@@ -13,24 +13,18 @@
  */
 get_header(); 
 ?>
+<?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { 
 
-
-        <?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { 
-
-            do_action('skyre_page_title'); 
-            
-        } ?>
+    do_action('skyre_page_title'); 
+    
+} ?>
 	</header>
 	<!-- End Header --> 
 
-
- 
 <section class="page-section" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
         <div class="row">
             <div class="<?php if(skyre_get_page_option('layout') != '2' ) { ?> col-lg-8 <?php } else {?> col-lg-12 <?php } ?>">
-            
-
                 <div class="blog-list page-content">
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_post_thumbnail() ?>
@@ -57,8 +51,6 @@ get_header();
                 <div class="clear"></div>
                 
                 <?php do_action('skyre_page_pagination'); ?>
-
-
             </div>
 
             <?php if(skyre_get_page_option('layout') != '2' ) { ?> 

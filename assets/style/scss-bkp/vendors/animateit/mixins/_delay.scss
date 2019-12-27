@@ -1,9 +1,0 @@
-@mixin delay($arguments: 0.25){
-
- -webkit-animation-delay: $arguments;
-    -moz-animation-delay: $arguments;
-      -o-animation-delay: $arguments;
-         animation-delay: $arguments;
-
-}
-

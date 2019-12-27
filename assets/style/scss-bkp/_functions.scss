@@ -1,5 +1,0 @@
-//================functions=======================
-
-@function px($num:10){
-  @return $num/16 + rem;
-}

@@ -13,7 +13,13 @@ function hextorgb($color){
 if(!function_exists('skyre_custom_frontend_style')){
     
     function skyre_custom_frontend_style(){
-    	$style_css 	= '';
+		$style_css 	= '';
+		$is_shop = 0;
+		if ( class_exists( 'WooCommerce' ) ) { 
+			if(is_shop() || is_archive() || is_single()) { $is_shop = 1;}
+			
+		}
+	
 
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-typo.php' ;
 		$typo_panel = new Skyre_Configuration_Typo;
@@ -23,6 +29,8 @@ if(!function_exists('skyre_custom_frontend_style')){
 		//global
 		if(skyre_get_option('bodybg_image') || skyre_get_option('bodybg_color')){
 			$style_css .= 'body {  background: url('.wp_get_attachment_image_url( skyre_get_option("bodybg_image"),"full").') '.skyre_get_option("bodybg_repeat").' '.skyre_get_option("bodybg_color").' '.skyre_get_option("bodybg_bg_position").'; background-size: '.skyre_get_option("bodybg_size").'; }';
+			$style_css .= '.sp-list-wrapper dt, .sp-list-wrapper dd {  background-color:'.skyre_get_option("bodybg_color").';}';
+			
 		}
 		//Primary Color
 		
@@ -56,7 +64,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$style_css .= '.sksbg, a.skpbg:hover, .scrollTop, .pagination a.current, .pagination span.current, .cat-links a, .btn-skyre { background-color:'.$color.'; }';
 			$style_css .= '.cssload-loading:after, .cssload-loading:before { border:solid 1px '.$color.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
-				$style_css .= '.button:hover, .woocommerce .onsale, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background-color:'.$color.'  !important; }';
+				$style_css .= '.button:hover, button:hover, .woocommerce .onsale, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background-color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-message { border-top-color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price { color:'.$color.' ; }';
 				
@@ -69,7 +77,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$light = $larray[0].','.$larray[1].','.$larray[2].',.15)';
 			$dark = $larray[0].','.$larray[1].','.$larray[2].',.5)';
 			$style_css .= 'body, a,  .widget_search .search-field, .dropdown-menu a, .form-control { color:'.$color.'; }';
-			$style_css .= '.meta span, .meta a, .meta time, input,  select, optgroup, textarea { color:'.$dark.' ; }';
+			$style_css .= '.meta span, .meta a, .meta time,  { color:'.$dark.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.woocommerce ul.products li.product .woocommerce-loop-product__title { color:'.$color.'  !important; }';
 			  }
@@ -96,7 +104,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 		}
 		
 		//page
-		if ( is_page() && !is_page_template() )  : 
+		if ( (is_page() || $is_shop ==1 ) && !is_page_template() )  : 
 		
 			if(has_post_thumbnail()){ $style_css .= '.skyre-page-header header {  background-image: url('.wp_get_attachment_image_url( get_post_thumbnail_id(),"full").')}'; }
 		else if(skyre_get_page_option('bg_color') || skyre_get_page_option('bg_image') ){
@@ -188,10 +196,10 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$style_css .= 'nav.mainmenu {  background-color: '.skyre_get_option("mainmenu_bg").' }';
 		}
 		if(skyre_get_option('nav_dropdown_item') ){
-			$style_css .= 'nav.mainmenu a.dropdown-item {  color: '.skyre_get_option("nav_dropdown_item").' }';
+			$style_css .= 'nav.mainmenu a.dropdown-item {  color: '.skyre_get_option("nav_dropdown_item").' !important}';
 		}
 		if(skyre_get_option('nav_dropdown_item_hover') ){
-			$style_css .= 'nav.mainmenu a.dropdown-item:hover, nav.mainmenu .active > a.dropdown-item  {  color: '.skyre_get_option("nav_dropdown_item_hover").' }';
+			$style_css .= 'nav.mainmenu a.dropdown-item:hover, nav.mainmenu .active > a.dropdown-item  {  color: '.skyre_get_option("nav_dropdown_item_hover").' !important }';
 		}
 		if(skyre_get_option('nav_dropdown_bg') ){
 			$style_css .= 'nav.mainmenu .dropdown-menu {  background-color: '.skyre_get_option("nav_dropdown_bg").' }';
@@ -210,10 +218,10 @@ if(!function_exists('skyre_custom_frontend_style')){
 			}
 
 		if(skyre_get_option('footer_social_color') ){
-			$style_css .= '.footer .social-nav a {  color: '.skyre_get_option("footer_social_color").' }';
+			$style_css .= '.footer .social-nav a {  color: '.skyre_get_option("footer_social_color").' !important}';
 		}
 		if(skyre_get_option('footer_social_hover_color') ){
-			$style_css .= '.footer .social-nav a:hover, .footer .social-nav .current-menu-item a  {  color: '.skyre_get_option("footer_social_hover_color").' }';
+			$style_css .= '.footer .social-nav a:hover, .footer .social-nav .current-menu-item a  {  color: '.skyre_get_option("footer_social_hover_color").' !important}';
 		}
 		if(skyre_get_option('footer_widget_bg_color') ){
 			$style_css .= '.footer-widget  {  background-color: '.skyre_get_option("footer_widget_bg_color").' }';
@@ -241,22 +249,22 @@ if(!function_exists('skyre_custom_frontend_style')){
 		}
 		
 		//form field
-		if(skyre_get_option('form_color')){ $style_css .= ' .sk-form {  color: '.skyre_get_option("form_color").'; }'; }
-		if(skyre_get_option('form_bg_color')){ $style_css .= ' .sk-form {  background-color: '.skyre_get_option("form_bg_color").'; }'; }
-		$style_css .= skyre_get_dimension_style('form_margin',' .sk-form','','margin');
+		if(skyre_get_option('form_color')){ $style_css .= ' .sk-form, input,  select, optgroup, textarea {  color: '.skyre_get_option("form_color").'; }'; }
+		if(skyre_get_option('form_bg_color')){ $style_css .= ' .sk-form, input,  select, optgroup, textarea {  background-color: '.skyre_get_option("form_bg_color").'; }'; }
+		$style_css .= skyre_get_dimension_style('form_margin',' .sk-form, ','','margin');
 		$style_css .= skyre_get_dimension_style('form_padding',' .sk-form','','padding');
 		$style_css .= skyre_get_dimension_style('form_border_radius',' .sk-form','','border-radius');
 		$style_css .= skyre_get_dimension_style('form_border',' .sk-form','','border',' solid');
-		if(skyre_get_option('form_border_color') ){ $style_css .= '  .sk-form {  border-color: '.skyre_get_option('form_border_color').';  }'; }
+		if(skyre_get_option('form_border_color') ){ $style_css .= '  .sk-form, input,  select, optgroup, textarea {  border-color: '.skyre_get_option('form_border_color').';  }'; }
 		
 		//form button
-		if(skyre_get_option('form_button_color')){ $style_css .= ' .btn-skyre {  color: '.skyre_get_option("form_button_color").'; }'; }
-		if(skyre_get_option('form_button_bg_color')){ $style_css .= ' .btn.btn-skyre {  background-color: '.skyre_get_option("form_button_bg_color").' !important; }'; }
+		if(skyre_get_option('form_button_color')){ $style_css .= ' .btn-skyre, button, submit {  color: '.skyre_get_option("form_button_color").'; }'; }
+		if(skyre_get_option('form_button_bg_color')){ $style_css .= ' .btn.btn-skyre, button, submit {  background-color: '.skyre_get_option("form_button_bg_color").' !important; }'; }
 		$style_css .= skyre_get_dimension_style('form_button_margin',' .btn-skyre','','margin');
 		$style_css .= skyre_get_dimension_style('form_button_padding',' .btn-skyre','','padding');
 		$style_css .= skyre_get_dimension_style('form_button_border_radius',' .btn-skyre','','border-radius');
 		$style_css .= skyre_get_dimension_style('form_button_border',' .btn-skyre','','border',' solid');
-		if(skyre_get_option('form_button_border_color') ){ $style_css .= ' .btn-skyre {  border-color: '.skyre_get_option('form_button_border_color').';  }'; }
+		if(skyre_get_option('form_button_border_color') ){ $style_css .= ' .btn-skyre, button, submit {  border-color: '.skyre_get_option('form_button_border_color').';  }'; }
 		
 		
 
@@ -315,6 +323,7 @@ if(!function_exists('skyre_custom_sidebar_style')){
 }
 
 add_action( 'get_sidebar', 'skyre_custom_sidebar_style' );
+add_action( 'woocommerce_sidebar', 'skyre_custom_sidebar_style' );
 
 //Custom comment Style Frontend
 if(!function_exists('skyre_custom_comment_style')){
