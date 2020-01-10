@@ -2,9 +2,9 @@
 /**
  * Event Blocks
  *
- * @author 		ThemeBoy
- * @package 	SportsPress/Templates
- * @version   2.6.15
+ * @author 		Skyre
+ * @package 	SportsPress
+ * @version   1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -136,6 +136,7 @@ if ( $title )
 
 				$permalink = get_post_permalink( $event, false, true );
 				$results = sp_get_main_results_or_time( $event );
+				//$link_events = '';
 				
 				$teams = array_unique( get_post_meta( $event->ID, 'sp_team' ) );
 				$teams = array_filter( $teams, 'sp_filter_positive' );
@@ -153,16 +154,16 @@ if ( $title )
 						$j++;
 						$team_name = get_the_title( $team );
 						if ( has_post_thumbnail ( $team ) ):
-							$logo = get_the_post_thumbnail( $team, 'sportspress-fit-icon', array( 'itemprop' => 'logo' ) );
+							$logo = get_the_post_thumbnail( $team, 'sportspress-fit-icon' );
 						else:
 							$logo = '<img src="'. get_template_directory_uri().'/sportspress/assets/img/preview.jpg"  alt="' . $team_name . '" />';
 						endif;
 						if ( $link_teams ):
 							$team_permalink = get_permalink( $team, false, true );
-							$logo = '<a href="' . $team_permalink . '" itemprop="url" content="' . $team_permalink . '">' . $logo . '</a>';
+							$logo = '<a href="' . $team_permalink . '" >' . $logo . '</a>';
 						endif;
 
-						$logo = '<span class="team-logo logo-' . ( $j % 2 ? 'odd' : 'even' ) . '" title="' . $team_name . '" itemprop="competitor" itemscope itemtype="http://schema.org/SportsTeam"><meta itemprop="name" content="' . $team_name . '">' . $logo . '</span>';
+						$logo = '<span class="team-logo logo-' . ( $j % 2 ? 'odd' : 'even' ) . '" title="' . $team_name . '" >' . $logo . '</span>';
 						
 
 						$logos[] = $logo;
@@ -183,14 +184,15 @@ if ( $title )
 						<?php echo implode( $logos, ' ' ); ?>
 						<?php 
 						if(empty($ws) and $id > 0) {  ?>
-							<div class="sp-event-date" datetime="<?php echo esc_html($event->post_date); ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
-								<?php echo sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
+							<div class="sp-event-date" >
+								<?php echo sk_sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
 							</div>
 						<?php  } 
 						foreach($usecolumns as $skcolumn){ ?>
 							<?php if($skcolumn == 'date'){ ?>
-								<div class="sp-event-date" datetime="<?php echo esc_html($event->post_date); ?>" itemprop="startDate" content="<?php echo mysql2date( 'Y-m-d\TH:iP', $event->post_date ); ?>">
-									<?php echo sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
+								<!-- version 1 : Removed datetime, itemprop, content attribute  -->
+								<div class="sp-event-date" >
+									<?php echo sk_sp_add_link( get_the_time( get_option( 'date_format' ), $event ), $permalink, $link_events ); ?>
 								</div>
 							<?php continue; } ?>
 
@@ -200,7 +202,7 @@ if ( $title )
 
 							<?php if( $skcolumn == 'time' ) { ?>
 								<div class="sp-event-results <?php if(isset($results[1])) echo 'completed' ?>">
-									<?php echo sp_add_link( '<span class="sp-result '.$event_status.'">' . implode( '-', apply_filters( 'sportspress_event_blocks_team_result_or_time', $results, $event->ID ) ) . '</span>', $permalink, $link_events ); ?>
+									<?php echo sk_sp_add_link( '<span class="sp-result '.$event_status.'">' . implode( '-', apply_filters( 'sportspress_event_blocks_team_result_or_time', $results, $event->ID ) ) . '</span>', $permalink, $link_events ); ?>
 								</div>
 							<?php continue; } ?>
 
@@ -214,8 +216,8 @@ if ( $title )
 							<?php continue; endif; endif; ?>
 
 							<?php if( $skcolumn == 'event' ) { ?>
-							<div class="sp-event-title" itemprop="name">
-								<?php echo sp_add_link( $event->post_title, $permalink, $link_events ); ?>
+							<div class="sp-event-title" >
+								<?php echo sk_sp_add_link( $event->post_title, $permalink, $link_events ); ?>
 							</div>
 							<?php continue; } ?>
 

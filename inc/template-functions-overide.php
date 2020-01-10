@@ -26,7 +26,6 @@ global $demooption;
 			'bodybg_color' => '',
 			),
 */
-
 $overrid = array(
 	'post-list-nosidebar' => array(
 		'name' => 'Blog with No sidebar',

@@ -10,7 +10,7 @@ function skyre_register_required_plugins() {
             'required'           => true,
         ),
 		array(
-            'name'               => esc_html__( 'Contact Form 8', 'skyre' ),
+            'name'               => esc_html__( 'Contact Form 7', 'skyre' ),
             'slug'               => 'contact-form-7',
             'required'           => false,
         ),

@@ -123,7 +123,6 @@ function skyre_body_classes( $classes ) {
 	}
 	
 	// Add class if the need header bg.
-	// if ( is_page_template( array( 'page-templates/template-leftsidebar.php', 'page-templates/template-fullwidth.php',  '' ) ) ) {
 	if ( is_page() && !is_page_template() ) {
 		$classes[] = 'skyre-page';
 	}
@@ -131,10 +130,6 @@ function skyre_body_classes( $classes ) {
 		$classes[] = 'skyre-single-post';
 	}
 	
-	// Get the colorscheme or the default if there isn't one.
-	//$colors = skyre_sanitize_colorscheme( get_theme_mod( 'colorscheme', 'light' ) );
-	//$classes[] = 'colors-' . $colors;
-
 	return $classes;
 }
 
@@ -169,8 +164,6 @@ if ( ! function_exists( 'skyre_elmentor_options' ) ) :
 		
 	}
 endif;
-
-
 
 
 if ( ! function_exists( 'skyre_mainmenu' ) ) :
@@ -566,43 +559,61 @@ function individual_title_status(){
 //============= end metabox ===============
 
 function skyre_import_files() {
-  return array(
-    array(
-      'import_file_name'             => 'Demo Import [Soccer]',
-      'categories'                   => array( ),
-      'local_import_file'            => SKYRE_THEME_DIR . 'inc/data/soccer/demo-content.xml',
-      'local_import_widget_file'     => SKYRE_THEME_DIR . 'inc/data/soccer/widgets.wie',
-      'local_import_customizer_file' => SKYRE_THEME_DIR . 'inc/data/soccer/customizer.dat',
-      'local_import_redux'           => array( ),
-      'import_preview_image_url'     => SKYRE_THEME_URI . 'inc/data/soccer/screenshot.png',
-      'import_notice'                => __( 'After you import this demo, you will have to setup menu separately.', 'skyre' ),
-      'preview_url'                  => 'https://www.96h.com/skyre-sports/',
-	),
-	array(
-		'import_file_name'             => 'Demo Import [Violet]',
-		'categories'                   => array( ),
-		'local_import_file'            => SKYRE_THEME_DIR . 'inc/data/violet/demo-content.xml',
-		'local_import_widget_file'     => SKYRE_THEME_DIR . 'inc/data/violet/widgets.wie',
-		'local_import_customizer_file' => SKYRE_THEME_DIR . 'inc/data/violet/customizer.dat',
-		'local_import_redux'           => array( ),
-		'import_preview_image_url'     => SKYRE_THEME_URI . 'inc/data/violet/screenshot.png',
-		'import_notice'                => __( 'After you import this demo, you will have to setup menu separately.', 'skyre' ),
-		'preview_url'                  => 'https://www.96h.com/skyre-sports/',
-	  ),
-    array(
-      'import_file_name'             => 'Demo Import [Dark Animate]',
-      'categories'                   => array( ),
-      'local_import_file'            => SKYRE_THEME_DIR . 'inc/data/dark/demo-content.xml',
-      'local_import_widget_file'     => SKYRE_THEME_DIR . 'inc/data/dark/widgets.wie',
-      'local_import_customizer_file' => SKYRE_THEME_DIR . 'inc/data/dark/customizer.dat',
-      'local_import_redux'           => array( ),
-      'import_preview_image_url'     => SKYRE_THEME_URI . 'screenshot.png',
-      'import_notice'                => __( 'After you import this demo, you will have to setup the menu separately.', 'skyre' ),
-      'preview_url'                  => 'http://www.your_domain.com/my-demo-1',
-    ),
-  );
+  
+	$args = array();
+	$defaults = array(
+		'headers' => array(
+			'Authorization' => 'Bearer '. skyre_get_token(),
+			'User-Agent' => 'WordPress - Skyre',
+		),
+		'filter_by' => 'wordpress-themes',
+		'timeout' => 20,
+	);
+	$args = wp_parse_args($args, $defaults);
+
+	$url = 'https://data.skyretheme.com/demo/?key='.skyre_get_token();
+
+	$response = wp_remote_get(esc_url_raw($url), $args);
+	$response_code = wp_remote_retrieve_response_code($response);
+
+	if ($response_code == '200') {
+		$return = json_decode(wp_remote_retrieve_body($response), true);
+	}
+	else{
+		$return = '';
+	}
+return $return;
+
 }
+
 add_filter( 'pt-ocdi/import_files', 'skyre_import_files' );
+
+if ( ! function_exists( 'skyre_get_token' ) ) :
+	function skyre_get_token()
+	{
+		$token = get_option('envato_market', array());
+		$return_token = '';
+		if (!empty($token['token'])) {
+			$return_token = $token['token'];
+		}
+		
+		return $return_token;
+	}
+endif;
+
+if ( ! function_exists( 'skyre_set_token' ) ) :
+	function skyre_set_token()
+	{
+		if (isset($_POST['stm_registration'])) {
+			if (isset($_POST['stm_registration']['token'])) {
+				delete_site_transient('stm_theme_token_added');
+				$token = array();
+				$token['token'] = sanitize_text_field($_POST['stm_registration']['token']);
+				update_option('envato_market', $token);
+			}
+		}
+	}
+endif;
 
 /*-----------------------------------------------------------------------------------*/
 /*	Load Widgets
@@ -611,8 +622,3 @@ require SKYRE_THEME_DIR."inc/widgets/widget-recent-posts.php"; // Recent Posts
 /*-----------------------------------------------------------------------------------*/
 /*	Exceprt Length
 /*-----------------------------------------------------------------------------------*/
-
-
-
-
-

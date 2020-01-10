@@ -1,16 +1,16 @@
 <?php 
 
-		/**
-		 * Fonts initialization.
-		 * Once add records to the `wp_options` table.
-		 *
-		 * @since 1.0.0
-		 */
-		 
-			
-		 function addtypo($args=array(),$wp_customize ){
-			 //typo
-		 }
+/**
+ * Fonts initialization.
+ * Once add records to the `wp_options` table.
+ *
+ * @since 1.0.0
+ */
+	
+	
+	function addtypo($args=array(),$wp_customize ){
+		//typo
+	}
 		
 		
 /**
@@ -233,7 +233,6 @@ function typofonts(){
 				}
 			}
 		}
-		//print_r(array_filter($google_font));exit;
 		//preparing for style enque
 		if (!empty($google_font)) { 
 		//if($google_font){

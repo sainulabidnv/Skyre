@@ -347,8 +347,6 @@ function skyre_scripts() {
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'skyre-google', skyre_fonts_url(), array(), null );
 	// Theme stylesheet.
-	//wp_enqueue_style( 'skyre-style', get_stylesheet_uri() );
-	
 	
 	wp_enqueue_style( 'main.minify', get_template_directory_uri().'/assets/style/css/main.css');
 	wp_enqueue_style( 'skyre-style', get_template_directory_uri().'/assets/style/css/style.css');
@@ -452,9 +450,7 @@ add_filter( 'get_header_image_tag', 'skyre_header_image_tag', 10, 3 );
 function skyre_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	if ( is_archive() || is_search() || is_home() ) {
 		$attr['sizes'] = '(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px';
-	} else {
-		$attr['sizes'] = '100vw';
-	}
+	} 
 
 	return $attr;
 }
@@ -555,4 +551,3 @@ if ( class_exists( 'sportspress' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_parent_theme_file_path( '/woocommerce/functions.php' );
 }
-

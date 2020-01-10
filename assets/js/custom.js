@@ -135,7 +135,7 @@
 	var $preload = $('#preloader'), $loader = $('.loader');
 	if ($preload.length > 0) {
 		$w.on('load', function () {
-			$loader.fadeOut(300);
+			$loader.fadeOut(100);
 			$preload.addClass("loaded");
 			$preload.delay(100).fadeOut(300);
 		});

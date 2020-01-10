@@ -5,14 +5,14 @@ namespace ewidget;
  * Class Plugin
  *
  * Main Plugin class
- * @since 1.2.0
+ * @since 1.0
  */
 class Plugin {
 
 	/**
 	 * Instance
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access private
 	 * @static
 	 *
@@ -25,7 +25,7 @@ class Plugin {
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access public
 	 *
 	 * @return Plugin An instance of the class.
@@ -43,7 +43,7 @@ class Plugin {
 	 *
 	 * Load required plugin core files.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access public
 	 */
 	public function widget_scripts() {
@@ -85,7 +85,7 @@ class Plugin {
 	 *
 	 * Load widgets files
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access private
 	 */
 	private function include_widgets_files() {
@@ -99,10 +99,7 @@ class Plugin {
 		require SKYRE_THEME_DIR .'inc/ewidgets/posts-grid.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/contact_form7.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/newsletter.php' ;
-		//require SKYRE_THEME_DIR .'inc/ewidgets/image-carousel.php' ;
-		//require SKYRE_THEME_DIR .'inc/ewidgets/icon-box.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/sk-slider.php' ;
-		//require SKYRE_THEME_DIR .'inc/ewidgets/support/class-jet-elements-tools.php' ;
 		require SKYRE_THEME_DIR .'inc/ewidgets/twitter.php' ;
 	}
 
@@ -111,7 +108,7 @@ class Plugin {
 	 *
 	 * Register new Elementor widgets.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access public
 	 */
 	public function register_widgets() {
@@ -121,15 +118,12 @@ class Plugin {
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\icostatus() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Button() );
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Heading() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Roadmap() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Testimonial() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Widget_Accordion() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\postsGrid() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\contactForm7() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\NewsLetter() );
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Image_Carousel() );
-		//\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Icon_Box() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\skyreSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\SkyreTwitter() );
 		
@@ -141,7 +135,7 @@ class Plugin {
 	 *
 	 * Register new Elementor widgets.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access public
 	 */
 	public function register_sportspress_widgets() {
@@ -189,7 +183,7 @@ class Plugin {
 	 *
 	 * Register plugin action hooks and filters
 	 *
-	 * @since 1.2.0
+	 * @since 1.0
 	 * @access public
 	 */
 	 

@@ -8,15 +8,15 @@ final class ewidget {
 	/**
 	 * Plugin Version
 	 *
-	 * @since 1.2.0
+	 *    
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.2.0';
+	const VERSION = '1.0';
 
 	/**
 	 * Minimum Elementor Version
 	 *
-	 * @since 1.2.0
+	 *    
 	 * @var string Minimum Elementor version required to run the plugin.
 	 */
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
@@ -24,7 +24,7 @@ final class ewidget {
 	/**
 	 * Minimum PHP Version
 	 *
-	 * @since 1.2.0
+	 *    
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
 	const MINIMUM_PHP_VERSION = '5.0';
@@ -50,7 +50,7 @@ final class ewidget {
 	 * Load plugin localization files.
 	 * Fired by `init` action hook.
 	 *
-	 * @since 1.2.0
+	 *    
 	 * @access public
 	 */
 	public function i18n() {
@@ -66,7 +66,7 @@ final class ewidget {
 	 *
 	 * Fired by `plugins_loaded` action hook.
 	 *
-	 * @since 1.2.0
+	 *    
 	 * @access public
 	 */
 	public function init() {
@@ -92,7 +92,6 @@ final class ewidget {
 		// Once we get here, We have passed all validation checks so we can safely include our plugin
 		require_once( 'plugin.php' );
 		
-		//add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 	}
 
 	/**

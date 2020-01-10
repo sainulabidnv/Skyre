@@ -34,4 +34,3 @@
 	<?php do_action('skyre_preloader'); ?>
     <header class="main-head">
 	<?php do_action('skyre_mainmenu'); ?>	
-	

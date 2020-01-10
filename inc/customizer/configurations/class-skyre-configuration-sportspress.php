@@ -238,7 +238,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 				
 				$wp_customize->add_control( 'skyre[sp_player_field_title1]', array(
 					'section' => 'skyre_sportspress_player',
-					'label' => __( 'Field 1 title' ),
+					'label' => __( 'Field 1 title', 'skyre' ),
 					'type'  => 'text',
 				) );
 
@@ -250,8 +250,8 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 				
 				$wp_customize->add_control( 'skyre[sp_player_field1]', array(
 					'section' => 'skyre_sportspress_player',
-					'label' => __( 'Field 1 variable' ),
-					'description' => __( 'Write performance variable (Configure->player->perfomance). Eg:goals ' ),
+					'label' => __( 'Field 1 variable', 'skyre' ),
+					'description' => __( 'Write performance variable (Configure->player->perfomance). Eg:- goals ', 'skyre' ),
 					'type'  => 'text',
 				) );
 
@@ -263,7 +263,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 				
 				$wp_customize->add_control( 'skyre[sp_player_field_title2]', array(
 					'section' => 'skyre_sportspress_player',
-					'label' => __( 'Field 2 title' ),
+					'label' => __( 'Field 2 title', 'skyre' ),
 					'type'  => 'text',
 				) );
 
@@ -275,7 +275,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 				
 				$wp_customize->add_control( 'skyre[sp_player_field2]', array(
 					'section' => 'skyre_sportspress_player',
-					'label' => __( 'Field 2 variable' ),
+					'label' => __( 'Field 2 variable', 'skyre' ),
 					'type'  => 'text',
 				) );
 
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 				
 				$wp_customize->add_control( 'skyre[sp_player_field_title3]', array(
 					'section' => 'skyre_sportspress_player',
-					'label' => __( 'Field 3 title' ),
+					'label' => __( 'Field 3 title', 'skyre' ),
 					'type'  => 'text',
 				) );
 
@@ -299,7 +299,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 				
 				$wp_customize->add_control( 'skyre[sp_player_field3]', array(
 					'section' => 'skyre_sportspress_player',
-					'label' => __( 'Field 3 variable' ),
+					'label' => __( 'Field 3 variable', 'skyre' ),
 					'type'  => 'text',
 				) );
 			

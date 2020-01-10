@@ -72,8 +72,9 @@
 					}
 				?>
             </div>
-		</div> <!--Footer Main-->
+		
 		<?php } ?>
+		</div> <!--Footer Main-->
         <?php if(skyre_get_option('custom_footer_text')) { ?>
         <div class="footer-botom py-4 text-center">
         	<div class="container"> <?php echo skyre_get_option('custom_footer_text'); ?> </div>

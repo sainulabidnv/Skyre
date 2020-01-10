@@ -268,7 +268,7 @@ foreach ( $groups as $group ):
 	endif;
 
 	$output .= '<div class="sp-table-wrapper  table-responsive">' .
-		'<table cellspacing="10" class="sp-player-list sp-data-table table '.$table_style.' sk-player-list-table ' . ( $sortable ? ' sp-sortable-table' : '' ). ( $responsive ? ' sp-responsive-table '.$identifier : '' ) . ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">';
+		'<table class="sp-player-list sp-data-table table '.$table_style.' sk-player-list-table ' . ( $sortable ? ' sp-sortable-table' : '' ). ( $responsive ? ' sp-responsive-table '.$identifier : '' ) . ( $scrollable ? ' sp-scrollable-table' : '' ) . ( $paginated ? ' sp-paginated-table' : '' ) . '" data-sp-rows="' . $rows . '">';
 	
 	$output .= $thead . '<tbody>';
 	

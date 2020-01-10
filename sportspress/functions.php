@@ -3,7 +3,7 @@
  * Additional features to allow styling of the templates
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage skyre
  * @since 1.0
  */
 add_theme_support( 'sportspress' );
@@ -52,7 +52,12 @@ if(!function_exists('skyre_sp_customizer_style')){
 
 add_action('wp_head', 'skyre_sp_customizer_style');
 
-
+if ( !function_exists( 'sk_sp_add_link' ) ) {
+	function sk_sp_add_link( $string, $link = false, $active = true ) {
+		if ( empty( $link ) || ! $active ) return $string;
+		return '<a href="' . $link . '" >' . $string . '</a>';
+	}
+}
 
 function sk_table_style() {
 	$options = array(

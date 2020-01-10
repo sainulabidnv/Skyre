@@ -1094,24 +1094,6 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'name_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default'=>'none',
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-name' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -1243,23 +1225,7 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'team_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default' => 'none',
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-team' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
+		
 		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -1370,8 +1336,9 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 					],
 				],
 				'selectors'      => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .sk-player-grid .player-column, {{WRAPPER}} .sk-player-grid .player-column a' => 'text-align: {{VALUE}};',
 				],
+				
 			]
 		);
 		
@@ -1391,24 +1358,6 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'more_fields_align',
-			[
-				'label' => __( 'Text alignment', 'skyre' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' => 'None',
-					'left' => 'Left',
-					'right' => 'Right',
-					'center' => 'Center',
-				],
-				'default' => 'none',
-				'selectors' => [
-					'{{WRAPPER}} .sk-player-grid .player-column' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[

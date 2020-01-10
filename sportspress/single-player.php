@@ -9,22 +9,38 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package skyre
  */
 get_header(); 
-$player = new SP_Player(  get_the_ID() ); $playerMeta = $player->data( 0 ); 
+$player = new SP_Player(  get_the_ID() ); 
+$playerMeta = $player->data( 0 ); 
+
 $sidebar = empty(get_option('sportspress_single_player_sidebar')) ? 'no' : get_option('sportspress_single_player_sidebar');
 $mettrics = $player->metrics();
 $sta = $playerMeta['-1'];
-
+$pl_options = get_option( 'skyre' ) ;
+$field1 = !empty($pl_options['sp_player_field1']) ? $pl_options['sp_player_field1']:'goals';
+$fieldtitle1 = !empty($pl_options['sp_player_field_title1']) ? $pl_options['sp_player_field_title1']:'Goals';
+$field2 = !empty($pl_options['sp_player_field2']) ? $pl_options['sp_player_field2']:'assist';
+$fieldtitle2 = !empty($pl_options['sp_player_field_title2']) ? $pl_options['sp_player_field_title2']:'Assist';
+$field3 = !empty($pl_options['sp_player_field3']) ? $pl_options['sp_player_field3']:'winratio';
+$fieldtitle3 = !empty($pl_options['sp_player_field_title3']) ? $pl_options['sp_player_field_title3']:'Win Ratio';
 $statistics = $player->statistics;
 
-//$data = apply_filters( 'sportspress_player_details', $data, $id );
+$countries = SP()->countries->countries;
+$nationalities = $player->nationalities();
+if ( $nationalities && is_array( $nationalities ) ):
+    $values = array();
+    foreach ( $nationalities as $nationality ):
+        $country_name = sp_array_value( $countries, $nationality, null );
+        $values[] = $country_name ? '<img src="' . plugin_dir_url( SP_PLUGIN_FILE ) . 'assets/images/flags/' . strtolower( $nationality ) . '.png" alt="' . $nationality . '"> '  . $country_name : '&mdash;';
+    endforeach;
+    $nationname = implode( '<br>', $values );
+endif;  
 
+ 
 
 ?>
-
-
          <?php if(skyre_get_player_option('title_active') != 1 and individual_title_status() ) { ?>
          
          <div class="sk-sports sk-single-player">
@@ -33,7 +49,7 @@ $statistics = $player->statistics;
                 	<div class="row">
 						<div  class="col-md-6 offset-md-6">
 							<?php the_title('<h1 class="skwc">', '</h1>'); ?>
-                    		<div class="skwc opacity"><?php echo !empty($mettrics['Height']) ? __('Height','skyre').' - ' .$mettrics['Height'].' | ':''; echo !empty($mettrics['Weight']) ? __('Weight','skyre').' - ' .$mettrics['Weight']:''; ?> </div>
+                    		<div class="skwc opacity"><?php  echo !empty($nationname) ? $nationname .' | ':''; echo !empty($player->team) ? __('Team','skyre').' - ' .get_the_title($player->team) :''; ?> </div>
                         </div>
                     </div>
                 </div>
@@ -59,11 +75,9 @@ $statistics = $player->statistics;
                 </div>
                 <div class="col-md-7"> 
                     <ul class="player-meta">
-                    <?php $pl_options = get_option( 'skyre' ) ?>
-                    <li><span><?php echo !empty($sta[$pl_options['sp_player_field1']]) ? $sta[$pl_options['sp_player_field1']]:'0' ?></span> <?php _e($pl_options['sp_player_field_title1'],'skyre'); ?> </li>
-                    <li><span><?php echo !empty($sta[$pl_options['sp_player_field2']]) ? $sta[$pl_options['sp_player_field2']]:'0' ?></span> <?php _e($pl_options['sp_player_field_title2'],'skyre'); ?> </li>
-                    <li><span><?php echo !empty($sta[$pl_options['sp_player_field3']]) ? $sta[$pl_options['sp_player_field3']]:'0' ?></span> <?php _e($pl_options['sp_player_field_title3'],'skyre'); ?> </li>
-                    
+                    <li><span><?php echo !empty($sta[$field1]) ? $sta[$field1]:'0' ?></span> <?php _e($fieldtitle1,'skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta[$field2]) ? $sta[$field2]:'0' ?></span> <?php _e($fieldtitle2,'skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta[$field3]) ? $sta[$field3]:'0' ?></span> <?php _e($fieldtitle3,'skyre'); ?> </li>
                     <div class="clearfilter"></div>  
                     
                     </ul>

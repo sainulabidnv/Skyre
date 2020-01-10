@@ -550,12 +550,12 @@ class SkyreTwitter extends \Elementor\Widget_Base {
                                 
                                 $html .= '
                                     <a class="sk-twitter-item-avatar avatar-' . $settings['twitter_avatar_style'] . '" href="//twitter.com/' . $settings['twitter_ac_name'] . '" target="_blank">    
-                                    <img src="' . $item['extended_entities']['media'][0]['media_url_https'] . $tsize . '">
+                                    <img alt="'.$settings['twitter_ac_name'].'" src="' . $item['extended_entities']['media'][0]['media_url_https'] . $tsize . '">
                                     </a>';
 
                             }else {
                             $html .= '<a class="sk-twitter-item-avatar avatar-' . $settings['twitter_avatar_style'] . '" href="//twitter.com/' . $settings['twitter_ac_name'] . '" target="_blank">
-                                <img src="' . $item['user']['profile_image_url_https'] . '">
+                                <img alt="'.$settings['twitter_ac_name'].'" src="' . $item['user']['profile_image_url_https'] . '">
                             </a>';
                             }
                         
@@ -576,14 +576,14 @@ class SkyreTwitter extends \Elementor\Widget_Base {
 
                         <div class="sk-twitter-item-content">
                             ' . substr(str_replace(@$item['entities']['urls'][0]['url'], '', $item['full_text']), 0, $settings['twitter_content_length']) . '...
-                            ' . (isset($item['extended_entities']['media'][0]) && $settings['twitter_media'] == 'true' ? ($item['extended_entities']['media'][0]['type'] == 'photo' ? '<div class="media"> <img src="' . $item['extended_entities']['media'][0]['media_url_https'] . '"></div>' : '') : '') ;
+                            ' . (isset($item['extended_entities']['media'][0]) && $settings['twitter_media'] == 'true' ? ($item['extended_entities']['media'][0]['type'] == 'photo' ? '<div class="media"> <img alt="'.$settings['twitter_ac_name'].'" src="' . $item['extended_entities']['media'][0]['media_url_https'] . '"></div>' : '') : '') ;
                              
                         $html .= '</div>';
                         if ($settings['twitter_show_date'] == 'true') {
                             $html .= '<span class="sk-twitter-item-date">' . sprintf(__('%s ago', 'skyre'), human_time_diff(strtotime($item['created_at']))) . '</span>';
                         }
                         if ($settings['twitter_show_read_more'] == 'true') {
-                            $html .= '<a href="//twitter.com/' . @$item['user']['screen_name'] . '\/status/' . $item['id'] . '" target="_blank" class="read-more-link sksc">Read More <i class="fas fa-angle-double-right"></i></a>';
+                            $html .= '<a href="//twitter.com/' . @$item['user']['screen_name'] . '/status/' . $item['id'] . '" target="_blank" class="read-more-link sksc">Read More <i class="fas fa-angle-double-right"></i></a>';
                         }
                     
                         $html .= '</div>

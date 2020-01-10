@@ -2418,7 +2418,7 @@ class postsGrid extends \Elementor\Widget_Base {
 					if ( has_post_thumbnail() ) {
 						the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive '.$animationClass, 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
 					} else if ( $settings['grid_image_placeholder'] == 'yes' ) { ?> 
-					<img class="<?php echo $animationClass; ?>" src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
+					<img class="<?php echo esc_attr($animationClass); ?>" src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
 					<?php } ?>
 				</a>
 			</div>
@@ -2428,7 +2428,7 @@ class postsGrid extends \Elementor\Widget_Base {
 				if ( has_post_thumbnail() ) {
 					the_post_thumbnail( $settings['post_image_size'], array( 'class' => 'img-responsive '.$animationClass, 'alt'   => get_the_title( get_post_thumbnail_id() ), ) ); 
 				}else if ( $settings['grid_image_placeholder'] == 'yes' ) { ?> 
-					<img class="<?php echo $animationClass; ?>"  src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
+					<img class="<?php echo esc_attr($animationClass); ?>"  src="<?php echo SKYRE_THEME_URI; ?>assets/images/post-medium.jpg"> 
 				<?php } ?>
 			</div>
 			<?php

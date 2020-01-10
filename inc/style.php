@@ -29,8 +29,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 		//global
 		if(skyre_get_option('bodybg_image') || skyre_get_option('bodybg_color')){
 			$style_css .= 'body {  background: url('.wp_get_attachment_image_url( skyre_get_option("bodybg_image"),"full").') '.skyre_get_option("bodybg_repeat").' '.skyre_get_option("bodybg_color").' '.skyre_get_option("bodybg_bg_position").'; background-size: '.skyre_get_option("bodybg_size").'; }';
-			$style_css .= '.sp-list-wrapper dt, .sp-list-wrapper dd {  background-color:'.skyre_get_option("bodybg_color").';}';
-			
+			if(skyre_get_option('bodybg_color')) { $style_css .= '.sp-list-wrapper dt, .sp-list-wrapper dd {  background-color:'.skyre_get_option("bodybg_color").';}'; }
 		}
 		//Primary Color
 		
@@ -60,9 +59,9 @@ if(!function_exists('skyre_custom_frontend_style')){
 		//Secondary Color
 		if(skyre_get_option('secondary_color') ){
 			$color = skyre_get_option("secondary_color");
-			$style_css .= 'a:hover, .active > a, .current-menu-item a, .sksc, .sksc a, a.skpc:hover, .skwc a:hover, .skpc a:hover, .has-fixed a:hover, .current, .post-content a, .page-content a, .tags-links a, .dropdown-menu a:hover, .dropdown-menu .active a { color:'.$color.'; }';
+			$style_css .= 'a:hover, .active > a, .current-menu-item a, .has-fixed .current-menu-ancestor > a, .current-menu-ancestor > a, .sksc, .sksc a, a.skpc:hover, .skwc a:hover, .skpc a:hover, .has-fixed a:hover, .current, .post-content a, .page-content a, .tags-links a, .dropdown-menu a:hover, .dropdown-menu .active > a { color:'.$color.'; }';
 			$style_css .= '.sksbg, a.skpbg:hover, .scrollTop, .pagination a.current, .pagination span.current, .cat-links a, .btn-skyre { background-color:'.$color.'; }';
-			$style_css .= '.cssload-loading:after, .cssload-loading:before { border:solid 1px '.$color.' ; }';
+			$style_css .= '.cssload-loading:after, .cssload-loading:before, .cssload-loading-center  { border-color:'.$color.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.button:hover, button:hover, .woocommerce .onsale, .woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background-color:'.$color.'  !important; }';
 				$style_css .= '.woocommerce-message { border-top-color:'.$color.'  !important; }';
@@ -77,7 +76,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 			$light = $larray[0].','.$larray[1].','.$larray[2].',.15)';
 			$dark = $larray[0].','.$larray[1].','.$larray[2].',.5)';
 			$style_css .= 'body, a,  .widget_search .search-field, .dropdown-menu a, .form-control { color:'.$color.'; }';
-			$style_css .= '.meta span, .meta a, .meta time,  { color:'.$dark.' ; }';
+			$style_css .= '.meta span, .meta a, .meta time  { color:'.$dark.' ; }';
 			if ( class_exists( 'WooCommerce' ) ) {
 				$style_css .= '.woocommerce ul.products li.product .woocommerce-loop-product__title { color:'.$color.'  !important; }';
 			  }

@@ -115,7 +115,7 @@ a:hover,
 .current {
   color: $sk-secondary;
 }
-.clear {
+.clear, .clearfix {
   clear:both; 
   height:1px;
 }
@@ -198,12 +198,6 @@ a.sksc:hover {
 }
 .opacity {
   opacity: 0.7;
-}
-.cssload-loading {
-  &:after,
-  &:before {
-    border: solid 1px $sk-secondary;
-  }
 }
 .scrollTop {
   background: rgba($sk-secondary, 1);
@@ -446,6 +440,8 @@ header {
     }
   }
 }
+.current-menu-ancestor > a, .has-fixed .current-menu-ancestor > a { color: $sk-secondary; }
+
   .dropdown-menu {
     margin:0 5px;
     -webkit-animation-name: fadeInUp;
@@ -471,7 +467,7 @@ header {
       padding: 10px 15px;
     }
     a:hover,
-    .active a {
+    .active > a {
       color: $sk-secondary;
     }
   }
@@ -968,6 +964,7 @@ header {
   right: 0;
   bottom: 0;
   z-index: 999999;
+  max-width: 100vw;
 }
 .loader-section {
   position: fixed;
@@ -1001,22 +998,29 @@ header {
     padding: 10px;
     height: 97px;
     width: 97px;
-    margin-top: calc(50vh - 50px);
+    margin-top: 150px;
     position: relative;
     text-align: center;
     list-style: none;
   }
 }
+
+.cssload-loading {
+  &:after,
+  &:before {
+    border: solid 6px $sk-secondary;
+  }
+}
 .cssload-loading-center {
-  border: solid 1px rgba($sk-primary, 1);
+  border: solid 2px rgba($sk-primary, 1);
   display: inline-block;
   position: absolute;
-  height: 29px;
-  width: 29px;
+  height: 34px;
+  width: 34px;
   left: 35px;
   top: 36px;
   transform: rotate(45deg);
-  border-radius: 50%;
+  border-radius: 100%;
   animation: pulse 0.8s ease infinite;
 }
 .cssload-loading {
@@ -1532,6 +1536,7 @@ header {
   .page-title, .post-title {
     padding: 50px 0;
   }
+  .mainmenu a { color:#000;}
   .bnr-image {
     margin: px(10) px(30);
   }
