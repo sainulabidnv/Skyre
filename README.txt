@@ -23,4 +23,5 @@ Hi. I'm a starter theme called Skyre Theme, or underscores, if you like.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
+test
 
