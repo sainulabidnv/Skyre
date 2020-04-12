@@ -2,8 +2,8 @@
 /**
  * Event Blocks
  *
- * @author 		Skyre
- * @package 	SportsPress
+ * @author 		Skyretheme
+ * @package 	SkyreSports
  * @version   1.0
  */
 

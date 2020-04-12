@@ -1,8 +1,8 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * Player List widget for Elementor builder
  *
- * @link       https://skyresoft.com
+ * @link       https://skyretheme.com
  * @since      1.0.0
  *
  */
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Posts_Grid
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class spPlayers extends \Elementor\Widget_Base {
 
@@ -1338,8 +1338,6 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		
 		
-		
-		
 	}
 
 	protected function render() {
@@ -1350,7 +1348,6 @@ class spPlayers extends \Elementor\Widget_Base {
 		$columFields = null;
 		$caption = null;
 		$ws = array();
-		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];
 		$title = empty($settings['list_title']) ? null : $settings['list_title'];;
@@ -1373,7 +1370,6 @@ class spPlayers extends \Elementor\Widget_Base {
 			}
 			}
 		if ( $id > 0 ) {
-		//print_r($settings['widget_title']);
 		
 		$post = get_post( $id );
 		
@@ -1385,16 +1381,11 @@ class spPlayers extends \Elementor\Widget_Base {
 		
 		echo  '</div> ';
 		sp_get_template( 'player-list.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby, 'order' => $order, 'grouping' => $grouping, 'show_all_players_link' => $show_all_players_link ) );
-		//sp_get_template( 'player-gallery.php', array( 'id' => $id, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby , 'order' => $order, 'grouping' => 0, 'show_all_players_link' => $show_all_players_link ) );
-		
-		
-         
+		 
 		}
 		else { echo 'Plase select a Player List';}
 		
 	}
-
-	
 
 
 }

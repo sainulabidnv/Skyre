@@ -9,17 +9,15 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 $sidebar = empty(get_option('sportspress_single_staff_sidebar')) ? 'no' : get_option('sportspress_single_staff_sidebar');
 $staff = new SP_Staff( get_the_ID() );
 $current_teams = $staff->current_teams();
 $role  = $staff->role();
-
 ?>
-
-
          <?php if(skyre_get_player_option('title_active') != 1 and individual_title_status() ) { ?>
          
          <div class="sk-sports">

@@ -3,9 +3,9 @@
  * Customizer Control: Widget configuration.
  *
  * @package     Skyre
- * @author      Skyre
+ * @author      Skyretheme
  * @copyright   Copyright (c) 2019, Skyre
- * @link        https://skyresoft.com/template/skyre
+ * @link        https://skyretheme.com/sports
  * @since       1.0.0
  */
 

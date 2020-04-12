@@ -2,7 +2,7 @@
 /**
  * Status widget for Elementor builder ( if Sportspress active)
  *
- * @link       https://skyresoft.com
+ * @link       https://skyretheme.com
  * @since      1.0.0
  *
  */

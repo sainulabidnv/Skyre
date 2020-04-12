@@ -1,4 +1,12 @@
 <?php
+/**
+ * Get globaly affected template
+ *
+ * @param  [type] $name [description]
+ * @return [type]       [description]
+ */
+
+	
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -13,12 +21,7 @@ abstract class Skyre_Base extends Widget_Base {
 		return 'SKTEST';
 		}
 	
-	/**
-	 * Get globaly affected template
-	 *
-	 * @param  [type] $name [description]
-	 * @return [type]       [description]
-	 */
+	
 
 
 }

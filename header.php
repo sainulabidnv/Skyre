@@ -5,9 +5,12 @@
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Skyre
- * @version 1.0
+ * 
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
 
 ?><!DOCTYPE html>

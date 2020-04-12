@@ -9,14 +9,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 $sidebar = empty(get_option('sportspress_single_calendar_sidebar')) ? 'no' : get_option('sportspress_single_calendar_sidebar');
 $fimage = empty(get_option('sportspress_single_calendar_banner')) ? 'no' : get_option('sportspress_single_calendar_banner');
 $title = empty(get_option('sportspress_single_calendar_title')) ? 'no' : get_option('sportspress_single_calendar_title');
 ?>
-
 
          <?php if(skyre_get_page_option('title_active') != 1 and $title =='no' ) { ?>
          
@@ -31,8 +31,6 @@ $title = empty(get_option('sportspress_single_calendar_title')) ? 'no' : get_opt
         
 	</header>
 	<!-- End Header --> 
-
-
  
 <section class="page-section sp-calendar-template" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">

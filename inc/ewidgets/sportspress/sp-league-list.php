@@ -2,7 +2,7 @@
 /**
  * League List widget for Elementor builder
  *
- * @link       https://skyresoft.com
+ * @link       https://skyretheme.com
  * @since      1.0.0
  *
  */
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class LeagueList
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class spLeagueList extends \Elementor\Widget_Base {
 

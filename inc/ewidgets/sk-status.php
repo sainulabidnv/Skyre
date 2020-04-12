@@ -2,8 +2,11 @@
 /**
  * Status widget for Elementor builder
  *
- * @link       https://skyresoft.com
- * @since      1.0.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  *
  */
 namespace ewidget\Widgets;
@@ -783,9 +786,6 @@ class icostatus extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		
-		//$this->add_inline_editing_attributes( 'title' );
-		//$this->add_inline_editing_attributes( 'description' );
 		?>
 		<!--sk-countdown--> 
         <div class="sk-countdown skpbg skwc text-center ">
@@ -838,7 +838,6 @@ class icostatus extends Widget_Base {
             <# } #>
             <div class="sk-status-desc pt-2">{{{ settings.description }}}</div>
         </div>
-       
         
 		<?php
 	}

@@ -2,9 +2,12 @@
 /**
  * Skyre: Customizer
  *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+
  */
  
 
@@ -45,7 +48,6 @@ function skyre_get_dimension( $name, $device, $type='', $position='' ) {
 		}else { 
 			$value = ($options[$name][$device][$position])? $options[$name][$device][$position].'px ':''; 
 		}
-		//$med = 'px';
 		return $value;
 	}
 	return '';
@@ -62,7 +64,6 @@ function skyre_get_dimension_style($id,$class,$type='',$prefix='',$suffix='' ) {
 	$media_style = '';
 	if($prefix ==''){ $prefix = 'margin';}
 	if($type != '') $type = '_'.$type;
-	//$values = skyre_get_post_option($id);
 	$options = get_option( 'skyre'.$type );
 	// Return specific option
 	if ( isset( $options[$id] ) and is_array( $options[$id]) ) { $values = $options[$id]; } else return '';
@@ -73,7 +74,6 @@ function skyre_get_dimension_style($id,$class,$type='',$prefix='',$suffix='' ) {
 			$pre_style = '';
 			if($device == 'tablet' ){ $media_style ='@media (max-width: 767.98px) {';  }
 			if($device == 'mobile' ) { $media_style ='@media (max-width: 575.98px) {';  }
-				//print_r($media_style);
 				foreach($property as $key=>$value) {
 					if($value !='') {
 						if($prefix=='border-radius') {
@@ -111,10 +111,6 @@ function get_background_positions(){
 	);
 	return $bgpostiong;
 	}
-
-
-
-
 
 if ( is_admin() || is_customize_preview() ) {
 	add_action( 'customize_register', 'skyre_customize_register' );
@@ -207,10 +203,7 @@ function skyre_customize_register( $wp_customize ) {
 		
 		/* skyre Loader Options */
 		$loader_panel->register_configuration($wp_customize);	
-        
-		/* skyre Page Header Options */
-		//$header_panel->register_configuration($wp_customize);
-		
+        	
 		/* skyre Page Options */
 		$page_panel->register_configuration($wp_customize);
 
@@ -396,9 +389,6 @@ function skyre_sanitize_typo_style( $input ) {
     }
 }
 
-
-
-
 /**
  * Sanitize the page layout options.
  *
@@ -504,8 +494,6 @@ function skyre_sanitize_select( $input ) {
 
 	return '';
 }
-
-
 
 /**
  * Sanitize the background position options.
@@ -632,26 +620,7 @@ function sanitize_multi_choices( $input, $setting ) {
 			return ( is_array( $input ) ? $input : $setting->default );
 		}
 
-/**
- * Sanitize layout
- *
- * @param  array|number $val Customizer setting input number.
- * @return array        Return number.
- */
-/*function skyre_layout_sanitization( $input ) {
-	$valid = array(
-		'sidebarleft' => __( 'Style 1', 'skyre' ),
-		'sidebarnone' => __( 'Style 2', 'skyre' ),
-		'sidebarright' => __( 'Style 3', 'skyre' ),
-	);
 
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
-	}
-
-	return '';
-	}
-*/
 /**
  * Sanitize the page layout options.
  *

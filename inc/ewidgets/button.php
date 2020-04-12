@@ -1,4 +1,15 @@
 <?php
+/**
+ * Get widget button.
+ *
+ * Retrieve button widget button.
+ *
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+	 */
 namespace ewidget\Widgets;
 
 use Elementor\Widget_Base;
@@ -11,16 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Widget_Button extends Widget_Base {
 
-	/**
-	 * Get widget name.
-	 *
-	 * Retrieve button widget name.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 *
-	 * @return string Widget name.
-	 */
+
 	public function get_name() {
 		return 'button';
 	}

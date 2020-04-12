@@ -2,9 +2,9 @@
 /**
  * Player List
  *
- * @author 		ThemeBoy
- * @package 	SportsPress/Templates
- * @version   2.6.15
+ * @author 		Skyretheme
+ * @package 	SkyreSports/Templates
+ * @version   1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -45,7 +45,6 @@ if(!empty($ws)) {
 
 }
 //if ( in_array( 'content', $settings['list_attr'] )) {
-//$id = 0;
 $paginated = true;
 if ( isset( $performance ) )
 	$columns = $performance;

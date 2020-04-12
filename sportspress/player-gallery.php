@@ -2,9 +2,9 @@
 /**
  * Player Gallery
  *
- * @author 		ThemeBoy
- * @package 	SportsPress/Templates
- * @version   2.5
+ * @author 		Skyretheme
+ * @package 	SkyreSports/Templates
+ * @version   1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -145,11 +145,6 @@ echo apply_filters( 'gallery_style', $gallery_style . "\n\t\t" );
 		foreach( $data as $player_id => $performance ): if ( empty( $group->term_id ) || has_term( $group->term_id, 'sp_position', $player_id ) ):
 
 			if ( isset( $limit ) && $i >= $limit ) continue;
-
-			//echo '<pre>';
-			//print_r($performance);exit;
-			
-			
 			$gallery .= '<div class="col-md-'.$itemwidth.' sk-player-col">
 						<div class="sk-player-grid">';
 

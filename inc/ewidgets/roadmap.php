@@ -1,4 +1,17 @@
 <?php
+/**
+ * Elementor roadmap widget.
+ *
+ * Elementor widget that displays an eye-catching headlines.
+ *
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
+
 namespace ewidget\Widgets;
 
 use Elementor\Widget_Base;
@@ -9,13 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * Elementor roadmap widget.
- *
- * Elementor widget that displays an eye-catching headlines.
- *
- * @since 1.0.0
- */
+
 class Widget_Roadmap extends Widget_Base {
 
 	/**
@@ -369,9 +376,6 @@ class Widget_Roadmap extends Widget_Base {
 				],
 			]
 		);
-		
-		
-		
 		
 		
 		$this->end_controls_section();

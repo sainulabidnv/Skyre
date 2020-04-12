@@ -2,8 +2,11 @@
 /**
  * Displays footer site info
  *
- * @package Skyre
- * @version 1.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
 
 ?>

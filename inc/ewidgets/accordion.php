@@ -1,4 +1,16 @@
 <?php
+/**
+ * Skyre+Elementor accordion widget.
+ *
+ * Skyre+Elementor widget that displays a collapsible display of content in an
+ * accordion style, showing only one item at a time.
+ *
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
 
 namespace ewidget\Widgets;
 use Elementor\Widget_Base;
@@ -14,14 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * Skyre+Elementor accordion widget.
- *
- * Skyre+Elementor widget that displays a collapsible display of content in an
- * accordion style, showing only one item at a time.
- *
- * @since 1.0.0
- */
+
 class Widget_Accordion extends Widget_Base {
 
 	/**

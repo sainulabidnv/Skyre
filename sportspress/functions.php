@@ -2,9 +2,11 @@
 /**
  * Additional features to allow styling of the templates
  *
- * @package WordPress
- * @subpackage skyre
- * @since 1.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
 add_theme_support( 'sportspress' );
 add_image_size( 'sportspress-icon', 128, 128, true ); 

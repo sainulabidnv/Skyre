@@ -9,7 +9,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package skyre
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 $player = new SP_Player(  get_the_ID() ); 
@@ -37,8 +38,6 @@ if ( $nationalities && is_array( $nationalities ) ):
     endforeach;
     $nationname = implode( '<br>', $values );
 endif;  
-
- 
 
 ?>
          <?php if(skyre_get_player_option('title_active') != 1 and individual_title_status() ) { ?>
@@ -75,9 +74,9 @@ endif;
                 </div>
                 <div class="col-md-7"> 
                     <ul class="player-meta">
-                    <li><span><?php echo !empty($sta[$field1]) ? $sta[$field1]:'0' ?></span> <?php _e($fieldtitle1,'skyre'); ?> </li>
-                    <li><span><?php echo !empty($sta[$field2]) ? $sta[$field2]:'0' ?></span> <?php _e($fieldtitle2,'skyre'); ?> </li>
-                    <li><span><?php echo !empty($sta[$field3]) ? $sta[$field3]:'0' ?></span> <?php _e($fieldtitle3,'skyre'); ?> </li>
+                    <li><span><?php echo !empty($sta[$field1]) ? $sta[$field1]:'0' ?></span> <?php echo esc_attr( $fieldtitle1 ); ?> </li>
+                    <li><span><?php echo !empty($sta[$field2]) ? $sta[$field2]:'0' ?></span> <?php echo esc_attr( $fieldtitle2 ); ?> </li>
+                    <li><span><?php echo !empty($sta[$field3]) ? $sta[$field3]:'0' ?></span> <?php echo esc_attr( $fieldtitle3 ); ?> </li>
                     <div class="clearfilter"></div>  
                     
                     </ul>
@@ -85,7 +84,6 @@ endif;
             </div>
         </div>
     </section>
-    
 
 <section class="page-section" >
     <div class="container<?php if(skyre_get_player_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
@@ -115,7 +113,6 @@ endif;
                 
                 <?php echo skyre_pagination(); ?>
 
-
             </div>
 
             <?php if($sidebar != 'no' ) { ?> 
@@ -129,5 +126,4 @@ endif;
         </div>
     </div>
 </section>
-
 <?php get_footer(); 

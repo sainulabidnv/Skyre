@@ -9,16 +9,16 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Skyre
- * @version 1.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
 get_header(); 
 do_action('skyre_index_title');
 ?>
-	
-
 </header>
-
 <section id="primary" class="post-section">
     <div class="container<?php if(skyre_get_post_option('blog_fullwidth') == 1) { ?>-fluid<?php } ?>">
         <div class="row">
@@ -65,6 +65,4 @@ do_action('skyre_index_title');
         </div>
     </div>
 </section><!-- #section -->
-	
-
 <?php get_footer();

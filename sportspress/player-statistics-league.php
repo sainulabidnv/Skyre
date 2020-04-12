@@ -2,10 +2,10 @@
 /**
  * Player Statistics for Single League
  *
- * @author 		ThemeBoy
+ * @author 		Skyretheme
  * @category 	Admin
- * @package 	SportsPress/Admin/Meta_Boxes
- * @version   2.5
+ * @package 	SkyreSports/Admin/Meta_Boxes
+ * @version   1.0
  */
 
 // The first row should be column labels

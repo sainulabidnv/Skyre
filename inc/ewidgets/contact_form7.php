@@ -2,9 +2,11 @@
 /**
  * Contactform7 widget for Elementor builder
  *
- * @link       https://skyresoft.com
- * @since      1.0.0
- *
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
  
 namespace ewidget\Widgets;
@@ -19,10 +21,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 
 
-
-
-
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // End if().
@@ -30,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Posts_Grid
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class contactForm7 extends \Elementor\Widget_Base {
 

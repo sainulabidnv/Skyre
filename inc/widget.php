@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

@@ -9,14 +9,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 $sidebar = empty(get_option('sportspress_single_league_sidebar')) ? 'no' : get_option('sportspress_single_league_sidebar');
 $fimage = empty(get_option('sportspress_single_league_banner')) ? 'no' : get_option('sportspress_single_league_banner');
 $title = empty(get_option('sportspress_single_league_title')) ? 'no' : get_option('sportspress_single_league_title');
 ?>
-
 
          <?php if(skyre_get_page_option('title_active') != 1 and $title =='no' ) { ?>
          
@@ -31,9 +31,6 @@ $title = empty(get_option('sportspress_single_league_title')) ? 'no' : get_optio
         
 	</header>
 	<!-- End Header --> 
-
-
- 
 <section class="page-section sp-league-template" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
         <div class="row">
@@ -62,8 +59,6 @@ $title = empty(get_option('sportspress_single_league_title')) ? 'no' : get_optio
                 </div>
                 
                 <?php echo skyre_pagination(); ?>
-
-
             </div>
 
             <?php if($sidebar != 'no' ) { ?> 

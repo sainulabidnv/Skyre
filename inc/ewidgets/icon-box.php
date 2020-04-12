@@ -1,5 +1,17 @@
 <?php
-namespace ewidget\Widgets;
+/**
+ * Elementor+Skyre icon box widget.
+ *
+ * Elementor+Skyre widget that displays an icon, a headline and a text.
+ *
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
+ namespace ewidget\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Scheme_Color;
@@ -11,13 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * Elementor+Skyre icon box widget.
- *
- * Elementor+Skyre widget that displays an icon, a headline and a text.
- *
- * @since 1.0.0
- */
+
 class Icon_Box extends Widget_Base {
 
 	/**

@@ -9,13 +9,13 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 
 $sidebar = empty(get_option('sportspress_single_team_sidebar')) ? 'no' : get_option('sportspress_single_team_sidebar');
 ?>
-
 
          <?php if(skyre_get_page_option('title_active') != 1 ) { ?>
          
@@ -28,8 +28,6 @@ $sidebar = empty(get_option('sportspress_single_team_sidebar')) ? 'no' : get_opt
         
 	</header>
 	<!-- End Header --> 
-
-
  
 <section class="page-section sp-team-template" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
@@ -59,7 +57,6 @@ $sidebar = empty(get_option('sportspress_single_team_sidebar')) ? 'no' : get_opt
                 </div>
                 
                 <?php echo skyre_pagination(); ?>
-
 
             </div>
 

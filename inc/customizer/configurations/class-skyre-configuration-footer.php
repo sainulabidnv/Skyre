@@ -3,9 +3,9 @@
  * Customizer Control: Footer configuration.
  *
  * @package     Skyre
- * @author      Skyre
+ * @author      Skyretheme
  * @copyright   Copyright (c) 2019, Skyre
- * @link        https://skyresoft.com/template/skyre
+ * @link        https://skyretheme.com/sports
  * @since       1.0.0
  */
 
@@ -43,8 +43,6 @@ if ( ! class_exists( 'Skyre_Configuration_Footer' ) ) {
             'priority' => 31,
             'panel' => 'skyre_main_options'
         ));    
-			
-			
 			
 			
 			$wp_customize->add_setting('skyre[custom_footer_text]', array(

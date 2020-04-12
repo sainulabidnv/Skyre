@@ -2,8 +2,8 @@
 /**
  * Additional features to allow styling of the templates
  *
- * @package WordPress
- * @subpackage skyre
+ * @package Skyre
+ *  
  * @since 1.0
  */
 global $demooption;

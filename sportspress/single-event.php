@@ -9,14 +9,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 $sidebar = empty(get_option('sportspress_single_event_sidebar')) ? 'no' : get_option('sportspress_single_event_sidebar');
 $fimage = empty(get_option('sportspress_single_event_banner')) ? 'no' : get_option('sportspress_single_event_banner');
 $title = empty(get_option('sportspress_single_event_title')) ? 'no' : get_option('sportspress_single_event_title');
 ?>
-
 
          <?php if(skyre_get_page_option('title_active') != 1 and $title =='no' ) { ?>
          
@@ -31,8 +31,6 @@ $title = empty(get_option('sportspress_single_event_title')) ? 'no' : get_option
         
 	</header>
 	<!-- End Header --> 
-
-
  
 <section class="page-section sp-event-template" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
@@ -62,8 +60,6 @@ $title = empty(get_option('sportspress_single_event_title')) ? 'no' : get_option
                 </div>
                 
                 <?php echo skyre_pagination(); ?>
-
-
             </div>
 
             <?php if($sidebar != 'no' ) { ?> 

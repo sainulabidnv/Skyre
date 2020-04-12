@@ -1,8 +1,8 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * Player Grid widget for Elementor builder
  *
- * @link       https://skyresoft.com
+ * @link       https://skyretheme.com
  * @since      1.0.0
  *
  */
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Posts_Grid
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class spPlayerGrid extends \Elementor\Widget_Base {
 
@@ -1890,7 +1890,6 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 		$caption = null;
 		$widget_settings = '';
 		$ws = array();
-		//$settings['columns'] = array( 'number', 'position', 'team' );
 		
 		$id = empty($settings['list_id']) ? 0 : $settings['list_id'];
 		$title = empty($settings['list_title']) ? null : $settings['list_title'];;
@@ -1924,29 +1923,20 @@ class spPlayerGrid extends \Elementor\Widget_Base {
 			}
 			}
 		if ( $id > 0 ) {
-		//print_r($settings['widget_title']);
-		
 		$post = get_post( $id );
 		
 		echo  '<div class="player_grid"> ';
 		if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
 		if ( in_array( 'content', $settings['list_attr'] )) { echo '<div class="sp-post-content">'. $post->post_content.'</div>'; }
 		if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
-		
-		
+			
 		echo  '</div> ';
-		//sp_get_template( 'player-list.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby, 'order' => $order, 'grouping' => 0, 'show_all_players_link' => $show_all_players_link ) );
 		sp_get_template( 'player-gallery.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columncount' =>$columncount, 'columns' => $columFields, 'orderby' => $orderby , 'order' => $order, 'grouping' => $grouping, 'show_all_players_link' => $show_all_players_link ) );
-		
-		
-         
+	      
 		}
 		else { echo 'Plase select a Player List';}
 		
 	}
-
-	
-
 
 }
 

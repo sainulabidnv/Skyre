@@ -3,9 +3,9 @@
  * Customizer Control: Sportspress configuration.
  *
  * @package     Skyre
- * @author      Skyre
+ * @author      Skyretheme
  * @copyright   Copyright (c) 2019, Skyre
- * @link        https://skyresoft.com/template/skyre
+ * @link        https://skyretheme.com/sports
  * @since       1.0.0
  */
 
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Skyre_Configuration_Sportspress' ) ) {
 		public function register_configuration( $wp_customize ) {
 			
 			//post panel
-			$wp_customize->add_panel('skyre_sportspress_panel', array(
+		$wp_customize->add_panel('skyre_sportspress_panel', array(
 			'capability' => 'edit_theme_options',
 			'theme_supports' => '',
 			'title' => __('Sportspress Options', 'skyre'),

@@ -34,7 +34,7 @@ msgid "Sainul"
 msgstr ""
 
 #. Author URI of the theme
-msgid "https://skyresoft.com/"
+msgid "https://skyretheme.com/"
 msgstr ""
 
 #: 404.php:23

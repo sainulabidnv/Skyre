@@ -2,8 +2,11 @@
 /**
  * Post Grid widget for Elementor builder
  *
- * @link       https://skyresoft.com
- * @since      1.0.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  *
  */
  
@@ -28,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Posts_Grid
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class postsGrid extends \Elementor\Widget_Base {
 
@@ -2744,9 +2747,6 @@ class postsGrid extends \Elementor\Widget_Base {
 			wp_enqueue_script( 'skyre-posts-grid' );
 			wp_enqueue_style( 'skyre-posts-grid' );
 		}
-	
-		
-			
 		
 	}
 }

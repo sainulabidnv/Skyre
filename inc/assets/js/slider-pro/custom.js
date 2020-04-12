@@ -1,8 +1,8 @@
 /*!
 *  - v1.0
-* Homepage: https://skyresoft.com/
+* Homepage: https://skyretheme.com/
 * Author: sainul
-* Author URL: https://skyresoft.com/
+* Author URL: https://skyretheme.com/
 */
 
 ( function( $ ) { 

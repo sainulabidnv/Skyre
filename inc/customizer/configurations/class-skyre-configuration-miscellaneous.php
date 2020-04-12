@@ -3,9 +3,9 @@
  * Customizer Control: Miscellaneous configuration.
  *
  * @package     Skyre
- * @author      Skyre
+ * @author      Skyretheme
  * @copyright   Copyright (c) 2019, Skyre
- * @link        https://skyresoft.com/template/skyre
+ * @link        https://skyretheme.com/sports
  * @since       1.0.0
  */
 
@@ -34,7 +34,37 @@ if ( ! class_exists( 'Skyre_Configuration_Miscellaneous' ) ) {
 		public function __construct() {
 			//$this->register_configuration( $wp_customize);
 		}
+
+		public function skyre_customize_demo_data() {
+			
+			$args = array();
+			$defaults = array(
+				'headers' => array(
+					'Authorization' => 'Bearer '. skyre_get_token(),
+					'User-Agent' => 'WordPress - Skyre',
+				),
+				'filter_by' => 'wordpress-themes',
+				'timeout' => 20,
+			);
+			$args = wp_parse_args($args, $defaults);
+
+			$url = 'https://data.'.SKYRE_DEMO_URL.'/demo/download.php?key='.skyre_get_token();
+
+			$response = wp_remote_get(esc_url_raw($url), $args);
+			$response_code = wp_remote_retrieve_response_code($response);
+
+			if ($response_code == '200') {
+				$return = json_decode(wp_remote_retrieve_body($response), true);
+			}
+			else{
+				$return = '';
+			}
+			return $return;
+			
+			
 		
+		}
+				
 		public function register_configuration( $wp_customize ) {
 			
 			/* 404 Options */
@@ -325,23 +355,6 @@ if ( ! class_exists( 'Skyre_Configuration_Miscellaneous' ) ) {
                 'type' => 'textarea'
             ));
 
-        /* skyre Contact Options */
-		$wp_customize->add_section('skyre_important_links', array(
-            'priority' => 5,
-            'title' => __('Support and Documentation', 'skyre')
-        ));
-            $wp_customize->add_setting('skyre[imp_links]', array(
-              'sanitize_callback' => 'esc_html'
-			));
-			$doclink = new Skyre_render_html(
-				$wp_customize,
-					'skyre[imp_links]', array(
-					'section' => 'skyre_important_links',
-					'type' => 'skyre-render-html'
-					));
-					$doclink->content = '<a href="http://templates.96h.in/skyre/wp/documentation/index.html"> '.__('Documentation','skyre').'</a>';
-            $wp_customize->add_control($doclink);
-			
 		
 		// add "Content Options" section
         $wp_customize->add_section( 'skyre_content_section' , array(
@@ -371,10 +384,67 @@ if ( ! class_exists( 'Skyre_Configuration_Miscellaneous' ) ) {
                     'section'	=> 'skyre_content_section',
                     'priority'	=> 20,
                     'type'      => 'checkbox',
-            ) );
+			) );
+		
+
+		/* skyre Documentation and Demo link Options */
+		$wp_customize->add_panel('skyre_important_links_panel', array(
+			'capability' => 'edit_theme_options',
+			'theme_supports' => '',
+			'title' => __('Documentation and Demo data', 'skyre'),
+			'priority' => 9 // Mixed with top-level-section hierarchy.
+		));
+			$wp_customize->add_section('skyre_important_links', array(
+				'panel' => 'skyre_important_links_panel',
+				'description' =>  __('A short guide and general information to help you get to know your theme.', 'skyre'),
+				'title' => __('Online Documentation', 'skyre')
+			));
+
+				$wp_customize->add_setting('skyre[imp_links]', array(
+				'sanitize_callback' => 'esc_html'
+				));
+				$doclink = new Skyre_render_html(
+					$wp_customize,
+						'skyre[imp_links]', array(
+						'section' => 'skyre_important_links',
+						'type' => 'skyre-render-html'
+						));
+						$doclink->content =  __('Click on','skyre').'<a href="https://support.'.SKYRE_DEMO_URL.'/docs/skyresports/" target="_blank"> '.__('Documentation','skyre').'</a>';
+				$wp_customize->add_control($doclink);
+
+			//Demo datat
+
 			
+
+				$demosection = $this->skyre_customize_demo_data();
+				
+				foreach($demosection as $demoargs) {
+						$wp_customize->add_section('skyre_'.$demoargs['section_id'].'_section', array(
+							'panel' => 'skyre_important_links_panel',
+							'title' => $demoargs['section_title'],
+						));
+							
+					foreach($demoargs['setting'] as $demodata) {
+						
+						$wp_customize->add_setting('skyre['.$demodata['id'].']', array('sanitize_callback' => 'esc_html', ));
+						$doclink = new Skyre_render_html(
+							$wp_customize,
+								'skyre['.$demodata['id'].']', array(
+								'section' => 'skyre_'.$demoargs['section_id'].'_section',
+								'type' => 'skyre-render-html'
+						));
+						$doclink->content = '';	
+						if(!empty($demodata['title'])) { $doclink->content .=  '<h3>'.$demodata['title'] .' </h3>'; }
+						if(!empty($demodata['img'])) { $doclink->content .=  '<img src="'.$demodata['img'].'" alt="'.$demodata['title'].'">'; }
+						if(!empty($demodata['dlink'])) { $doclink->content .=  '<a class="button button-primary" download href="'.$demodata['dlink'].'" target="_blank">'.__('Download','skyre').'</a> '; }
+						if(!empty($demodata['preview'])) { $doclink->content .=  '<a class="button" href="'.$demodata['preview'].'" target="_blank">'.__('Preview','skyre').'</a>'; }
+						
+						$wp_customize->add_control($doclink);
+					}
+
+				}
 			
-			}
+		}
 	}
 }
 

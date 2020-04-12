@@ -4,11 +4,15 @@
  * Fonts initialization.
  * Once add records to the `wp_options` table.
  *
- * @since 1.0.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
 	
 	
-	function addtypo($args=array(),$wp_customize ){
+function addtypo($args=array(),$wp_customize ){
 		//typo
 	}
 		
@@ -16,7 +20,6 @@
 /**
  * Get text style
  *
- * @since 1.0.0
  * @return array
  */
 function skyre_get_font_styles() {
@@ -31,7 +34,6 @@ function skyre_get_font_styles() {
 /**
  * Get text aligns
  *
- * @since 1.0.0
  * @return array
  */
 function skyre_get_text_align() {
@@ -47,7 +49,6 @@ function skyre_get_text_align() {
 /**
  * Get text aligns
  *
- * @since 1.0.0
  * @return array
  */
 function skyre_get_text_aligns() {
@@ -63,7 +64,6 @@ function skyre_get_text_aligns() {
 /**
  * Get font weights
  *
- * @since 1.0.0
  * @return array
  */
 function skyre_get_font_weight() {
@@ -235,7 +235,6 @@ function typofonts(){
 		}
 		//preparing for style enque
 		if (!empty($google_font)) { 
-		//if($google_font){
 			$query_args = array(
 				'family' => urlencode( implode( '|', array_filter($google_font) ) ),
 				);
@@ -257,11 +256,9 @@ function typostyle($args=array()){
 			$style_resp = '';
 			foreach($family as $key  => $value){
 				if(is_array($value)) { 
-					//print_r($value); exit;
 					if($value['desktop'] !='') { $style_obj .= $key.': '.$value['desktop'].$value['desktop-unit'].';'; }
 					if($value['tablet'] !='') { $style_resp .= ' @media (max-width: 767.98px) {'.$arg['class'].'{'.$key.': '.$value['tablet'].$value['tablet-unit'].';}} '; }
 					if($value['mobile'] !='') { $style_resp .= ' @media (max-width: 575.98px) {'.$arg['class'].'{'.$key.': '.$value['mobile'].$value['mobile-unit'].';}} '; }
-					//$style_resp .= '@media{'.$arg['class'].'{font-size:12px}} @media2{'.$arg['class'].'{font-size:12px}}';
 					}
 				else if($value !='') { $style_obj .= $key.': '.$value.' !important; '; }
 				}

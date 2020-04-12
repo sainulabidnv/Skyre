@@ -1,8 +1,8 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * Event bock widget for Elementor builder
  *
- * @link       https://skyresoft.com
+ * @link       https://skyretheme.com
  * @since      1.0.0
  *
  */
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class EventBlock
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class spEventBlock extends \Elementor\Widget_Base {
 
@@ -1942,7 +1942,6 @@ class spEventBlock extends \Elementor\Widget_Base {
 			}
 			}
 		if ( $id > 0 ) {
-		//print_r($settings['widget_title']);
 		
 		$post = get_post( $id );
 		
@@ -1958,8 +1957,6 @@ class spEventBlock extends \Elementor\Widget_Base {
 		else { echo 'Plase select an Event Block';}
 		
 	}
-
-	
 
 
 }

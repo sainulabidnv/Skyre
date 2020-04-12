@@ -3,9 +3,9 @@
  * Customizer Control: Typo configuration.
  *
  * @package     Skyre
- * @author      Skyre
+ * @author      Skyretheme
  * @copyright   Copyright (c) 2019, Skyre
- * @link        https://skyresoft.com/template/skyre
+ * @link        https://skyretheme.com/sports
  * @since       1.0.0
  */
 
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Skyre_Configuration_Typo' ) ) {
 					// add "Content Options" section
 					$wp_customize->add_section( 'skyre_'.$data['id'].'_section' , array( 'title'      => esc_html__( $data['title'], 'skyre' ), 'priority'   => 50, 'panel' => 'skyre_typo_options' ) );
 					
-					$wp_customize->register_control_type( 'Skyre_Control_Color' );
+					//$wp_customize->register_control_type( 'Skyre_Control_Color' );
 					$wp_customize->add_setting('skyre['.$data['id'].'][color]', array( 'default' => '', 'type'  => 'option', 'sanitize_callback' => 'skyre_sanitize_hexcolor', ));
 					$wp_customize->add_control(new Skyre_Control_Color($wp_customize, 'skyre['.$data['id'].'][color]', array( 'label' => __('Font Color', 'skyre'), 'section' => 'skyre_'.$data['id'].'_section', )));
 					

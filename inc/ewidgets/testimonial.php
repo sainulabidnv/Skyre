@@ -2,8 +2,11 @@
 /**
  * Testimonial widget for Elementor builder 
  *
- * @link       https://skyresoft.com
- * @since      1.0.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  *
  */
 namespace ewidget\Widgets;
@@ -15,8 +18,6 @@ use Elementor\Scheme_Color;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
-
-
 
 
 if ( ! defined( 'ABSPATH' ) ) {

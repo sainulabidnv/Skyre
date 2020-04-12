@@ -1,4 +1,13 @@
 <?php
+/**
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
+ 
 namespace ewidget;
 
 /**
@@ -62,9 +71,6 @@ class Plugin {
 		wp_register_style("sliderProCSS", get_template_directory_uri() . '/inc/assets/style/slider-pro/slider-pro.min.css',array());
 		wp_register_style("sliderCustomCSS", get_template_directory_uri() . '/inc/assets/style/slider-pro/custom.css',array());
 
-		
-		
-		
 		//newsletter-forms.js
 		wp_register_script("newsletter-forms", get_template_directory_uri() . '/inc/assets/js/newsletter-forms.js',array('jquery'),false,true);
 		wp_localize_script( "newsletter-forms", "contentFormsSettings", array(
@@ -77,9 +83,6 @@ class Plugin {
 	}
 	
 	
-	
-	
-
 	/**
 	 * Include Widgets files
 	 *
@@ -191,8 +194,6 @@ class Plugin {
 
 		//add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 		require SKYRE_THEME_DIR .'inc/ewidgets/support/newsletter-rest.php' ;
-		
-		
 
 		\ewidget\Widgets\RestServer::instance();
 	
@@ -211,8 +212,6 @@ class Plugin {
 	
 		
 	}
-	
-	
 	
 }
 

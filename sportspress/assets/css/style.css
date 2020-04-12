@@ -17,7 +17,7 @@
 .sp-tab-menu li.sp-tab-menu-item-active { background:#fff; }
 .sp-tab-menu li a { padding:5px 10px; margin:0 5px; border-bottom:none !important; color:#fff !important; font-family: font-family: 'Dosis', sans-serif;}
 .sp-tab-menu li.sp-tab-menu-item-active a{ border-bottom:none !important; color:#030e20 !important;}
-.sp-tab-content { background:#fff; padding:20px;}
+.sp-tab-content { background:#fff; padding:20px; color:#030e20;}
 .position-heading { background:#030e20; border:none ; color:#fff ; font-family: 'Dosis' ; font-weight:600; padding:10px 15px ; font-size:18px ; text-transform:uppercase; font-weight:600 ; }
 
 
@@ -63,16 +63,9 @@
 .sp-widget-align-right, .sp-widget-align-left { float: none; width:100%;}
 .sp-data-table thead th, .sp-highlight, .sp-heading { font-weight: 400;}
 
-
-
-
-
-
-
-
-
-
-
+.single-sp_event .sp-event-logos img { max-width: 70px;}
+.sp-event-logos { font-size: 30px;}
+.single-sp_event .sp-event-logos .sp-team-result { font-weight: 600; font-size: 40px;}
 
 
 /*medium devices (tablets, 768px and Down)*/
@@ -82,17 +75,37 @@
     .profile span {  height: 80px; width: 80px; right:15px; top:15px;}
     .player-meta li { height: 95px; width: 95px; margin: 40px 15px 0 0; padding: 15px 0 0 0; border: solid 3px; font-size: 14px;}
     .player-meta li span {  font-size: 24px; }
+    .sp-page-title {  padding: 50px 0;  }
+    .sp-event-performance-teams .sp-template-event-performance-icons { width:100%;}
+    
+    .single-sp_event .sp-event-logos img { max-width: 50px;}
+    .sp-event-logos { font-size: 26px;}
+    .single-sp_event .sp-event-logos .sp-team-result { font-weight: 600; font-size: 30px;}
+
+
 
 }
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 767.98px) {
     .player-pic {  margin-top:15px;}
     .page .sp-event-calendar tbody td, .sp-event-calendar thead th {font-size: 18px;  padding: 10px 0; }
+    .sp-page-title {  padding: 30px 0;  }
+    .sp-page-title h1 { font-size: 34px;}
+    ul.player-meta { padding:0; max-width: 320px;  margin: 0 auto;}
+    ul.player-meta li { height: 90px; width: 90px;}
+    .single-sp_event .sp-event-logos img { max-width: 34px;}
+    .sp-event-logos { font-size: 20px;}
     
+    
+}
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .sp-tab-group .sk-event-blocks .team-logo { margin: 60px 6px;}
+    .sp-event-results a { font-size: 30px;}
+    .sp-event-results.completed a { font-size: 40px;}
+    .sp-event-logos .sp-team-logo .sp-team-result {   display: block;  margin: 0; font-weight: 600;  font-size: 30px; line-height: 40px;  }
 
 }
-
-
 
 
 

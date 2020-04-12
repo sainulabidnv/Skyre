@@ -4,8 +4,8 @@
  *
  * @link https://codex.wordpress.org/Custom_Headers
  *
- * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @package Skyre
+ *  
  * @since 1.0
  */
 

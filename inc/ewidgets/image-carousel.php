@@ -1,4 +1,17 @@
 <?php
+/**
+ * Elementor+Skyre image carousel widget.
+ *
+ * Elementor+Skyre widget that displays a set of images in a rotating carousel or
+ * slider.
+ *
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
 namespace ewidget\Widgets;
 
 use Elementor\Widget_Base;
@@ -13,14 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-/**
- * Elementor+Skyre image carousel widget.
- *
- * Elementor+Skyre widget that displays a set of images in a rotating carousel or
- * slider.
- *
- * @since 1.0.0
- */
+
 class Image_Carousel extends Widget_Base {
 
 	/**

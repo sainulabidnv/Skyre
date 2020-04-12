@@ -2,9 +2,9 @@
 /**
  * Event List
  *
- * @author 		ThemeBoy
- * @package 	SportsPress/Templates
- * @version   2.6.19
+ * @author 		Skyretheme
+ * @package 	SkyreSports/Templates
+ * @version   1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly

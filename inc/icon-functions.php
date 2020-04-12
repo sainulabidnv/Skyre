@@ -2,8 +2,8 @@
 /**
  * SVG icons related functions and filters
  *
- * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @package Skyre
+ *  
  * @since 1.0
  */
 

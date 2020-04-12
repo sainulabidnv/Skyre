@@ -2,8 +2,11 @@
 /**
  * Newsletter widget for Elementor builder
  *
- * @link       https://skyresoft.com
- * @since      1.0.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  *
  */
  
@@ -16,17 +19,13 @@ use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 
 
-
-
-
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // End if().
 
 /**
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class NewsLetter extends \Elementor\Widget_Base {
 
@@ -1139,7 +1138,6 @@ protected function render( $instance = array() ) {
 
 		echo '<input type="hidden" name="action" value="content_form_submit" />';
 		// there could be also the possibility to submit by type
-		// echo '<input type="hidden" name="action" value="content_form_{type}_submit" />';
 		echo '<input type="hidden" name="form-type" value="' . $this->getFormType() . '" />';
 		echo '<input type="hidden" name="form-builder" value="elementor" />';
 		echo '<input type="hidden" name="post-id" value="' . get_the_ID() . '" />';

@@ -4,13 +4,17 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Skyre
- * @version 1.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
  
 define( 'SKYRE_THEME_VERSION', '1.0' );
 define( 'SKYRE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'SKYRE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
+define( 'SKYRE_DEMO_URL',  'skyretheme.com' ) ;
 
 /**
  * Skyre only works in WordPress 4.7 or later.
@@ -166,7 +170,6 @@ add_action( 'template_redirect', 'skyre_content_width', 0 );
 /**
  * Register custom fonts.
  */
-//delete_option('skyre'); 
  
 function skyre_fonts_url($url='') {
 	if($url !=''){ return esc_url_raw( $url ); }
@@ -348,10 +351,8 @@ function skyre_scripts() {
 	wp_enqueue_style( 'skyre-google', skyre_fonts_url(), array(), null );
 	// Theme stylesheet.
 	
-	wp_enqueue_style( 'main.minify', get_template_directory_uri().'/assets/style/css/main.css');
-	wp_enqueue_style( 'skyre-style', get_template_directory_uri().'/assets/style/css/style.css');
-	//wp_enqueue_style( 'skyre-style2', get_template_directory_uri().'/inc/assets/style/slider-pro/slider-pro.css');
-
+	wp_enqueue_style( 'main.minify', get_template_directory_uri().'/assets/style/css/main.minify.css');
+	wp_enqueue_style( 'skyre-style', get_template_directory_uri().'/assets/style/css/style.minify.css');
 
 	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
 	if ( is_customize_preview() ) {
@@ -367,16 +368,12 @@ function skyre_scripts() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 	
-	
 	/** All frontend js files **/
 	wp_enqueue_script("popper", get_template_directory_uri()."/assets/js/vendors/popper.js",array('jquery'),false,true);
 	wp_enqueue_script("bootstrap", get_template_directory_uri()."/assets/js/vendors/bootstrap.min.js",array('jquery'),false,true);
 	wp_enqueue_script("jquery-easing", get_template_directory_uri()."/assets/js/vendors/jquery.easing.min.js",array('jquery'),false,true);
 	wp_enqueue_script("custom", get_template_directory_uri()."/assets/js/custom.js",array('jquery'),false,true);
 	
-	
-	//wp_enqueue_script( 'skyre-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
-
 	$skyre_l10n = array(
 		'quote'          => skyre_get_svg( array( 'icon' => 'quote-right' ) ),
 	);
@@ -498,12 +495,6 @@ require get_parent_theme_file_path( '/inc/custom-header.php' );
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );
-
-/**
- * This is only for theme author.
- */
-require get_parent_theme_file_path( '/inc/template-functions-overide.php' );
-
 
 /**
  * Additional features to allow styling of the templates.

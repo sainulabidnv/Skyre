@@ -2,9 +2,11 @@
 /**
  * Additional features to allow styling of the templates
  *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  */
 
 if ( ! function_exists( 'skyre_get_option' ) ) :
@@ -281,8 +283,6 @@ function skyre_panel_count() {
 	/**
 	 * Filter number of front page sections in Skyre.
 	 *
-	 * @since Skyre 1.0
-	 *
 	 * @param int $num_sections Number of front page sections.
 	 */
 	$num_sections = apply_filters( 'skyre_front_page_sections', 4 );
@@ -498,8 +498,6 @@ function skyre_title_status_meta() {
 
 	add_meta_box( 'skyre_title_status_meta', 'Title Status', 'skyre_title_status_render', 'page', 'side', 'default'  );
 }
-
-
 /**
  * Render the metabox markup
  * This is the function called in `_namespace_create_metabox()`
@@ -542,9 +540,7 @@ function skyre_title_status_save( $post_id, $post ) {
 		update_post_meta( $post->ID, 'skyre_title_status_meta', '1' );
 	}else { update_post_meta( $post->ID, 'skyre_title_status_meta', '0' );}
 	
-	
 }
-
 
 //check individual page/post title status
 
@@ -571,7 +567,7 @@ function skyre_import_files() {
 	);
 	$args = wp_parse_args($args, $defaults);
 
-	$url = 'https://data.skyretheme.com/demo/?key='.skyre_get_token();
+	$url = 'https://data.'.SKYRE_DEMO_URL.'/demo/?key='.skyre_get_token();
 
 	$response = wp_remote_get(esc_url_raw($url), $args);
 	$response_code = wp_remote_retrieve_response_code($response);
@@ -582,7 +578,7 @@ function skyre_import_files() {
 	else{
 		$return = '';
 	}
-return $return;
+	return $return;
 
 }
 

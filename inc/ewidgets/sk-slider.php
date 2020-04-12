@@ -2,8 +2,11 @@
 /**
  * Slider widget for Elementor builder
  *
- * @link       https://skyresoft.com
- * @since      1.0.0
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
  *
  */
 
@@ -2797,23 +2800,6 @@ class skyreSlider extends Skyre_Base {
 					if ( $animation_cnt == 'inf-upDown' || $animation_cnt == 'inf-scale' ) { $infClass_cnt = $animation_cnt;} 
 					else if ( $animation_cnt !='' ) { $animationData_cnt = 'data-show-transition='.$animation_cnt;}
 					?>
-                    <div class="sk-slider__content sp-layer <?php echo esc_attr($infClass_cnt); ?>" data-position="centerCenter" data-width="100%" data-height="100%" data-horizontal="0%" <?php echo esc_html($animationData_cnt); ?> data-show-duration="400" data-show-delay="400">
-                        <div class="sk-slider__content-item">
-                            <div class="sk-slider__content-inner">
-                                <?php
-                                    if ( $item['item_icon'] ) { echo sprintf( '<div class="sk-slider__icon"><div class="sk-slider-icon-inner"><i class="%s"></i></div></div>',$item['item_icon'] ); }
-									if ( $item['item_title'] ) { echo sprintf( '<h5 class="sk-slider__title">%s</h5>',$item['item_title'] ); }
-									if ( $item['item_subtitle'] ) { echo sprintf( '<h5 class="sk-slider__subtitle">%s</h5>',$item['item_subtitle'] ); }
-									if ( $item['item_desc'] ) { echo html_entity_decode (sprintf( '<div  data-show-transition="up" data-hide-transition="down" data-show-duration="1000" data-show-delay="1000" class="sk-slider__desc">%s</div>',$item['item_desc'] )); }
-                                ?>
-                                <div class="sk-slider__button-wrapper"><?php
-                                   if ( $item['item_button_primary_text'] ) { echo sprintf( '<a class="btn btn-primary sk-slider__button sk-slider__button--primary" href="%1$s">%2$s</a>',$item['item_button_primary_url'],$item['item_button_primary_text'] ); }
-								   if ( $item['item_button_secondary_text'] ) { echo sprintf( '<a class="btn btn-primary sk-slider__button sk-slider__button--primary" href="%1$s">%2$s</a>',$item['item_button_secondary_url'],$item['item_button_secondary_text'] ); }
-								    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <?php 
 					if ( $item['second_content'] ) {
 					$animationData = '';
@@ -2830,13 +2816,31 @@ class skyreSlider extends Skyre_Base {
                         </div>
                     </div>
                    <?php } ?>
+				   
+					<div class="sk-slider__content sp-layer <?php echo esc_attr($infClass_cnt); ?>" data-position="centerCenter" data-width="100%" data-height="100%" data-horizontal="0%" <?php echo esc_html($animationData_cnt); ?> data-show-duration="400" data-show-delay="400">
+                        <div class="sk-slider__content-item">
+                            <div class="sk-slider__content-inner">
+                                <?php
+                                    if ( $item['item_icon'] ) { echo sprintf( '<div class="sk-slider__icon"><div class="sk-slider-icon-inner"><i class="%s"></i></div></div>',$item['item_icon'] ); }
+									if ( $item['item_title'] ) { echo sprintf( '<h5 class="sk-slider__title">%s</h5>',$item['item_title'] ); }
+									if ( $item['item_subtitle'] ) { echo sprintf( '<h5 class="sk-slider__subtitle">%s</h5>',$item['item_subtitle'] ); }
+									if ( $item['item_desc'] ) { echo html_entity_decode (sprintf( '<div  data-show-transition="up" data-hide-transition="down" data-show-duration="1000" data-show-delay="1000" class="sk-slider__desc">%s</div>',$item['item_desc'] )); }
+                                ?>
+                                <div class="sk-slider__button-wrapper"><?php
+                                   if ( $item['item_button_primary_text'] ) { echo sprintf( '<a class="btn btn-primary sk-slider__button sk-slider__button--primary" href="%1$s">%2$s</a>',$item['item_button_primary_url'],$item['item_button_primary_text'] ); }
+								   if ( $item['item_button_secondary_text'] ) { echo sprintf( '<a class="btn btn-primary sk-slider__button sk-slider__button--primary" href="%1$s">%2$s</a>',$item['item_button_secondary_url'],$item['item_button_secondary_text'] ); }
+								    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                </div>
                 <!--loop end-->
                 <?php } ?>
                 </div>
 			</div>
 		</div>
-		
 		<?php
 		
 	
@@ -2867,9 +2871,6 @@ class skyreSlider extends Skyre_Base {
 			wp_enqueue_style( 'sliderCustomCSS' );
 			
 		}
-	
-		
-			
 		
 	}
 

@@ -3,9 +3,9 @@
  * Customizer Control: Global configuration.
  *
  * @package     Skyre
- * @author      Skyre
+ * @author      Skyretheme
  * @copyright   Copyright (c) 2019, Skyre
- * @link        https://skyresoft.com/template/skyre
+ * @link        https://skyretheme.com/sports
  * @since       1.0.0
  */
 
@@ -203,6 +203,31 @@ if ( ! class_exists( 'Skyre_Configuration_Global' ) ) {
 							
 						)
 					) );
+
+				/* skyre theme activation */
+				
+				
+				$wp_customize->add_section('skyre_theme_activation_section', array(
+					'title' => __('Theme Activation', 'skyre'),
+					'priority' => 9,
+					'description' =>  sprintf(
+						__( 'Click on this %1$s Generate A Personal Token link %2$s and Copy the token number and paste it into the field below and click the Publish button.', 'skyre' ), '<a href="https://build.envato.com/create-token/?purchase:download=t&purchase:verify=t&purchase:list=t">', '</a>' ). '<a href="https://support.skyretheme.com/docs/skyresports/getting-started/theme-activation/"> '.__('Read Documentation','skyre').'</a>' 
+				) );
+
+					$wp_customize->add_setting('envato_market[token]', array(
+						'default' => '',
+						'type' => 'option',
+						'sanitize_callback' => 'sanitize_text_field'
+					));
+					$wp_customize->add_control('envato_market[token]', array(
+						'label' => __('Activation Code', 'skyre'),
+						'section' => 'skyre_theme_activation_section',
+						'type' => 'text'
+					));
+
+					
+
+				
 				
 					
 		}

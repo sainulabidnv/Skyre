@@ -1,5 +1,13 @@
 <?php 
 //Custom Style Frontend
+/**
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
 function hextorgb($color){
 	if (strpos($color, 'rgba') !== false) {
 		return $color;
@@ -19,8 +27,6 @@ if(!function_exists('skyre_custom_frontend_style')){
 			if(is_shop() || is_archive() || is_single()) { $is_shop = 1;}
 			
 		}
-	
-
 		require SKYRE_THEME_DIR.'/inc/customizer/configurations/class-skyre-configuration-typo.php' ;
 		$typo_panel = new Skyre_Configuration_Typo;
 		$style_css .= typostyle($typo_panel->typoSettings());
@@ -264,9 +270,7 @@ if(!function_exists('skyre_custom_frontend_style')){
 		$style_css .= skyre_get_dimension_style('form_button_border_radius',' .btn-skyre','','border-radius');
 		$style_css .= skyre_get_dimension_style('form_button_border',' .btn-skyre','','border',' solid');
 		if(skyre_get_option('form_button_border_color') ){ $style_css .= ' .btn-skyre, button, submit {  border-color: '.skyre_get_option('form_button_border_color').';  }'; }
-		
-		
-
+	
 		//custom css
         $style_css .= skyre_get_option('custom_css');
 
@@ -398,5 +402,3 @@ if(!function_exists('skyre_custom_comment_style')){
 }
 
 add_action( 'comments_template', 'skyre_custom_comment_style' );
-
-

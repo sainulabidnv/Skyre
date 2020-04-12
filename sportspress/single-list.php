@@ -9,11 +9,11 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package icos
+ * @package     Skyre
+ * @author      Skyretheme
  */
 get_header(); 
 ?>
-
 
          <?php if(skyre_get_page_option('title_active') != 1 and individual_title_status() ) { ?>
          
@@ -25,8 +25,6 @@ get_header();
         <?php } ?>
 	</header>
 	<!-- End Header --> 
-
-
  
 <section class="page-section" >
     <div class="container<?php if(skyre_get_page_option('fullwidth') == 1) { ?>-fluid<?php } ?> ">
@@ -58,7 +56,6 @@ get_header();
                 </div>
                 
                 <?php echo skyre_pagination(); ?>
-
 
             </div>
 

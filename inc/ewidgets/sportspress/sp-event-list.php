@@ -1,8 +1,8 @@
 <?php
 /**
- * Post Grid widget for Elementor builder
+ * Event List widget for Elementor builder
  *
- * @link       https://skyresoft.com
+ * @link       https://skyretheme.com
  * @since      1.0.0
  *
  */
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class EventList
  *
- * @package ThemeIsle\ElementorExtraWidgets
+ * @package Skyre\ElementorExtraWidgets
  */
 class spEvents extends \Elementor\Widget_Base {
 
@@ -140,12 +140,6 @@ class spEvents extends \Elementor\Widget_Base {
 		));
 		return $dates ;
 	}
-
-	
-	
-
-
-	
 
 	/**
 	 * Register dependent script.
@@ -1447,22 +1441,13 @@ class spEvents extends \Elementor\Widget_Base {
 		if($widget_title) { echo '<'.$titlesize.' class="sp-list-title">'.$widget_title.'</'.$titlesize.'>'; }
 		if ( in_array( 'content', $settings['list_attr'] )) { echo '<p>'. $post->post_content.'</p>'; }
 		if ( in_array( 'image', $settings['list_attr'] )) { echo '<div class="post_image">'.get_the_post_thumbnail( $post->ID ).'</div>'; }
-		
-		
 		echo  '</div> ';
-		//sp_get_template( 'event-list.php', array( 'id' => $id,'ws'=>$ws, 'title' => $caption, 'number' => $number, 'columns' => $columFields, 'orderby' => $orderby, 'order' => $order, 'grouping' => $grouping, 'show_all_Events_link' => $show_all_Events_link ) );
-		
 		sp_get_template( 'event-list.php', array( 'id' => $id, 'ws'=>$ws, 'title' => $caption, 'status' => $status, 'date' => $date, 'date_from' => $date_from, 'date_to' => $date_to, 'date_past' => $date_past, 'date_future' => $date_future, 'date_relative' => $date_relative, 'day' => $day, 'number' => $number, 'columns' => $columFields, 'order' => $order, 'show_all_events_link' => $show_all_events_link ) );
 
-		
-         
 		}
 		else { echo 'Plase select an Event List';}
 		
 	}
-
-	
-
 
 }
 

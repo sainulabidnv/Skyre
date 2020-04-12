@@ -1,4 +1,13 @@
 <?php
+/**
+ * @package     Skyre
+ * @author      Skyretheme
+ * @copyright   Copyright (c) 2019, Skyre
+ * @link        https://skyretheme.com/sports
+ * @since       1.0.0
+ */
+
+ 
 require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 add_action( 'tgmpa_register', 'skyre_register_required_plugins' );
 function skyre_register_required_plugins() {
