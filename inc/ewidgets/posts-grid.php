@@ -348,6 +348,20 @@ class postsGrid extends \Elementor\Widget_Base {
 			]
 		);
 
+		// Order by.
+		$this->add_control(
+			'grid_sort',
+			[
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'label'   => '<i class="fa fa-sort"></i> ' . __( 'Sort', 'skyre' ),
+				'default' => 'desc',
+				'options' => [
+					'asc'          => __( 'ASC', 'skyre' ),
+					'desc'         => __( 'DESC', 'skyre' ),
+				],
+			]
+		);
+
 		// Display pagination.
 		$this->add_control(
 			'grid_pagination',
@@ -2296,6 +2310,11 @@ class postsGrid extends \Elementor\Widget_Base {
 		// Order by.
 		if ( ! empty( $settings['grid_order_by'] ) ) {
 			$args['orderby'] = $settings['grid_order_by'];
+		}
+
+		// Sort.
+		if ( ! empty( $settings['grid_sort'] ) ) {
+			$args['order'] = $settings['grid_sort'];
 		}
 
 		// Pagination.
