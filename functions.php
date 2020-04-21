@@ -351,8 +351,11 @@ function skyre_scripts() {
 	wp_enqueue_style( 'skyre-google', skyre_fonts_url(), array(), null );
 	// Theme stylesheet.
 	
-	wp_enqueue_style( 'main.minify', get_template_directory_uri().'/assets/style/css/main.minify.css');
-	wp_enqueue_style( 'skyre-style', get_template_directory_uri().'/assets/style/css/style.minify.css');
+	//wp_enqueue_style( 'main.minify', get_template_directory_uri().'/assets/style/css/main.minify.css');
+	//wp_enqueue_style( 'skyre-style', get_template_directory_uri().'/assets/style/css/style.minify.css');
+
+	wp_enqueue_style( 'main.minify', get_template_directory_uri().'/assets/style/css/main.css');
+	wp_enqueue_style( 'skyre-style', get_template_directory_uri().'/assets/style/css/style.css');
 
 	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
 	if ( is_customize_preview() ) {
